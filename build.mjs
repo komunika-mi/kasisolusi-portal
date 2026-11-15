@@ -1,5 +1,7 @@
 /* Kasisolusi - static site generator. `node build.mjs` -> dist/ */
 import { mkdir, writeFile, rm, cp } from 'node:fs/promises';
+import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -74,7 +76,14 @@ if (dupes.length) throw new Error(`slug episode bentrok: ${dupes.join(', ')}`);
 const BERITA_OTOMATIS = (() => {
   const { berita, galat } = bacaBeritaOtomatis(join(ROOT, 'data', 'berita'), { publicDir: join(ROOT, 'public') });
   if (galat.length) throw new Error(`berita otomatis cacat:\n  ${galat.join('\n  ')}`);
-  return berita;
+  // Penanda versi sampul. /assets/ disajikan immutable 1 tahun (vercel.json), padahal sampul bisa
+  // diganti di jalur yang sama (otomasi/ganti-foto-rilis.mjs). 16 Nov 2026 pemilik masih melihat
+  // ilustrasi lama padahal server sudah menyajikan foto rilis. Penandanya 8 huruf awal md5 isi
+  // berkas, jadi hanya berubah kalau gambarnya berubah.
+  return berita.map((b) => {
+    const v = createHash('md5').update(readFileSync(join(ROOT, 'public', b.img))).digest('hex').slice(0, 8);
+    return { ...b, img: `${b.img}?v=${v}` };
+  });
 })();
 
 // Berita (update news, data/news.mjs + data/berita/*.json): tampil lebih dulu daripada rangkuman
