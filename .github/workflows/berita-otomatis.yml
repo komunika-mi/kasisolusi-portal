@@ -43,6 +43,8 @@ jobs:
       PAKSA: ${{ (github.event_name == 'workflow_dispatch' && inputs.paksa) && '1' || '' }}
       OTOMASI_BERITA: ${{ vars.OTOMASI_BERITA }}
       OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
+      OPENAI_IMAGE_MODEL: ${{ vars.OPENAI_IMAGE_MODEL }}
+      GAMBAR_POLLINATIONS: ${{ vars.GAMBAR_POLLINATIONS }}
       SITE_ORIGIN: ${{ vars.SITE_ORIGIN }}
       RINGKASAN: ${{ github.workspace }}/.scratch/ringkasan-berita.json
     steps:

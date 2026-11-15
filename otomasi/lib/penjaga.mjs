@@ -108,8 +108,31 @@ export function perbaikiOtomatis(a) {
   for (const k of ['title', 'dek', 'imgAlt', 'illustration']) b[k] = benahi(a[k]);
   if (typeof b.title === 'string') b.title = b.title.replace(/[.]+$/, '');
   b.takeaways = Array.isArray(a.takeaways) ? a.takeaways.map(benahi) : a.takeaways;
-  b.body = Array.isArray(a.body) ? a.body.map((x) => (x && typeof x === 'object' ? { type: String(x.type || '').toLowerCase(), text: benahi(x.text) } : x)) : a.body;
+  b.body = Array.isArray(a.body) ? a.body.map((x) => {
+    if (!x || typeof x !== 'object') return x;
+    const type = String(x.type || '').toLowerCase();
+    let text = benahi(x.text);
+    if (type === 'quote' && typeof text === 'string') {
+      const rapi = rapikanKutipan(text);
+      if (rapi !== text) catatan.add('blok kutipan dirapikan');
+      text = rapi;
+    }
+    return { type, text };
+  }) : a.body;
   return { artikel: b, catatan: [...catatan] };
+}
+
+/**
+ * Gaya situs (sama dengan berita tulisan tangan): blok kutipan berisi kutipan saja, tanpa tanda
+ * kutip pembungkus, diakhiri titik. Uji kering 15 Nov 2026: model menyalin koma penutup dari
+ * kalimat sumber ("...naik kelas," ujar X), sehingga blok berakhir dengan koma. Isi kata tidak
+ * berubah, jadi pemeriksaan "kutipan harus persis ada di bahan" tetap berlaku.
+ */
+export function rapikanKutipan(s) {
+  let t = String(s).trim();
+  const bungkus = t.match(/^["“]([^"“”]+)["”]$/);
+  if (bungkus) t = bungkus[1].trim();
+  return t.replace(/\s*[,;:]+$/, '.');
 }
 
 // ------------------------------------------------------------------ daftar kata

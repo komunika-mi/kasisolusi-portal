@@ -143,3 +143,13 @@ test('objek ilustrasi yang bertulisan atau berorang diganti cadangan aman', () =
   assert.equal(amankanIlustrasi('a signboard of a small shop', 'bisnis').diganti, true);
   assert.equal(amankanIlustrasi('a wooden market stall with baskets of red chili', 'bisnis').diganti, false);
 });
+
+test('blok kutipan dirapikan: tanda kutip pembungkus dibuang, koma penutup jadi titik, isi tetap', async () => {
+  const { rapikanKutipan } = await import('../lib/penjaga.mjs');
+  assert.equal(rapikanKutipan('Hal ini membuka peluang bagi UMKM agar naik kelas,'), 'Hal ini membuka peluang bagi UMKM agar naik kelas.');
+  assert.equal(rapikanKutipan('"Kami siap menyambut program ini,"'), 'Kami siap menyambut program ini.');
+  assert.equal(rapikanKutipan('"Upaya ini perlu diperkuat," ujar Teuku Riefky.'), '"Upaya ini perlu diperkuat," ujar Teuku Riefky.');
+  assert.equal(rapikanKutipan('Apakah ini sudah siap?'), 'Apakah ini sudah siap?');
+  const a = perbaikiOtomatis({ title: 'x', dek: 'x', takeaways: [], body: [{ type: 'quote', text: 'Kami mengapresiasi dukungan itu,' }] }).artikel;
+  assert.equal(a.body[0].text, 'Kami mengapresiasi dukungan itu.');
+});

@@ -146,7 +146,8 @@ apa pun di laptop, `git pull` dulu.
 Keputusan pemilik 15 Nov 2026: berita dan tips terbit **otomatis tanpa review**, paling banyak
 **12 berita UMKM + 3 tips per hari WIB** (kurang tidak apa-apa). Fokus isi: berita UMKM, tips dan
 trik, solusi. Judul boleh memancing tetapi jujur. Penulis: model murah lewat OpenRouter. Sampul:
-ilustrasi AI (OpenAI `gpt-image-1` kualitas low, cadangan Pollinations).
+ilustrasi AI (OpenAI `gpt-image-2.6-flare` kualitas low; `gpt-image-1` sudah dimatikan OpenAI
+23 Okt 2026). Cadangan Pollinations mati bawaan sejak 15 Nov 2026, lihat bagian Gambar.
 
 ### Alur satu putaran
 
@@ -219,15 +220,23 @@ no people". Objek yang pada dasarnya bertulisan atau berorang (dokumen, papan na
 orang, bangunan terkenal) diganti objek cadangan per kanal sebelum dikirim. Sidik SHA-256 gambar
 disimpan 180 hari; gambar kembar dibuat ulang dengan variasi prompt. Paling banyak 6 gambar per putaran.
 
+Model OpenAI dicoba berurutan (`gpt-image-2.6-flare`, lalu `gpt-image-2.5-flare`); model yang ditolak
+karena tidak ada dilewati untuk sisa putaran. Token keluaran tiap gambar tercatat di log Actions.
+**Pollinations mati bawaan**: uji kering 15 Nov 2026 menunjukkan jalur tanpa kuncinya menempelkan
+watermark "pollinations.ai" walau diminta `nologo=true`, dan menjawab 402 sesudah tiga gambar.
+Kalau semua penyedia gagal, artikel itu dilewati dan dicoba lagi di putaran berikutnya.
+
 ### Kill switch, secrets, variabel
 
 | Nama | Jenis | Isi |
 |---|---|---|
 | `OTOMASI_BERITA` | variabel | `aktif` = menerbitkan; nilai lain = job tidak jalan (uji kering manual tetap bisa) |
 | `OPENROUTER_API_KEY` | secret | wajib |
-| `OPENAI_API_KEY` | secret | ilustrasi; tanpa ini hanya Pollinations |
+| `OPENAI_API_KEY` | secret | wajib untuk mode terbit (ilustrasi), kecuali Pollinations dinyalakan |
 | `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` | secret | opsional, kabar tiap putaran |
 | `OPENROUTER_MODEL` | variabel | opsional; bawaan `deepseek/deepseek-v4.1-flash`, cadangan `z-ai/glm-5.3-flash`, `qwen/qwen3.8-flash` |
+| `OPENAI_IMAGE_MODEL` | variabel | opsional; bawaan `gpt-image-2.6-flare`, cadangan `gpt-image-2.5-flare` |
+| `GAMBAR_POLLINATIONS` | variabel | `ya` = nyalakan cadangan Pollinations (bertanda air di jalur gratis); bawaan mati |
 | `SITE_ORIGIN` | variabel | opsional; alamat situs untuk tautan di kabar Telegram |
 
 Pasang dengan skrip yang dijalankan pemilik sendiri (kunci diketik tersembunyi, tidak masuk berkas):
@@ -243,7 +252,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File otomasi\pasang-secrets.ps1 -
 ```bash
 cd otomasi && npm ci && cd ..
 node otomasi/jalan.mjs --kering            # uji kering; tanpa kunci memakai penulis dan gambar tiruan
-node otomasi/jalan.mjs --kering --tiruan --pollinations   # tiruan, tetapi gambar sungguhan dari Pollinations
+node otomasi/jalan.mjs --kering --tiruan --pollinations   # tiruan, gambar sungguhan dari Pollinations (bertanda air)
 cd otomasi && npm test                     # uji penjaga, angka, laju, robots.txt, API tiruan
 ```
 

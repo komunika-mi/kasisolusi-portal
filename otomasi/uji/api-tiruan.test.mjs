@@ -81,26 +81,53 @@ test('OpenRouter: balasan terpotong (finish_reason length) ditolak', async () =>
   } finally { f.pulihkan(); }
 });
 
-test('OpenAI gpt-image-1: permintaan sesuai, PNG base64 jadi WebP 1280x720', async () => {
+test('OpenAI gpt-image-2.6-flare: permintaan sesuai, PNG base64 jadi WebP 1280x720', async () => {
+  delete process.env.OPENAI_IMAGE_MODEL;
   const sharp = (await import('sharp')).default;
   const png = await sharp({ create: { width: 1536, height: 1024, channels: 3, background: { r: 30, g: 60, b: 120 } } }).png().toBuffer();
-  const f = pasangFetch([{ badan: { data: [{ b64_json: png.toString('base64') }] } }]);
+  const f = pasangFetch([{ badan: { data: [{ b64_json: png.toString('base64') }], usage: { output_tokens: 400, input_tokens: 80 } } }]);
   try {
     const g = buatPembuatGambar({ kunciOpenAI: 'kunci-uji', riwayat: {}, maks: 2 });
     const h = await g.buat({ slug: 'uji', kanal: 'bisnis', frasa: 'a woman holding cash' });
     const req = f.panggilan[0];
     assert.equal(req.url, 'https://api.openai.com/v1/images/generations');
-    assert.deepEqual({ model: req.badan.model, size: req.badan.size, quality: req.badan.quality, n: req.badan.n }, { model: 'gpt-image-1', size: '1536x1024', quality: 'low', n: 1 });
+    assert.deepEqual({ model: req.badan.model, size: req.badan.size, quality: req.badan.quality, n: req.badan.n }, { model: 'gpt-image-2.6-flare', size: '1536x1024', quality: 'low', n: 1 });
     assert.ok(req.badan.prompt.includes('no faces, no people'));
     assert.ok(!/woman|cash/.test(req.badan.prompt), 'objek berorang/beruang diganti cadangan');
     assert.equal(h.frasaDiganti, true);
-    assert.equal(h.sumber, 'openai:gpt-image-1');
+    assert.equal(h.sumber, 'openai:gpt-image-2.6-flare');
     const meta = await sharp(h.webp).metadata();
     assert.deepEqual([meta.format, meta.width, meta.height], ['webp', 1280, 720]);
   } finally { f.pulihkan(); }
 });
 
-test('OpenAI gagal (401) jatuh ke Pollinations, dan OpenAI dimatikan untuk sisa putaran', async () => {
+test('OpenAI: model yang sudah tidak ada (400) dilewati, model berikutnya dipakai', async () => {
+  delete process.env.OPENAI_IMAGE_MODEL;
+  const sharp = (await import('sharp')).default;
+  const png = await sharp({ create: { width: 1536, height: 1024, channels: 3, background: { r: 200, g: 120, b: 40 } } }).png().toBuffer();
+  const f = pasangFetch([
+    { status: 400, badan: { error: { message: "The model 'gpt-image-2.6-flare' does not exist.", type: 'image_generation_user_error', param: 'model' } } },
+    { badan: { data: [{ b64_json: png.toString('base64') }] } },
+  ]);
+  try {
+    const g = buatPembuatGambar({ kunciOpenAI: 'kunci-uji', riwayat: {}, maks: 3 });
+    const h = await g.buat({ slug: 'uji-model', kanal: 'bisnis', frasa: 'a tidy shop counter with woven baskets' });
+    assert.equal(f.panggilan[1].badan.model, 'gpt-image-2.5-flare');
+    assert.equal(h.sumber, 'openai:gpt-image-2.5-flare');
+  } finally { f.pulihkan(); }
+});
+
+test('Pollinations mati bawaan: OpenAI gagal (401) = gambar gagal, tanpa memanggil Pollinations', async () => {
+  const f = pasangFetch([{ status: 401, badan: { error: { message: 'bad key' } } }]);
+  try {
+    const g = buatPembuatGambar({ kunciOpenAI: 'salah', riwayat: {}, maks: 3 });
+    await assert.rejects(g.buat({ slug: 'uji3', kanal: 'bisnis', frasa: 'a tidy shop counter with woven baskets' }), /gambar gagal/);
+    assert.equal(f.panggilan.length, 1, 'kunci salah mematikan semua model OpenAI sekaligus; Pollinations tidak dipanggil');
+    await assert.rejects(g.buat({ slug: 'uji4', kanal: 'bisnis', frasa: 'a tidy shop counter' }), /tidak ada penyedia gambar/);
+  } finally { f.pulihkan(); }
+});
+
+test('OpenAI gagal (401) jatuh ke Pollinations bila dinyalakan, dan OpenAI dimatikan untuk sisa putaran', async () => {
   const sharp = (await import('sharp')).default;
   // Derau supaya JPEG-nya wajar besar (Pollinations di atas 20 KB dianggap gambar sungguhan).
   const jpg = await sharp({ create: { width: 1536, height: 1024, channels: 3, noise: { type: 'gaussian', mean: 128, sigma: 40 } } }).jpeg({ quality: 90 }).toBuffer();
@@ -110,7 +137,7 @@ test('OpenAI gagal (401) jatuh ke Pollinations, dan OpenAI dimatikan untuk sisa 
     { badan: jpg, tipe: 'image/jpeg' },
   ]);
   try {
-    const g = buatPembuatGambar({ kunciOpenAI: 'salah', riwayat: {}, maks: 3 });
+    const g = buatPembuatGambar({ kunciOpenAI: 'salah', pollinations: true, riwayat: {}, maks: 3 });
     const h = await g.buat({ slug: 'uji2', kanal: 'bisnis', frasa: 'a tidy shop counter with woven baskets' });
     assert.equal(h.sumber, 'pollinations:flux');
     assert.ok(f.panggilan[1].url.startsWith('https://image.pollinations.ai/prompt/'));

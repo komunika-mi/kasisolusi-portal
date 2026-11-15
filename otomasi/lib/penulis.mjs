@@ -72,9 +72,9 @@ JUDUL (title):
 KOLOM JSON:
 - layak: false bila BAHAN bukan soal UMKM, usaha, atau pekerja mandiri; terlalu tipis untuk ditulis tanpa mengarang; atau topiknya sama dengan judul Kasisolusi yang sudah terbit. Isi "alasan". Bila false, kolom lain boleh kosong.
 - dek: 1-2 kalimat (60-250 karakter) yang merangkum inti.
-- kanal: satu dari daftar KANAL.
+- kanal: satu dari daftar KANAL, dipilih menurut manfaatnya bagi pembaca, bukan menurut lembaga sumbernya. Modal, pembiayaan, kredit, pajak, dan literasi keuangan = keuangan. Pemasaran, penjualan, merek, dan akses pasar = marketing. Program atau layanan yang langsung dipakai pelaku usaha (sertifikasi, perizinan, pelatihan, pendampingan) = bisnis. Konten, desain, dan pelaku ekonomi kreatif = kreatif. Ekonomi hanya untuk kebijakan makro dan kondisi ekonomi umum (inflasi, suku bunga, ekspor-impor, pertumbuhan). Bila lebih dari satu cocok, pilih yang paling dekat dengan isi utama artikel.
 - takeaways: tepat 3 poin penting, masing-masing satu kalimat (20-220 karakter).
-- body: daftar blok {"type": "p" | "h2" | "quote", "text": "..."}.
+- body: daftar blok {"type": "p" | "h2" | "quote", "text": "..."}. Blok "quote" berisi kutipan langsung saja: tanpa tanda kutip, tanpa "ujar ..." atau "kata ...", diakhiri titik. Sebut siapa yang berbicara di paragraf tepat sebelum blok quote.
 - imgAlt: deskripsi singkat ilustrasi sampul dalam bahasa Indonesia, tanpa nama orang.
 - illustration: frasa benda atau suasana dalam bahasa Inggris (5-20 kata) untuk ilustrasi sampul. Tanpa orang, wajah, tangan, tulisan, angka, uang, koin, dokumen, layar, ponsel, logo, papan nama, bendera, peta, jam, kalender, kalkulator, kemasan berlabel, atau bangunan dan tempat terkenal. Contoh: "a neat row of glass jars filled with spices on a wooden market stall".
 

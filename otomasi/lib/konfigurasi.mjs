@@ -53,5 +53,18 @@ export function daftarModel() {
   return [...new Set([...isi, ...MODEL_BAWAAN])].slice(0, 3);
 }
 
+// Ilustrasi OpenAI. gpt-image-1 dimatikan OpenAI 23 Okt 2026 dan uji kering 15 Nov 2026 di runner
+// mendapat 400 "The model 'gpt-image-1' does not exist". Halaman Deprecations OpenAI (dibaca
+// 15 Nov 2026) menganjurkan gpt-image-2.6-flare ("fast, high-quality everyday image generation")
+// atau -sunburst; gpt-image-2 sendiri sudah diumumkan mati 10 Feb 2027. Urutan ini dicoba dari
+// depan: model yang ditolak karena tidak ada dilewati untuk sisa putaran. Bisa diganti lewat
+// variabel repo OPENAI_IMAGE_MODEL (satu id, atau beberapa dipisah koma).
+export const MODEL_GAMBAR_BAWAAN = ['gpt-image-2.6-flare', 'gpt-image-2.5-flare'];
+
+export function daftarModelGambar() {
+  const isi = (process.env.OPENAI_IMAGE_MODEL || '').split(',').map((s) => s.trim()).filter(Boolean);
+  return [...new Set([...isi, ...MODEL_GAMBAR_BAWAAN])].slice(0, 3);
+}
+
 export const UA_BAWAAN = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36';
 export const UA = () => process.env.BERITA_UA || UA_BAWAAN;

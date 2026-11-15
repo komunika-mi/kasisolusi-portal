@@ -160,6 +160,11 @@ async function jalankan() {
     if (!kunciOR) throw new Error('OPENROUTER_API_KEY belum diisi; mode terbit tidak jalan tanpa penulis sungguhan');
   }
   const tiruan = ada('--tiruan') || (KERING && !kunciOR);
+  // Pollinations mati bawaan (watermark "pollinations.ai" dan 402 di jalur tanpa kunci, lihat gambar.mjs).
+  const pakaiPollinations = ada('--pollinations') || process.env.GAMBAR_POLLINATIONS === 'ya';
+  if (!KERING && !kunciOA && !pakaiPollinations) {
+    throw new Error('OPENAI_API_KEY belum diisi dan Pollinations mati; tidak ada penyedia ilustrasi untuk mode terbit');
+  }
   const stempel = w.iso.slice(0, 16).replace(/[:T]/g, '');
   const keluaran = KERING ? (nilai('--keluaran') || join(ROOT, '.scratch', 'kering', stempel)) : null;
 
@@ -182,8 +187,10 @@ async function jalankan() {
     import('./lib/seleksi.mjs'), import('./lib/penjaga.mjs'), import('./lib/penulis.mjs'), import('./lib/gambar.mjs'),
   ]);
   const penulis = tiruan ? tulisMod.buatPenulisTiruan() : tulisMod.buatPenulisAsli(kunciOR);
+  // Uji kering tanpa kunci OpenAI dan tanpa Pollinations tetap menghasilkan sampul (gradasi tiruan).
+  const gambarTiruan = (tiruan && !pakaiPollinations) || (KERING && !kunciOA && !pakaiPollinations);
   const pembuatGambar = gbr.buatPembuatGambar({
-    kunciOpenAI: tiruan ? '' : kunciOA, tiruan: tiruan && !ada('--pollinations'), riwayat: st.gambar, maks: GAMBAR_MAKS_PER_PUTARAN,
+    kunciOpenAI: tiruan ? '' : kunciOA, tiruan: gambarTiruan, pollinations: pakaiPollinations, riwayat: st.gambar, maks: GAMBAR_MAKS_PER_PUTARAN,
   });
   const cache = bacaCache();
 
