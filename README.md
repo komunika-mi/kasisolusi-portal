@@ -273,6 +273,11 @@ Hapus `data/berita/<tanggal>-<slug>.json` dan gambarnya lewat commit. Kuncinya t
 4. Nyalakan saklar (`-HanyaVariabel -Status aktif`), biarkan beberapa putaran mengisi `data/berita/`.
 5. Baru sambungkan Vercel ke repo. Sejak itu, lihat peringatan di bagian Deploy.
 
+Status: kelima langkah selesai 15 Nov 2026 (repo `komunika-mi/kasisolusi-portal`; dua uji kering
+di runner; saklar `aktif` pukul 23.49 WIB; putaran pertama menerbitkan 3 berita + 1 tips; proyek
+Vercel `kasisolusi-portal` tersambung ke repo). Sejak itu situs dibangun Vercel dari Git, termasuk
+dari commit `github-actions[bot]`.
+
 ## Catatan
 
 - YouTube dimuat dengan pola facade. Iframe baru dibuat setelah tombol putar
