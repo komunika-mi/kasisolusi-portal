@@ -9,8 +9,8 @@
   "otomatis": true,
   "kunci": "https://ekraf.go.id/news/50-pelaku-ekraf-mataram-siap-bersaing-lewat-literasi-keuangan",
   "img": "/assets/berita/usai-creafin-50-pelaku-ekraf-mataram-siap-akses-pembiayaan.webp",
-  "imgAlt": "Ilustrasi pelaku usaha kreatif mengikuti pembekalan pengelolaan keuangan usaha",
-  "foto": "Ilustrasi AI",
+  "imgAlt": "Foto dokumentasi Kemenekraf: Usai CreaFIN, 50 Pelaku Ekraf Mataram Siap Akses Pembiayaan",
+  "foto": "Dok. Kemenekraf",
   "takeaways": [
     "Kementerian Ekraf memfasilitasi 50 pelaku ekonomi kreatif di Kota Mataram melalui program CreaFIN.",
     "Peserta menerima materi pembiayaan perbankan dari Bank Mandiri dan pengelolaan keuangan dari OJK Provinsi NTB.",
@@ -97,5 +97,6 @@
     }
   ],
   "penulis": "deepseek/deepseek-v4.1-flash",
-  "ilustrasi": "openai:gpt-image-2.6-flare"
+  "ilustrasi": "foto-rilis",
+  "fotoSumber": "https://storage.googleapis.com/ekraf-web-prd-bucket-01/landing_page/post_thumbnail_seo/01M7D9AFGW490V9S7800EYGPRX.webp"
 }

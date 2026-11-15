@@ -182,9 +182,10 @@ async function jalankan() {
   }
 
   // Modul berat dimuat sesudah tahu ada pekerjaan (mode --cek tidak butuh npm ci).
-  const [{ kumpulkanLembaga, ambilIsi }, { kumpulkanMedia, radarUmkm }, { kumpulkanTips, episodeDariWatch }, sel, jaga, tulisMod, gbr] = await Promise.all([
+  const [{ kumpulkanLembaga, ambilIsi }, { kumpulkanMedia, radarUmkm }, { kumpulkanTips, episodeDariWatch }, sel, jaga, tulisMod, gbr, fotoRilis] = await Promise.all([
     import('./lib/sumber-lembaga.mjs'), import('./lib/sumber-media.mjs'), import('./lib/sumber-youtube.mjs'),
     import('./lib/seleksi.mjs'), import('./lib/penjaga.mjs'), import('./lib/penulis.mjs'), import('./lib/gambar.mjs'),
+    import('./lib/foto-rilis.mjs'),
   ]);
   const penulis = tiruan ? tulisMod.buatPenulisTiruan() : tulisMod.buatPenulisAsli(kunciOR);
   // Uji kering tanpa kunci OpenAI dan tanpa Pollinations tetap menghasilkan sampul (gradasi tiruan).
@@ -226,7 +227,7 @@ async function jalankan() {
   const ambilIsiSekali = async (k) => {
     if (!memoIsi.has(k.url)) {
       const hasil = await ambilIsi(k);
-      memoIsi.set(k.url, { hasil, data: { isi: k.isi, terbit: k.terbit, judul: k.judul } });
+      memoIsi.set(k.url, { hasil, data: { isi: k.isi, terbit: k.terbit, judul: k.judul, fotoUrl: k.fotoUrl } });
       return hasil;
     }
     const m = memoIsi.get(k.url);
@@ -292,15 +293,28 @@ async function jalankan() {
     }
     const a = h.artikel;
     const slug = slugUnik(slugify(a.title));
-    let g;
-    try {
-      g = await pembuatGambar.buat({ slug, kanal: a.kanal, frasa: a.illustration });
-    } catch (e) {
-      log(`  GAGAL gambar: ${e.message}`);
-      situs.slug.delete(slug);
-      R.dilewati.push({ jenis: k.jenis, sumber: k.sumberId, judul: a.title, url: k.url, tahap: 'gambar', alasan: e.message, alasanSingkat: 'gambar gagal' });
-      catatKunci(st, k.kunci, { t: w.tanggal, hasil: 'gagal', alasan: ringkas(`gambar: ${e.message}`, 160), judul: ringkas(k.judul, 160) });
-      return false;
+    let g = null;
+    // Keputusan pemilik 16 Nov 2026: siaran pers lembaga memakai foto rilisnya (pola The Signal);
+    // yang tidak berfoto layak, berita media, dan tips memakai ilustrasi AI.
+    if (k.asal === 'lembaga' && k.fotoUrl) {
+      try {
+        const f = await fotoRilis.unduhFotoRilis(k.fotoUrl, { riwayat: st.gambar, jadikanSampul: gbr.jadikanSampul });
+        g = { webp: f.webp, sidik: f.sidik, sumber: 'foto-rilis', rilis: true };
+        log(`  foto rilis ${f.lebar}x${f.tinggi}: ${k.fotoUrl}`);
+      } catch (e) {
+        log(`  foto rilis tidak dipakai (${e.message}): ${k.fotoUrl}`);
+      }
+    }
+    if (!g) {
+      try {
+        g = await pembuatGambar.buat({ slug, kanal: a.kanal, frasa: a.illustration });
+      } catch (e) {
+        log(`  GAGAL gambar: ${e.message}`);
+        situs.slug.delete(slug);
+        R.dilewati.push({ jenis: k.jenis, sumber: k.sumberId, judul: a.title, url: k.url, tahap: 'gambar', alasan: e.message, alasanSingkat: 'gambar gagal' });
+        catatKunci(st, k.kunci, { t: w.tanggal, hasil: 'gagal', alasan: ringkas(`gambar: ${e.message}`, 160), judul: ringkas(k.judul, 160) });
+        return false;
+      }
     }
     R.gambar = pembuatGambar.dipakai;
     const kini = wib();
@@ -316,14 +330,15 @@ async function jalankan() {
       otomatis: true,
       kunci: k.kunci,
       img: jalurGambar(slug),
-      imgAlt: a.imgAlt,
-      foto: 'Ilustrasi AI',
+      imgAlt: g.rilis ? `Foto dokumentasi ${fotoRilis.kreditFotoRilis(k).replace(/^Dok\. /, '')}: ${a.title}`.slice(0, 200) : a.imgAlt,
+      foto: g.rilis ? fotoRilis.kreditFotoRilis(k) : 'Ilustrasi AI',
       takeaways: a.takeaways,
       body: a.body,
       sumber: [{ label: ringkas(label.replace(/[<>]/g, ''), 290), url: k.url }],
       ...(k.video ? { video: { id: k.video.id, title: ringkas(k.video.title.replace(/[<>]/g, ''), 290) } } : {}),
       penulis: h.model,
       ilustrasi: g.sumber,
+      ...(g.rilis ? { fotoSumber: k.fotoUrl } : {}),
     };
     const bentuk = periksaBentuk(jadi);
     if (bentuk.length) {
@@ -461,7 +476,7 @@ async function jalankan() {
       const salin = { ...k };
       const a = await ambilIsiSekali(salin);
       R.ujiSumber.push(a.ok
-        ? { id: s.id, nama: s.nama, hasil: 'ekstraksi OK', judul: salin.judul, terbit: salin.terbit, karakter: salin.isi.length, url: k.url }
+        ? { id: s.id, nama: s.nama, hasil: 'ekstraksi OK', judul: salin.judul, terbit: salin.terbit, karakter: salin.isi.length, url: k.url, ...(salin.asal === 'lembaga' ? { foto: salin.fotoUrl || '' } : {}) }
         : { id: s.id, nama: s.nama, hasil: `ekstraksi gagal: ${a.alasan}`, url: k.url });
     }
   }
@@ -491,7 +506,7 @@ function cetakRingkas(R) {
   for (const s of R.sumber) log(`  ${s.status.padEnd(8)} ${s.nama}: ${s.tautan ?? 0} butir${s.segar !== undefined ? `, ${s.segar} segar (<=72 jam)` : ''}${s.layak !== undefined ? `, ${s.layak} layak` : ''}${s.judul !== undefined ? `, ${s.judul} judul` : ''}${s.catatan ? ` | ${s.catatan}` : ''}`);
   if (R.ujiSumber) {
     log('--- uji ekstraksi per sumber');
-    for (const u of R.ujiSumber) log(`  ${u.nama}: ${u.hasil}${u.karakter ? ` (${u.karakter} karakter, terbit ${u.terbit ? tanggalPanjang(u.terbit) : '?'}) "${ringkas(u.judul, 70)}"` : ''}`);
+    for (const u of R.ujiSumber) log(`  ${u.nama}: ${u.hasil}${u.karakter ? ` (${u.karakter} karakter, terbit ${u.terbit ? tanggalPanjang(u.terbit) : '?'}) "${ringkas(u.judul, 70)}"` : ''}${u.foto !== undefined ? ` | foto rilis: ${u.foto || 'tidak ada'}` : ''}`);
   }
   log(`--- hasil: ${R.terbit.length} terbit, ${R.dilewati.length} dilewati sesudah ditulis, ${R.diperiksa.length} disaring sebelum ditulis, biaya teks $${R.biayaUsd.toFixed(4)}, gambar ${R.gambar}`);
   for (const g of R.galat) log(`  GALAT: ${g}`);

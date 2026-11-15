@@ -211,11 +211,25 @@ butuh `curl -k` di runner.
   (berita 300-800 kata, tips 200-650), bagian penutup "Apa artinya bagi pelaku usaha", kanal sah,
   tanpa tautan/markdown/emoji/tanda `< >`, tidak menyalin kalimat bahan, dan judul tidak kembar
   dengan yang terbit 14 hari terakhir.
-- Kredit: `sumber` berisi tautan asli, `foto: "Ilustrasi AI"`.
+- Kredit: `sumber` berisi tautan asli; `foto` berisi `"Dok. <lembaga>"` untuk foto rilis atau
+  `"Ilustrasi AI"`.
 
 ### Gambar
 
-Prompt hanya benda atau suasana, ditambah "no text, no lettering, no numbers, no logos, no faces,
+**Foto rilis dulu** (keputusan pemilik 16 Nov 2026, pola The Signal): berita dari siaran pers
+lembaga memakai foto dari halaman rilisnya, dikreditkan `Dok. <lembaga>` (misalnya Dok. Kemendag),
+alamat aslinya disimpan di `fotoSumber`. Pemilihnya `otomasi/lib/foto-rilis.mjs`, yang memindah utuh
+`cariFotoUtama` The Signal (og:image satu domain induk, lalu jalur penyimpanan foto berita, lalu nama
+yang dekat dengan URL sumber; tanpa tingkat "gambar pertama apa pun" karena itu selalu logo atau
+spanduk). Tambahan di sini: bucket awan milik lembaga sendiri (Ekraf di storage.googleapis.com),
+og:image BI yang http dan turunan web SharePoint-nya. Foto harus mendatar, minimal 800x450, dan
+belum pernah dipakai; kalau tidak, artikel memakai ilustrasi AI. Foto MEDIA (detik, CNBC, Liputan6)
+tidak pernah diambil karena hak ciptanya sering milik kantor berita; berita media dan tips tetap
+ilustrasi AI. Uji langsung 16 Nov 2026 dari laptop: DJP, Kemenko Perekonomian, BI, Kemendag,
+Kemenperin, BPJPH, DJKI, Ekraf berfoto; PNM (og:image = favicon) dan BPOM jatuh ke ilustrasi.
+Ganti sampul artikel yang sudah terbit: `node otomasi/ganti-foto-rilis.mjs <slug>`.
+
+**Ilustrasi AI** (cadangan, dan untuk berita media serta tips): prompt hanya benda atau suasana, ditambah "no text, no lettering, no numbers, no logos, no faces,
 no people". Objek yang pada dasarnya bertulisan atau berorang (dokumen, papan nama, uang, layar,
 orang, bangunan terkenal) diganti objek cadangan per kanal sebelum dikirim. Sidik SHA-256 gambar
 disimpan 180 hari; gambar kembar dibuat ulang dengan variasi prompt. Paling banyak 6 gambar per putaran.

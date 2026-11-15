@@ -9,8 +9,8 @@
   "otomatis": true,
   "kunci": "https://bpjph.halal.go.id/main/read/bpjph-dan-pemkab-oki-jalin-sinergi-sertifikasi-halal-umk-dan-pengembangan-ekosistem-halal-daerah",
   "img": "/assets/berita/pelaku-umk-di-oki-difasilitasi-sertifikasi-halal-ini-peluangnya.webp",
-  "imgAlt": "Ilustrasi pelaku usaha kecil menyiapkan produk untuk sertifikasi halal",
-  "foto": "Ilustrasi AI",
+  "imgAlt": "Foto dokumentasi BPJPH: Pelaku UMK di OKI Difasilitasi Sertifikasi Halal, Ini Peluangnya",
+  "foto": "Dok. BPJPH",
   "takeaways": [
     "BPJPH dan Pemkab Ogan Komering Ilir menandatangani nota kesepakatan soal sinergi sertifikasi halal bagi pelaku Usaha Mikro dan Kecil.",
     "Kepala BPJPH Ahmad Haikal Hasan menyebut sertifikasi halal sudah menjadi kebutuhan dan standar global dalam produksi dan perdagangan.",
@@ -93,5 +93,6 @@
     }
   ],
   "penulis": "deepseek/deepseek-v4.1-flash",
-  "ilustrasi": "openai:gpt-image-2.6-flare"
+  "ilustrasi": "foto-rilis",
+  "fotoSumber": "https://bpjph.halal.go.id/api/og-image?url=https%3A%2F%2Fcmsbl.halal.go.id%2Fuploads%2Flarge_Whats_App_Image_2026_11_11_at_11_02_28_d69e1be3fa.jpeg"
 }

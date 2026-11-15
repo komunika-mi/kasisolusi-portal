@@ -22,6 +22,7 @@
 import { ambil, izinRobots, laranganAIDiHalaman } from './jaringan.mjs';
 import { ekstrakArtikel } from './ekstrak.mjs';
 import { kunciUrl, polos, satuBaris } from './alat.mjs';
+import { cariFotoUtama } from './foto-rilis.mjs';
 
 export const LEMBAGA = [
   {
@@ -166,5 +167,8 @@ export async function ambilIsi(k) {
   if (k.asal === 'lembaga' && kiriman && !/humas|biro|kementerian|badan|direktorat|siaran pers/i.test(kiriman[1])) {
     return { ok: false, alasan: `isi kiriman ulang dari ${kiriman[1].trim()}`, permanen: true };
   }
+  // Foto rilis (keputusan pemilik 16 Nov 2026): hanya untuk siaran pers lembaga. Foto media tidak
+  // pernah diambil (hak cipta kantor berita); berita media dan tips tetap memakai ilustrasi AI.
+  if (k.asal === 'lembaga') k.fotoUrl = cariFotoUtama(r.teks, { asal: r.url || k.url });
   return { ok: true };
 }

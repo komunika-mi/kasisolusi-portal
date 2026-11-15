@@ -9,8 +9,8 @@
   "otomatis": true,
   "kunci": "https://kemendag.go.id/berita/siaran-pers/sinergi-program-pilihan-busan-kemendag-boyong-20-produk-umkm-potensial-ke-jaringan-indogrosir",
   "img": "/assets/berita/20-produk-umkm-kurasi-kemendag-masuk-jaringan-indogrosir.webp",
-  "imgAlt": "Ilustrasi rak toko kelontong yang dipenuhi aneka camilan olahan UMKM.",
-  "foto": "Ilustrasi AI",
+  "imgAlt": "Foto dokumentasi Kemendag: 20 Produk UMKM Kurasi Kemendag Masuk Jaringan Indogrosir",
+  "foto": "Dok. Kemendag",
   "takeaways": [
     "Sebanyak 20 produk UMKM hasil kurasi Kemendag kini dijual di jaringan ritel Indogrosir.",
     "Produk tersebut melengkapi 800 produk UMKM yang lebih dulu dipasarkan di jaringan Indogrosir.",
@@ -85,5 +85,6 @@
     }
   ],
   "penulis": "deepseek/deepseek-v4.1-flash",
-  "ilustrasi": "openai:gpt-image-2.6-flare"
+  "ilustrasi": "foto-rilis",
+  "fotoSumber": "https://www.kemendag.go.id/albums/MzpDcGzzeIaZGtEhs9l7JpwMdUelEddjLv6PG6sc.jpg"
 }
