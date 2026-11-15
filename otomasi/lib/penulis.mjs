@@ -187,7 +187,12 @@ async function panggil(pesan, { kunci, models, formatJson }) {
     models,
     messages: pesan,
     temperature: 0.4,
-    max_tokens: 8000,
+    // Token berpikir ikut dihitung dalam max_tokens (dokumentasi OpenRouter, Reasoning Tokens).
+    // /api/v1/models 16 Nov 2026: deepseek-v4.1-flash berpikir bawaan dengan effort "high", dan
+    // glm-5.3-flash WAJIB berpikir (bawaan "max", tidak menerima "none"). Uji kering 16 Nov: 3 dari 6
+    // tulisan terpotong di batas 8000. "low" didukung ketiga model bawaan; batasnya dilonggarkan.
+    reasoning: { effort: 'low' },
+    max_tokens: 16000,
     response_format: formatJson === 'schema'
       ? { type: 'json_schema', json_schema: { name: 'artikel_kasisolusi', strict: true, schema: SKEMA } }
       : { type: 'json_object' },
@@ -209,7 +214,12 @@ async function panggil(pesan, { kunci, models, formatJson }) {
   const pilihan = j.choices?.[0];
   if (pilihan?.error) throw new Error(`OpenRouter: ${satuBaris(pilihan.error.message || 'galat penyedia')}`);
   const isi = pilihan?.message?.content;
-  if (pilihan?.finish_reason === 'length') throw new Error('OpenRouter: balasan terpotong (max_tokens)');
+  // Jumlah token dicatat supaya penyebab balasan terpotong (berpikir terlalu panjang atau keluaran
+  // berulang) terbaca di log Actions.
+  const u = j.usage || {};
+  const tokenTeks = `${u.completion_tokens ?? '?'} token keluaran, ${u.completion_tokens_details?.reasoning_tokens ?? 0} untuk berpikir`;
+  log(`  penulis ${j.model || models[0]}: ${tokenTeks}, selesai ${pilihan?.finish_reason || '?'}`);
+  if (pilihan?.finish_reason === 'length') throw new Error(`OpenRouter: balasan terpotong (max_tokens; ${tokenTeks})`);
   if (typeof isi !== 'string' || !isi.trim()) throw new Error('OpenRouter: balasan kosong');
   return { teks: isi, model: j.model || models[0], biayaUsd: Number(j.usage?.cost) || 0 };
 }

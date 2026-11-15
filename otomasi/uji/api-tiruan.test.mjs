@@ -36,6 +36,8 @@ test('OpenRouter: bentuk permintaan sesuai dokumentasi, JSON berbaris baru menta
     assert.equal(req.badan.response_format.json_schema.strict, true);
     assert.deepEqual(req.badan.provider, { require_parameters: true });
     assert.deepEqual(req.badan.plugins, [{ id: 'response-healing' }]);
+    assert.deepEqual(req.badan.reasoning, { effort: 'low' }, 'berpikir dibatasi supaya tulisan tidak terpotong');
+    assert.equal(req.badan.max_tokens, 16000);
     assert.equal(req.badan.messages[0].role, 'system');
     assert.ok(req.badan.messages[1].content.includes('Judul lama'));
     assert.equal(h.artikel.title, 'Baris\nbaru');
