@@ -64,9 +64,15 @@ GAYA:
 - Tanpa markdown, tanpa emoji, tanpa tautan, tanpa tanda < dan >.
 
 JUDUL (title):
-- Paling banyak 70 karakter. Menarik, tetapi jujur dan sesuai isi.
-- Boleh: pertanyaan tentang masalah pembaca, angka yang ada di BAHAN, "begini caranya", menyebut nama orang atau lembaga.
-- Dilarang: janji yang tidak dijawab isi, angka atau superlatif yang tidak ada di BAHAN, menyembunyikan inti berita, mendramatisasi bencana atau kejahatan, tanda seru, huruf kapital semua.
+- Paling banyak 70 karakter. Judul harus memancing rasa ingin tahu pembaca UMKM, tetapi tetap jujur: semua yang dijanjikan judul dijawab di isi.
+- Mulai dari sudut pandang pembaca (manfaat, peluang, atau masalah yang ia hadapi), lalu pokok beritanya. Jangan membuka judul dengan nama lembaga kalau bisa dibuka dengan manfaatnya.
+- Pola yang dianjurkan, pilih yang paling cocok dengan isi:
+  1. Manfaat lalu pokok berita, misalnya "Lolos Kurasi, 20 Produk UMKM Ini Kini Dijual di Ritel Besar".
+  2. Pertanyaan pembaca lalu jawabannya, misalnya "Mau Dapat Pembiayaan Bank? Ini Bekal untuk Pelaku Ekraf".
+  3. Kabar peluang, misalnya "Pemkab Siap Sambut Ribuan Kuota Sertifikasi Halal untuk UMKM".
+  4. "Begini Cara ...", "Ini ...", atau "Simak ..." bila isinya memang menjelaskan cara atau rincian.
+- Contoh di atas hanya POLA dari artikel lain. Jangan memakai angka, nama, atau isinya. Angka, kata peringkat, dan jumlah samar di judul tetap wajib tertulis di BAHAN.
+- Dilarang: janji yang tidak dijawab isi, angka atau superlatif yang tidak ada di BAHAN, menyembunyikan inti berita sampai pembaca harus mengklik untuk tahu apa yang terjadi, mendramatisasi bencana atau kejahatan, kata sensasional (heboh, geger, mengejutkan), tanda seru, huruf kapital semua.
 - Judul wajib menyebut pokok soalnya (lembaga, program, atau persoalan utama).
 
 KOLOM JSON:
