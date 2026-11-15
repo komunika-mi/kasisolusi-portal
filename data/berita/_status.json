@@ -1,0 +1,55 @@
+{
+ "versi": 1,
+ "catatan": "Dikelola otomasi/jalan.mjs. Jangan disunting tangan selagi otomasi aktif.",
+ "hari": {
+  "2026-11-15": {
+   "berita": 3,
+   "tips": 1,
+   "biayaUsd": 0.027608
+  }
+ },
+ "kunci": {
+  "https://bpjph.halal.go.id/main/read/bpjph-dan-pemkab-oki-jalin-sinergi-sertifikasi-halal-umk-dan-pengembangan-ekosistem-halal-daerah": {
+   "t": "2026-11-15",
+   "hasil": "terbit",
+   "slug": "pelaku-umk-di-oki-difasilitasi-sertifikasi-halal-ini-peluangnya",
+   "judul": "BPJPH dan Pemkab OKI Jalin Sinergi Sertifikasi Halal UMK dan Pengembangan Ekosistem Halal Daerah"
+  },
+  "https://ekraf.go.id/news/50-pelaku-ekraf-mataram-siap-bersaing-lewat-literasi-keuangan": {
+   "t": "2026-11-15",
+   "hasil": "terbit",
+   "slug": "usai-creafin-50-pelaku-ekraf-mataram-siap-akses-pembiayaan",
+   "judul": "50 Pelaku Ekraf Mataram Siap Bersaing lewat Literasi Keuangan CreaFIN"
+  },
+  "https://kemendag.go.id/berita/siaran-pers/sinergi-program-pilihan-busan-kemendag-boyong-20-produk-umkm-potensial-ke-jaringan-indogrosir": {
+   "t": "2026-11-15",
+   "hasil": "terbit",
+   "slug": "20-produk-umkm-kurasi-kemendag-masuk-jaringan-indogrosir",
+   "judul": "Sinergi Program Pilihan Busan, Kemendag Boyong 20 Produk UMKM Potensial ke Jaringan Indogrosir"
+  },
+  "yt:MBvRacCaLe8": {
+   "t": "2026-11-15",
+   "hasil": "terbit",
+   "slug": "gaji-naik-tapi-merasa-kurang-ini-kata-reinat-fuad-coach-rene",
+   "judul": "Kenapa Gaji Makin Besar, Tapi Kita Nggak Pernah Merasa Kaya?"
+  }
+ },
+ "gambar": {
+  "4ba9c2a272e7bd5e56f97fe2cc7da8f6c684c1087ff9eeeee4b6a3a9c5b5f43a": {
+   "t": "2026-11-15",
+   "slug": "pelaku-umk-di-oki-difasilitasi-sertifikasi-halal-ini-peluangnya"
+  },
+  "602110736e4376f76f4d4d1f40a2e2033330ca705d1613a7cb35a78964366927": {
+   "t": "2026-11-15",
+   "slug": "20-produk-umkm-kurasi-kemendag-masuk-jaringan-indogrosir"
+  },
+  "7159d99a4b173d229c7d5b90adb878b9601785721c7a6ab41731dd5fad559e3a": {
+   "t": "2026-11-15",
+   "slug": "gaji-naik-tapi-merasa-kurang-ini-kata-reinat-fuad-coach-rene"
+  },
+  "9547fe87026a7c0813911487ba2b0a9dc6d4861bff37f7d04ed90d12fd7d6df2": {
+   "t": "2026-11-15",
+   "slug": "usai-creafin-50-pelaku-ekraf-mataram-siap-akses-pembiayaan"
+  }
+ }
+}
