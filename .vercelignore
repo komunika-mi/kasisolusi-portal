@@ -1,0 +1,7 @@
+node_modules
+dist
+tools
+audit.mjs
+server.mjs
+.claude
+.scratch

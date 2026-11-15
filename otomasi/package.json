@@ -1,0 +1,21 @@
+{
+  "name": "kasisolusi-berita-otomatis",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Pipeline berita dan tips otomatis Kasisolusi (GitHub Actions). Situs utamanya tetap tanpa dependensi.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "jalan": "node jalan.mjs",
+    "kering": "node jalan.mjs --kering",
+    "cek": "node jalan.mjs --cek",
+    "test": "node --test \"uji/*.test.mjs\""
+  },
+  "dependencies": {
+    "@mozilla/readability": "0.6.0",
+    "linkedom": "0.18.15",
+    "sharp": "0.35.5"
+  }
+}

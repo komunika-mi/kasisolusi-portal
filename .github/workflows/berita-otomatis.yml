@@ -1,0 +1,160 @@
+# Berita dan tips otomatis Kasisolusi. Penjelasan lengkap: README, bagian "Berita otomatis".
+#
+# Kill switch: job hanya jalan bila variabel repo OTOMASI_BERITA = aktif. Uji kering manual
+# (workflow_dispatch dengan "kering" dicentang) tetap boleh jalan walau saklar mati, karena
+# tidak menerbitkan apa pun; hasilnya diunggah sebagai artifact untuk diperiksa.
+#
+# Yang di-commit HANYA data/berita/ dan public/assets/berita/ (termasuk _status.json).
+# Jangan pernah mengganti langkah commit dengan `git add -A`: di proyek lain itu menyapu
+# suntingan setengah jadi ke dalam commit otomatis.
+name: Berita otomatis
+
+on:
+  schedule:
+    # Tiap jam 06.13-22.13 WIB (WIB = UTC+7). Menit 13 menghindari antrean awal jam.
+    # GitHub membuang kira-kira separuh event schedule pada repo ramai; laju per jam di
+    # otomasi/lib/status.mjs dirancang supaya sekitar 8 putaran efektif tetap mencapai kuota.
+    - cron: '13 23,0-15 * * *'
+  workflow_dispatch:
+    inputs:
+      kering:
+        description: 'Uji kering: tidak menerbitkan apa pun, hasil diunggah sebagai artifact'
+        type: boolean
+        default: true
+      paksa:
+        description: 'Abaikan jendela jam dan laju per jam (batas harian 12+3 dan per putaran 3+1 tetap)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: berita-otomatis
+  cancel-in-progress: false
+
+jobs:
+  berita:
+    if: ${{ vars.OTOMASI_BERITA == 'aktif' || (github.event_name == 'workflow_dispatch' && inputs.kering) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      KERING: ${{ (github.event_name == 'workflow_dispatch' && inputs.kering) && '1' || '' }}
+      PAKSA: ${{ (github.event_name == 'workflow_dispatch' && inputs.paksa) && '1' || '' }}
+      OTOMASI_BERITA: ${{ vars.OTOMASI_BERITA }}
+      OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
+      SITE_ORIGIN: ${{ vars.SITE_ORIGIN }}
+      RINGKASAN: ${{ github.workspace }}/.scratch/ringkasan-berita.json
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Cepat dan tanpa npm: berhenti di sini kalau kuota hari ini penuh atau belum waktunya.
+      - name: Cek kuota dan jam
+        id: cek
+        run: |
+          if [ -n "$KERING" ]; then node otomasi/jalan.mjs --cek --kering; else node otomasi/jalan.mjs --cek; fi
+
+      # Catatan kandidat yang sudah diperiksa (bukan bagian situs, tidak di-commit).
+      - name: Pulihkan cache kandidat
+        if: steps.cek.outputs.lanjut == 'ya'
+        uses: actions/cache/restore@v4
+        with:
+          path: .scratch/cache-berita
+          key: berita-dilihat-${{ github.run_id }}
+          restore-keys: berita-dilihat-
+
+      - name: Pasang dependensi otomasi
+        if: steps.cek.outputs.lanjut == 'ya'
+        working-directory: otomasi
+        run: npm ci --no-audit --no-fund
+
+      - name: Jalankan pipeline
+        if: steps.cek.outputs.lanjut == 'ya'
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [ -n "$KERING" ]; then
+            node otomasi/jalan.mjs --kering --keluaran "$RUNNER_TEMP/hasil-kering"
+          else
+            node otomasi/jalan.mjs
+          fi
+
+      - name: Simpan cache kandidat
+        if: always() && steps.cek.outputs.lanjut == 'ya' && env.KERING == ''
+        uses: actions/cache/save@v4
+        with:
+          path: .scratch/cache-berita
+          key: berita-dilihat-${{ github.run_id }}
+
+      # Gerbang: artikel baru harus membuat situs tetap terbangun dan lolos audit.
+      # Kalau gagal, tidak ada yang di-commit (Vercel tetap menayangkan versi terakhir).
+      - name: Periksa build dan audit situs
+        if: steps.cek.outputs.lanjut == 'ya' && env.KERING == ''
+        run: |
+          if [ -n "$(git status --porcelain -- data/berita public/assets/berita)" ]; then
+            node build.mjs
+            node audit.mjs
+          else
+            echo "Tidak ada perubahan berita."
+          fi
+
+      - name: Commit dan push
+        id: push
+        if: steps.cek.outputs.lanjut == 'ya' && env.KERING == ''
+        run: |
+          jalur=""
+          for p in data/berita public/assets/berita; do
+            if [ -e "$p" ]; then jalur="$jalur $p"; fi
+          done
+          if [ -z "$jalur" ]; then echo "hasil=kosong" >> "$GITHUB_OUTPUT"; exit 0; fi
+          # HANYA dua folder ini. Jangan diganti git add -A.
+          git add -- $jalur
+          if git diff --cached --quiet; then
+            echo "Tidak ada yang di-commit."
+            echo "hasil=kosong" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          jumlah=$(git diff --cached --name-only --diff-filter=A -- data/berita | grep -v '_status\.json$' | grep -c '\.json$' || true)
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -m "Berita otomatis: ${jumlah} artikel baru ($(TZ=Asia/Jakarta date '+%Y-%m-%d %H.%M') WIB)"
+          cabang="${GITHUB_REF_NAME}"
+          for i in 1 2 3 4 5; do
+            if git push origin "HEAD:${cabang}"; then
+              echo "hasil=berhasil" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "Push gagal (percobaan $i), tarik perubahan terbaru lalu ulang."
+            if ! git pull --rebase origin "${cabang}"; then
+              git rebase --abort || true
+              echo "Rebase bentrok; berhenti supaya tidak ada yang tertimpa."
+              break
+            fi
+            sleep $((i * 5))
+          done
+          echo "hasil=gagal" >> "$GITHUB_OUTPUT"
+          exit 1
+
+      - name: Kabari Telegram
+        if: always() && steps.cek.outputs.lanjut == 'ya' && env.KERING == ''
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          HASIL_PUSH: ${{ steps.push.outputs.hasil }}
+          HASIL_JOB: ${{ job.status }}
+        run: node otomasi/jalan.mjs --kabari
+
+      - name: Unggah hasil uji kering
+        if: always() && env.KERING != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: berita-kering-${{ github.run_id }}
+          path: ${{ runner.temp }}/hasil-kering
+          retention-days: 14
+          if-no-files-found: warn

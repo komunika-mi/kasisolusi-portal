@@ -1,0 +1,12 @@
+{
+  "name": "kasisolusi-portal",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Kasisolusi - portal berita & podcast bisnis UMKM",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs --watch",
+    "serve": "node server.mjs"
+  }
+}

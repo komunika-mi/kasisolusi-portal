@@ -1,0 +1,23 @@
+node_modules/
+dist/
+.vercel/
+*.log
+
+.vercel
+.scratch/
+
+# Dependensi pipeline berita otomatis (otomasi/package.json). Sudah tercakup node_modules/
+# di atas; ditulis eksplisit supaya jelas tidak boleh ikut ke repo.
+otomasi/node_modules/
+
+# Repo ini PUBLIK. Yang berikut sengaja hanya ada di laptop pengembang:
+# - landing page D.V.N: draf klien yang belum tayang (kutipan placeholder, foto narasumber)
+#   beserta font berlisensi Canela Text dan Neue Haas Display. Build tidak membutuhkannya
+#   selama WELLNESS_TAYANG = false (data/site.mjs).
+src/wellness.mjs
+public/assets/wellness/
+tools/olah-aset-wellness.py
+# - arsip lokal, termasuk 12 berita contoh beserta foto milik media sumbernya
+_arsip/
+# - pengaturan lokal Claude Code
+.claude/
