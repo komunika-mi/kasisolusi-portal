@@ -6,14 +6,31 @@
    "berita": 3,
    "tips": 1,
    "biayaUsd": 0.027608
+  },
+  "2026-11-16": {
+   "berita": 3,
+   "tips": 0,
+   "biayaUsd": 0.014543
   }
  },
  "kunci": {
+  "https://bpjph.halal.go.id/main/read/bpjph-apresiasi-pengawasan-ombudsman-perkuat-sinergi-untuk-pastikan-hak-masyarakat-atas-jaminan-produk-halal-terpenuhi": {
+   "t": "2026-11-16",
+   "hasil": "terbit",
+   "slug": "bpjph-dan-ombudsman-perkuat-sinergi-pelaku-usaha-perlu-bersiap",
+   "judul": "BPJPH Apresiasi Pengawasan Ombudsman, Perkuat Sinergi untuk Pastikan Hak Masyarakat atas Jaminan Produk Halal Terpenuhi"
+  },
   "https://bpjph.halal.go.id/main/read/bpjph-dan-pemkab-oki-jalin-sinergi-sertifikasi-halal-umk-dan-pengembangan-ekosistem-halal-daerah": {
    "t": "2026-11-15",
    "hasil": "terbit",
    "slug": "pelaku-umk-di-oki-difasilitasi-sertifikasi-halal-ini-peluangnya",
    "judul": "BPJPH dan Pemkab OKI Jalin Sinergi Sertifikasi Halal UMK dan Pengembangan Ekosistem Halal Daerah"
+  },
+  "https://dgip.go.id/artikel/detail-artikel-berita/djki-dan-departemen-luar-negeri-as-perkuat-kerja-sama-pelindungan-kekayaan-intelektual": {
+   "t": "2026-11-16",
+   "hasil": "terbit",
+   "slug": "pelindungan-ki-diperkuat-djki-gandeng-amerika-serikat",
+   "judul": "DJKI dan Departemen Luar Negeri AS Perkuat Kerja Sama Pelindungan Kekayaan Intelektual"
   },
   "https://ekraf.go.id/news/50-pelaku-ekraf-mataram-siap-bersaing-lewat-literasi-keuangan": {
    "t": "2026-11-15",
@@ -27,6 +44,18 @@
    "slug": "20-produk-umkm-kurasi-kemendag-masuk-jaringan-indogrosir",
    "judul": "Sinergi Program Pilihan Busan, Kemendag Boyong 20 Produk UMKM Potensial ke Jaringan Indogrosir"
   },
+  "https://pajak.go.id/id/siaran-pers/sanksi-pajak-bisa-dihapus-100-persen-tenggatnya-tinggal-tujuh-pekan": {
+   "t": "2026-11-16",
+   "hasil": "terbit",
+   "slug": "sanksi-pajak-bisa-dihapus-100-persen-tenggat-31-desember-2026",
+   "judul": "Sanksi Pajak Bisa Dihapus 100 Persen, Tenggatnya Tinggal Tujuh Pekan"
+  },
+  "https://pnm.co.id/berita/pnm-libatkan-keluarga-karyawan-perkuat-kebersamaan-di-lingkungan-kerja": {
+   "t": "2026-11-16",
+   "hasil": "ditolak",
+   "alasan": "model menilai tidak layak: BAHAN berisi kegiatan internal perusahaan, yaitu employee engagement PNM bersama keluarga karyawan. Isinya bukan soal...",
+   "judul": "PNM Libatkan Keluarga Karyawan, Perkuat Kebersamaan di Lingkungan Kerja"
+  },
   "yt:MBvRacCaLe8": {
    "t": "2026-11-15",
    "hasil": "terbit",
@@ -35,6 +64,14 @@
   }
  },
  "gambar": {
+  "40f70fd2b7072666ce626465026b7d72a3e88dfeb8135c1d9021fefc66b18eb5": {
+   "t": "2026-11-16",
+   "slug": "bpjph-dan-ombudsman-perkuat-sinergi-pelaku-usaha-perlu-bersiap"
+  },
+  "4199016de78572b1015fbbd95d03dec94533d3b81d555363dd64e170b99739d2": {
+   "t": "2026-11-16",
+   "slug": "sanksi-pajak-bisa-dihapus-100-persen-tenggat-31-desember-2026"
+  },
   "4ba9c2a272e7bd5e56f97fe2cc7da8f6c684c1087ff9eeeee4b6a3a9c5b5f43a": {
    "t": "2026-11-15",
    "slug": "pelaku-umk-di-oki-difasilitasi-sertifikasi-halal-ini-peluangnya"
@@ -50,6 +87,10 @@
   "756b69ff0198c2af0955bbe6c69aa7d75edf80d72e0e9099cbc21de43f44ae5c": {
    "t": "2026-11-15",
    "slug": "usai-creafin-50-pelaku-ekraf-mataram-siap-akses-pembiayaan"
+  },
+  "9447a61e2584043cc10f1a3570e52110e9e68969222a7a2fc091fecfa53b243c": {
+   "t": "2026-11-16",
+   "slug": "pelindungan-ki-diperkuat-djki-gandeng-amerika-serikat"
   },
   "9547fe87026a7c0813911487ba2b0a9dc6d4861bff37f7d04ed90d12fd7d6df2": {
    "t": "2026-11-15",
