@@ -3,6 +3,8 @@
 // Yang tidak ada sumbernya sengaja TIDAK dimasukkan: kerja sama Cyber University,
 // angka "50K+ community", produk Wellness, dan handle @kbi.* dari mockup.
 
+import { kbiPage } from './kbi.mjs';
+
 export const DIPERIKSA = '2026-09-15';
 
 // Pendiri. Sumber: linkedin.com/in/deryansha-azhary-548225150 (Founder & CEO of
@@ -39,21 +41,27 @@ export const kbi = {
   // Daftar school, program, dan produk edukasi kini ada di data/kbi.mjs (tracker 8 Okt 2026).
 };
 
-// Produk pilihan dari toko resmi lynk.id/kasisolusi (diperiksa 23 Sep 2026).
-// Menggantikan section Wellness sesuai tracker revisi. Sengaja tanpa harga karena
-// harga dan promo di Lynk.id berubah-ubah; nama dirapikan dari huruf kapital saja.
-// Gambar = sampul produk dari cdn.lynkid.my.id, diperkecil ke 600px dan disajikan lokal.
+// Produk pilihan di beranda. Susunan dari Ricky (WA 16 Nov 2026, dipasang hari itu): lima
+// produk pertama SAMA dengan Produk Edukasi di halaman KBI (diambil langsung dari data/kbi.mjs,
+// jadi ikut berubah bila susunan KBI berubah), urutannya mengikuti pesan Ricky, ditambah tiga
+// produk partner. Menggantikan susunan 23 Sep 2026 yang 6 dari 8 tautannya sudah mati.
+// Sengaja tanpa harga karena harga dan promo di Lynk.id berubah-ubah; nama dirapikan dari huruf
+// kapital. Gambar = sampul produk dari cdn.lynkid.my.id, 600x600 WebP, disajikan lokal.
+// Mahir Digital: semua gambar produknya rusak (403) bahkan di halaman Lynk-nya sendiri
+// (dicek di peramban 16 Nov 2026), jadi kartunya memakai logo profil toko @mahirdigital.id.
+// Tautan disajikan dengan standar UTM situs (utm() di data/kbi.mjs) di build.mjs.
+const URUTAN_KBI = ['saat_aku_mengerti_diriku', 'saat_terpuruk_mereka_bangkit', 'creative_marketing_ideas', 'personal_branding_master_class', 'materi_affiliate_adli_hibatul'];
 export const produk = {
   store: 'https://lynk.id/kasisolusi',
   items: [
-    { jenis: 'Event Bedah Buku', nama: 'Unboxing Your Purpose: Keluar dari Jebakan Rasa Ragu, People Pleasing, dan Takut Dinilai Orang', url: 'https://lynk.id/kasisolusi/page/unboxingyourpurpose', img: '/assets/produk/unboxing-your-purpose.webp' },
-    { jenis: 'Buku', nama: 'Saat Aku Mengerti Diriku, oleh Reinat Fuad (Co-Founder Kasisolusi)', url: 'https://lynk.id/kasisolusi/96vmwgn4jml9', img: '/assets/produk/saat-aku-mengerti-diriku.webp' },
-    { jenis: 'Rekaman Kelas', nama: 'Personal Branding Master Class bersama Deryansha', url: 'https://lynk.id/kasisolusi/zkzxrx5vzv8d', img: '/assets/produk/personal-branding-master-class.webp' },
-    { jenis: 'Rekaman Kelas', nama: 'Creative Marketing Ideas Course bersama Deryansha', url: 'https://lynk.id/kasisolusi/vv76qzvjzwq4', img: '/assets/produk/creative-marketing-ideas.webp' },
-    { jenis: 'Kelas', nama: 'Kelas Solusi Bikin Brand bersama Pak Bi, Deryansha, dan Dion Subiakto', url: 'https://lynk.id/kasisolusi/page/solusi-bikin-brand', img: '/assets/produk/solusi-bikin-brand.webp' },
-    { jenis: 'Rekaman Kelas', nama: 'Rahasia Membangun Portofolio Aset bersama Steven Anderson', url: 'https://lynk.id/kasisolusi/l6dxdx1k6p72', img: '/assets/produk/portofolio-aset.webp' },
-    { jenis: 'Rekaman Workshop', nama: 'Bedah Diri: Lebih Baik Jadi Karyawan atau Pengusaha? bersama Coach Rene', url: 'https://lynk.id/kasisolusi/3j63nezx2y3e', img: '/assets/produk/bedah-diri.webp' },
-    { jenis: 'Buku', nama: 'Rumus Anti Nganggur, oleh Coach Rene', url: 'https://lynk.id/a/5712994563/2w1v6o3mkldv', img: '/assets/produk/rumus-anti-nganggur.webp' },
+    ...URUTAN_KBI.map((slug) => {
+      const p = kbiPage.produk.items.find((x) => x.slug === slug);
+      if (!p) throw new Error(`produk KBI ${slug} tidak ada di data/kbi.mjs`);
+      return p;
+    }),
+    { slug: 'rumus_anti_nganggur', jenis: 'Buku', nama: 'Rumus Anti Nganggur, oleh Coach Rene', url: 'https://lynk.id/lenterahatistore/2w1v6o3mkldv', img: '/assets/produk/rumus-anti-nganggur.webp' },
+    { slug: 'mahir_digital', jenis: 'Kelas Online', nama: 'Mahir Digital: Belajar Digital Marketing dari Gaptek sampai Bisa Praktik', url: 'https://lynk.id/mahirdigital.id/pYX5WRP', img: '/assets/produk/mahir-digital.webp' },
+    { slug: 'belajar_ai_anjas_maradita', jenis: 'Kelas Online', nama: 'Belajar Lengkap AI Tools Penghasil Cuan 2026 bersama Anjas Maradita', url: 'https://lynk.id/belajarai/NRr6Z5W', img: '/assets/produk/belajar-ai-anjas-maradita.webp' },
   ],
 };
 

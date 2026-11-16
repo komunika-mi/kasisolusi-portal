@@ -10,7 +10,7 @@ import { episodes } from './data/episodes.mjs';
 import { articles } from './data/articles.mjs';
 import { news } from './data/news.mjs';
 import { shorts, kbi, produk } from './data/ekosistem.mjs';
-import { kbiPage, detailInvestment } from './data/kbi.mjs';
+import { kbiPage, detailInvestment, utm } from './data/kbi.mjs';
 import {
   head, esc, abs, orgLd, websiteLd, breadcrumbLd,
   podcastSeriesLd, podcastEpisodeLd, newsArticleLd,
@@ -312,7 +312,7 @@ ${ramai}
       <div>
         ${eyebrow('Produk Kasisolusi')}
         <h2 class="shead__t">Buku &amp; Kelas Pilihan</h2>
-        <p class="shead__d">Buku, rekaman kelas, dan workshop bersama mentor dan narasumber Kasisolusi. Detail, harga, dan pembelian ada di toko resmi Kasisolusi di Lynk.id.</p>
+        <p class="shead__d">Buku, rekaman kelas, dan kelas online bersama mentor Kasisolusi dan partner pilihan. Detail, harga, dan pembelian ada di Lynk.id.</p>
       </div>
       <a class="linkarrow" href="${produk.store}" target="_blank" rel="noopener">Lihat Semua di Lynk.id ${icon('external')}</a>
     </div>
@@ -322,7 +322,7 @@ ${ramai}
         <span class="pcard__img"><img src="${p.img}" width="600" height="600" alt="Sampul ${esc(p.nama)}" loading="lazy" decoding="async"></span>
         <div class="pcard__body">
           <p class="pcard__type">${esc(p.jenis)}</p>
-          <h3 class="pcard__t"><a href="${p.url}" target="_blank" rel="noopener">${esc(p.nama)}<span class="sr"> (buka di Lynk.id)</span></a></h3>
+          <h3 class="pcard__t"><a href="${esc(utm(p.url, `produk_${p.slug}_beranda`))}" target="_blank" rel="noopener">${esc(p.nama)}<span class="sr"> (buka di Lynk.id)</span></a></h3>
           <span class="pcard__cta">Lihat di Lynk.id ${icon('external')}</span>
         </div>
       </article>`).join('')}
