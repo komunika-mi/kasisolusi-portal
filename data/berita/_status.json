@@ -8,9 +8,9 @@
    "biayaUsd": 0.027608
   },
   "2026-11-16": {
-   "berita": 3,
-   "tips": 0,
-   "biayaUsd": 0.014543
+   "berita": 6,
+   "tips": 1,
+   "biayaUsd": 0.032003
   }
  },
  "kunci": {
@@ -26,11 +26,23 @@
    "slug": "pelaku-umk-di-oki-difasilitasi-sertifikasi-halal-ini-peluangnya",
    "judul": "BPJPH dan Pemkab OKI Jalin Sinergi Sertifikasi Halal UMK dan Pengembangan Ekosistem Halal Daerah"
   },
+  "https://bpjph.halal.go.id/main/read/kepala-bpjph-haikal-hasan-raih-anugerah-penggerak-nusantara-2026-kategori-penggerak-pelayanan-publik": {
+   "t": "2026-11-16",
+   "hasil": "terbit",
+   "slug": "halal-for-all-digaungkan-bpjph-peluang-baru-bagi-pelaku-umk",
+   "judul": "Kepala BPJPH Haikal Hasan Raih Anugerah Penggerak Nusantara 2026 Kategori Penggerak Pelayanan Publik"
+  },
   "https://dgip.go.id/artikel/detail-artikel-berita/djki-dan-departemen-luar-negeri-as-perkuat-kerja-sama-pelindungan-kekayaan-intelektual": {
    "t": "2026-11-16",
    "hasil": "terbit",
    "slug": "pelindungan-ki-diperkuat-djki-gandeng-amerika-serikat",
    "judul": "DJKI dan Departemen Luar Negeri AS Perkuat Kerja Sama Pelindungan Kekayaan Intelektual"
+  },
+  "https://dgip.go.id/artikel/detail-artikel-berita/djki-fasilitasi-perdamaian-sengketa-merek-asics-9609-pasang-sepatu-akan-dimusnahkan": {
+   "t": "2026-11-16",
+   "hasil": "terbit",
+   "slug": "belajar-dari-sengketa-merek-asics-pelaku-usaha-wajib-cek-pemasok",
+   "judul": "DJKI Fasilitasi Perdamaian Sengketa Merek ASICS, 9.609 Pasang Sepatu Akan Dimusnahkan"
   },
   "https://ekraf.go.id/news/50-pelaku-ekraf-mataram-siap-bersaing-lewat-literasi-keuangan": {
    "t": "2026-11-15",
@@ -50,6 +62,12 @@
    "slug": "sanksi-pajak-bisa-dihapus-100-persen-tenggat-31-desember-2026",
    "judul": "Sanksi Pajak Bisa Dihapus 100 Persen, Tenggatnya Tinggal Tujuh Pekan"
   },
+  "https://pnm.co.id/berita/petani-stroberi-di-rancabali-rasakan-manisnya-mekaar-8-persen": {
+   "t": "2026-11-16",
+   "hasil": "terbit",
+   "slug": "biaya-pembiayaan-mekaar-turun-jadi-8-persen-modal-usaha-makin-ringan",
+   "judul": "Petani Stroberi di Rancabali Rasakan Manisnya Mekaar 8 Persen"
+  },
   "https://pnm.co.id/berita/pnm-libatkan-keluarga-karyawan-perkuat-kebersamaan-di-lingkungan-kerja": {
    "t": "2026-11-16",
    "hasil": "ditolak",
@@ -61,9 +79,27 @@
    "hasil": "terbit",
    "slug": "gaji-naik-tapi-merasa-kurang-ini-kata-reinat-fuad-coach-rene",
    "judul": "Kenapa Gaji Makin Besar, Tapi Kita Nggak Pernah Merasa Kaya?"
+  },
+  "yt:mlWRoxtbQ0c": {
+   "t": "2026-11-16",
+   "hasil": "terbit",
+   "slug": "cara-mengatur-keuangan-agar-bisnis-berkembang-tanpa-pinjaman-bank",
+   "judul": "CARA MENGATUR KEUANGAN SUPAYA BISNIS BERKEMBANG, TANPA PINJAMAN BANK - Coach Yuszak"
   }
  },
  "gambar": {
+  "27a01b1025b4796a150b4ee3b952c238e41827dd9d1f086a52ab8f118570d66b": {
+   "t": "2026-11-16",
+   "slug": "biaya-pembiayaan-mekaar-turun-jadi-8-persen-modal-usaha-makin-ringan"
+  },
+  "3d911462763ed852f018c518ee93f22dca7201a753b9a8c2b56c785db59933c1": {
+   "t": "2026-11-16",
+   "slug": "cara-mengatur-keuangan-agar-bisnis-berkembang-tanpa-pinjaman-bank"
+  },
+  "3fc90047da04a54c7cf0de219f58a26f0cf5fbbb4d55f016a5fa6d40f4142616": {
+   "t": "2026-11-16",
+   "slug": "halal-for-all-digaungkan-bpjph-peluang-baru-bagi-pelaku-umk"
+  },
   "40f70fd2b7072666ce626465026b7d72a3e88dfeb8135c1d9021fefc66b18eb5": {
    "t": "2026-11-16",
    "slug": "bpjph-dan-ombudsman-perkuat-sinergi-pelaku-usaha-perlu-bersiap"
@@ -99,6 +135,10 @@
   "9db1a0a51bb0730c23ef568cf288eca09a26941a42ca3bb670f75e719ba5d007": {
    "t": "2026-11-15",
    "slug": "20-produk-umkm-kurasi-kemendag-masuk-jaringan-indogrosir"
+  },
+  "bb9e9a9fbf7414ff8516af3551c15243ba13cdd400c1af695a372218cd4b38f6": {
+   "t": "2026-11-16",
+   "slug": "belajar-dari-sengketa-merek-asics-pelaku-usaha-wajib-cek-pemasok"
   },
   "f14cb8dac104fb6aa29008a7c01ff912e3855063cb5b51ce5acfb2e2e26702c5": {
    "t": "2026-11-15",
