@@ -135,6 +135,17 @@ Vercel, tanpa framework. `vercel.json` mengatur `buildCommand`, `cleanUrls`, dan
 header cache. Domain kanonik diambil otomatis dari `VERCEL_PROJECT_PRODUCTION_URL`.
 Untuk domain sendiri, isi env `SITE_ORIGIN`, misalnya `https://kasisolusi.co.id`.
 
+**Pindah ke kasisolusi.co.id (16 Nov 2026, sedang berjalan).** Alamat utama `www.kasisolusi.co.id`;
+`kasisolusi.co.id` 308 ke `www` (diatur di domain proyek Vercel). Kedua domain sudah didaftarkan
+di proyek `kasisolusi-portal` dan menunggu verifikasi TXT `_vercel.kasisolusi.co.id` dari pengelola
+DNS (Niagahoster). Domain baru pindah ke proyek ini SAAT TXT terverifikasi; DNS lama (A 76.76.21.21,
+CNAME cname.vercel-dns.com) masih diterima Vercel, nilai anjurannya A 216.150.1.1 + 216.150.16.1 dan
+CNAME `9b2b4225300c3f94.vercel-dns-017.com`. Sampai pindah, env `SITE_ORIGIN` (Production) sengaja
+`https://kasisolusi-portal.vercel.app`, karena `VERCEL_PROJECT_PRODUCTION_URL` memilih domain kustom
+terpendek (`kasisolusi.co.id`, yang masih menampilkan situs lama lalu jadi redirect). Begitu pindah:
+ganti `SITE_ORIGIN` ke `https://www.kasisolusi.co.id` lalu deploy ulang. MX dan rekaman email jangan
+disentuh. Tautan produk etalase lama `/343` sampai `/399` dialihkan permanen ke `/#produk`.
+
 **Setelah berita otomatis menyala, situs HANYA boleh berubah lewat repo** (commit ke GitHub,
 lalu Vercel membangun dari Git). Jangan lagi `vercel deploy` dari folder lokal: folder lokal
 tidak punya berita yang ditulis otomasi di repo, jadi deploy manual akan menimpa situs hidup
