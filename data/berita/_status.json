@@ -11,9 +11,20 @@
    "berita": 6,
    "tips": 1,
    "biayaUsd": 0.032003
+  },
+  "2026-11-17": {
+   "berita": 3,
+   "tips": 1,
+   "biayaUsd": 0.027016
   }
  },
  "kunci": {
+  "https://bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_2825326.aspx": {
+   "t": "2026-11-17",
+   "hasil": "terbit",
+   "slug": "pelindungan-konsumen-digital-diperkuat-bi-luncurkan-geber-pk-2027",
+   "judul": "Pelindungan Konsumen Menjadi Kunci Ekonomi Keuangan Digital Terpercaya"
+  },
   "https://bpjph.halal.go.id/main/read/bpjph-apresiasi-pengawasan-ombudsman-perkuat-sinergi-untuk-pastikan-hak-masyarakat-atas-jaminan-produk-halal-terpenuhi": {
    "t": "2026-11-16",
    "hasil": "terbit",
@@ -26,11 +37,23 @@
    "slug": "pelaku-umk-di-oki-difasilitasi-sertifikasi-halal-ini-peluangnya",
    "judul": "BPJPH dan Pemkab OKI Jalin Sinergi Sertifikasi Halal UMK dan Pengembangan Ekosistem Halal Daerah"
   },
+  "https://bpjph.halal.go.id/main/read/bpjph-terima-audiensi-dprd-kota-padang-bahas-percepatan-sertifikasi-halal-menuju-padang-kota-gastronomi": {
+   "t": "2026-11-17",
+   "hasil": "terbit",
+   "slug": "pelaku-umkm-padang-perda-percepatan-sertifikasi-halal-sedang-dikaji",
+   "judul": "BPJPH Terima Audiensi DPRD Kota Padang, Bahas Percepatan Sertifikasi Halal Menuju Padang Kota Gastronomi"
+  },
   "https://bpjph.halal.go.id/main/read/kepala-bpjph-haikal-hasan-raih-anugerah-penggerak-nusantara-2026-kategori-penggerak-pelayanan-publik": {
    "t": "2026-11-16",
    "hasil": "terbit",
    "slug": "halal-for-all-digaungkan-bpjph-peluang-baru-bagi-pelaku-umk",
    "judul": "Kepala BPJPH Haikal Hasan Raih Anugerah Penggerak Nusantara 2026 Kategori Penggerak Pelayanan Publik"
+  },
+  "https://bpjph.halal.go.id/main/read/pascainsiden-warung-mie-and-babi-tepi-sawah-bpjph-dan-pemkab-sukoharjo-perkuat-pembinaan-jaminan-produk-halal": {
+   "t": "2026-11-17",
+   "hasil": "terbit",
+   "slug": "jualan-makanan-mengandung-babi-ini-aturan-keterangan-tidak-halal",
+   "judul": "Pascainsiden Warung Mie & Babi Tepi Sawah, BPJPH dan Pemkab Sukoharjo Perkuat Pembinaan Jaminan Produk Halal"
   },
   "https://dgip.go.id/artikel/detail-artikel-berita/djki-dan-departemen-luar-negeri-as-perkuat-kerja-sama-pelindungan-kekayaan-intelektual": {
    "t": "2026-11-16",
@@ -74,6 +97,13 @@
    "alasan": "model menilai tidak layak: BAHAN berisi kegiatan internal perusahaan, yaitu employee engagement PNM bersama keluarga karyawan. Isinya bukan soal...",
    "judul": "PNM Libatkan Keluarga Karyawan, Perkuat Kebersamaan di Lingkungan Kerja"
   },
+  "yt:-JPFQm0XyxE": {
+   "t": "2026-11-17",
+   "hasil": "gagal",
+   "alasan": "OpenRouter: balasan terpotong (max_tokens; 16000 token keluaran, 993 untuk berpikir)",
+   "judul": "STOP JUDOL Sebelum Keluarga Lo Jadi Korban‼️Bongkar Pola Judol yang Bikin Kecanduan & Susah Berhenti",
+   "coba": 1
+  },
   "yt:MBvRacCaLe8": {
    "t": "2026-11-15",
    "hasil": "terbit",
@@ -85,9 +115,19 @@
    "hasil": "terbit",
    "slug": "cara-mengatur-keuangan-agar-bisnis-berkembang-tanpa-pinjaman-bank",
    "judul": "CARA MENGATUR KEUANGAN SUPAYA BISNIS BERKEMBANG, TANPA PINJAMAN BANK - Coach Yuszak"
+  },
+  "yt:v1ex4ozlfEs": {
+   "t": "2026-11-17",
+   "hasil": "terbit",
+   "slug": "ingin-kredit-motor-atau-mobil-tanpa-riba-simak-cara-syariahnya",
+   "judul": "BEGINI CARA KREDIT MOTOR & MOBIL SESUAI SYARIAH, TANPA RIBA, TANPA SITA - Founder Lariba Consulting"
   }
  },
  "gambar": {
+  "1934db8cc2bebee8f3d4ae6ebc803074d1e40479c83bca80060c261e32690d07": {
+   "t": "2026-11-17",
+   "slug": "pelaku-umkm-padang-perda-percepatan-sertifikasi-halal-sedang-dikaji"
+  },
   "27a01b1025b4796a150b4ee3b952c238e41827dd9d1f086a52ab8f118570d66b": {
    "t": "2026-11-16",
    "slug": "biaya-pembiayaan-mekaar-turun-jadi-8-persen-modal-usaha-makin-ringan"
@@ -124,6 +164,10 @@
    "t": "2026-11-15",
    "slug": "usai-creafin-50-pelaku-ekraf-mataram-siap-akses-pembiayaan"
   },
+  "820328414d864cfc3ffbee4e692783db22fd288aa3b9732be5c553c0001cb000": {
+   "t": "2026-11-17",
+   "slug": "jualan-makanan-mengandung-babi-ini-aturan-keterangan-tidak-halal"
+  },
   "9447a61e2584043cc10f1a3570e52110e9e68969222a7a2fc091fecfa53b243c": {
    "t": "2026-11-16",
    "slug": "pelindungan-ki-diperkuat-djki-gandeng-amerika-serikat"
@@ -136,9 +180,17 @@
    "t": "2026-11-15",
    "slug": "20-produk-umkm-kurasi-kemendag-masuk-jaringan-indogrosir"
   },
+  "b52cf4a436a6982bb1d1b28760553a8de327d4eedc2c0fe10aaa9987652993d2": {
+   "t": "2026-11-17",
+   "slug": "ingin-kredit-motor-atau-mobil-tanpa-riba-simak-cara-syariahnya"
+  },
   "bb9e9a9fbf7414ff8516af3551c15243ba13cdd400c1af695a372218cd4b38f6": {
    "t": "2026-11-16",
    "slug": "belajar-dari-sengketa-merek-asics-pelaku-usaha-wajib-cek-pemasok"
+  },
+  "e1c6db442991ce0a3a54d08b30ed86da0d4c4fdf122edcfdda2dcb9d96ae4293": {
+   "t": "2026-11-17",
+   "slug": "pelindungan-konsumen-digital-diperkuat-bi-luncurkan-geber-pk-2027"
   },
   "f14cb8dac104fb6aa29008a7c01ff912e3855063cb5b51ce5acfb2e2e26702c5": {
    "t": "2026-11-15",
