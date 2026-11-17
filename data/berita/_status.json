@@ -13,9 +13,9 @@
    "biayaUsd": 0.032003
   },
   "2026-11-17": {
-   "berita": 3,
-   "tips": 1,
-   "biayaUsd": 0.027016
+   "berita": 6,
+   "tips": 2,
+   "biayaUsd": 0.050409
   }
  },
  "kunci": {
@@ -36,6 +36,12 @@
    "hasil": "terbit",
    "slug": "pelaku-umk-di-oki-difasilitasi-sertifikasi-halal-ini-peluangnya",
    "judul": "BPJPH dan Pemkab OKI Jalin Sinergi Sertifikasi Halal UMK dan Pengembangan Ekosistem Halal Daerah"
+  },
+  "https://bpjph.halal.go.id/main/read/bpjph-dorong-asn-berperan-sebagai-penggerak-pertumbuhan-industri-halal": {
+   "t": "2026-11-17",
+   "hasil": "terbit",
+   "slug": "asn-diminta-pilih-produk-halal-peluang-baru-untuk-umkm",
+   "judul": "BPJPH Dorong ASN Berperan sebagai Penggerak Pertumbuhan Industri Halal"
   },
   "https://bpjph.halal.go.id/main/read/bpjph-terima-audiensi-dprd-kota-padang-bahas-percepatan-sertifikasi-halal-menuju-padang-kota-gastronomi": {
    "t": "2026-11-17",
@@ -67,17 +73,35 @@
    "slug": "belajar-dari-sengketa-merek-asics-pelaku-usaha-wajib-cek-pemasok",
    "judul": "DJKI Fasilitasi Perdamaian Sengketa Merek ASICS, 9.609 Pasang Sepatu Akan Dimusnahkan"
   },
+  "https://dgip.go.id/artikel/detail-artikel-berita/djki-verifikasi-permohonan-penutupan-situs-dugaan-pelanggaran-merek-geni-energi": {
+   "t": "2026-11-17",
+   "hasil": "terbit",
+   "slug": "merek-kata-belum-didaftar-situs-geni-energi-belum-bisa-ditutup",
+   "judul": "DJKI Verifikasi Permohonan Penutupan Situs Dugaan Pelanggaran Merek Geni Energi"
+  },
   "https://ekraf.go.id/news/50-pelaku-ekraf-mataram-siap-bersaing-lewat-literasi-keuangan": {
    "t": "2026-11-15",
    "hasil": "terbit",
    "slug": "usai-creafin-50-pelaku-ekraf-mataram-siap-akses-pembiayaan",
    "judul": "50 Pelaku Ekraf Mataram Siap Bersaing lewat Literasi Keuangan CreaFIN"
   },
+  "https://kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha": {
+   "t": "2026-11-17",
+   "hasil": "terbit",
+   "slug": "peluang-ekspor-umkm-terbuka-business-matching-catat-usd-361-61-juta",
+   "judul": "Business Matching Kemendag Januari–Oktober 2026, Catat Transaksi USD 361,61 Juta dan Libatkan 1.433 Pelaku Usaha"
+  },
   "https://kemendag.go.id/berita/siaran-pers/sinergi-program-pilihan-busan-kemendag-boyong-20-produk-umkm-potensial-ke-jaringan-indogrosir": {
    "t": "2026-11-15",
    "hasil": "terbit",
    "slug": "20-produk-umkm-kurasi-kemendag-masuk-jaringan-indogrosir",
    "judul": "Sinergi Program Pilihan Busan, Kemendag Boyong 20 Produk UMKM Potensial ke Jaringan Indogrosir"
+  },
+  "https://kemendag.go.id/berita/siaran-pers/soda-abu-indonesia-terbebas-dari-aturan-kuota-impor-india-mendag-busan-ajak-tingkatkan-ekspor": {
+   "t": "2026-11-17",
+   "hasil": "ditolak",
+   "alasan": "gagal penjaga dua kali: terlalu mirip kalimat bahan (62% untaian 8 kata sama, terpanjang 143 kata); tulis ulang dengan kata-kata sendiri",
+   "judul": "Soda Abu Indonesia Terbebas dari Aturan Kuota Impor India, Mendag Busan Ajak Tingkatkan Ekspor"
   },
   "https://pajak.go.id/id/siaran-pers/sanksi-pajak-bisa-dihapus-100-persen-tenggatnya-tinggal-tujuh-pekan": {
    "t": "2026-11-16",
@@ -99,16 +123,21 @@
   },
   "yt:-JPFQm0XyxE": {
    "t": "2026-11-17",
-   "hasil": "gagal",
-   "alasan": "OpenRouter: balasan terpotong (max_tokens; 16000 token keluaran, 993 untuk berpikir)",
-   "judul": "STOP JUDOL Sebelum Keluarga Lo Jadi Korban‼️Bongkar Pola Judol yang Bikin Kecanduan & Susah Berhenti",
-   "coba": 1
+   "hasil": "ditolak",
+   "alasan": "model menilai tidak layak: BAHAN ini adalah deskripsi episode podcast tentang bahaya judi online dan kecanduan, bukan soal UMKM, usaha, atau...",
+   "judul": "STOP JUDOL Sebelum Keluarga Lo Jadi Korban‼️Bongkar Pola Judol yang Bikin Kecanduan & Susah Berhenti"
   },
   "yt:MBvRacCaLe8": {
    "t": "2026-11-15",
    "hasil": "terbit",
    "slug": "gaji-naik-tapi-merasa-kurang-ini-kata-reinat-fuad-coach-rene",
    "judul": "Kenapa Gaji Makin Besar, Tapi Kita Nggak Pernah Merasa Kaya?"
+  },
+  "yt:OAmk3njXsaE": {
+   "t": "2026-11-17",
+   "hasil": "terbit",
+   "slug": "ubah-nasib-lewat-jualan-ilmu-sales-china-di-podcast-kasisolusi",
+   "judul": "JANGAN JUALAN SEBELUM NONTON INI! ILMU SALES TERBARU DARI CHINA YANG BIKIN AUTO CLOSING - James Gwee"
   },
   "yt:mlWRoxtbQ0c": {
    "t": "2026-11-16",
@@ -131,6 +160,10 @@
   "27a01b1025b4796a150b4ee3b952c238e41827dd9d1f086a52ab8f118570d66b": {
    "t": "2026-11-16",
    "slug": "biaya-pembiayaan-mekaar-turun-jadi-8-persen-modal-usaha-makin-ringan"
+  },
+  "314a0d341559e289b7a0b727d0119086a9656b129931be21ec639f3232df5d9a": {
+   "t": "2026-11-17",
+   "slug": "ubah-nasib-lewat-jualan-ilmu-sales-china-di-podcast-kasisolusi"
   },
   "3d911462763ed852f018c518ee93f22dca7201a753b9a8c2b56c785db59933c1": {
    "t": "2026-11-16",
@@ -164,6 +197,10 @@
    "t": "2026-11-15",
    "slug": "usai-creafin-50-pelaku-ekraf-mataram-siap-akses-pembiayaan"
   },
+  "7aff467f56f089105a5151a1400d5989a4f41efed2098f31185fbbee001e5eb5": {
+   "t": "2026-11-17",
+   "slug": "asn-diminta-pilih-produk-halal-peluang-baru-untuk-umkm"
+  },
   "820328414d864cfc3ffbee4e692783db22fd288aa3b9732be5c553c0001cb000": {
    "t": "2026-11-17",
    "slug": "jualan-makanan-mengandung-babi-ini-aturan-keterangan-tidak-halal"
@@ -180,6 +217,10 @@
    "t": "2026-11-15",
    "slug": "20-produk-umkm-kurasi-kemendag-masuk-jaringan-indogrosir"
   },
+  "aa19b80b89ea91dca2642d6a4c1b77b8e087898c053fbddcf277eecc71123f68": {
+   "t": "2026-11-17",
+   "slug": "merek-kata-belum-didaftar-situs-geni-energi-belum-bisa-ditutup"
+  },
   "b52cf4a436a6982bb1d1b28760553a8de327d4eedc2c0fe10aaa9987652993d2": {
    "t": "2026-11-17",
    "slug": "ingin-kredit-motor-atau-mobil-tanpa-riba-simak-cara-syariahnya"
@@ -187,6 +228,10 @@
   "bb9e9a9fbf7414ff8516af3551c15243ba13cdd400c1af695a372218cd4b38f6": {
    "t": "2026-11-16",
    "slug": "belajar-dari-sengketa-merek-asics-pelaku-usaha-wajib-cek-pemasok"
+  },
+  "c3c093802e3b24210e7f2907d58e6e297565155c1cee017c11383e1b2a2c1a1a": {
+   "t": "2026-11-17",
+   "slug": "peluang-ekspor-umkm-terbuka-business-matching-catat-usd-361-61-juta"
   },
   "e1c6db442991ce0a3a54d08b30ed86da0d4c4fdf122edcfdda2dcb9d96ae4293": {
    "t": "2026-11-17",
