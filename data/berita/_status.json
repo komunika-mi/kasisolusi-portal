@@ -18,9 +18,9 @@
    "biayaUsd": 0.050409
   },
   "2026-11-18": {
-   "berita": 3,
-   "tips": 1,
-   "biayaUsd": 0.027305
+   "berita": 6,
+   "tips": 2,
+   "biayaUsd": 0.058066
   }
  },
  "kunci": {
@@ -54,6 +54,18 @@
    "slug": "pelaku-umkm-padang-perda-percepatan-sertifikasi-halal-sedang-dikaji",
    "judul": "BPJPH Terima Audiensi DPRD Kota Padang, Bahas Percepatan Sertifikasi Halal Menuju Padang Kota Gastronomi"
   },
+  "https://bpjph.halal.go.id/main/read/buka-ui-halal-expo-kepala-bpjph-ajak-stakeholder-perkuat-ekosistem-halal-menuju-indonesia-pusat-halal-dunia": {
+   "t": "2026-11-18",
+   "hasil": "ditolak",
+   "alasan": "model menilai tidak layak: Topik bahan sama dengan artikel Kasisolusi yang sudah terbit, yakni penguatan ekosistem halal oleh BPJPH dan ajakan...",
+   "judul": "Buka UI Halal Expo, Kepala BPJPH Ajak Stakeholder Perkuat Ekosistem Halal Menuju Indonesia Pusat Halal Dunia"
+  },
+  "https://bpjph.halal.go.id/main/read/kemenko-pangan-penguatan-ekosistem-halal-strategis-bagi-ketahanan-pangan-dan-ekonomi-nasional": {
+   "t": "2026-11-18",
+   "hasil": "terbit",
+   "slug": "ekosistem-halal-diperkuat-bpjph-siapkan-1-35-juta-sertifikat-gratis",
+   "judul": "Kemenko Pangan: Penguatan Ekosistem Halal Strategis bagi Ketahanan Pangan dan Ekonomi Nasional"
+  },
   "https://bpjph.halal.go.id/main/read/kepala-bpjph-haikal-hasan-raih-anugerah-penggerak-nusantara-2026-kategori-penggerak-pelayanan-publik": {
    "t": "2026-11-16",
    "hasil": "terbit",
@@ -78,6 +90,12 @@
    "slug": "belajar-dari-sengketa-merek-asics-pelaku-usaha-wajib-cek-pemasok",
    "judul": "DJKI Fasilitasi Perdamaian Sengketa Merek ASICS, 9.609 Pasang Sepatu Akan Dimusnahkan"
   },
+  "https://dgip.go.id/artikel/detail-artikel-berita/djki-kenalkan-kekayaan-intelektual-kepada-manbaul-ulum-boarding-school": {
+   "t": "2026-11-18",
+   "hasil": "ditolak",
+   "alasan": "model menilai tidak layak: BAHAN menceritakan kunjungan edukasi dan eksplorasi karier siswa SMA Manbaul Ulum Boarding School ke DJKI, bukan soal...",
+   "judul": "DJKI Kenalkan Kekayaan Intelektual kepada Manba’ul Ulum Boarding School"
+  },
   "https://dgip.go.id/artikel/detail-artikel-berita/djki-verifikasi-dugaan-pelanggaran-merek-mahkota-di-lima-tautan": {
    "t": "2026-11-18",
    "hasil": "terbit",
@@ -95,6 +113,12 @@
    "hasil": "terbit",
    "slug": "usai-creafin-50-pelaku-ekraf-mataram-siap-akses-pembiayaan",
    "judul": "50 Pelaku Ekraf Mataram Siap Bersaing lewat Literasi Keuangan CreaFIN"
+  },
+  "https://ekraf.go.id/news/dukung-musisi-national-champion-mendunia-kementerian-ekraf-apresiasi-album": {
+   "t": "2026-11-18",
+   "hasil": "terbit",
+   "slug": "pelaku-musik-mau-mendunia-ekraf-tawarkan-collab-promotion",
+   "judul": "Dukung Musisi National Champion Mendunia, Kementerian Ekraf Apresiasi Album ‘Blue"
   },
   "https://ekraf.go.id/news/kementerian-ekraf-dan-vidio-perkuat-kolaborasi-perluas-akses-pasar-film": {
    "t": "2026-11-18",
@@ -125,6 +149,12 @@
    "hasil": "ditolak",
    "alasan": "gagal penjaga dua kali: terlalu mirip kalimat bahan (62% untaian 8 kata sama, terpanjang 143 kata); tulis ulang dengan kata-kata sendiri",
    "judul": "Soda Abu Indonesia Terbebas dari Aturan Kuota Impor India, Mendag Busan Ajak Tingkatkan Ekspor"
+  },
+  "https://liputan6.com/bisnis/read/8337853/produk-usaha-mikro-masuk-ritel-modern-tanpa-biaya": {
+   "t": "2026-11-18",
+   "hasil": "terbit",
+   "slug": "masuk-ritel-modern-tanpa-biaya-awal-ini-program-kumitra",
+   "judul": "Produk Usaha Mikro Masuk Ritel Modern Tanpa Biaya"
   },
   "https://pajak.go.id/id/siaran-pers/sanksi-pajak-bisa-dihapus-100-persen-tenggatnya-tinggal-tujuh-pekan": {
    "t": "2026-11-16",
@@ -174,6 +204,12 @@
    "alasan": "model menilai tidak layak: Deskripsi episode hanya memuat janji topik dan nama narasumber tanpa rincian strategi atau tips, sehingga tidak cukup...",
    "judul": "DARI 0 KE 2,9 MILIAR/BULAN, INI STRATEGI 4 AFFILIATOR YANG WAJIB KAMU CONTEK"
   },
+  "yt:hQRh4dGbSxw": {
+   "t": "2026-11-18",
+   "hasil": "terbit",
+   "slug": "dari-guru-honorer-ke-affiliate-tiktok-ini-kata-anggi-setya",
+   "judul": "OMZET 1,3 MILIAR SEORANG MANTAN GURU HONORER JADI RAJA AFFILIATE ! TIKTOK UBAH NASIBNYA TOTAL"
+  },
   "yt:mlWRoxtbQ0c": {
    "t": "2026-11-16",
    "hasil": "terbit",
@@ -192,6 +228,10 @@
    "t": "2026-11-17",
    "slug": "pelaku-umkm-padang-perda-percepatan-sertifikasi-halal-sedang-dikaji"
   },
+  "1a2047e64fa6f84ae7d4dd1f2fd490158026c1f2abb30a529c8298f2f1bce342": {
+   "t": "2026-11-18",
+   "slug": "dari-guru-honorer-ke-affiliate-tiktok-ini-kata-anggi-setya"
+  },
   "27a01b1025b4796a150b4ee3b952c238e41827dd9d1f086a52ab8f118570d66b": {
    "t": "2026-11-16",
    "slug": "biaya-pembiayaan-mekaar-turun-jadi-8-persen-modal-usaha-makin-ringan"
@@ -199,6 +239,10 @@
   "314a0d341559e289b7a0b727d0119086a9656b129931be21ec639f3232df5d9a": {
    "t": "2026-11-17",
    "slug": "ubah-nasib-lewat-jualan-ilmu-sales-china-di-podcast-kasisolusi"
+  },
+  "38c7ac665a5f6f15a38ceaa6930768bde7c5e374c44eb066ad0d6220f483445e": {
+   "t": "2026-11-18",
+   "slug": "masuk-ritel-modern-tanpa-biaya-awal-ini-program-kumitra"
   },
   "3d911462763ed852f018c518ee93f22dca7201a753b9a8c2b56c785db59933c1": {
    "t": "2026-11-16",
@@ -215,6 +259,10 @@
   "4199016de78572b1015fbbd95d03dec94533d3b81d555363dd64e170b99739d2": {
    "t": "2026-11-16",
    "slug": "sanksi-pajak-bisa-dihapus-100-persen-tenggat-31-desember-2026"
+  },
+  "437feaff85ab09345070ed251f6184a16ec09c4f9c800a1eccaf4b766e651118": {
+   "t": "2026-11-18",
+   "slug": "pelaku-musik-mau-mendunia-ekraf-tawarkan-collab-promotion"
   },
   "4ba9c2a272e7bd5e56f97fe2cc7da8f6c684c1087ff9eeeee4b6a3a9c5b5f43a": {
    "t": "2026-11-15",
@@ -283,6 +331,10 @@
   "e1c6db442991ce0a3a54d08b30ed86da0d4c4fdf122edcfdda2dcb9d96ae4293": {
    "t": "2026-11-17",
    "slug": "pelindungan-konsumen-digital-diperkuat-bi-luncurkan-geber-pk-2027"
+  },
+  "ec89cc0c78c1383a7b936e0cacaaa3ac0c98f05833281cf4920bf1da13cec44e": {
+   "t": "2026-11-18",
+   "slug": "ekosistem-halal-diperkuat-bpjph-siapkan-1-35-juta-sertifikat-gratis"
   },
   "f14cb8dac104fb6aa29008a7c01ff912e3855063cb5b51ce5acfb2e2e26702c5": {
    "t": "2026-11-15",
