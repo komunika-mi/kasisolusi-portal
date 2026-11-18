@@ -16,6 +16,11 @@
    "berita": 6,
    "tips": 2,
    "biayaUsd": 0.050409
+  },
+  "2026-11-18": {
+   "berita": 3,
+   "tips": 1,
+   "biayaUsd": 0.027305
   }
  },
  "kunci": {
@@ -73,6 +78,12 @@
    "slug": "belajar-dari-sengketa-merek-asics-pelaku-usaha-wajib-cek-pemasok",
    "judul": "DJKI Fasilitasi Perdamaian Sengketa Merek ASICS, 9.609 Pasang Sepatu Akan Dimusnahkan"
   },
+  "https://dgip.go.id/artikel/detail-artikel-berita/djki-verifikasi-dugaan-pelanggaran-merek-mahkota-di-lima-tautan": {
+   "t": "2026-11-18",
+   "hasil": "terbit",
+   "slug": "merek-toko-mirip-milik-orang-lain-ini-yang-dilakukan-djki",
+   "judul": "DJKI Verifikasi Dugaan Pelanggaran Merek MAHKOTA di Lima Tautan"
+  },
   "https://dgip.go.id/artikel/detail-artikel-berita/djki-verifikasi-permohonan-penutupan-situs-dugaan-pelanggaran-merek-geni-energi": {
    "t": "2026-11-17",
    "hasil": "terbit",
@@ -84,6 +95,18 @@
    "hasil": "terbit",
    "slug": "usai-creafin-50-pelaku-ekraf-mataram-siap-akses-pembiayaan",
    "judul": "50 Pelaku Ekraf Mataram Siap Bersaing lewat Literasi Keuangan CreaFIN"
+  },
+  "https://ekraf.go.id/news/kementerian-ekraf-dan-vidio-perkuat-kolaborasi-perluas-akses-pasar-film": {
+   "t": "2026-11-18",
+   "hasil": "terbit",
+   "slug": "film-lokal-dapat-layar-baru-ekraf-jajaki-kerja-sama-dengan-vidio",
+   "judul": "Kementerian Ekraf dan Vidio Perkuat Kolaborasi Perluas Akses Pasar Film Indonesia"
+  },
+  "https://ekraf.go.id/news/kic-2026-jadi-peluang-kolaborasi-esports-dan-kreator-lokal-di-panggung": {
+   "t": "2026-11-18",
+   "hasil": "terbit",
+   "slug": "kreator-lokal-bisa-terlibat-di-esports-kic-2026-ini-peluangnya",
+   "judul": "KIC 2026 Jadi Peluang Kolaborasi Esports dan Kreator Lokal di Panggung Dunia"
   },
   "https://kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha": {
    "t": "2026-11-17",
@@ -133,11 +156,23 @@
    "slug": "gaji-naik-tapi-merasa-kurang-ini-kata-reinat-fuad-coach-rene",
    "judul": "Kenapa Gaji Makin Besar, Tapi Kita Nggak Pernah Merasa Kaya?"
   },
+  "yt:NFj1JahE34Q": {
+   "t": "2026-11-18",
+   "hasil": "terbit",
+   "slug": "cara-koh-king-jaga-omzet-tanpa-rakus-bisnis-tidak-gulung-tikar",
+   "judul": "Bisnis Gulung Tikar Karena Boncos?! Contek 4 Cara Pebisnis Sukses Raih Omzet Milyaran Tanpa Rakus!"
+  },
   "yt:OAmk3njXsaE": {
    "t": "2026-11-17",
    "hasil": "terbit",
    "slug": "ubah-nasib-lewat-jualan-ilmu-sales-china-di-podcast-kasisolusi",
    "judul": "JANGAN JUALAN SEBELUM NONTON INI! ILMU SALES TERBARU DARI CHINA YANG BIKIN AUTO CLOSING - James Gwee"
+  },
+  "yt:ZfWrEdhTzCQ": {
+   "t": "2026-11-18",
+   "hasil": "ditolak",
+   "alasan": "model menilai tidak layak: Deskripsi episode hanya memuat janji topik dan nama narasumber tanpa rincian strategi atau tips, sehingga tidak cukup...",
+   "judul": "DARI 0 KE 2,9 MILIAR/BULAN, INI STRATEGI 4 AFFILIATOR YANG WAJIB KAMU CONTEK"
   },
   "yt:mlWRoxtbQ0c": {
    "t": "2026-11-16",
@@ -184,6 +219,14 @@
   "4ba9c2a272e7bd5e56f97fe2cc7da8f6c684c1087ff9eeeee4b6a3a9c5b5f43a": {
    "t": "2026-11-15",
    "slug": "pelaku-umk-di-oki-difasilitasi-sertifikasi-halal-ini-peluangnya"
+  },
+  "57068c6304f9cb9569e437b96d02eb3c42286bb0438e5955e843bee50d775429": {
+   "t": "2026-11-18",
+   "slug": "merek-toko-mirip-milik-orang-lain-ini-yang-dilakukan-djki"
+  },
+  "58ac70758672ce874c470f4238e01c03736701c78cbfecc5c33595977fcb5284": {
+   "t": "2026-11-18",
+   "slug": "film-lokal-dapat-layar-baru-ekraf-jajaki-kerja-sama-dengan-vidio"
   },
   "602110736e4376f76f4d4d1f40a2e2033330ca705d1613a7cb35a78964366927": {
    "t": "2026-11-15",
@@ -233,6 +276,10 @@
    "t": "2026-11-17",
    "slug": "peluang-ekspor-umkm-terbuka-business-matching-catat-usd-361-61-juta"
   },
+  "d385762c37e0dd933815f90460f142bc19fd6980c53cd84c2a47fe12c020fe52": {
+   "t": "2026-11-18",
+   "slug": "cara-koh-king-jaga-omzet-tanpa-rakus-bisnis-tidak-gulung-tikar"
+  },
   "e1c6db442991ce0a3a54d08b30ed86da0d4c4fdf122edcfdda2dcb9d96ae4293": {
    "t": "2026-11-17",
    "slug": "pelindungan-konsumen-digital-diperkuat-bi-luncurkan-geber-pk-2027"
@@ -240,6 +287,10 @@
   "f14cb8dac104fb6aa29008a7c01ff912e3855063cb5b51ce5acfb2e2e26702c5": {
    "t": "2026-11-15",
    "slug": "pelaku-umk-di-oki-difasilitasi-sertifikasi-halal-ini-peluangnya"
+  },
+  "f320c487c8f911ebf190603934324ff52542bf78afec57cda90eeeb40f4c23f4": {
+   "t": "2026-11-18",
+   "slug": "kreator-lokal-bisa-terlibat-di-esports-kic-2026-ini-peluangnya"
   }
  }
 }
