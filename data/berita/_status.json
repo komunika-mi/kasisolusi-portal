@@ -21,6 +21,11 @@
    "berita": 6,
    "tips": 2,
    "biayaUsd": 0.058066
+  },
+  "2026-11-19": {
+   "berita": 3,
+   "tips": 1,
+   "biayaUsd": 0.032518
   }
  },
  "kunci": {
@@ -114,6 +119,12 @@
    "slug": "usai-creafin-50-pelaku-ekraf-mataram-siap-akses-pembiayaan",
    "judul": "50 Pelaku Ekraf Mataram Siap Bersaing lewat Literasi Keuangan CreaFIN"
   },
+  "https://ekraf.go.id/news/aktif-musik-hubungkan-musisi-tangerang-selatan-dengan-peluang": {
+   "t": "2026-11-19",
+   "hasil": "terbit",
+   "slug": "musisi-daerah-bisa-belajar-bisnis-dan-hak-cipta-lewat-aktif-musik",
+   "judul": "AKTIF Musik Hubungkan Musisi Tangerang Selatan dengan Peluang Industri"
+  },
   "https://ekraf.go.id/news/dukung-musisi-national-champion-mendunia-kementerian-ekraf-apresiasi-album": {
    "t": "2026-11-18",
    "hasil": "terbit",
@@ -131,6 +142,18 @@
    "hasil": "terbit",
    "slug": "kreator-lokal-bisa-terlibat-di-esports-kic-2026-ini-peluangnya",
    "judul": "KIC 2026 Jadi Peluang Kolaborasi Esports dan Kreator Lokal di Panggung Dunia"
+  },
+  "https://ekraf.go.id/news/menteri-ekraf-industri-event-jadi-katalisator-pertumbuhan-ekonomi": {
+   "t": "2026-11-19",
+   "hasil": "terbit",
+   "slug": "industri-event-jadi-katalisator-ini-peluang-bagi-pelaku-usaha",
+   "judul": "Menteri Ekraf: Industri Event Jadi Katalisator Pertumbuhan Ekonomi Kreatif"
+  },
+  "https://finance.detik.com/berita-ekonomi-bisnis/d-8759230/soal-ratusan-kendaraan-kopdes-di-rorotan-ombudsman-jangan-ditelantarkan": {
+   "t": "2026-11-19",
+   "hasil": "terbit",
+   "slug": "kendaraan-kopdes-menumpuk-ombudsman-minta-operasional-dipercepat",
+   "judul": "Soal Ratusan Kendaraan Kopdes di Rorotan, Ombudsman: Jangan Ditelantarkan!"
   },
   "https://kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha": {
    "t": "2026-11-17",
@@ -180,6 +203,12 @@
    "alasan": "model menilai tidak layak: BAHAN ini adalah deskripsi episode podcast tentang bahaya judi online dan kecanduan, bukan soal UMKM, usaha, atau...",
    "judul": "STOP JUDOL Sebelum Keluarga Lo Jadi Korban‼️Bongkar Pola Judol yang Bikin Kecanduan & Susah Berhenti"
   },
+  "yt:ELMzUidY6B4": {
+   "t": "2026-11-19",
+   "hasil": "terbit",
+   "slug": "usaha-tidak-maju-ini-cara-bangun-brand-agar-dicari-customer",
+   "judul": "STOP ASAL BIKIN BISNIS!! CARA BANGUN BRAND BIAR BISNISMU DICARI CUSTOMER"
+  },
   "yt:MBvRacCaLe8": {
    "t": "2026-11-15",
    "hasil": "terbit",
@@ -204,6 +233,12 @@
    "alasan": "model menilai tidak layak: Deskripsi episode hanya memuat janji topik dan nama narasumber tanpa rincian strategi atau tips, sehingga tidak cukup...",
    "judul": "DARI 0 KE 2,9 MILIAR/BULAN, INI STRATEGI 4 AFFILIATOR YANG WAJIB KAMU CONTEK"
   },
+  "yt:a_EOMvP3Pyg": {
+   "t": "2026-11-19",
+   "hasil": "ditolak",
+   "alasan": "gagal penjaga dua kali: paragraf 3: kata tidak baku \"buat\"; pakai kata baku (menunggu, memberi, bertanya, supaya, untuk, hanya, membuat)",
+   "judul": "Udah Viral Tapi Masih Miskin?! Kak Kev Bongkar 5 Cara Biar Kontenmu Dapet Cuan!"
+  },
   "yt:hQRh4dGbSxw": {
    "t": "2026-11-18",
    "hasil": "terbit",
@@ -221,9 +256,19 @@
    "hasil": "terbit",
    "slug": "ingin-kredit-motor-atau-mobil-tanpa-riba-simak-cara-syariahnya",
    "judul": "BEGINI CARA KREDIT MOTOR & MOBIL SESUAI SYARIAH, TANPA RIBA, TANPA SITA - Founder Lariba Consulting"
+  },
+  "yt:wlRg0lHTx3c": {
+   "t": "2026-11-19",
+   "hasil": "ditolak",
+   "alasan": "model menilai tidak layak: Bahan membahas masa depan AI dan makna menjadi manusia, bukan soal UMKM, usaha, atau pekerja mandiri. Deskripsi...",
+   "judul": "Masa Depan AI: Apakah Artificial Intelligence Akan Menggantikan Manusia?"
   }
  },
  "gambar": {
+  "0132ea7a480270d6ed75d28f3f383776a7e44dde004f3b37289b1588280388e2": {
+   "t": "2026-11-19",
+   "slug": "musisi-daerah-bisa-belajar-bisnis-dan-hak-cipta-lewat-aktif-musik"
+  },
   "1934db8cc2bebee8f3d4ae6ebc803074d1e40479c83bca80060c261e32690d07": {
    "t": "2026-11-17",
    "slug": "pelaku-umkm-padang-perda-percepatan-sertifikasi-halal-sedang-dikaji"
@@ -243,6 +288,10 @@
   "38c7ac665a5f6f15a38ceaa6930768bde7c5e374c44eb066ad0d6220f483445e": {
    "t": "2026-11-18",
    "slug": "masuk-ritel-modern-tanpa-biaya-awal-ini-program-kumitra"
+  },
+  "3af3bd58750092905d313922f9de06e99b428c26d17336e7c3f44440d8bb5fc4": {
+   "t": "2026-11-19",
+   "slug": "industri-event-jadi-katalisator-ini-peluang-bagi-pelaku-usaha"
   },
   "3d911462763ed852f018c518ee93f22dca7201a753b9a8c2b56c785db59933c1": {
    "t": "2026-11-16",
@@ -343,6 +392,14 @@
   "f320c487c8f911ebf190603934324ff52542bf78afec57cda90eeeb40f4c23f4": {
    "t": "2026-11-18",
    "slug": "kreator-lokal-bisa-terlibat-di-esports-kic-2026-ini-peluangnya"
+  },
+  "f32148244dcc10025898fb27bb96f29a3a1f7ce23da7f2ca0333a853b277b49f": {
+   "t": "2026-11-19",
+   "slug": "usaha-tidak-maju-ini-cara-bangun-brand-agar-dicari-customer"
+  },
+  "ff6c0993a8833411f3ee3aa060f9e088a8dcc163973522fc5a63d864c8e15e24": {
+   "t": "2026-11-19",
+   "slug": "kendaraan-kopdes-menumpuk-ombudsman-minta-operasional-dipercepat"
   }
  }
 }
