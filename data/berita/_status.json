@@ -23,9 +23,9 @@
    "biayaUsd": 0.058066
   },
   "2026-11-19": {
-   "berita": 3,
-   "tips": 1,
-   "biayaUsd": 0.032518
+   "berita": 6,
+   "tips": 2,
+   "biayaUsd": 0.054996
   }
  },
  "kunci": {
@@ -113,6 +113,12 @@
    "slug": "merek-kata-belum-didaftar-situs-geni-energi-belum-bisa-ditutup",
    "judul": "DJKI Verifikasi Permohonan Penutupan Situs Dugaan Pelanggaran Merek Geni Energi"
   },
+  "https://dgip.go.id/artikel/detail-artikel-berita/indonesia-tekankan-bantuan-teknis-wipo-harus-berdampak-nyata-bagi-penguatan-kekayaan-intelektual": {
+   "t": "2026-11-19",
+   "hasil": "terbit",
+   "slug": "kreator-dan-umkm-diusulkan-dapat-pelatihan-ai-di-sidang-wipo",
+   "judul": "Indonesia Tekankan Bantuan Teknis WIPO Harus Berdampak Nyata bagi Penguatan Kekayaan Intelektual"
+  },
   "https://ekraf.go.id/news/50-pelaku-ekraf-mataram-siap-bersaing-lewat-literasi-keuangan": {
    "t": "2026-11-15",
    "hasil": "terbit",
@@ -160,6 +166,18 @@
    "hasil": "terbit",
    "slug": "peluang-ekspor-umkm-terbuka-business-matching-catat-usd-361-61-juta",
    "judul": "Business Matching Kemendag Januari–Oktober 2026, Catat Transaksi USD 361,61 Juta dan Libatkan 1.433 Pelaku Usaha"
+  },
+  "https://kemendag.go.id/berita/siaran-pers/dorong-kepatuhan-importir-dan-lindungi-pasar-dalam-negeri-kemendag-perkuat-pengawasan-post-border-berbasis-risiko": {
+   "t": "2026-11-19",
+   "hasil": "terbit",
+   "slug": "pengawasan-impor-pakai-basis-risiko-importir-patuh-dapat-kemudahan",
+   "judul": "Dorong Kepatuhan Importir dan Lindungi Pasar Dalam Negeri, Kemendag Perkuat Pengawasan Post-Border Berbasis Risiko"
+  },
+  "https://kemendag.go.id/berita/siaran-pers/kdei-taipei-fasilitasi-ekspor-perdana-media-tanam-kokopit-ke-taiwan": {
+   "t": "2026-11-19",
+   "hasil": "terbit",
+   "slug": "kokopit-balikpapan-tembus-taiwan-ekspor-perdana-rp138-juta",
+   "judul": "KDEI Taipei Fasilitasi Ekspor Perdana Media Tanam Kokopit ke Taiwan"
   },
   "https://kemendag.go.id/berita/siaran-pers/sinergi-program-pilihan-busan-kemendag-boyong-20-produk-umkm-potensial-ke-jaringan-indogrosir": {
    "t": "2026-11-15",
@@ -239,6 +257,12 @@
    "alasan": "gagal penjaga dua kali: paragraf 3: kata tidak baku \"buat\"; pakai kata baku (menunggu, memberi, bertanya, supaya, untuk, hanya, membuat)",
    "judul": "Udah Viral Tapi Masih Miskin?! Kak Kev Bongkar 5 Cara Biar Kontenmu Dapet Cuan!"
   },
+  "yt:d4NWmjCZDzg": {
+   "t": "2026-11-19",
+   "hasil": "terbit",
+   "slug": "konten-receh-bisa-jadi-aset-ini-kata-leonico-bintangkuri",
+   "judul": "Podcast Sejam Udah Gak Laku⁉️Leonico & Bintangkuri Bongkar Cuan & Bisnis Dibalik Podcast Pendek‼️"
+  },
   "yt:hQRh4dGbSxw": {
    "t": "2026-11-18",
    "hasil": "terbit",
@@ -317,6 +341,10 @@
    "t": "2026-11-15",
    "slug": "pelaku-umk-di-oki-difasilitasi-sertifikasi-halal-ini-peluangnya"
   },
+  "50ad6c2bfcc5645db440eb11ff97a0e149f86cb064daf80badbb83146b835aa8": {
+   "t": "2026-11-19",
+   "slug": "kreator-dan-umkm-diusulkan-dapat-pelatihan-ai-di-sidang-wipo"
+  },
   "57068c6304f9cb9569e437b96d02eb3c42286bb0438e5955e843bee50d775429": {
    "t": "2026-11-18",
    "slug": "merek-toko-mirip-milik-orang-lain-ini-yang-dilakukan-djki"
@@ -345,6 +373,14 @@
    "t": "2026-11-17",
    "slug": "jualan-makanan-mengandung-babi-ini-aturan-keterangan-tidak-halal"
   },
+  "88f0b0b01875dbbd4575dd7d0a61781724063efa3e2de882308ca642c57c3e01": {
+   "t": "2026-11-19",
+   "slug": "kokopit-balikpapan-tembus-taiwan-ekspor-perdana-rp138-juta"
+  },
+  "8c3ae8fd00f5d5498e4ab4fdb11f34795e09d7b939b1f9c9437e9b5f11d8c738": {
+   "t": "2026-11-19",
+   "slug": "konten-receh-bisa-jadi-aset-ini-kata-leonico-bintangkuri"
+  },
   "9447a61e2584043cc10f1a3570e52110e9e68969222a7a2fc091fecfa53b243c": {
    "t": "2026-11-16",
    "slug": "pelindungan-ki-diperkuat-djki-gandeng-amerika-serikat"
@@ -360,6 +396,10 @@
   "aa19b80b89ea91dca2642d6a4c1b77b8e087898c053fbddcf277eecc71123f68": {
    "t": "2026-11-17",
    "slug": "merek-kata-belum-didaftar-situs-geni-energi-belum-bisa-ditutup"
+  },
+  "ace3566b0614bdea6cfe904f8d79c69fd5a69b7e6fb1efa87f3395393933f507": {
+   "t": "2026-11-19",
+   "slug": "pengawasan-impor-pakai-basis-risiko-importir-patuh-dapat-kemudahan"
   },
   "b52cf4a436a6982bb1d1b28760553a8de327d4eedc2c0fe10aaa9987652993d2": {
    "t": "2026-11-17",
