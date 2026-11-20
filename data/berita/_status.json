@@ -28,9 +28,9 @@
    "biayaUsd": 0.054996
   },
   "2026-11-20": {
-   "berita": 3,
-   "tips": 1,
-   "biayaUsd": 0.031735
+   "berita": 6,
+   "tips": 2,
+   "biayaUsd": 0.055563
   }
  },
  "kunci": {
@@ -112,6 +112,12 @@
    "alasan": "model menilai tidak layak: BAHAN menceritakan kunjungan edukasi dan eksplorasi karier siswa SMA Manbaul Ulum Boarding School ke DJKI, bukan soal...",
    "judul": "DJKI Kenalkan Kekayaan Intelektual kepada Manba’ul Ulum Boarding School"
   },
+  "https://dgip.go.id/artikel/detail-artikel-berita/djki-optimalkan-pendampingan-merek-kolektif-lewat-simako": {
+   "t": "2026-11-20",
+   "hasil": "terbit",
+   "slug": "satu-merek-untuk-banyak-umkm-djki-fasilitasi-lewat-simako",
+   "judul": "DJKI Optimalkan Pendampingan Merek Kolektif Lewat SIMAKO"
+  },
   "https://dgip.go.id/artikel/detail-artikel-berita/djki-verifikasi-dugaan-pelanggaran-merek-mahkota-di-lima-tautan": {
    "t": "2026-11-18",
    "hasil": "terbit",
@@ -142,11 +148,23 @@
    "slug": "musisi-daerah-bisa-belajar-bisnis-dan-hak-cipta-lewat-aktif-musik",
    "judul": "AKTIF Musik Hubungkan Musisi Tangerang Selatan dengan Peluang Industri"
   },
+  "https://ekraf.go.id/news/aktivasi-desa-kreatif-bali-dorong-talenta-film-dan-gim-lokal": {
+   "t": "2026-11-20",
+   "hasil": "terbit",
+   "slug": "pelaku-gim-papan-dan-film-lokal-bali-dapat-pelatihan-desa-kreatif",
+   "judul": "Aktivasi Desa Kreatif Bali Dorong Talenta Film dan Gim Lokal Mendunia"
+  },
   "https://ekraf.go.id/news/dukung-musisi-national-champion-mendunia-kementerian-ekraf-apresiasi-album": {
    "t": "2026-11-18",
    "hasil": "terbit",
    "slug": "pelaku-musik-mau-mendunia-ekraf-tawarkan-collab-promotion",
    "judul": "Dukung Musisi National Champion Mendunia, Kementerian Ekraf Apresiasi Album ‘Blue"
+  },
+  "https://ekraf.go.id/news/ideind-bali-2026-dukung-jenama-lokal-menuju-pasar": {
+   "t": "2026-11-20",
+   "hasil": "ditolak",
+   "alasan": "gagal penjaga dua kali: terlalu mirip kalimat bahan (16% untaian 8 kata sama, terpanjang 39 kata); tulis ulang dengan kata-kata sendiri",
+   "judul": "IDE.IND Bali 2026: Dukung Jenama Lokal Menuju Pasar Nasional"
   },
   "https://ekraf.go.id/news/kementerian-ekraf-dan-vidio-perkuat-kolaborasi-perluas-akses-pasar-film": {
    "t": "2026-11-18",
@@ -177,6 +195,12 @@
    "hasil": "terbit",
    "slug": "kendaraan-kopdes-menumpuk-ombudsman-minta-operasional-dipercepat",
    "judul": "Soal Ratusan Kendaraan Kopdes di Rorotan, Ombudsman: Jangan Ditelantarkan!"
+  },
+  "https://finance.detik.com/berita-ekonomi-bisnis/d-8762130/misbakhun-ungkap-sejumlah-pr-besar-untuk-ekonomi-ri": {
+   "t": "2026-11-20",
+   "hasil": "terbit",
+   "slug": "komisi-xi-percepat-penghapusan-utang-umkm-ini-pr-ekonomi-ri",
+   "judul": "Misbakhun Ungkap Sejumlah PR Besar untuk Ekonomi RI"
   },
   "https://kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha": {
    "t": "2026-11-17",
@@ -282,10 +306,9 @@
   },
   "yt:ZdkEEoNWAhs": {
    "t": "2026-11-20",
-   "hasil": "gagal",
-   "alasan": "OpenRouter: balasan terpotong (max_tokens; 16000 token keluaran, 2485 untuk berpikir)",
-   "judul": "Adjie Santosoputro: Cara Menghadapi Overthinking Tanpa Melawannya‼️",
-   "coba": 1
+   "hasil": "terbit",
+   "slug": "sering-overthinking-ini-kata-adjie-santosoputro-soal-menghadapinya",
+   "judul": "Adjie Santosoputro: Cara Menghadapi Overthinking Tanpa Melawannya‼️"
   },
   "yt:ZfWrEdhTzCQ": {
    "t": "2026-11-18",
@@ -399,6 +422,10 @@
    "t": "2026-11-18",
    "slug": "film-lokal-dapat-layar-baru-ekraf-jajaki-kerja-sama-dengan-vidio"
   },
+  "5acbde7b8af729fd27693931aa1bae1be50e4035cb41d6c05f186ffbcf0f92e2": {
+   "t": "2026-11-20",
+   "slug": "sering-overthinking-ini-kata-adjie-santosoputro-soal-menghadapinya"
+  },
   "602110736e4376f76f4d4d1f40a2e2033330ca705d1613a7cb35a78964366927": {
    "t": "2026-11-15",
    "slug": "20-produk-umkm-kurasi-kemendag-masuk-jaringan-indogrosir"
@@ -455,9 +482,17 @@
    "t": "2026-11-17",
    "slug": "merek-kata-belum-didaftar-situs-geni-energi-belum-bisa-ditutup"
   },
+  "acd53864c1d254fe5d627e8dd86e00d5ae844ff0776e0fa9b66ead6cbe95fc30": {
+   "t": "2026-11-20",
+   "slug": "komisi-xi-percepat-penghapusan-utang-umkm-ini-pr-ekonomi-ri"
+  },
   "ace3566b0614bdea6cfe904f8d79c69fd5a69b7e6fb1efa87f3395393933f507": {
    "t": "2026-11-19",
    "slug": "pengawasan-impor-pakai-basis-risiko-importir-patuh-dapat-kemudahan"
+  },
+  "af6e087c42f2e131653458d836f870d2873e1f465f2f5bd19d4745fae9a6d918": {
+   "t": "2026-11-20",
+   "slug": "pelaku-gim-papan-dan-film-lokal-bali-dapat-pelatihan-desa-kreatif"
   },
   "b52cf4a436a6982bb1d1b28760553a8de327d4eedc2c0fe10aaa9987652993d2": {
    "t": "2026-11-17",
@@ -474,6 +509,10 @@
   "d385762c37e0dd933815f90460f142bc19fd6980c53cd84c2a47fe12c020fe52": {
    "t": "2026-11-18",
    "slug": "cara-koh-king-jaga-omzet-tanpa-rakus-bisnis-tidak-gulung-tikar"
+  },
+  "d8cfd0a1d3d4976a94a29924ba364f997dfc098be95b60039f93f0f3df49c127": {
+   "t": "2026-11-20",
+   "slug": "satu-merek-untuk-banyak-umkm-djki-fasilitasi-lewat-simako"
   },
   "e1c6db442991ce0a3a54d08b30ed86da0d4c4fdf122edcfdda2dcb9d96ae4293": {
    "t": "2026-11-17",
