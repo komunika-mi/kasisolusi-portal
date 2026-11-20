@@ -26,6 +26,11 @@
    "berita": 6,
    "tips": 2,
    "biayaUsd": 0.054996
+  },
+  "2026-11-20": {
+   "berita": 3,
+   "tips": 1,
+   "biayaUsd": 0.031735
   }
  },
  "kunci": {
@@ -82,6 +87,12 @@
    "hasil": "terbit",
    "slug": "jualan-makanan-mengandung-babi-ini-aturan-keterangan-tidak-halal",
    "judul": "Pascainsiden Warung Mie & Babi Tepi Sawah, BPJPH dan Pemkab Sukoharjo Perkuat Pembinaan Jaminan Produk Halal"
+  },
+  "https://cnbcindonesia.com/entrepreneur/20261119130843-25-786610/tiktok-shop-indonesia-berdayakan-umkm-lewat-program-ini": {
+   "t": "2026-11-20",
+   "hasil": "terbit",
+   "slug": "umkm-daerah-bisa-naik-kelas-lewat-program-tiktok-shop-dan-tokopedia",
+   "judul": "TikTok Shop Indonesia Berdayakan UMKM Lewat Program Ini"
   },
   "https://dgip.go.id/artikel/detail-artikel-berita/djki-dan-departemen-luar-negeri-as-perkuat-kerja-sama-pelindungan-kekayaan-intelektual": {
    "t": "2026-11-16",
@@ -149,6 +160,12 @@
    "slug": "kreator-lokal-bisa-terlibat-di-esports-kic-2026-ini-peluangnya",
    "judul": "KIC 2026 Jadi Peluang Kolaborasi Esports dan Kreator Lokal di Panggung Dunia"
   },
+  "https://ekraf.go.id/news/menteri-ekraf-buka-peluang-penguatan-talenta-kreatif-siswa-labschool": {
+   "t": "2026-11-20",
+   "hasil": "terbit",
+   "slug": "ekraf-jajaki-kolaborasi-talenta-kreatif-pelajar-ini-peluangnya",
+   "judul": "Menteri Ekraf Buka Peluang Penguatan Talenta Kreatif Siswa Labschool Kebayoran"
+  },
   "https://ekraf.go.id/news/menteri-ekraf-industri-event-jadi-katalisator-pertumbuhan-ekonomi": {
    "t": "2026-11-19",
    "hasil": "terbit",
@@ -197,6 +214,12 @@
    "slug": "masuk-ritel-modern-tanpa-biaya-awal-ini-program-kumitra",
    "judul": "Produk Usaha Mikro Masuk Ritel Modern Tanpa Biaya"
   },
+  "https://liputan6.com/bisnis/read/8338617/dirut-pnm-kindaris-raih-penghargaan-tokoh-katalisator-kemandirian-pengusaha-ultra-mikro": {
+   "t": "2026-11-20",
+   "hasil": "terbit",
+   "slug": "modal-bukan-segalanya-pendampingan-bawa-dirut-pnm-raih-penghargaan",
+   "judul": "Dirut PNM Kindaris Raih Penghargaan Tokoh Katalisator Kemandirian Pengusaha Ultra Mikro"
+  },
   "https://pajak.go.id/id/siaran-pers/sanksi-pajak-bisa-dihapus-100-persen-tenggatnya-tinggal-tujuh-pekan": {
    "t": "2026-11-16",
    "hasil": "terbit",
@@ -221,6 +244,12 @@
    "alasan": "model menilai tidak layak: BAHAN ini adalah deskripsi episode podcast tentang bahaya judi online dan kecanduan, bukan soal UMKM, usaha, atau...",
    "judul": "STOP JUDOL Sebelum Keluarga Lo Jadi Korban‼️Bongkar Pola Judol yang Bikin Kecanduan & Susah Berhenti"
   },
+  "yt:8GZaVO6oX1Q": {
+   "t": "2026-11-20",
+   "hasil": "ditolak",
+   "alasan": "model menilai tidak layak: BAHAN hanya berisi deskripsi resmi satu episode Podcast Kasisolusi yang membahas perjalanan pribadi dan konsep...",
+   "judul": "Penyesalan Terbesar Anak: Baru Mengerti Pesan Terakhir Ayah Saat Sudah Tiada"
+  },
   "yt:ELMzUidY6B4": {
    "t": "2026-11-19",
    "hasil": "terbit",
@@ -244,6 +273,19 @@
    "hasil": "terbit",
    "slug": "ubah-nasib-lewat-jualan-ilmu-sales-china-di-podcast-kasisolusi",
    "judul": "JANGAN JUALAN SEBELUM NONTON INI! ILMU SALES TERBARU DARI CHINA YANG BIKIN AUTO CLOSING - James Gwee"
+  },
+  "yt:TaCHpWHmi6M": {
+   "t": "2026-11-20",
+   "hasil": "terbit",
+   "slug": "pemimpin-merasa-paling-benar-ini-bahayanya-menurut-muhammad-ismail",
+   "judul": "Bahaya Terbesar Seorang Pemimpin: Bukan Krisis, Tapi Merasa Paling Benar"
+  },
+  "yt:ZdkEEoNWAhs": {
+   "t": "2026-11-20",
+   "hasil": "gagal",
+   "alasan": "OpenRouter: balasan terpotong (max_tokens; 16000 token keluaran, 2485 untuk berpikir)",
+   "judul": "Adjie Santosoputro: Cara Menghadapi Overthinking Tanpa Melawannya‼️",
+   "coba": 1
   },
   "yt:ZfWrEdhTzCQ": {
    "t": "2026-11-18",
@@ -341,6 +383,10 @@
    "t": "2026-11-15",
    "slug": "pelaku-umk-di-oki-difasilitasi-sertifikasi-halal-ini-peluangnya"
   },
+  "4bc45fd3a9d3ea2d25202df7012f594c7c2c67db2d99b7c22cd3fbcb18c642aa": {
+   "t": "2026-11-20",
+   "slug": "umkm-daerah-bisa-naik-kelas-lewat-program-tiktok-shop-dan-tokopedia"
+  },
   "50ad6c2bfcc5645db440eb11ff97a0e149f86cb064daf80badbb83146b835aa8": {
    "t": "2026-11-19",
    "slug": "kreator-dan-umkm-diusulkan-dapat-pelatihan-ai-di-sidang-wipo"
@@ -369,6 +415,10 @@
    "t": "2026-11-17",
    "slug": "asn-diminta-pilih-produk-halal-peluang-baru-untuk-umkm"
   },
+  "7c4eb5a2ef1114932e228f652e487540cbc84930c3d137833b9fb764a090b517": {
+   "t": "2026-11-20",
+   "slug": "ekraf-jajaki-kolaborasi-talenta-kreatif-pelajar-ini-peluangnya"
+  },
   "820328414d864cfc3ffbee4e692783db22fd288aa3b9732be5c553c0001cb000": {
    "t": "2026-11-17",
    "slug": "jualan-makanan-mengandung-babi-ini-aturan-keterangan-tidak-halal"
@@ -381,6 +431,10 @@
    "t": "2026-11-19",
    "slug": "konten-receh-bisa-jadi-aset-ini-kata-leonico-bintangkuri"
   },
+  "93756ae61105dd5493c75bebe97b00e3f53489ccc71f833b30930778a7cb6647": {
+   "t": "2026-11-20",
+   "slug": "pemimpin-merasa-paling-benar-ini-bahayanya-menurut-muhammad-ismail"
+  },
   "9447a61e2584043cc10f1a3570e52110e9e68969222a7a2fc091fecfa53b243c": {
    "t": "2026-11-16",
    "slug": "pelindungan-ki-diperkuat-djki-gandeng-amerika-serikat"
@@ -388,6 +442,10 @@
   "9547fe87026a7c0813911487ba2b0a9dc6d4861bff37f7d04ed90d12fd7d6df2": {
    "t": "2026-11-15",
    "slug": "usai-creafin-50-pelaku-ekraf-mataram-siap-akses-pembiayaan"
+  },
+  "959186123b1ba0024e521a91944d42a92dd89c3afb6e67959c1dc6416dbd4eff": {
+   "t": "2026-11-20",
+   "slug": "modal-bukan-segalanya-pendampingan-bawa-dirut-pnm-raih-penghargaan"
   },
   "9db1a0a51bb0730c23ef568cf288eca09a26941a42ca3bb670f75e719ba5d007": {
    "t": "2026-11-15",
