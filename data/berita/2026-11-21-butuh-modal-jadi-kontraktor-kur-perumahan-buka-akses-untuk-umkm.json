@@ -1,0 +1,85 @@
+{
+  "slug": "butuh-modal-jadi-kontraktor-kur-perumahan-buka-akses-untuk-umkm",
+  "title": "Butuh Modal Jadi Kontraktor? KUR Perumahan Buka Akses untuk UMKM",
+  "dek": "Menteri PKP Maruarar Sirait membuka peluang anggota HIPMI dan UMKM mengakses KUR Perumahan. Pemerintah menyiapkan dana Rp 50 triliun untuk program ini.",
+  "kanal": "keuangan",
+  "date": "2026-11-21",
+  "dibuat": "2026-11-21T19:41:34+07:00",
+  "jenis": "berita",
+  "otomatis": true,
+  "kunci": "https://liputan6.com/bisnis/read/8339748/pengusaha-muda-bakal-dapat-akses-kur-perumahan",
+  "img": "/assets/berita/butuh-modal-jadi-kontraktor-kur-perumahan-buka-akses-untuk-umkm.webp",
+  "imgAlt": "Ilustrasi tumpukan bata dan material bangunan di lokasi pembangunan rumah",
+  "foto": "Ilustrasi AI",
+  "takeaways": [
+    "Pemerintah menyiapkan dana Rp 50 triliun untuk akses KUR Perumahan, menurut Menteri Perumahan dan Kawasan Permukiman Maruarar Sirait.",
+    "KUR Perumahan bisa diakses UMKM sebagai kontraktor, pengembang, hingga toko bahan bangunan.",
+    "Pengusaha bisa meminjam hingga Rp 20 miliar dengan bunga rendah 5%, sedangkan pinjaman Rp 100 juta ke bawah tanpa jaminan dan berbunga 6%."
+  ],
+  "body": [
+    {
+      "type": "p",
+      "text": "Menteri Perumahan dan Kawasan Permukiman Maruarar Sirait membuka peluang bagi anggota Himpunan Pengusaha Muda Indonesia (HIPMI) untuk terlibat dalam program pemerintah. Salah satu akses yang ditawarkan adalah Kredit Usaha Rakyat (KUR) Perumahan. Hal itu disampaikan Maruarar dalam acara di JICC Senayan, Jakarta, seperti dilaporkan Liputan6.com."
+    },
+    {
+      "type": "p",
+      "text": "Menurut Maruarar, kebutuhan perumahan yang terus berkembang bisa dipandang sebagai peluang bagi kontraktor berskala kecil dan menengah. Ia menyebut pemerintah sudah menyiapkan dana Rp 50 triliun untuk akses KUR Perumahan."
+    },
+    {
+      "type": "quote",
+      "text": "Begitu banyak program-program kami, ya, pembangunan rumah subsidi, rumah susun, dan juga rumah di komersial. Juga kita membuat program terobosan Presiden Prabowo, yaitu KUR Perumahan, bisa dimanfaatkan oleh jajaran HIPMI."
+    },
+    {
+      "type": "h2",
+      "text": "Kontraktor hingga toko bahan bangunan"
+    },
+    {
+      "type": "p",
+      "text": "Maruarar mengatakan KUR Perumahan bisa diakses oleh UMKM, mulai dari kontraktor, pengembang, hingga toko bahan bangunan. Menurut dia, pengusaha bisa meminjam hingga Rp 20 miliar dengan bunga rendah 5%."
+    },
+    {
+      "type": "quote",
+      "text": "Khusus yang Rp 100 juta ke bawah, kita berikan tanpa jaminan dan bunganya 6%."
+    },
+    {
+      "type": "p",
+      "text": "Maruarar menilai program Presiden Prabowo Subianto ini bisa mendukung kebutuhan permodalan pengusaha muda dan UMKM."
+    },
+    {
+      "type": "quote",
+      "text": "Saya pikir, Presiden Prabowo menghadirkan produk-produk untuk UMKM dan anak-anak muda, anggota HIPMI yang ada di seluruh Indonesia, untuk bisa juga punya akses permodalan yang baik, dan juga dari program-program negara yang banyak sekali di bidang perumahan."
+    },
+    {
+      "type": "h2",
+      "text": "Realisasi KUR Perumahan"
+    },
+    {
+      "type": "p",
+      "text": "Sebelumnya, penyaluran Kredit Program Perumahan atau KUR Perumahan tercatat Rp 29,1 triliun per 31 Oktober 2026. Pembiayaan ini diserap oleh 119.790 debitur di seluruh Indonesia. Angka tersebut disampaikan Direktur Jenderal Perumahan Perkotaan Kementerian Perumahan dan Kawasan Permukiman, Sri Haryati, seperti dikutip dari Antara."
+    },
+    {
+      "type": "quote",
+      "text": "Sudah mencapai Rp 29,1 triliun."
+    },
+    {
+      "type": "p",
+      "text": "Sri menguraikan penyerapan dana tersebut terbagi ke dalam dua jalur utama. Sisi permintaan mencatatkan porsi hingga Rp 19,13 triliun yang dimanfaatkan oleh 115.670 debitur. Sementara itu, sisi penyediaan menyerap Rp 10,03 triliun untuk 4.120 debitur."
+    },
+    {
+      "type": "h2",
+      "text": "Apa artinya bagi pelaku usaha"
+    },
+    {
+      "type": "p",
+      "text": "Bagi pelaku usaha, KUR Perumahan membuka jalan untuk masuk ke rantai pasok sektor perumahan, mulai dari pekerjaan kontraktor sampai penyediaan bahan bangunan. Pelaku usaha bisa mempelajari skema ini melalui lembaga resmi dan bertanya langsung ke bank penyalur. Siapkan dokumen usaha yang biasa diminta bank, lalu pantau pengumuman resmi soal syarat dan plafon yang berlaku supaya tidak salah langkah."
+    }
+  ],
+  "sumber": [
+    {
+      "label": "Liputan6.com: Pengusaha Muda Bakal Dapat Akses KUR Perumahan",
+      "url": "https://www.liputan6.com/bisnis/read/8339748/pengusaha-muda-bakal-dapat-akses-kur-perumahan"
+    }
+  ],
+  "penulis": "deepseek/deepseek-v4.1-flash",
+  "ilustrasi": "openai:gpt-image-2.6-flare"
+}
