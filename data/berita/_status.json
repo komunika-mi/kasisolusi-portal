@@ -31,6 +31,11 @@
    "berita": 6,
    "tips": 2,
    "biayaUsd": 0.055563
+  },
+  "2026-11-21": {
+   "berita": 3,
+   "tips": 0,
+   "biayaUsd": 0.023888
   }
  },
  "kunci": {
@@ -118,6 +123,12 @@
    "slug": "satu-merek-untuk-banyak-umkm-djki-fasilitasi-lewat-simako",
    "judul": "DJKI Optimalkan Pendampingan Merek Kolektif Lewat SIMAKO"
   },
+  "https://dgip.go.id/artikel/detail-artikel-berita/djki-rekomendasikan-penutupan-situs-pelanggar-merek-pi-kang-shuang": {
+   "t": "2026-11-21",
+   "hasil": "terbit",
+   "slug": "reseller-resmi-tak-perlu-takut-djki-verifikasi-sebelum-tutup-situs",
+   "judul": "DJKI Rekomendasikan Penutupan Situs Pelanggar Merek Pi Kang Shuang"
+  },
   "https://dgip.go.id/artikel/detail-artikel-berita/djki-verifikasi-dugaan-pelanggaran-merek-mahkota-di-lima-tautan": {
    "t": "2026-11-18",
    "hasil": "terbit",
@@ -148,11 +159,23 @@
    "slug": "musisi-daerah-bisa-belajar-bisnis-dan-hak-cipta-lewat-aktif-musik",
    "judul": "AKTIF Musik Hubungkan Musisi Tangerang Selatan dengan Peluang Industri"
   },
+  "https://ekraf.go.id/news/aktivasi-creative-hub-jimbaran-hub-bali-dukung-ekosistem-kreatif-daerah-berdaya": {
+   "t": "2026-11-21",
+   "hasil": "terbit",
+   "slug": "pelaku-ekraf-bali-dapat-tujuh-program-di-creative-hub-jimbaran",
+   "judul": "Aktivasi Creative Hub Jimbaran Hub Bali: Dukung Ekosistem Kreatif Daerah Berdaya Saing"
+  },
   "https://ekraf.go.id/news/aktivasi-desa-kreatif-bali-dorong-talenta-film-dan-gim-lokal": {
    "t": "2026-11-20",
    "hasil": "terbit",
    "slug": "pelaku-gim-papan-dan-film-lokal-bali-dapat-pelatihan-desa-kreatif",
    "judul": "Aktivasi Desa Kreatif Bali Dorong Talenta Film dan Gim Lokal Mendunia"
+  },
+  "https://ekraf.go.id/news/aktivasi-desa-kreatif-sanur-kembangkan-talenta-dan-usaha": {
+   "t": "2026-11-21",
+   "hasil": "terbit",
+   "slug": "pelatihan-desa-kreatif-sanur-talenta-media-dan-kuliner-naik-kelas",
+   "judul": "Aktivasi Desa Kreatif Sanur Kembangkan Talenta dan Usaha Lokal"
   },
   "https://ekraf.go.id/news/dukung-musisi-national-champion-mendunia-kementerian-ekraf-apresiasi-album": {
    "t": "2026-11-18",
@@ -220,6 +243,12 @@
    "slug": "kokopit-balikpapan-tembus-taiwan-ekspor-perdana-rp138-juta",
    "judul": "KDEI Taipei Fasilitasi Ekspor Perdana Media Tanam Kokopit ke Taiwan"
   },
+  "https://kemendag.go.id/berita/siaran-pers/kemendag-dorong-umkm-pangan-olahan-go-global-lewat-bimtek-citra-produk-ekspor": {
+   "t": "2026-11-21",
+   "hasil": "ditolak",
+   "alasan": "gagal penjaga dua kali: terlalu mirip kalimat bahan (22% untaian 8 kata sama, terpanjang 48 kata); tulis ulang dengan kata-kata sendiri",
+   "judul": "Kemendag Dorong UMKM Pangan Olahan Go Global Lewat Bimtek Citra Produk Ekspor"
+  },
   "https://kemendag.go.id/berita/siaran-pers/sinergi-program-pilihan-busan-kemendag-boyong-20-produk-umkm-potensial-ke-jaringan-indogrosir": {
    "t": "2026-11-15",
    "hasil": "terbit",
@@ -243,6 +272,12 @@
    "hasil": "terbit",
    "slug": "modal-bukan-segalanya-pendampingan-bawa-dirut-pnm-raih-penghargaan",
    "judul": "Dirut PNM Kindaris Raih Penghargaan Tokoh Katalisator Kemandirian Pengusaha Ultra Mikro"
+  },
+  "https://pajak.go.id/id/siaran-pers/gandeng-hipmi-sulsel-kanwil-djp-sulselbartra-sosialiasikan-kebijakan-penghapusan-sanksi": {
+   "t": "2026-11-21",
+   "hasil": "ditolak",
+   "alasan": "model menilai tidak layak: Topik BAHAN sudah pernah dibahas Kasisolusi lewat artikel \"Sanksi Pajak Bisa Dihapus 100 Persen, Tenggat 31 Desember...",
+   "judul": "Gandeng HIPMI Sulsel, Kanwil DJP Sulselbartra Sosialiasikan Kebijakan Penghapusan Sanksi Administrasi Perpajakan kepada Pengusaha Muda di Kota Makassar"
   },
   "https://pajak.go.id/id/siaran-pers/sanksi-pajak-bisa-dihapus-100-persen-tenggatnya-tinggal-tujuh-pekan": {
    "t": "2026-11-16",
@@ -434,6 +469,10 @@
    "t": "2026-11-15",
    "slug": "gaji-naik-tapi-merasa-kurang-ini-kata-reinat-fuad-coach-rene"
   },
+  "754b340c687dcf602c5f1e45b4dbf9c1f017e119035e60a78b7666cef2b3efc0": {
+   "t": "2026-11-21",
+   "slug": "reseller-resmi-tak-perlu-takut-djki-verifikasi-sebelum-tutup-situs"
+  },
   "756b69ff0198c2af0955bbe6c69aa7d75edf80d72e0e9099cbc21de43f44ae5c": {
    "t": "2026-11-15",
    "slug": "usai-creafin-50-pelaku-ekraf-mataram-siap-akses-pembiayaan"
@@ -506,6 +545,10 @@
    "t": "2026-11-17",
    "slug": "peluang-ekspor-umkm-terbuka-business-matching-catat-usd-361-61-juta"
   },
+  "c7e1c085e9411cde7ba4cabe062c3c96f719456a5b19fad3961290eccecdd654": {
+   "t": "2026-11-21",
+   "slug": "pelaku-ekraf-bali-dapat-tujuh-program-di-creative-hub-jimbaran"
+  },
   "d385762c37e0dd933815f90460f142bc19fd6980c53cd84c2a47fe12c020fe52": {
    "t": "2026-11-18",
    "slug": "cara-koh-king-jaga-omzet-tanpa-rakus-bisnis-tidak-gulung-tikar"
@@ -533,6 +576,10 @@
   "f32148244dcc10025898fb27bb96f29a3a1f7ce23da7f2ca0333a853b277b49f": {
    "t": "2026-11-19",
    "slug": "usaha-tidak-maju-ini-cara-bangun-brand-agar-dicari-customer"
+  },
+  "f62969a22c906226970c996f22ba197c9c464e596187a53485e2efa21164bfc7": {
+   "t": "2026-11-21",
+   "slug": "pelatihan-desa-kreatif-sanur-talenta-media-dan-kuliner-naik-kelas"
   },
   "ff6c0993a8833411f3ee3aa060f9e088a8dcc163973522fc5a63d864c8e15e24": {
    "t": "2026-11-19",
