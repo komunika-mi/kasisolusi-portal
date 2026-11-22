@@ -38,9 +38,9 @@
    "biayaUsd": 0.037365
   },
   "2026-11-22": {
-   "berita": 3,
+   "berita": 6,
    "tips": 0,
-   "biayaUsd": 0.021598
+   "biayaUsd": 0.057133
   }
  },
  "kunci": {
@@ -109,6 +109,12 @@
    "hasil": "terbit",
    "slug": "mendagri-minta-pemda-gali-potensi-umkm-demi-ekspor-daerah",
    "judul": "Genjot Ekonomi Daerah, Mendagri Imbau Pemda Lakukan ini!"
+  },
+  "https://cnbcindonesia.com/news/20261122141021-4-787313/tak-cuma-korporasi-petani-umkm-ri-bisa-jualan-ke-eropa": {
+   "t": "2026-11-22",
+   "hasil": "terbit",
+   "slug": "petani-dan-umkm-bisa-jualan-ke-eropa-lewat-ieu-cepa",
+   "judul": "Tak Cuma Korporasi, Petani-UMKM RI Bisa Jualan ke Eropa"
   },
   "https://dgip.go.id/artikel/detail-artikel-berita/djki-dan-departemen-luar-negeri-as-perkuat-kerja-sama-pelindungan-kekayaan-intelektual": {
    "t": "2026-11-16",
@@ -224,6 +230,12 @@
    "slug": "kreator-lokal-bisa-terlibat-di-esports-kic-2026-ini-peluangnya",
    "judul": "KIC 2026 Jadi Peluang Kolaborasi Esports dan Kreator Lokal di Panggung Dunia"
   },
+  "https://ekraf.go.id/news/langkah-lima-jenama-fesyen-binaan-ekraf-dalam-road-to-in2motionfest-x": {
+   "t": "2026-11-22",
+   "hasil": "ditolak",
+   "alasan": "gagal penjaga dua kali: terlalu mirip kalimat bahan (9% untaian 8 kata sama, terpanjang 36 kata); tulis ulang dengan kata-kata sendiri",
+   "judul": "Langkah Lima Jenama Fesyen Binaan Ekraf dalam Road to IN2MOTIONFEST X JMFW"
+  },
   "https://ekraf.go.id/news/menteri-ekraf-buka-peluang-penguatan-talenta-kreatif-siswa-labschool": {
    "t": "2026-11-20",
    "hasil": "terbit",
@@ -248,6 +260,12 @@
    "alasan": "gagal penjaga dua kali: terlalu mirip kalimat bahan (57% untaian 8 kata sama, terpanjang 61 kata); tulis ulang dengan kata-kata sendiri",
    "judul": "Menteri Ekraf Perluas Akses Pasar Produk Kreatif Indonesia di Arab Saudi"
   },
+  "https://ekraf.go.id/news/terminal-3-bandara-soetta-disulap-jadi-etalase-16-jenama": {
+   "t": "2026-11-22",
+   "hasil": "terbit",
+   "slug": "16-jenama-lokal-tampil-di-bandara-soetta-ini-peluang-pelaku-ekraf",
+   "judul": "Terminal 3 Bandara Soetta Disulap Jadi Etalase 16 Jenama Lokal"
+  },
   "https://finance.detik.com/berita-ekonomi-bisnis/d-8759230/soal-ratusan-kendaraan-kopdes-di-rorotan-ombudsman-jangan-ditelantarkan": {
    "t": "2026-11-19",
    "hasil": "terbit",
@@ -259,6 +277,12 @@
    "hasil": "terbit",
    "slug": "komisi-xi-percepat-penghapusan-utang-umkm-ini-pr-ekonomi-ri",
    "judul": "Misbakhun Ungkap Sejumlah PR Besar untuk Ekonomi RI"
+  },
+  "https://finance.detik.com/berita-ekonomi-bisnis/d-8762325/hipmi-usul-plafon-kur-naik-jadi-rp-2-m": {
+   "t": "2026-11-22",
+   "hasil": "terbit",
+   "slug": "ingin-plafon-kur-lebih-besar-hipmi-usul-naik-jadi-rp-2-miliar",
+   "judul": "HIPMI Usul Plafon KUR Naik Jadi Rp 2 M"
   },
   "https://kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha": {
    "t": "2026-11-17",
@@ -446,6 +470,10 @@
    "t": "2026-11-19",
    "slug": "musisi-daerah-bisa-belajar-bisnis-dan-hak-cipta-lewat-aktif-musik"
   },
+  "0484bc4e9322f724bfd7d11691a6a279a90c002091300cdba00bd7545625c70d": {
+   "t": "2026-11-22",
+   "slug": "petani-dan-umkm-bisa-jualan-ke-eropa-lewat-ieu-cepa"
+  },
   "1934db8cc2bebee8f3d4ae6ebc803074d1e40479c83bca80060c261e32690d07": {
    "t": "2026-11-17",
    "slug": "pelaku-umkm-padang-perda-percepatan-sertifikasi-halal-sedang-dikaji"
@@ -457,6 +485,14 @@
   "27a01b1025b4796a150b4ee3b952c238e41827dd9d1f086a52ab8f118570d66b": {
    "t": "2026-11-16",
    "slug": "biaya-pembiayaan-mekaar-turun-jadi-8-persen-modal-usaha-makin-ringan"
+  },
+  "2d2a2900e2d8fb8fe48047a1f926a70bdb57a5de635c63d99b0a4b90e5e81a3e": {
+   "t": "2026-11-22",
+   "slug": "16-jenama-lokal-tampil-di-bandara-soetta-ini-peluang-pelaku-ekraf"
+  },
+  "2e5221d38a2e970b2945dc92264917888261852f97370761340352885662f709": {
+   "t": "2026-11-22",
+   "slug": "ingin-plafon-kur-lebih-besar-hipmi-usul-naik-jadi-rp-2-miliar"
   },
   "314a0d341559e289b7a0b727d0119086a9656b129931be21ec639f3232df5d9a": {
    "t": "2026-11-17",
