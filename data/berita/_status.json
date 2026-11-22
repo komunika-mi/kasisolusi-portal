@@ -36,6 +36,11 @@
    "berita": 6,
    "tips": 0,
    "biayaUsd": 0.037365
+  },
+  "2026-11-22": {
+   "berita": 3,
+   "tips": 0,
+   "biayaUsd": 0.021598
   }
  },
  "kunci": {
@@ -98,6 +103,12 @@
    "hasil": "terbit",
    "slug": "umkm-daerah-bisa-naik-kelas-lewat-program-tiktok-shop-dan-tokopedia",
    "judul": "TikTok Shop Indonesia Berdayakan UMKM Lewat Program Ini"
+  },
+  "https://cnbcindonesia.com/news/20261121180754-4-787207/genjot-ekonomi-daerah-mendagri-imbau-pemda-lakukan-ini": {
+   "t": "2026-11-22",
+   "hasil": "terbit",
+   "slug": "mendagri-minta-pemda-gali-potensi-umkm-demi-ekspor-daerah",
+   "judul": "Genjot Ekonomi Daerah, Mendagri Imbau Pemda Lakukan ini!"
   },
   "https://dgip.go.id/artikel/detail-artikel-berita/djki-dan-departemen-luar-negeri-as-perkuat-kerja-sama-pelindungan-kekayaan-intelektual": {
    "t": "2026-11-16",
@@ -225,6 +236,18 @@
    "slug": "industri-event-jadi-katalisator-ini-peluang-bagi-pelaku-usaha",
    "judul": "Menteri Ekraf: Industri Event Jadi Katalisator Pertumbuhan Ekonomi Kreatif"
   },
+  "https://ekraf.go.id/news/menteri-ekraf-kawal-implementasi-riset-blockchain-untuk-pelaku-ekonomi": {
+   "t": "2026-11-22",
+   "hasil": "terbit",
+   "slug": "ekraf-kawal-riset-blockchain-untuk-lindungi-karya-kreator",
+   "judul": "Menteri Ekraf Kawal Implementasi Riset Blockchain untuk Pelaku Ekonomi Kreatif"
+  },
+  "https://ekraf.go.id/news/menteri-ekraf-perluas-akses-pasar-produk-kreatif-indonesia-di-arab": {
+   "t": "2026-11-22",
+   "hasil": "ditolak",
+   "alasan": "gagal penjaga dua kali: terlalu mirip kalimat bahan (57% untaian 8 kata sama, terpanjang 61 kata); tulis ulang dengan kata-kata sendiri",
+   "judul": "Menteri Ekraf Perluas Akses Pasar Produk Kreatif Indonesia di Arab Saudi"
+  },
   "https://finance.detik.com/berita-ekonomi-bisnis/d-8759230/soal-ratusan-kendaraan-kopdes-di-rorotan-ombudsman-jangan-ditelantarkan": {
    "t": "2026-11-19",
    "hasil": "terbit",
@@ -290,6 +313,18 @@
    "hasil": "terbit",
    "slug": "butuh-modal-jadi-kontraktor-kur-perumahan-buka-akses-untuk-umkm",
    "judul": "Pengusaha Muda Bakal Dapat Akses KUR Perumahan"
+  },
+  "https://liputan6.com/bisnis/read/8339926/ieu-cepa-kuota-ekspor-cpo-bebas-bea-meningkat-dokumen-umkm-lebih-mudah": {
+   "t": "2026-11-22",
+   "hasil": "terbit",
+   "slug": "ekspor-umkm-lebih-mudah-dokumen-bisa-diurus-sendiri",
+   "judul": "IEU-CEPA: Kuota Ekspor CPO Bebas Bea Meningkat, Dokumen UMKM Lebih Mudah"
+  },
+  "https://liputan6.com/bisnis/read/8339997/pnm-realisasikan-pembiayaan-mekaar-bunga-8-di-yogyakarta-bantu-perempuan-kembangkan-usaha": {
+   "t": "2026-11-22",
+   "hasil": "ditolak",
+   "alasan": "model menilai tidak layak: Topik BAHAN sudah pernah dibahas Kasisolusi dalam artikel berjudul 'Biaya Pembiayaan Mekaar Turun Jadi 8 Persen, Modal...",
+   "judul": "PNM Realisasikan Pembiayaan Mekaar Bunga 8% di Yogyakarta, Bantu Perempuan Kembangkan Usaha"
   },
   "https://pajak.go.id/id/siaran-pers/gandeng-hipmi-sulsel-kanwil-djp-sulselbartra-sosialiasikan-kebijakan-penghapusan-sanksi": {
    "t": "2026-11-21",
@@ -523,6 +558,10 @@
    "t": "2026-11-19",
    "slug": "konten-receh-bisa-jadi-aset-ini-kata-leonico-bintangkuri"
   },
+  "901e1941a895473907692b0b610fa35ddac7fa9f05420485424532aa3add5409": {
+   "t": "2026-11-22",
+   "slug": "ekspor-umkm-lebih-mudah-dokumen-bisa-diurus-sendiri"
+  },
   "93756ae61105dd5493c75bebe97b00e3f53489ccc71f833b30930778a7cb6647": {
    "t": "2026-11-20",
    "slug": "pemimpin-merasa-paling-benar-ini-bahayanya-menurut-muhammad-ismail"
@@ -575,6 +614,10 @@
    "t": "2026-11-21",
    "slug": "pelaku-ekraf-bali-dapat-tujuh-program-di-creative-hub-jimbaran"
   },
+  "cc1e77a1653a03131957baa88f96a2708cbb9550474d5fcc4af0706bb481885f": {
+   "t": "2026-11-22",
+   "slug": "mendagri-minta-pemda-gali-potensi-umkm-demi-ekspor-daerah"
+  },
   "d334eba89168f45c10637d2db9c692503e08260bccb2933dbe39a32f7f874d3a": {
    "t": "2026-11-21",
    "slug": "butuh-modal-jadi-kontraktor-kur-perumahan-buka-akses-untuk-umkm"
@@ -610,6 +653,10 @@
   "f62969a22c906226970c996f22ba197c9c464e596187a53485e2efa21164bfc7": {
    "t": "2026-11-21",
    "slug": "pelatihan-desa-kreatif-sanur-talenta-media-dan-kuliner-naik-kelas"
+  },
+  "f9d961eb57622dd9d52e91722a8cb691ec5310311bd587c142d71414b4368e72": {
+   "t": "2026-11-22",
+   "slug": "ekraf-kawal-riset-blockchain-untuk-lindungi-karya-kreator"
   },
   "ff6c0993a8833411f3ee3aa060f9e088a8dcc163973522fc5a63d864c8e15e24": {
    "t": "2026-11-19",

@@ -1,0 +1,77 @@
+{
+  "slug": "mendagri-minta-pemda-gali-potensi-umkm-demi-ekspor-daerah",
+  "title": "Mendagri Minta Pemda Gali Potensi UMKM demi Ekspor Daerah",
+  "dek": "Mendagri Muhammad Tito Karnavian meminta pemerintah daerah menggali potensi UMKM di wilayahnya. Langkah ini dinilai penting untuk mendorong pertumbuhan ekonomi daerah lewat ekspor.",
+  "kanal": "ekonomi",
+  "date": "2026-11-22",
+  "dibuat": "2026-11-22T10:13:51+07:00",
+  "jenis": "berita",
+  "otomatis": true,
+  "kunci": "https://cnbcindonesia.com/news/20261121180754-4-787207/genjot-ekonomi-daerah-mendagri-imbau-pemda-lakukan-ini",
+  "img": "/assets/berita/mendagri-minta-pemda-gali-potensi-umkm-demi-ekspor-daerah.webp",
+  "imgAlt": "Ilustrasi produk kerajinan UMKM di pasar daerah",
+  "foto": "Ilustrasi AI",
+  "takeaways": [
+    "Mendagri Muhammad Tito Karnavian meminta pemerintah daerah menggali potensi dan mengembangkan UMKM di wilayah masing-masing.",
+    "Menurut Tito, pendorong ekspor dan hilirisasi tidak hanya untuk sektor besar, tetapi juga produk UMKM yang menarik dan bisa mendunia.",
+    "Tito menilai Indonesia punya produk kerajinan beragam, tetapi belum masif dipopulerkan ke pasar dunia."
+  ],
+  "body": [
+    {
+      "type": "p",
+      "text": "Menteri Dalam Negeri Muhammad Tito Karnavian meminta pemerintah daerah menggali potensi dan mengembangkan Usaha Mikro Kecil Menengah (UMKM) di wilayah masing-masing. Permintaan itu disampaikan dalam Apresiasi Pemerintah Daerah Berprestasi Batch III Regional Nusa Tenggara dan Maluku pada Jumat (20/11/2026), seperti dilaporkan CNBC Indonesia. Menurut Tito, langkah ini penting untuk mendorong pertumbuhan ekonomi daerah, salah satunya lewat ekspor produk UMKM."
+    },
+    {
+      "type": "h2",
+      "text": "Dorong Ekspor dan Hilirisasi UMKM"
+    },
+    {
+      "type": "p",
+      "text": "Tito menilai pendorong ekspor dan hilirisasi tidak hanya berlaku untuk sektor besar seperti tambang. Menurutnya, UMKM juga perlu didorong karena produk yang menarik berpotensi mendunia. Ia menyebut Indonesia memiliki banyak potensi di bidang ini."
+    },
+    {
+      "type": "p",
+      "text": "Dalam acara tersebut, Tito mengatakan:"
+    },
+    {
+      "type": "quote",
+      "text": "Oleh karena itu, dibutuhkan kemampuan daerah untuk melakukan pendorong ekspor, hilirisasi bukan hanya yang besar, tambang dan lain-lain, tapi UMKM, produk-produk yang menarik dan bisa mendunia Itu sebenarnya banyak potensi di Indonesia."
+    },
+    {
+      "type": "p",
+      "text": "Tito menekankan kemampuan daerah untuk melakukan pendorong ekspor. Ia melihat hilirisasi bukan hanya soal komoditas besar, tetapi juga produk UMKM. Karena itu, pemerintah daerah diminta menggali potensi yang ada di wilayahnya."
+    },
+    {
+      "type": "h2",
+      "text": "Kerajinan Indonesia Belum Masif"
+    },
+    {
+      "type": "p",
+      "text": "Tito melihat untuk handicraft, Indonesia masih kalah dengan Vietnam dan Thailand. Ia juga membandingkan dengan Tiongkok dan India yang disebut membanjiri pasar dunia. Meskipun demikian, Tito meyakini peluang Indonesia masih sangat besar. Menurutnya, Indonesia punya beragam produk kerajinan yang bisa dipopulerkan di dunia."
+    },
+    {
+      "type": "p",
+      "text": "Tito menutup dengan penilaian tentang pertumbuhan ekonomi. Ia menyebut pertumbuhan ekonomi terdiri dari komponen dan elemen yang banyak dan beragam. Menurutnya, semua itu harus dikerjakan oleh pemerintah, termasuk pemerintah daerah."
+    },
+    {
+      "type": "quote",
+      "text": "Indonesia itu paling beragam. Hanya belum masif. Nah ini saya kira angka pertumbuhan ekonomi Jadi penting karena dia terdiri dari komponen, elemen-elemen yang sangat banyak beragam sekali yang harus dikerjakan oleh Pemerintah termasuk Pemda."
+    },
+    {
+      "type": "h2",
+      "text": "Apa artinya bagi pelaku usaha"
+    },
+    {
+      "type": "p",
+      "text": "Bagi pelaku UMKM, arahan Mendagri ini membuka peluang untuk lebih dekat dengan pemerintah daerah. Pelaku usaha dapat menyiapkan produk kerajinan dan produk menarik yang memiliki daya tarik untuk pasar yang lebih luas. Mereka juga dapat memantau pengumuman resmi pemerintah daerah soal pengembangan UMKM dan dorongan ekspor. Jika pemerintah daerah membuka peluang, pelaku usaha perlu mengecek syarat dan ketentuan. Langkah praktisnya, rapikan kualitas produk dan kesiapan usaha tanpa menunggu program berjalan. Dengan begitu, ketika pemerintah daerah membuka peluang, pelaku usaha sudah siap ikut serta."
+    }
+  ],
+  "sumber": [
+    {
+      "label": "CNBC Indonesia: Genjot Ekonomi Daerah, Mendagri Imbau Pemda Lakukan ini!",
+      "url": "https://www.cnbcindonesia.com/news/20261121180754-4-787207/genjot-ekonomi-daerah-mendagri-imbau-pemda-lakukan-ini"
+    }
+  ],
+  "penulis": "deepseek/deepseek-v4.1-flash",
+  "ilustrasi": "openai:gpt-image-2.6-flare"
+}
