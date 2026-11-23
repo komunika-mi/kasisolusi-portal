@@ -45,7 +45,8 @@
   "2026-11-23": {
    "berita": 0,
    "tips": 0,
-   "biayaUsd": 0.000741
+   "biayaUsd": 0.00933,
+   "evergreen": 2
   }
  },
  "kunci": {
@@ -54,6 +55,12 @@
    "hasil": "terbit",
    "slug": "pelindungan-konsumen-digital-diperkuat-bi-luncurkan-geber-pk-2027",
    "judul": "Pelindungan Konsumen Menjadi Kunci Ekonomi Keuangan Digital Terpercaya"
+  },
+  "https://bpjph.halal.go.id/detail/ini-kriteria-pelaku-umk-yang-dapat-mengajukan-sertifikat-halal-gratis-program-sehati-2026": {
+   "t": "2026-11-23",
+   "hasil": "terbit",
+   "slug": "mau-sertifikat-halal-gratis-sehati-2026-cek-kriteria-umk",
+   "judul": "Kriteria Pelaku UMK Penerima Sertifikat Halal Gratis"
   },
   "https://bpjph.halal.go.id/main/read/bpjph-apresiasi-pengawasan-ombudsman-perkuat-sinergi-untuk-pastikan-hak-masyarakat-atas-jaminan-produk-halal-terpenuhi": {
    "t": "2026-11-16",
@@ -168,6 +175,12 @@
    "hasil": "terbit",
    "slug": "kreator-dan-umkm-diusulkan-dapat-pelatihan-ai-di-sidang-wipo",
    "judul": "Indonesia Tekankan Bantuan Teknis WIPO Harus Berdampak Nyata bagi Penguatan Kekayaan Intelektual"
+  },
+  "https://dgip.go.id/menu-utama/merek/syarat-prosedur": {
+   "t": "2026-11-23",
+   "hasil": "terbit",
+   "slug": "mau-daftarkan-merek-ini-dokumen-dan-langkah-yang-perlu-disiapkan",
+   "judul": "Dokumen dan Langkah Mendaftarkan Merek"
   },
   "https://ekraf.go.id/news/50-pelaku-ekraf-mataram-siap-bersaing-lewat-literasi-keuangan": {
    "t": "2026-11-15",
@@ -541,6 +554,10 @@
    "t": "2026-11-18",
    "slug": "pelaku-musik-mau-mendunia-ekraf-tawarkan-collab-promotion"
   },
+  "4b5796891c528540077c1975befe702d472e57e3d30afd46f83ea326fcd80b7c": {
+   "t": "2026-11-23",
+   "slug": "mau-sertifikat-halal-gratis-sehati-2026-cek-kriteria-umk"
+  },
   "4ba9c2a272e7bd5e56f97fe2cc7da8f6c684c1087ff9eeeee4b6a3a9c5b5f43a": {
    "t": "2026-11-15",
    "slug": "pelaku-umk-di-oki-difasilitasi-sertifikasi-halal-ini-peluangnya"
@@ -648,6 +665,10 @@
   "b52cf4a436a6982bb1d1b28760553a8de327d4eedc2c0fe10aaa9987652993d2": {
    "t": "2026-11-17",
    "slug": "ingin-kredit-motor-atau-mobil-tanpa-riba-simak-cara-syariahnya"
+  },
+  "b738d64ac4be58fb8c5d5863175c6ca288887ec892960ac7fc6d7489e54cacdd": {
+   "t": "2026-11-23",
+   "slug": "mau-daftarkan-merek-ini-dokumen-dan-langkah-yang-perlu-disiapkan"
   },
   "bb9e9a9fbf7414ff8516af3551c15243ba13cdd400c1af695a372218cd4b38f6": {
    "t": "2026-11-16",
