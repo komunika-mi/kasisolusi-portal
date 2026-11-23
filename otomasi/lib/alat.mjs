@@ -70,17 +70,41 @@ export function dekodeEntitas(s) {
     .replace(/&([a-z]+);/gi, (m, n) => ENTITAS[n.toLowerCase()] ?? m);
 }
 
+// Tag sebaris tidak memisahkan kata di peramban. Dulu semua tag diganti spasi, sehingga
+// "<strong><span>5</span></strong><strong><span>7 juta</span></strong>" (laman QRIS BI) terbaca
+// "5 7 juta" dan penulis salah menempelkan angka (uji kering 23 Nov 2026). Kini tag sebaris
+// diganti penanda, lalu diputuskan dari huruf di kedua sisinya: angka dengan angka dan huruf
+// dengan huruf disambung ("57", "S|ebelum"); angka bertemu huruf (ke dua arah) dan huruf kecil
+// bertemu kapital diberi spasi, karena itu biasanya dipisah CSS (lencana nomor "1|Terdaftar" di
+// BPJS Ketenagakerjaan, tautan menu "Beranda|Berita"). Tag lain (blok, sel tabel) tetap jadi spasi.
+const TAG_SEBARIS = /<\/?(?:a|abbr|b|bdi|bdo|big|cite|code|data|del|dfn|em|font|i|ins|kbd|mark|nobr|q|s|samp|small|span|strike|strong|sub|sup|time|tt|u|var|wbr)\b[^>]*>/gi;
+const PENANDA = '\u0001';
+const HURUF = /\p{L}/u;
+const ANGKA = /\p{N}/u;
+function sambungSebaris(m, i, s) {
+  const a = s[i - 1] || ' ';
+  const b = s[i + m.length] || ' ';
+  if ((ANGKA.test(a) && HURUF.test(b)) || (HURUF.test(a) && ANGKA.test(b))) return ' ';
+  const kecil = (c) => c !== c.toUpperCase();
+  const besar = (c) => c !== c.toLowerCase();
+  if (HURUF.test(a) && HURUF.test(b) && kecil(a) && besar(b)) return ' ';
+  return '';
+}
+
 /** Buang tag HTML dan rapikan spasi. */
 export function polos(html) {
   return dekodeEntitas(
     String(html ?? '')
+      .replace(/\u0001/g, '')
       .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
       .replace(/<script[\s\S]*?<\/script>/gi, ' ')
       .replace(/<style[\s\S]*?<\/style>/gi, ' ')
       .replace(/<br\s*\/?>/gi, '\n')
       .replace(/<\/(p|div|li|h[1-6])>/gi, '\n')
+      .replace(TAG_SEBARIS, PENANDA)
       .replace(/<[^>]+>/g, ' '),
   )
+    .replace(/\u0001+/g, sambungSebaris)
     .replace(/[ \t ]+/g, ' ')
     .replace(/ *\n */g, '\n')
     .replace(/\n{3,}/g, '\n\n')

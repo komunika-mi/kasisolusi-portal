@@ -159,7 +159,9 @@ const KONTAK = /\b(website|e-?mail|telp|telepon|faks|fax|instagram|twitter|faceb
 // Langkah panduan bernomor ("1) Login pada laman https://merek.dgip.go.id/") adalah isi, bukan
 // baris kontak, walau memuat alamat situs dan tidak diakhiri titik. Tanpa pengecualian ini langkah
 // pertama panduan merek DJKI hilang dari bahan (23 Nov 2026).
-const LANGKAH = /^(\(?\d{1,2}[).]|[a-h][).])\s*\S/;
+// Butir daftar dari cadangan paragraf ("• ...", lihat isiDariParagraf) juga isi: kanal "Portal
+// Bersama melalui www.bpjs.go.id" di laman BPJS Ketenagakerjaan bukan baris kontak.
+const LANGKAH = /^(\(?\d{1,2}[).]|[a-h][).]|•)\s*\S/;
 
 /** Buang baris navigasi, kontak, dan tautan terkait di ujung teks. */
 export function rapikan(teks) {
@@ -185,25 +187,86 @@ export function rapikan(teks) {
   return baris.join('\n');
 }
 
-function isiDariParagraf(html) {
+/**
+ * Cadangan Readability: gugus paragraf <p> terpanjang.
+ * Gugus dibentuk dan dinilai HANYA dari paragraf "kuat" (>= 60 huruf, bertanda baca), seperti
+ * semula. Yang ditambahkan (23 Nov 2026): butir daftar <li> (berawalan "• ") dan paragraf pendek
+ * yang letaknya DI ANTARA paragraf kuat gugus terpilih, dan jarak antarparagraf kuat dihitung
+ * tanpa blok-blok itu, jadi daftar panjang di tengah artikel tidak memutus gugus. Tanpa ini kanal
+ * pendaftaran pemberi kerja dan daftar dokumennya di laman BPJS Ketenagakerjaan hilang dari bahan
+ * (isinya di jendela modal, Readability memilih menu). Blok sebelum paragraf kuat pertama dan
+ * sesudah yang terakhir tetap tidak diambil (menu, daftar tautan terkait).
+ * Butir dan paragraf pendek yang lebih dari separuh teksnya tautan dianggap navigasi: tidak
+ * diambil dan tidak ikut menjembatani. Tanpa ini deretan tautan kaki laman DJKI (porsi tautan 0,68)
+ * menyambungkan isi laman dengan baris hak cipta di paling bawah; daftar BPJS Ketenagakerjaan
+ * tidak memuat tautan sama sekali.
+ */
+export function isiDariParagraf(html) {
   const bersih = String(html)
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')
     .replace(/<(nav|header|footer|aside|form)\b[\s\S]*?<\/\1>/gi, ' ');
-  const ps = [...bersih.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/gi)]
-    .map((m) => ({ i: m.index, akhir: m.index + m[0].length, t: satuBaris(polos(m[1])) }))
-    .filter((p) => p.t.length >= 60 && /[.,]/.test(p.t));
+  const navigasi = (mentah, t) =>
+    [...mentah.matchAll(/<a\b[^>]*>([\s\S]*?)<\/a>/gi)].reduce((s, x) => s + satuBaris(polos(x[1])).length, 0) > t.length / 2;
+  const blok = [];
+  const rentangP = [];
+  for (const m of bersih.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/gi)) {
+    rentangP.push([m.index, m.index + m[0].length]);
+    const t = satuBaris(polos(m[1]));
+    if (!t) continue;
+    const kuat = t.length >= 60 && /[.,]/.test(t);
+    if (kuat || !navigasi(m[1], t)) blok.push({ i: m.index, akhir: m.index + m[0].length, t, kuat });
+  }
+  // Teks butir sendiri saja: sampai butir atau daftar berikutnya (daftar bersarang tidak ikut
+  // tergabung), tanpa <p> di dalamnya (sudah terbaca sebagai paragraf).
+  // Butir yang letaknya DI DALAM rentang <p> dilewati: teksnya sudah ikut paragraf itu. Laman
+  // DJKI membuka <p> di remah roti tanpa menutupnya, sehingga satu "paragraf" menelan menu samping
+  // dan seluruh isi; tanpa pengecualian ini butir menu tercetak dua kali (23 Nov 2026). Paragraf
+  // raksasa itu sendiri sengaja dibiarkan: menutup <p> di tag blok berikutnya (cara peramban)
+  // justru membuang tabel tarif dan jawaban FAQ DJKI dari bahan.
+  const batas = /<\/?(?:li|ul|ol)\b/gi;
+  let k = 0;
+  for (const m of bersih.matchAll(/<li\b[^>]*>/gi)) {
+    while (k < rentangP.length && rentangP[k][1] <= m.index) k++;
+    if (k < rentangP.length && rentangP[k][0] < m.index) continue;
+    const awal = m.index + m[0].length;
+    batas.lastIndex = awal;
+    const j = batas.exec(bersih);
+    const akhir = j ? j.index : bersih.length;
+    const mentah = bersih.slice(awal, akhir).replace(/<p\b[^>]*>[\s\S]*?<\/p>/gi, ' ');
+    const t = satuBaris(polos(mentah));
+    if (t && !navigasi(mentah, t)) blok.push({ i: m.index, akhir, t: `• ${t}`, kuat: false });
+  }
+  blok.sort((a, b) => a.i - b.i);
   const gugus = [];
-  for (const p of ps) {
+  let lemah = 0; // panjang mentah blok non-kuat sejak paragraf kuat terakhir
+  for (const b of blok) {
     const g = gugus[gugus.length - 1];
-    if (g && p.i - g.akhir < 3000) {
-      g.isi.push(p.t);
-      g.akhir = p.akhir;
-      g.panjang += p.t.length;
-    } else gugus.push({ isi: [p.t], akhir: p.akhir, panjang: p.t.length });
+    if (!b.kuat) {
+      if (g && b.i >= g.akhir) lemah += b.akhir - b.i;
+      continue;
+    }
+    if (g && b.i - g.akhir - lemah < 3000) {
+      g.kuat.push(b);
+      g.akhir = b.akhir;
+      g.panjang += b.t.length;
+    } else gugus.push({ kuat: [b], awal: b.i, akhir: b.akhir, panjang: b.t.length });
+    lemah = 0;
   }
   const terbaik = gugus.sort((a, b) => b.panjang - a.panjang)[0];
-  return terbaik ? [...new Set(terbaik.isi)].join('\n') : '';
+  if (!terbaik) return '';
+  // Paragraf kuat yang berulang dibuang (seperti semula). Butir daftar dan paragraf pendek hanya
+  // dibuang kalau sama dengan baris tepat sebelumnya: daftar di bagian lain boleh memuat butir yang
+  // sama ("Kantor Cabang BPJS Ketenagakerjaan" untuk Penerima Upah dan Bukan Penerima Upah).
+  const sudah = new Set();
+  const isi = [];
+  for (const b of blok) {
+    if (b.i < terbaik.awal || b.akhir > terbaik.akhir) continue;
+    if (b.kuat ? sudah.has(b.t) : isi[isi.length - 1] === b.t) continue;
+    if (b.kuat) sudah.add(b.t);
+    isi.push(b.t);
+  }
+  return isi.join('\n');
 }
 
 /**

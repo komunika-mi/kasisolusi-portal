@@ -238,6 +238,16 @@ berlogo, foto dari laman panduan tidak dipakai.
     tidak lagi terbuang sebagai baris kontak (`rapikan` di `otomasi/lib/ekstrak.mjs`). Pada 23 Nov
     perbaikan ini mengembalikan 5 langkah di laman merek, hak cipta, dan desain industri DJKI,
     serta QRIS BI.
+  - Perbaikan ekstraksi 23 Nov sore (temuan uji kering): tag sebaris (`<strong>`, `<span>`, `<a>`,
+    dan sejenisnya) tidak lagi diganti spasi (`polos` di `otomasi/lib/alat.mjs`), jadi "5 7 juta"
+    di laman QRIS BI terbaca "57 juta" dan spasi sebelum tanda baca hilang. Cadangan paragraf
+    (`isiDariParagraf` di `ekstrak.mjs`) kini ikut membaca butir daftar `<li>` yang terletak di
+    antara paragraf isi, sehingga kanal pendaftaran dan daftar dokumen di laman BPJS
+    Ketenagakerjaan masuk bahan; butir yang lebih dari separuhnya teks tautan dianggap navigasi.
+    Laman QRIS dan pendaftaran BPJS Ketenagakerjaan ditahan (dikomentari di `PANDUAN`) sampai
+    perbaikan ini tayang. Dibandingkan dengan ekstraksi lama pada 33 laman kurasi dan 59 laman
+    sumber jalur berita: 57 identik, sisanya perbaikan spasi atau butir daftar yang kembali, tidak
+    ada tanggal terbit yang berubah. Uji: `otomasi/uji/ekstrak.test.mjs`.
   - `DAFTAR_PANDUAN`: halaman daftar artikel edukasi resmi. Tautan barunya disaring seperti berita
     (relevansi UMKM, topik yang dihindari, judul kembar) dan wajib bertanggal, karena ekstraksi
     hanya membaca tanggal 400 hari terakhir sehingga laman lama tampak tak bertanggal. Saat ini
