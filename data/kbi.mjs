@@ -225,6 +225,49 @@ export const detailInvestment = {
     judul: 'Apakah harus sudah punya saham atau crypto?',
     isi: 'Tidak harus. Kelas dapat diikuti peserta yang belum memiliki portofolio maupun investor aktif, tanpa syarat modal investasi minimum, karena kelas ini berfokus pada pembelajaran strategi.',
   },
+  // Testimoni peserta (permintaan tim Kasisolusi lewat WA, 23 Nov 2026: "setiap kelas ada section
+  // testimoni peserta"; bahan = folder Drive "TESTIMONIAL STEVEN ANDERSON"). Kutipan, nama, dan
+  // pekerjaan disalin persis dari tangkapan layar kartu testimoni; yang dirapikan hanya satu tanda
+  // kutip tanpa pasangan (Meiliana) dan satu spasi sebelum tanda kutip (Chandra). Urutan mengikuti
+  // urutan tangkapan layar, testimoni WhatsApp tanpa nama dan foto di akhir. Foto dipotong dari
+  // kartu yang sama (tools/olah-testimoni.py). Empat tangkapan layar angka profit di folder itu
+  // tidak dipakai: bukan testimoni peserta.
+  // Tiap kelas boleh punya `testimoni` sendiri; tanpa `items` section tidak dirender.
+  testimoni: {
+    intro: 'Cerita mereka yang pernah belajar langsung bersama Steven Anderson lewat sesi konsultasi dan webinar.',
+    catatan: 'Testimoni di atas adalah pengalaman pribadi masing-masing peserta. Hasil investasi setiap orang berbeda dan tidak dijamin.',
+    items: [
+      {
+        nama: 'Meiliana', peran: 'Business Owner', foto: 'meiliana',
+        fotoAlt: 'Meiliana dalam sesi konsultasi online bersama Steven Anderson',
+        kutipan: 'Sebelum konsultasi, saya punya beberapa aset tapi berantakan. Setelah ngobrol 1 on 1 bareng Steven dan Minjul, saya jadi tahu mana yang harus dipertahankan, mana yang terlalu berisiko, dan bagaimana menyusun strategi investasi yang lebih realistis. Thanks Coach, akhirnya saya bisa ngerasain punya mesin uang dan passive income dari aset investasi saya.',
+      },
+      {
+        nama: 'Chandra', peran: 'Expatriate di Europe', foto: 'chandra',
+        fotoAlt: 'Chandra dalam sesi online bersama Steven Anderson',
+        kutipan: 'Experience Steven belasan tahun di Market itu Real, Financial Planningnya masuk akal. “Yang paling saya suka, sesi ini bukan cuma dikasih tahu beli apa. Steven dan minjul bantu saya memahami cara berpikir investor, cara mengatur risiko, dan bagaimana membuat keputusan tanpa panik saat market bergerak.” jadi rasanya more trusted dan nyaman.',
+      },
+      {
+        nama: 'Fina', peran: 'Ibu Rumah Tangga', foto: 'fina',
+        fotoAlt: 'Fina dalam sesi coaching online bersama Steven Anderson',
+        kutipan: 'Buat Gue Yang IRT dan Masih NOL banget soal investasi penjelasan Steven dan Minjul sangat Eye Opener Banget. Mereka Pure Sharing dan selalu jawab semua pertanyaan gue bahkan overtime pun dijabanin. Alhamdulillah, Porto saya udah balik modal uang coaching dalam waktu 1 Minggu Sukses terus buat Ko Steven',
+      },
+      {
+        nama: 'Bambang', peran: 'Developer Properti', foto: 'bambang',
+        fotoAlt: 'Bambang berswafoto bersama Steven Anderson',
+        kutipan: 'Ilmu Investasi Steven sangat bermanfaat untuk saya. Niatnya tulus berbagi dan beneran ngajar beda sama yang lain di satu grup besar disini Steven Coaching kita secara 1 on 1. Karena tersertifikasi profesional dan praktisi langsung, Info dari Steven Valid based on fact dan proven banget !',
+      },
+      {
+        nama: 'Harjono', peran: 'Pegawai Negeri Swasta', foto: 'harjono',
+        fotoAlt: 'Harjono dalam sesi konsultasi online bersama Steven Anderson',
+        kutipan: 'Dulu sempet rugi miliaran di trading dan stres banget. Tapi setelah ketemu Coach Steven dan Jul, baru tau gimana cara manage keuangan yang benar. Ternyata investasi yang baik itu ga perlu muluk muluk cukup Growth diatas 30% per tahun aja udah cukup dan compounding is real ! Porto gw udah grow 10% sejak sesi Konsultasi Pertama Thanks Coach !',
+      },
+      {
+        nama: 'Peserta webinar', peran: 'Dikirim lewat WhatsApp',
+        kutipan: 'yg saya rasakan stelah ikut webminar Steven Anderson dan Minjul\nsaya merasa upgrade utk pengetahuan financial market dan juga alokasi porto dengan varian diversifikasi.\nsebelom nya sy heavy di IHSG, Gold, namun setelah ikut kelas itu tnyata d saat kita blm entry position, masi ada banyak pilihan parkir likuiditas kita di instrumen2 lain yg bisa memberi return lebih dari deposito.\nat the end, 1 kata, saya bersyukur bisa ktemu dengan webminar ini, membuat saya lebih upgrade skill utk prepare hari tua saya kedepan. dan yg jelas tetiba abis kelas ini, sy di tengah2 circle saya, mereka mengaggap saya tiba2 pintar 🤣🙏 bgitu juga d mata suami dan anak2\nhahahahha',
+      },
+    ],
+  },
   // Dokumen PIC bagian 5.
   jadwal: {
     tanggal: 'Sabtu, 12 Desember 2026',

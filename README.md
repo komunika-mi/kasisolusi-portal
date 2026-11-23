@@ -48,6 +48,7 @@ Tidak ada `npm install`. Build hanya memakai Node bawaan. Dependensi npm hanya a
 | `build.mjs` | perakit halaman |
 | `tools/clean-frames.py` | hapus timecode rekaman dari frame video (tidak dipakai lagi sejak 13 Okt 2026) |
 | `tools/olah-aset-kbi.py` | logo school, poster kelas, dan foto mentor dari materi klien menjadi aset siap tayang |
+| `tools/olah-testimoni.py` | foto peserta dari tangkapan layar kartu testimoni menjadi `testimoni-<nama>.webp` 2:1 |
 | `tools/olah-aset-wellness.py` | gambar dan font panduan Wellness menjadi aset siap tayang (tidak ada di repo publik) |
 | `tools/olah-sampul-berita.py` | gambar unggahan/thumbnail menjadi sampul berita 16:9 di `public/assets/berita/` |
 | `tools/make-og.mjs` | pembuat kartu OG 1200x630 (sekali jalan, butuh `sharp`) |
@@ -82,6 +83,12 @@ Tidak ada `npm install`. Build hanya memakai Node bawaan. Dependensi npm hanya a
   Edukasi ikut kiriman tim KBI (dua produk pindah ke toko Lynk.id KBI, satu dari toko Adli
   Hibatul); sampul produk baru diambil dari gambar produk Lynk.id. Video jualan = dua reels Instagram (`detailInvestment.video`, tautan reel
   Instagram atau YouTube; daftar kosong = section tidak tampil).
+  Sejak 23 Nov 2026 detail kelas punya section **Testimoni Peserta** (`detailInvestment.testimoni`,
+  permintaan tim Kasisolusi: tiap kelas ada testimoni). Bahannya folder Drive "TESTIMONIAL STEVEN
+  ANDERSON": kutipan, nama, dan pekerjaan diketik ulang persis dari kartu testimoni, fotonya
+  dipotong lewat `tools/olah-testimoni.py`. Tangkapan layar angka profit di folder yang sama
+  tidak dipakai. Kelas lain cukup diberi `testimoni` sendiri; tanpa `items` section tidak tampil.
+  Di ponsel kartu testimoni jadi satu deret yang digeser mendatar.
 - **Wellness**: artifact Claude "Landing Page D.V.N — Wireframe" dari klien. Teks, warna,
   font, dan gambar disalin apa adanya; daftar penyimpangan ada di kepala `src/wellness.mjs`.
   Formulir belum membuka WhatsApp sampai `WA_CS` diisi. Halaman ini noindex dan tidak

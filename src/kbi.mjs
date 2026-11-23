@@ -241,6 +241,18 @@ export function detailMain(d, now, crumbs) {
       ${d.prasyaratTanya ? `<p class="kd__tanya"><b>${esc(d.prasyaratTanya.judul)}</b> ${esc(d.prasyaratTanya.isi)}</p>` : ''}
     </div>` : ''}
 
+    ${d.testimoni?.items?.length ? `
+    <div class="kd__blok" id="testimoni">
+      <h2 class="kd__h">Testimoni Peserta</h2>
+      ${d.testimoni.intro ? `<p class="kd__hd">${esc(d.testimoni.intro)}</p>` : ''}
+      <ul class="kd__testi" tabindex="0" aria-label="Testimoni peserta, ${d.testimoni.items.length} cerita">
+        ${d.testimoni.items.map((t) => `<li><figure>${t.foto
+          ? `<img class="kd__testi-foto" src="/assets/kbi/testimoni-${t.foto}.webp" width="640" height="320" alt="${esc(t.fotoAlt || `Foto ${t.nama}`)}" loading="lazy" decoding="async">`
+          : ''}<blockquote><p>${esc(t.kutipan)}</p></blockquote><figcaption><b>${esc(t.nama)}</b>${t.peran ? `<span>${esc(t.peran)}</span>` : ''}</figcaption></figure></li>`).join('')}
+      </ul>
+      ${d.testimoni.catatan ? `<p class="kd__kecil">${esc(d.testimoni.catatan)}</p>` : ''}
+    </div>` : ''}
+
     <div class="kd__blok kd__blok--kotak">
       <h2 class="kd__h">Jadwal &amp; Lokasi</h2>
       <ul class="kd__jadwal">

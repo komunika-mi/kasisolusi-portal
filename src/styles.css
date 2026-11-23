@@ -416,6 +416,20 @@ a.pgm__poster:focus-visible { outline-offset: -3px; }
 .kd__syarat dd { margin: 0; font-size: 0.9rem; line-height: 1.5; color: var(--ink-2); }
 .kd__tanya { margin-top: var(--s-4); max-width: 76ch; font-size: 0.92rem; line-height: 1.55; color: var(--ink-2); }
 .kd__tanya b { display: block; color: var(--ink); }
+/* Testimoni peserta: dua kolom; di ponsel jadi satu deret yang digeser mendatar (lihat @media 640px).
+   position: relative supaya tidak ada isi berposisi yang lolos dari kotak gulirnya. */
+.kd__testi { list-style: none; position: relative; margin: var(--s-4) 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.kd__testi:focus-visible { outline: 3px solid var(--blue-hi); outline-offset: 4px; border-radius: var(--radius); }
+.kd__testi > li { display: flex; min-width: 0; }
+.kd__testi figure { display: flex; flex-direction: column; width: 100%; margin: 0; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; overflow: hidden; }
+.kd__testi-foto { display: block; width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: cover; background: var(--navy-900); }
+.kd__testi blockquote { flex: 1; margin: 0; padding: 1rem 1.15rem 0; }
+.kd__testi blockquote::before { content: '\201C'; content: '\201C' / ''; display: block; height: 1.3rem; font-size: 2.6rem; font-weight: 800; line-height: 1; color: var(--blue); }
+.kd__testi blockquote p { font-size: 0.92rem; line-height: 1.6; color: var(--ink-2); white-space: pre-line; overflow-wrap: break-word; }
+.kd__testi figcaption { padding: 0.85rem 1.15rem 1.1rem; }
+.kd__testi figcaption b { display: block; font-size: 0.95rem; line-height: 1.3; }
+.kd__testi figcaption span { display: block; margin-top: 0.1rem; font-size: 0.82rem; line-height: 1.4; color: var(--ink-3); }
+.kd__testi + .kd__kecil { max-width: 76ch; }
 .kd__susunan { width: 100%; margin-top: var(--s-3); border-collapse: collapse; font-size: 0.9rem; background: #fff; border-radius: var(--radius-sm); overflow: hidden; }
 .kd__susunan th { padding: 0.6rem 0.9rem; text-align: left; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); border-bottom: 1px solid var(--line); }
 .kd__susunan td { padding: 0.6rem 0.9rem; border-bottom: 1px solid var(--line); line-height: 1.4; }
@@ -703,6 +717,9 @@ a.pgm__poster:focus-visible { outline-offset: -3px; }
   .kd__mentor, .kd__jadwal, .kd__paket fieldset, .kd__dapat, .kd__topik, .kd__cocok { grid-template-columns: minmax(0, 1fr); }
   .kd__syarat > div { grid-template-columns: minmax(0, 1fr); gap: 0.2rem; }
   .kd__videos, .kd__videos--dua { grid-template-columns: minmax(0, 340px); justify-content: center; }
+  /* Tinggi kartu mengikuti isinya: kutipan WhatsApp jauh lebih panjang, kartu lain jangan ikut molor. */
+  .kd__testi { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 86%; align-items: start; gap: 0.75rem; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; padding-bottom: 0.6rem; }
+  .kd__testi > li { scroll-snap-align: start; }
   .kd__susunan td:first-child { width: 7.5rem; }
   .kd__foto { width: 64px; height: 64px; }
   .kd__ringkas dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
