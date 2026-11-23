@@ -11,9 +11,9 @@
 // - DAFTAR_PANDUAN: halaman daftar artikel edukasi resmi. Tautan baru dari sini disaring seperti
 //   berita (relevansi UMKM, topik yang dihindari, kembar) sebelum ditulis, dan WAJIB bertanggal:
 //   ekstraksi hanya membaca tanggal 400 hari terakhir, jadi laman lama (misalnya artikel KUR
-//   2016 di Sikapi Uangmu) tampak tak bertanggal. Saat ini kosong: halaman daftar OJK mencampur
-//   artikel lama dan baru dan jarang soal usaha; daftar artikel DJP menunggu keputusan pemilik
-//   (lihat catatan di atas PANDUAN).
+//   2016 di Sikapi Uangmu) tampak tak bertanggal. Saat ini kosong: Sikapi Uangmu menolak IP
+//   runner (HTTP 403), dan daftar artikel DJP menunggu keputusan pemilik (lihat catatan di atas
+//   PANDUAN).
 //
 // Satu laman hanya menjadi satu artikel: kuncinya alamat laman (sama seperti berita), dan semua
 // artikel otomatis yang sudah terbit tetap tercatat lewat data/berita. Kalau daftar ini habis,
@@ -26,7 +26,6 @@ export const LEMBAGA_PANDUAN = {
   bpjph: { nama: 'Badan Penyelenggara Jaminan Produk Halal', label: 'BPJPH (bpjph.halal.go.id)', singkat: ['BPJPH', 'Badan Penyelenggara Jaminan Produk Halal'] },
   djki: { nama: 'Direktorat Jenderal Kekayaan Intelektual', label: 'DJKI Kementerian Hukum (dgip.go.id)', singkat: ['DJKI', 'Direktorat Jenderal Kekayaan Intelektual', 'Kementerian Hukum R.I.'] },
   djp: { nama: 'Direktorat Jenderal Pajak', label: 'Direktorat Jenderal Pajak (pajak.go.id)', singkat: ['DJP', 'Direktorat Jenderal Pajak'] },
-  ojk: { nama: 'Otoritas Jasa Keuangan', label: 'OJK, Sikapi Uangmu (sikapiuangmu.ojk.go.id)', singkat: ['OJK', 'Otoritas Jasa Keuangan', 'Sikapi Uangmu'] },
   bi: { nama: 'Bank Indonesia', label: 'Bank Indonesia (bi.go.id)', singkat: ['Bank Indonesia', 'BI'] },
   bpjstk: { nama: 'BPJS Ketenagakerjaan', label: 'BPJS Ketenagakerjaan (bpjsketenagakerjaan.go.id)', singkat: ['BPJS Ketenagakerjaan', 'BPJSTK'] },
   djbc: { nama: 'Direktorat Jenderal Bea dan Cukai', label: 'Direktorat Jenderal Bea dan Cukai (beacukai.go.id)', singkat: ['Bea Cukai', 'DJBC', 'Direktorat Jenderal Bea dan Cukai'] },
@@ -46,10 +45,14 @@ export const LEMBAGA_PANDUAN = {
  */
 
 /**
- * Daftar kurasi, diperiksa 23 Nov 2026 dari laptop (urutan di dalam lembaga = prioritas).
+ * Daftar kurasi, diperiksa 23 Nov 2026 dari laptop dan lewat uji kering runner GitHub (urutan di
+ * dalam lembaga = prioritas).
  * Sengaja TIDAK dimasukkan (hasil periksa hari itu):
  * - 28 artikel di pajak.go.id/id/artikel: semuanya berpenafian "pendapat pribadi penulis dan bukan
  *   cerminan sikap instansi". Menunggu keputusan pemilik.
+ * - 4 laman OJK Sikapi Uangmu (Article/40955 SLIK, 74 kredit usaha, 40950 restrukturisasi, 40961
+ *   gadai): terbaca dari laptop, tetapi uji kering runner GitHub 23 Nov menjawab HTTP 403 untuk
+ *   semuanya (IP pusat data ditolak). Proteksi tidak diakali.
  * - DJKI desain-industri/biaya (dasar tarifnya tidak tertulis), BPJSTK penerima-upah dan
  *   bukan-penerima-upah (memuat keringanan iuran berbatas waktu), BPJSTK artikel izin edar pangan
  *   (bukan wewenang BPJSTK), OJK Article/40768 (2022), Bea Cukai fta (jumlah perjanjian per 2023),
@@ -72,10 +75,6 @@ export const PANDUAN = [
   { lembaga: 'djki', url: 'https://dgip.go.id/faq/daftar-faq/hak-cipta/Hc-umum', judul: 'Tanya Jawab Seputar Perlindungan Hak Cipta', diperiksa: '2026-11-23' },
   { lembaga: 'djki', url: 'https://dgip.go.id/menu-utama/paten/pengenalan', judul: 'Mengenal Paten dan Paten Sederhana', diperiksa: '2026-11-23' },
   { lembaga: 'djp', url: 'https://pajak.go.id/id/pengusaha-kena-pajak', judul: 'Mengenal Pengusaha Kena Pajak (PKP)', diperiksa: '2026-11-23', catatan: 'halaman Belajar Pajak, tanpa penafian' },
-  { lembaga: 'ojk', url: 'https://sikapiuangmu.ojk.go.id/FrontEnd/CMS/Article/40955', judul: 'Cek SLIK OJK Sebelum Mengajukan Kredit', diperiksa: '2026-11-23' },
-  { lembaga: 'ojk', url: 'https://sikapiuangmu.ojk.go.id/FrontEnd/CMS/Article/74', judul: 'Jenis Kredit Usaha dari Bank', diperiksa: '2026-11-23' },
-  { lembaga: 'ojk', url: 'https://sikapiuangmu.ojk.go.id/FrontEnd/CMS/Article/40950', judul: 'Restrukturisasi Kredit Saat Sulit Membayar Cicilan', diperiksa: '2026-11-23' },
-  { lembaga: 'ojk', url: 'https://sikapiuangmu.ojk.go.id/FrontEnd/CMS/Article/40961', judul: 'Alur Gadai dari Penyerahan Barang hingga Pencairan Dana', diperiksa: '2026-11-23', catatan: 'POJK 39/2024' },
   { lembaga: 'bi', url: 'https://www.bi.go.id/id/publikasi/ruang-media/cerita-bi/Pages/cara-membuat-QRIS.aspx', judul: 'Langkah Mendaftar QRIS sebagai Merchant', diperiksa: '2026-11-23', catatan: 'data merchant per Juni 2025' },
   { lembaga: 'bi', url: 'https://www.bi.go.id/id/fungsi-utama/sistem-pembayaran/ritel/kanal-layanan/QRIS/default.aspx', judul: 'Mengenal QRIS untuk Pembayaran Usaha', diperiksa: '2026-11-23' },
   { lembaga: 'bi', url: 'https://www.bi.go.id/id/rupiah/pencegahan-rupiah-palsu/default.aspx', judul: 'Ciri Uang Rupiah Asli dan Cara Mengenali yang Palsu', diperiksa: '2026-11-23' },

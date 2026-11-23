@@ -218,10 +218,19 @@ berlogo, foto dari laman panduan tidak dipakai.
 - **A. Panduan resmi pemerintah** (`otomasi/lib/sumber-evergreen.mjs`), misalnya cara mengurus
   NIB, syarat KUR, sertifikasi halal gratis, pendaftaran merek, pajak UMKM. Dua jalur:
   - `PANDUAN`: daftar kurasi. Setiap laman diperiksa tangan sebelum dimasukkan (isi terbaca
-    Readability, robots.txt mengizinkan, tidak ada larangan AI di halaman, isinya masih berlaku)
-    dan tanggal periksanya dicatat di `diperiksa`. Laman kurasi tidak disaring kata kunci UMKM.
+    Readability, robots.txt mengizinkan, tidak ada larangan AI di halaman, isinya masih berlaku,
+    bukan pendapat pribadi atau berita) dan tanggal periksanya dicatat di `diperiksa`. Laman kurasi
+    tidak disaring kata kunci UMKM. Judul kurasi (`judul`) menggantikan judul halaman, yang di
+    banyak laman lembaga generik (DJKI selalu "Kementerian Hukum R.I."); uji di
+    `otomasi/uji/lain.test.mjs` menolak dua judul kurasi yang dianggap kembar. Isi 23 Nov 2026:
+    29 laman dari BPJPH, DJKI, DJP, BI, BPJS Ketenagakerjaan, Bea Cukai, dan LPDB (cukup untuk
+    sekitar 10 hari pada 3 artikel per hari). Laman yang sengaja tidak dimasukkan beserta
+    alasannya tercatat di atas `PANDUAN`, termasuk OJK Sikapi Uangmu (HTTP 403 dari runner) dan
+    28 artikel pajak.go.id yang berpenafian pendapat pribadi penulis.
   - `DAFTAR_PANDUAN`: halaman daftar artikel edukasi resmi. Tautan barunya disaring seperti berita
-    (relevansi UMKM, topik yang dihindari, judul kembar).
+    (relevansi UMKM, topik yang dihindari, judul kembar) dan wajib bertanggal, karena ekstraksi
+    hanya membaca tanggal 400 hari terakhir sehingga laman lama tampak tak bertanggal. Saat ini
+    kosong.
   - Laman yang bertanggal lebih dari 3 tahun dilewati (`UMUR_MAKS_HARI_PANDUAN`). Satu laman hanya
     menjadi satu artikel (kuncinya alamat laman). Kalau daftarnya habis, jalur A berhenti sendiri
     sampai daftarnya ditambah.
