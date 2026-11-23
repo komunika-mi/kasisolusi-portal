@@ -1,7 +1,7 @@
 // Penjaga tulisan. Aturan gaya dan fakta pemilik ditegakkan DI KODE, bukan hanya di prompt:
 // model murah bisa membandel diam-diam. Artikel yang gagal diulang sekali dengan daftar
 // masalahnya; gagal lagi = dilewati dan alasannya dicatat. Tidak ada artikel gagal yang terbit.
-import { indeksSumber, angkaTakBersumber, kataBilanganTakBersumber } from './angka.mjs';
+import { indeksSumber, angkaTakBersumber, kataBilanganTakBersumber, bilanganKata } from './angka.mjs';
 import { token, judulKembar } from './seleksi.mjs';
 import { jumlahKata, satuBaris } from './alat.mjs';
 import { PANJANG_KATA, JUDUL_MAKS } from './konfigurasi.mjs';
@@ -112,6 +112,11 @@ export function perbaikiOtomatis(a) {
     if (!x || typeof x !== 'object') return x;
     const type = String(x.type || '').toLowerCase();
     let text = benahi(x.text);
+    // Nomor butir evergreen diseragamkan: "1) Siapkan" atau "1: Siapkan" menjadi "1. Siapkan".
+    if (type === 'h2' && typeof text === 'string' && /^\d{1,2}\s*[):]\s+/.test(text)) {
+      text = text.replace(/^(\d{1,2})\s*[):]\s+/, '$1. ');
+      catatan.add('nomor subjudul diseragamkan');
+    }
     if (type === 'quote' && typeof text === 'string') {
       const rapi = rapikanKutipan(text);
       if (rapi !== text) catatan.add('blok kutipan dirapikan');
@@ -148,6 +153,35 @@ const SENSASI = /\b(?:heboh|geger|gempar|menggemparkan|mengejutkan|melongo|tak d
 const EMOJI = /\p{Extended_Pictographic}/u;
 const PENUTUP_BERITA = /pelaku usaha|umkm|usaha kecil|usaha mikro|bagi usaha|bagi penjual|bagi pedagang|apa artinya|langkah|yang perlu|yang bisa dilakukan|dampak/i;
 
+// ------------------------------------------------------------------ evergreen (keputusan pemilik 23 Nov 2026)
+
+// Judul evergreen boleh memancing, tetapi tidak menjanjikan yang tidak bisa dibuktikan isi, dan
+// tidak berlagak kabar baru (bahannya panduan yang bisa saja sudah lama tayang).
+const LEBAY = /\b(?:rahasia|dijamin|pasti|jitu|ampuh|ajaib|instan|terbaru)\b/i;
+const KABAR = /\b(?:hari ini|kemarin|pekan ini|minggu ini|baru saja|barusan)\b/i;
+const ANJURAN_CEK = /laman resmi|situs resmi|kanal resmi|website resmi|ketentuan terbaru|aturan terbaru|informasi terbaru/i;
+
+// Subjudul butir: "1. Siapkan NIB". Jumlah di judul ("5 Syarat ...") wajib sama dengan jumlah
+// subjudul bernomor. Dengan begitu angka itu benar menurut susunan artikel sendiri, jadi penjaga
+// angka tidak menuntutnya ada di bahan; setiap butirnya tetap wajib berasal dari bahan.
+export const NOMOR_BUTIR = /^(\d{1,2})\.\s+(?=\S)/;
+const KATA_HITUNG = '(?:dua|tiga|empat|lima|enam|tujuh|delapan|sembilan) belas|dua|tiga|empat|lima|enam|tujuh|delapan|sembilan|sepuluh|sebelas';
+const BENDA_HITUNG = 'cara|langkah|syarat|kesalahan|tips|hal|dokumen|tahap|tahapan|alasan|jenis|manfaat|ciri|fakta|pertanyaan|istilah|keuntungan|kewajiban|hak|aturan|layanan|program|strategi|pelajaran|kebiasaan|tanda|ide|poin|persiapan|pilihan|kriteria|ketentuan|prinsip|kunci|perbedaan|beda|bekal|trik|kiat|contoh|solusi|peluang|fitur|keunggulan|kelebihan|kekurangan|risiko|mitos|dampak|faktor|penyebab|tujuan|macam|bentuk|kategori|golongan|komponen|unsur|metode|teknik|opsi|alternatif';
+// "-nya" ikut dikenali ("Ini 4 Syaratnya").
+const RE_HITUNG = new RegExp(`(?<![\\p{L}\\d.,])(\\d{1,2}|${KATA_HITUNG})\\s+(?=(?:${BENDA_HITUNG})(?:nya)?(?![\\p{L}]))`, 'giu');
+const nilaiHitung = (w) => (/^\d+$/.test(w) ? Number(w) : bilanganKata(w.toLowerCase())[0]);
+
+/** Jumlah butir yang dijanjikan teks ("5 Syarat", "Tujuh Kesalahan"), sebagai daftar nilai. */
+export function janjiButir(teks) {
+  return [...String(teks || '').matchAll(RE_HITUNG)].map((m) => nilaiHitung(m[1]));
+}
+
+/** Buang angka jumlah butir yang nilainya sama dengan n (hanya untuk pemeriksaan angka). */
+function buangJumlahButir(teks, n) {
+  if (!n) return teks;
+  return String(teks).replace(RE_HITUNG, (m, w) => (nilaiHitung(w) === n ? '' : m));
+}
+
 // ------------------------------------------------------------------ salinan dari sumber
 
 function untaiSalinan(teksKeluaran, teksSumber) {
@@ -177,7 +211,8 @@ const BATAS_SALINAN = { media: { rasio: 0.2, run: 25 }, lembaga: { rasio: 0.3, r
 /**
  * Periksa artikel hasil model. Mengembalikan daftar masalah (kosong = lolos).
  * @param {object} a artikel (sesudah perbaikiOtomatis)
- * @param {{jenis:'berita'|'tips', asal:string, bahan:string, judulSumber:string, judulTerbaru?:string[]}} k
+ * @param {{jenis:'berita'|'tips'|'evergreen', asal:string, bahan:string, judulSumber:string, judulTerbaru?:string[]}} k
+ *   asal 'youtube' = episode podcast; selain itu laman lembaga (siaran pers atau panduan resmi)
  */
 export function periksaArtikel(a, k) {
   const m = [];
@@ -201,17 +236,46 @@ export function periksaArtikel(a, k) {
 
   // --- panjang dan susunan
   const nKata = jumlahKata(a.body.filter((b) => b.type !== 'h2').map((b) => b.text).join(' '));
-  const [minKata, maksKata] = PANJANG_KATA[jenis];
+  const panjang = PANJANG_KATA[jenis];
+  const [minKata, maksKata] = Array.isArray(panjang) ? panjang : panjang[k.asal === 'youtube' ? 'youtube' : 'lembaga'];
   if (nKata < minKata || nKata > maksKata) m.push(`isi ${nKata} kata; harus ${minKata}-${maksKata} kata`);
   if (a.body[0].type !== 'p') m.push('blok pertama body harus paragraf (type p)');
   const h2 = a.body.map((b, i) => [b, i]).filter(([b]) => b.type === 'h2');
   if (!h2.length) m.push('body harus punya subjudul (type h2)');
-  if (jenis === 'berita') {
+  const dariLembaga = k.asal !== 'youtube';
+  if (jenis === 'berita' || (jenis === 'evergreen' && dariLembaga)) {
     const [akhir, i] = h2[h2.length - 1] || [];
     if (!akhir || !PENUTUP_BERITA.test(akhir.text)) m.push('subjudul terakhir harus bagian praktis untuk pelaku usaha, misalnya "Apa artinya bagi pelaku usaha"');
     else if (!a.body.slice(i + 1).some((b) => b.type === 'p')) m.push('bagian praktis di akhir harus berisi paragraf');
   }
   for (let i = 1; i < a.body.length; i++) if (a.body[i].type === 'h2' && a.body[i - 1].type === 'h2') m.push('dua subjudul berurutan tanpa paragraf');
+
+  // --- evergreen: butir bernomor, jumlah di judul, judul tanpa janji berlebihan, penutup
+  let nButir = 0;
+  if (jenis === 'evergreen') {
+    const nomor = h2.map(([b]) => b.text.match(NOMOR_BUTIR)).filter(Boolean).map((x) => Number(x[1]));
+    nButir = nomor.length;
+    if (nomor.some((v, i) => v !== i + 1)) m.push('subjudul bernomor harus berurutan mulai dari 1 ("1. ...", "2. ...", dan seterusnya)');
+    for (const n of new Set(janjiButir(a.title))) {
+      if (n !== nButir) m.push(`judul menjanjikan ${n} butir, tetapi body punya ${nButir} subjudul bernomor (ditulis "1. ...", "2. ..."); samakan jumlahnya atau hapus angka di judul`);
+    }
+    if (LEBAY.test(a.title)) m.push(`judul evergreen tidak boleh memakai kata "${a.title.match(LEBAY)[0].toLowerCase()}"`);
+    for (const [nama, teks] of [['judul', a.title], ['dek', a.dek], ['paragraf 1', a.body[0].text]]) {
+      const x = teksLuarKutipan(teks).match(KABAR);
+      if (x) m.push(`${nama}: evergreen bukan kabar terbaru; jangan memakai "${x[0].toLowerCase()}"`);
+    }
+    if (dariLembaga) {
+      const [akhir, i] = h2[h2.length - 1] || [];
+      if (akhir && NOMOR_BUTIR.test(akhir.text)) m.push('subjudul terakhir harus bagian praktis tanpa nomor, sesudah butir-butir bernomor');
+      const penutup = akhir ? a.body.slice(i + 1).filter((b) => b.type === 'p').map((b) => b.text).join(' ') : '';
+      if (!ANJURAN_CEK.test(penutup)) m.push('bagian penutup harus menganjurkan pembaca mengecek ketentuan terbaru di laman resmi lembaga sumbernya');
+    }
+  }
+  // Teks untuk pemeriksaan angka: nomor butir dan jumlah butir yang cocok dengan susunan artikel
+  // bukan angka dari bahan, jadi dikeluarkan dulu (hanya evergreen).
+  const untukAngka = (nama, teks) => (jenis === 'evergreen'
+    ? buangJumlahButir(nama.startsWith('subjudul') ? teks.replace(NOMOR_BUTIR, '') : teks, nButir)
+    : teks);
 
   // --- judul
   const t = a.title;
@@ -241,9 +305,9 @@ export function periksaArtikel(a, k) {
 
   // --- angka
   const angkaSalah = new Set();
-  for (const [, teks] of semua) for (const x of angkaTakBersumber(teks, idx)) angkaSalah.add(x);
+  for (const [nama, teks] of semua) for (const x of angkaTakBersumber(untukAngka(nama, teks), idx)) angkaSalah.add(x);
   if (angkaSalah.size) m.push(`angka tidak ada di bahan: ${[...angkaSalah].map((x) => `"${x}"`).join(', ')}. Hapus, atau pakai angka yang persis tertulis di bahan`);
-  const kataBil = kataBilanganTakBersumber(`${a.title} ${a.dek}`, idx, k.bahan);
+  const kataBil = kataBilanganTakBersumber(`${untukAngka('judul', a.title)} ${untukAngka('dek', a.dek)}`, idx, k.bahan);
   if (kataBil.length) m.push(`bilangan di judul/dek tidak ada di bahan: ${kataBil.map((x) => `"${x}"`).join(', ')}`);
 
   // --- superlatif dan jumlah samar

@@ -2,6 +2,7 @@
 // tanpa keduanya diam (bukan galat). Dikirim SESUDAH push, supaya pesan "terbit" tidak pernah
 // mendahului commit yang ternyata gagal.
 import { log } from './alat.mjs';
+import { JENIS, KUOTA } from './konfigurasi.mjs';
 
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -20,14 +21,15 @@ export function susunPesan(r, { hasilPush = '', hasilJob = '', origin = '' } = {
   if (hasilJob && hasilJob !== 'success' && !galat.length) galat.push(`job berstatus ${hasilJob} (lihat log Actions)`);
   if (!r) return hasilJob && hasilJob !== 'success' ? `<b>Kasisolusi: putaran berita gagal</b>\nRingkasan tidak terbentuk. Job: ${esc(hasilJob)}. Periksa log GitHub Actions.` : '';
   if (!terbit.length && !galat.length) return '';
-  const nb = terbit.filter((x) => x.jenis === 'berita').length;
-  const nt = terbit.filter((x) => x.jenis === 'tips').length;
+  // "1 berita + 0 tips + 1 evergreen", urut menurut JENIS di konfigurasi.
+  const jumlah = JENIS.map((j) => `${terbit.filter((x) => x.jenis === j).length} ${j}`).join(' + ');
   const baris = [];
-  if (tidakTayang) baris.push(`<b>Kasisolusi: ${nb} berita + ${nt} tips TIDAK tayang</b>`);
-  else baris.push(galat.length && !terbit.length ? '<b>Kasisolusi: putaran berita bermasalah</b>' : `<b>Kasisolusi: ${nb} berita + ${nt} tips terbit</b>`);
-  if (r.terbitHariIni) baris.push(`${esc(r.waktuTeks || '')} · hari ini ${r.terbitHariIni.berita}/12 berita, ${r.terbitHariIni.tips}/3 tips`);
+  if (tidakTayang) baris.push(`<b>Kasisolusi: ${jumlah} TIDAK tayang</b>`);
+  else baris.push(galat.length && !terbit.length ? '<b>Kasisolusi: putaran berita bermasalah</b>' : `<b>Kasisolusi: ${jumlah} terbit</b>`);
+  if (r.terbitHariIni) baris.push(`${esc(r.waktuTeks || '')} · hari ini ${JENIS.map((j) => `${r.terbitHariIni[j] || 0}/${KUOTA[j]} ${j}`).join(', ')}`);
   if (terbit.length) baris.push('');
-  for (const a of terbit) baris.push(`• <a href="${esc(`${origin}/berita/${a.slug}`)}">${esc(a.judul)}</a> (${esc(a.jenis === 'tips' ? 'tips' : a.kanal)}, ${esc(a.sumber)})`);
+  const keterangan = (a) => (a.jenis === 'tips' ? 'tips' : a.jenis === 'evergreen' ? `evergreen, ${a.kanal}` : a.kanal);
+  for (const a of terbit) baris.push(`• <a href="${esc(`${origin}/berita/${a.slug}`)}">${esc(a.judul)}</a> (${esc(keterangan(a))}, ${esc(a.sumber)})`);
   if (r.dilewati?.length) {
     const hitung = {};
     for (const d of r.dilewati) hitung[d.alasanSingkat || 'lain'] = (hitung[d.alasanSingkat || 'lain'] || 0) + 1;

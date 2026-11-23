@@ -162,8 +162,10 @@ apa pun di laptop, `git pull` dulu.
 ## Berita otomatis
 
 Keputusan pemilik 15 Nov 2026: berita dan tips terbit **otomatis tanpa review**, paling banyak
-**12 berita UMKM + 3 tips per hari WIB** (kurang tidak apa-apa). Fokus isi: berita UMKM, tips dan
-trik, solusi. Judul boleh memancing tetapi jujur. Penulis: model murah lewat OpenRouter. Sampul:
+**12 berita UMKM + 3 tips per hari WIB** (kurang tidak apa-apa). Sejak 23 Nov 2026 ditambah
+**3 artikel evergreen per hari** (panduan resmi pemerintah dan episode arsip Podcast Kasisolusi,
+lihat bagian Evergreen). Fokus isi: berita UMKM, tips dan trik, solusi. Judul boleh memancing
+tetapi jujur. Penulis: model murah lewat OpenRouter. Sampul:
 ilustrasi AI (OpenAI `gpt-image-2.6-flare` kualitas low; `gpt-image-1` sudah dimatikan OpenAI
 23 Okt 2026). Cadangan Pollinations mati bawaan sejak 15 Nov 2026, lihat bagian Gambar.
 
@@ -174,7 +176,8 @@ GitHub Actions (`.github/workflows/berita-otomatis.yml`) jalan tiap jam 06.13-22
 1. **Cek kuota dan jam** (`node otomasi/jalan.mjs --cek`, tanpa `npm ci`). Kalau kuota hari ini
    penuh atau belum waktunya, job selesai dalam hitungan detik.
 2. **Kumpulkan kandidat** dari sumber resmi dan YouTube Kasisolusi (RSS media dimatikan sejak
-   23 Nov 2026, lihat Sumber).
+   23 Nov 2026, lihat Sumber), ditambah laman panduan resmi bila jatah evergreen putaran ini ada
+   (lihat Evergreen). Urutan pengerjaan: berita, tips, lalu evergreen.
 3. **Saring**: kunci sumber yang sudah diproses (14 hari), judul yang mirip dengan yang sudah
    terbit, relevansi UMKM, umur bahan, dan topik yang dihindari (kriminal, kekerasan, kematian,
    asusila, judi, perkara hukum, politik praktis; bencana hanya bila soal pemulihan usaha).
@@ -205,13 +208,49 @@ halal.go.id (tidak terjangkau). Pola dan jebakan sumber resmi sebagian diwarisi 
 (`scripts/fetch-gov.mjs`): garis miring di ujung `asal` DJP, `/index.php` DJP dibuang, ekon.go.id
 butuh `curl -k` di runner.
 
+### Evergreen
+
+Keputusan pemilik 23 Nov 2026 ("A+B, memancing tapi jujur, 3 per hari"): artikel panduan atau
+pelajaran usaha yang tetap berguna berbulan-bulan, bukan kabar baru. Di situs tampil sama dengan
+tips (daftar berita, label kanal); `jenis` di data `evergreen`. Sampulnya selalu ilustrasi AI
+berlogo, foto dari laman panduan tidak dipakai.
+
+- **A. Panduan resmi pemerintah** (`otomasi/lib/sumber-evergreen.mjs`), misalnya cara mengurus
+  NIB, syarat KUR, sertifikasi halal gratis, pendaftaran merek, pajak UMKM. Dua jalur:
+  - `PANDUAN`: daftar kurasi. Setiap laman diperiksa tangan sebelum dimasukkan (isi terbaca
+    Readability, robots.txt mengizinkan, tidak ada larangan AI di halaman, isinya masih berlaku)
+    dan tanggal periksanya dicatat di `diperiksa`. Laman kurasi tidak disaring kata kunci UMKM.
+  - `DAFTAR_PANDUAN`: halaman daftar artikel edukasi resmi. Tautan barunya disaring seperti berita
+    (relevansi UMKM, topik yang dihindari, judul kembar).
+  - Laman yang bertanggal lebih dari 3 tahun dilewati (`UMUR_MAKS_HARI_PANDUAN`). Satu laman hanya
+    menjadi satu artikel (kuncinya alamat laman). Kalau daftarnya habis, jalur A berhenti sendiri
+    sampai daftarnya ditambah.
+  - Penulis menerima `TANGGAL HALAMAN` dan `DIAKSES`, menyebut lembaga sumbernya di paragraf
+    pertama, dan menutup dengan anjuran mengecek ketentuan terbaru di laman resmi lembaga itu.
+- **B. Episode arsip Podcast Kasisolusi**: episode dari RSS kanal dan playlist tips yang sudah
+  lewat 7 hari, belum pernah dipakai artikel otomatis, dan belum punya artikel rangkuman di
+  `data/articles.mjs`. Penyaringannya sama dengan tips. Playlist School didahulukan, lalu tayangan
+  terbanyak. Episode yang judulnya sudah dibahas dilewati tanpa dicatat, supaya jalur tips tidak
+  ikut terblokir. Cek 23 Nov 2026: hanya 4 episode memenuhi syarat dan keempatnya sudah ditolak di
+  jalur tips, jadi B praktis kosong; RSS YouTube hanya memuat 15 episode terbaru per umpan.
+- **Giliran**: A dan B bergantian per artikel (dihitung dari tanggal dan jumlah evergreen yang
+  sudah terbit hari itu). Kalau satu jalur kosong, jalur lain dipakai. Paling banyak 8 laman A
+  diambil per putaran.
+- **Judul** boleh lebih memancing daripada berita, tetapi jujur: pola jumlah butir ("5 Syarat
+  Mengajukan KUR ..."), "Ternyata ...", "Jarang Diketahui, ...", pertanyaan pembaca, atau hal yang
+  perlu dihindari, masing-masing hanya bila isinya memang menjawab. Aturannya ditegakkan di
+  penjaga (lihat di bawah). Pembanding judul kembar untuk evergreen: semua artikel evergreen yang
+  pernah terbit, ditambah judul 14 hari terakhir.
+
 ### Kuota dan laju
 
-- Per putaran paling banyak 3 berita + 1 tips; per hari 12 + 3 (`otomasi/lib/konfigurasi.mjs`).
+- Per putaran paling banyak 3 berita + 1 tips + 1 evergreen; per hari 12 + 3 + 3
+  (`otomasi/lib/konfigurasi.mjs`).
 - Batas kumulatif naik tiap jam dari 06.00 dan penuh paling lambat pukul 19.00 WIB (berita: 06=1,
-  08=3, 10=5, 12=6, 14=8, 16=10, 18=12); sesudahnya sampai 22.59 jadi waktu kejar. GitHub membuang kira-kira
-  separuh event schedule; simulasi di `otomasi/uji/lain.test.mjs` (50% jadwal hilang) memberi
-  rata-rata 11,9 berita dan 3 tips per hari.
+  08=3, 10=5, 12=6, 14=8, 16=10, 18=12; tips dan evergreen masing-masing: 06=1, 10=2, 15=3);
+  sesudahnya sampai 22.59 jadi waktu kejar. GitHub membuang kira-kira separuh event schedule;
+  simulasi di `otomasi/uji/lain.test.mjs` (50% jadwal hilang) memberi rata-rata 11,9 berita,
+  3 tips, dan 3 evergreen per hari.
 - Penghitung harian dan kunci sumber ada di `data/berita/_status.json`. Jangan disunting tangan
   selagi otomasi aktif.
 
@@ -229,6 +268,17 @@ butuh `curl -k` di runner.
   (berita 300-800 kata, tips 200-650), bagian penutup "Apa artinya bagi pelaku usaha", kanal sah,
   tanpa tautan/markdown/emoji/tanda `< >`, tidak menyalin kalimat bahan, dan judul tidak kembar
   dengan yang terbit 14 hari terakhir.
+- **Evergreen** (tambahan 23 Nov 2026):
+  - Panjang isi: laman resmi 350-900 kata, episode podcast 200-650.
+  - Subjudul butir ditulis "1. ...", "2. ..." dan urut dari 1 ("1)" atau "1:" diseragamkan
+    otomatis). Angka jumlah di judul ("5 Syarat ...", "Tujuh Kesalahan ...", "Ini 4 Langkahnya")
+    wajib sama dengan jumlah subjudul bernomor. Hanya jumlah butir itu yang boleh tidak tertulis
+    di bahan; angka lain tetap harus ada di bahan.
+  - Judul tidak boleh memakai rahasia, dijamin, pasti, jitu, ampuh, ajaib, instan, atau terbaru.
+  - Bukan kabar: "hari ini", "kemarin", "pekan ini", "minggu ini", "baru saja", dan "barusan"
+    dilarang di judul, dek, dan paragraf pertama (di luar kutipan).
+  - Dari laman resmi: subjudul terakhir bagian praktis tanpa nomor, dan paragraf penutupnya wajib
+    menganjurkan mengecek ketentuan terbaru di laman resmi lembaga.
 - Kredit: `sumber` berisi tautan asli; `foto` berisi `"Dok. <lembaga>"` untuk foto rilis atau
   `"Ilustrasi AI"`.
 
@@ -247,7 +297,7 @@ ilustrasi AI. Uji langsung 16 Nov 2026 dari laptop: DJP, Kemenko Perekonomian, B
 Kemenperin, BPJPH, DJKI, Ekraf berfoto; PNM (og:image = favicon) dan BPOM jatuh ke ilustrasi.
 Ganti sampul artikel yang sudah terbit: `node otomasi/ganti-foto-rilis.mjs <slug>`.
 
-**Ilustrasi AI** (cadangan, dan untuk berita media serta tips): prompt hanya benda atau suasana, ditambah "no text, no lettering, no numbers, no logos, no faces,
+**Ilustrasi AI** (cadangan, dan untuk berita media, tips, serta evergreen): prompt hanya benda atau suasana, ditambah "no text, no lettering, no numbers, no logos, no faces,
 no people". Objek yang pada dasarnya bertulisan atau berorang (dokumen, papan nama, uang, layar,
 orang, bangunan terkenal) diganti objek cadangan per kanal sebelum dikirim. Sidik SHA-256 gambar
 disimpan 180 hari; gambar kembar dibuat ulang dengan variasi prompt. Paling banyak 6 gambar per putaran.
@@ -294,11 +344,13 @@ powershell -NoProfile -ExecutionPolicy Bypass -File otomasi\pasang-secrets.ps1 -
 cd otomasi && npm ci && cd ..
 node otomasi/jalan.mjs --kering            # uji kering; tanpa kunci memakai penulis dan gambar tiruan
 node otomasi/jalan.mjs --kering --tiruan --pollinations   # tiruan, gambar sungguhan dari Pollinations (bertanda air)
+node otomasi/jalan.mjs --kering --hanya evergreen         # satu jenis saja (berita, tips, evergreen), jatah sehari penuh
 cd otomasi && npm test                     # uji penjaga, angka, laju, robots.txt, API tiruan
 ```
 
 Hasil uji kering ada di `.scratch/kering/<waktu>/` (`ringkasan.md`, `kandidat.json`, artikel, gambar)
-dan tidak menyentuh `data/` maupun `public/`. Mode terbit menolak jalan tanpa `OTOMASI_BERITA=aktif`
+dan tidak menyentuh `data/` maupun `public/`. `--hanya` cuma berlaku di uji kering; di Actions
+isiannya kolom "hanya" pada Run workflow (dengan "kering" dicentang). Mode terbit menolak jalan tanpa `OTOMASI_BERITA=aktif`
 dan `OPENROUTER_API_KEY`, dan tidak pernah memakai penulis tiruan.
 
 ### Menarik artikel

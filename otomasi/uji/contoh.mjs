@@ -65,3 +65,55 @@ export function ubah(fn) {
   fn(a);
   return a;
 }
+
+// ------------------------------------------------------------------ evergreen (laman panduan resmi)
+
+export const BAHAN_PANDUAN = `SUMBER: Kementerian Contoh
+URL: https://contoh.go.id/layanan/kur
+TANGGAL HALAMAN: tidak tercantum
+DIAKSES: 23 November 2026
+JUDUL SUMBER: Syarat dan Cara Mengajukan Kredit Usaha Rakyat
+
+Kredit usaha rakyat (KUR) adalah kredit atau pembiayaan modal kerja dan investasi kepada usaha mikro, kecil, dan menengah yang produktif dan layak, tetapi belum memiliki agunan tambahan yang cukup.
+Calon debitur KUR mikro wajib memiliki usaha produktif yang sudah berjalan paling sedikit 6 bulan.
+Calon debitur menyiapkan kartu tanda penduduk (KTP), kartu keluarga, dan surat keterangan usaha atau Nomor Induk Berusaha (NIB).
+Plafon KUR mikro paling banyak Rp100 juta per debitur. Suku bunga KUR mikro sebesar 6 persen per tahun.
+Pengajuan dilakukan di bank penyalur KUR. Calon debitur tidak dipungut biaya pengajuan.
+Informasi lebih lanjut dapat ditanyakan ke kantor cabang bank penyalur terdekat.`;
+
+export const KONTEKS_PANDUAN = { jenis: 'evergreen', asal: 'lembaga', bahan: BAHAN_PANDUAN, judulSumber: 'Syarat dan Cara Mengajukan Kredit Usaha Rakyat', judulTerbaru: ['Harga Cabai Rawit Masih Mahal di Pasar Tradisional'] };
+
+export function artikelEvergreen() {
+  return {
+    layak: true,
+    alasan: '',
+    title: '3 Syarat Mengajukan KUR Mikro yang Perlu Disiapkan',
+    dek: 'Menurut laman resmi Kementerian Contoh, calon debitur KUR mikro perlu menyiapkan usaha yang berjalan, dokumen identitas, dan izin usaha.',
+    kanal: 'keuangan',
+    takeaways: [
+      'Usaha harus sudah berjalan paling sedikit 6 bulan sebelum mengajukan KUR mikro.',
+      'Dokumen yang disiapkan meliputi KTP, kartu keluarga, dan surat keterangan usaha atau NIB.',
+      'Pengajuan dilakukan lewat bank penyalur tanpa biaya pengajuan.',
+    ],
+    body: [
+      { type: 'p', text: `Menurut laman resmi Kementerian Contoh, kredit usaha rakyat atau KUR adalah pembiayaan modal kerja dan investasi untuk usaha mikro, kecil, dan menengah yang produktif. ${isiPanjang(4)}` },
+      { type: 'h2', text: '1. Usaha sudah berjalan' },
+      { type: 'p', text: `Calon debitur KUR mikro wajib punya usaha produktif yang sudah berjalan paling sedikit 6 bulan. ${isiPanjang(7)}` },
+      { type: 'h2', text: '2. Dokumen identitas dan izin usaha' },
+      { type: 'p', text: `Siapkan KTP, kartu keluarga, serta surat keterangan usaha atau NIB. ${isiPanjang(7)}` },
+      { type: 'h2', text: '3. Ajukan lewat bank penyalur' },
+      { type: 'p', text: `Pengajuan dilakukan di bank penyalur, dan calon debitur tidak dipungut biaya. Plafonnya paling banyak Rp100 juta per debitur dengan bunga 6 persen per tahun. ${isiPanjang(7)}` },
+      { type: 'h2', text: 'Yang perlu disiapkan pelaku usaha' },
+      { type: 'p', text: `Kumpulkan dokumen lebih dulu supaya pengajuan lancar. Aturan dan syarat bisa berubah, jadi cek ketentuan terbaru di laman resmi Kementerian Contoh atau tanyakan ke bank penyalur. ${isiPanjang(5)}` },
+    ],
+    imgAlt: 'Ilustrasi meja kerja rapi dengan tanaman kecil',
+    illustration: 'a tidy wooden desk with a potted plant and neatly stacked plain boxes',
+  };
+}
+
+/** Salinan artikel evergreen dengan satu perubahan. */
+export function ubahEvergreen(fn) {
+  const a = artikelEvergreen();
+  fn(a);
+  return a;
+}

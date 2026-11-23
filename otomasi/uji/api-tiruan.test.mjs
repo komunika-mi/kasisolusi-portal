@@ -150,7 +150,11 @@ test('OpenAI gagal (401) jatuh ke Pollinations bila dinyalakan, dan OpenAI dimat
 test('Telegram: kabar terbit, push gagal, dan putaran kosong', () => {
   const r = { terbit: [{ jenis: 'berita', judul: 'Judul A', slug: 'judul-a', kanal: 'keuangan', sumber: 'DJP' }], galat: [], terbitHariIni: { berita: 4, tips: 1 }, waktuTeks: '16 November 2026 09.13 WIB', biayaUsd: 0.003, gambar: 1 };
   const ok = susunPesan(r, { hasilPush: 'berhasil', hasilJob: 'success', origin: 'https://contoh.id' });
-  assert.ok(ok.includes('1 berita + 0 tips terbit') && ok.includes('href="https://contoh.id/berita/judul-a"'));
+  assert.ok(ok.includes('1 berita + 0 tips + 0 evergreen terbit') && ok.includes('href="https://contoh.id/berita/judul-a"'), ok);
+  // Ringkasan lama tanpa hitungan evergreen tetap terbaca (dianggap 0).
+  assert.ok(ok.includes('hari ini 4/12 berita, 1/3 tips, 0/3 evergreen'), ok);
+  const eg = susunPesan({ ...r, terbit: [{ jenis: 'evergreen', judul: 'Judul E', slug: 'judul-e', kanal: 'bisnis', sumber: 'BPOM' }], terbitHariIni: { berita: 4, tips: 1, evergreen: 2 } }, { hasilPush: 'berhasil', hasilJob: 'success', origin: 'https://contoh.id' });
+  assert.ok(eg.includes('0 berita + 0 tips + 1 evergreen terbit') && eg.includes('(evergreen, bisnis, BPOM)') && eg.includes('2/3 evergreen'), eg);
   const gagal = susunPesan(r, { hasilPush: 'gagal', hasilJob: 'failure', origin: 'https://contoh.id' });
   assert.ok(gagal.includes('TIDAK tayang'));
   const gerbang = susunPesan(r, { hasilPush: '', hasilJob: 'failure', origin: 'https://contoh.id' });

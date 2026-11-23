@@ -5,7 +5,7 @@
 // - jangan disunting tangan selagi otomasi aktif (rebase bisa menggabungkannya diam-diam).
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
-import { BERKAS_STATUS, HARI_SIMPAN, HARI_SIMPAN_GAMBAR, KUOTA, PER_PUTARAN, JENDELA } from './konfigurasi.mjs';
+import { BERKAS_STATUS, HARI_SIMPAN, HARI_SIMPAN_GAMBAR, KUOTA, PER_PUTARAN, JENDELA, JENIS } from './konfigurasi.mjs';
 
 const KOSONG = () => ({ versi: 1, hari: {}, kunci: {}, gambar: {} });
 
@@ -49,16 +49,20 @@ export function simpanStatus(st, berkas = BERKAS_STATUS) {
   return true;
 }
 
-export const hitungan = (st, tgl) => st.hari[tgl] || { berita: 0, tips: 0 };
+/** Hitungan nol untuk semua jenis: { berita: 0, tips: 0, evergreen: 0 }. */
+export const nol = () => Object.fromEntries(JENIS.map((j) => [j, 0]));
+
+/** Hitungan satu hari. Catatan lama yang belum mengenal jenis baru dibaca sebagai nol. */
+export const hitungan = (st, tgl) => ({ ...nol(), ...(st.hari[tgl] || {}) });
 
 export function catatTerbit(st, tgl, jenis) {
-  const h = (st.hari[tgl] ||= { berita: 0, tips: 0 });
+  const h = (st.hari[tgl] ||= nol());
   h[jenis] = (h[jenis] || 0) + 1;
 }
 
 export function catatBiaya(st, tgl, usd) {
   if (!usd) return;
-  const h = (st.hari[tgl] ||= { berita: 0, tips: 0 });
+  const h = (st.hari[tgl] ||= nol());
   h.biayaUsd = Math.round(((h.biayaUsd || 0) + usd) * 1e6) / 1e6;
 }
 
@@ -93,14 +97,14 @@ export function batasKumulatif(kuota, jam) {
 }
 
 /**
- * Jatah putaran ini. `terbit` = yang sudah terbit hari ini {berita, tips}.
+ * Jatah putaran ini. `terbit` = yang sudah terbit hari ini {berita, tips, evergreen}.
  * paksa: abaikan jendela jam dan batas kumulatif; batas harian dan per putaran tetap berlaku.
  */
 export function jatahPutaran({ terbit, jam, paksa = false }) {
   const hasil = {};
   const alasan = [];
   const diLuarJendela = jam < JENDELA.mulai || jam > JENDELA.akhir;
-  for (const jenis of ['berita', 'tips']) {
+  for (const jenis of JENIS) {
     const sudah = terbit[jenis] || 0;
     const sisaHarian = Math.max(0, KUOTA[jenis] - sudah);
     const sisaLaju = paksa ? sisaHarian : diLuarJendela ? 0 : Math.max(0, batasKumulatif(KUOTA[jenis], jam) - sudah);

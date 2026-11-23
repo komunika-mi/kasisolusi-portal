@@ -8,6 +8,9 @@ import { uraiRobots, nilaiRobots, laranganAIDiHalaman } from '../lib/jaringan.mj
 import { materiEpisode, narasumberDari, uraiFeedYoutube } from '../lib/sumber-youtube.mjs';
 import { periksaBentuk } from '../../src/berita-otomatis.mjs';
 import { KUOTA, PER_PUTARAN } from '../lib/konfigurasi.mjs';
+import { bergiliran, PANDUAN, LEMBAGA_PANDUAN, kandidatKurasi } from '../lib/sumber-evergreen.mjs';
+import { judulKembar } from '../lib/seleksi.mjs';
+import { kunciUrl } from '../lib/alat.mjs';
 
 test('angka: nilai beserta satuan, bukan deretan digit', () => {
   const idx = indeksSumber('Target Rp290 triliun, 89,93 persen, 4 juta debitur, PP Nomor 20 Tahun 2026, Kamis (22/10/2026), pukul 09.00 WIB.');
@@ -50,23 +53,34 @@ test('laju: batas kumulatif per jam dan jatah putaran', () => {
   assert.equal(jatahPutaran({ terbit: { berita: 12, tips: 3 }, jam: 21, paksa: true }).berita, 0);
   assert.equal(jatahPutaran({ terbit: { berita: 0, tips: 0 }, jam: 3 }).berita, 0);
   assert.equal(jatahPutaran({ terbit: { berita: 0, tips: 0 }, jam: 3, paksa: true }).berita, 3);
+  // Evergreen 3 per hari, 1 per putaran: slot terbuka sekitar pukul 06, 10, dan 15 WIB.
+  // Hitungan lama tanpa kolom evergreen dibaca sebagai nol.
+  assert.equal(jatahPutaran({ terbit: { berita: 0, tips: 0 }, jam: 6 }).evergreen, 1);
+  assert.equal(jatahPutaran({ terbit: { berita: 0, tips: 0, evergreen: 1 }, jam: 9 }).evergreen, 0);
+  assert.equal(jatahPutaran({ terbit: { berita: 0, tips: 0, evergreen: 1 }, jam: 10 }).evergreen, 1);
+  assert.equal(jatahPutaran({ terbit: { berita: 0, tips: 0, evergreen: 2 }, jam: 14 }).evergreen, 0);
+  assert.equal(jatahPutaran({ terbit: { berita: 0, tips: 0, evergreen: 2 }, jam: 15 }).evergreen, 1);
+  assert.equal(jatahPutaran({ terbit: { berita: 0, tips: 0, evergreen: 3 }, jam: 21, paksa: true }).evergreen, 0);
+  assert.ok(jatahPutaran({ terbit: { berita: 12, tips: 3, evergreen: 3 }, jam: 12 }).alasan.some((x) => x.startsWith('evergreen: kuota harian 3')));
 });
 
 test('laju: dengan separuh jadwal hilang (rata-rata 8,5 putaran/hari), kuota harian tetap tercapai', () => {
   // Simulasi 3000 hari; tiap jam 06-22 WIB jalan dengan peluang 50%; kandidat selalu cukup.
   let acak = 12345;
   const rnd = () => ((acak = (acak * 1103515245 + 12345) % 2147483648) / 2147483648);
-  const hasil = { berita: [], tips: [] };
+  const hasil = { berita: [], tips: [], evergreen: [] };
   for (let hari = 0; hari < 3000; hari++) {
-    const terbit = { berita: 0, tips: 0 };
+    const terbit = { berita: 0, tips: 0, evergreen: 0 };
     for (let jam = 6; jam <= 22; jam++) {
       if (rnd() >= 0.5) continue;
       const j = jatahPutaran({ terbit, jam });
       terbit.berita += j.berita;
       terbit.tips += j.tips;
+      terbit.evergreen += j.evergreen;
     }
     hasil.berita.push(terbit.berita);
     hasil.tips.push(terbit.tips);
+    hasil.evergreen.push(terbit.evergreen);
   }
   const rata = (a) => a.reduce((s, x) => s + x, 0) / a.length;
   const penuh = (a, k) => a.filter((x) => x === k).length / a.length;
@@ -74,7 +88,9 @@ test('laju: dengan separuh jadwal hilang (rata-rata 8,5 putaran/hari), kuota har
   assert.ok(rata(hasil.berita) >= 11.5, `rata-rata berita ${rata(hasil.berita)}`);
   assert.ok(penuh(hasil.berita, 12) >= 0.85, `hari berita penuh ${penuh(hasil.berita, 12)}`);
   assert.ok(rata(hasil.tips) >= 2.8, `rata-rata tips ${rata(hasil.tips)}`);
-  console.log(`  simulasi: rata-rata ${rata(hasil.berita).toFixed(2)} berita (${(penuh(hasil.berita, 12) * 100).toFixed(0)}% hari penuh), ${rata(hasil.tips).toFixed(2)} tips; per putaran maks ${PER_PUTARAN.berita}+${PER_PUTARAN.tips}`);
+  assert.ok(Math.max(...hasil.evergreen) <= KUOTA.evergreen, 'evergreen tidak pernah melampaui kuota');
+  assert.ok(rata(hasil.evergreen) >= 2.8, `rata-rata evergreen ${rata(hasil.evergreen)}`);
+  console.log(`  simulasi: rata-rata ${rata(hasil.berita).toFixed(2)} berita (${(penuh(hasil.berita, 12) * 100).toFixed(0)}% hari penuh), ${rata(hasil.tips).toFixed(2)} tips, ${rata(hasil.evergreen).toFixed(2)} evergreen; per putaran maks ${PER_PUTARAN.berita}+${PER_PUTARAN.tips}+${PER_PUTARAN.evergreen}`);
 });
 
 test('robots.txt: penolakan perayap AI, jalur terlarang, crawl-delay', () => {
@@ -122,4 +138,37 @@ test('bentuk artikel bersama build: href berbahaya, tag, dan img yang salah dito
   assert.ok(periksaBentuk({ ...baik, cta: { label: 'x', href: '/kelas' } }).length);
   assert.ok(periksaBentuk({ ...baik, video: { id: 'bukan id', title: 'x' } }).length);
   assert.ok(periksaBentuk({ ...baik, date: '2026-11-17' }).length, 'date harus sama dengan tanggal dibuat');
+  assert.deepEqual(periksaBentuk({ ...baik, jenis: 'evergreen' }), [], 'evergreen jenis yang sah');
+  assert.ok(periksaBentuk({ ...baik, jenis: 'panduan' }).length, 'jenis di luar daftar ditolak');
+});
+
+test('evergreen: kandidat panduan bergiliran per lembaga, urutan di dalam lembaga tetap', () => {
+  const daftar = ['djp-1', 'djp-2', 'djp-3', 'bi-1', 'djki-1', 'djki-2'].map((id) => ({ id, lembaga: id.split('-')[0] }));
+  assert.deepEqual(bergiliran(daftar, (x) => x.lembaga).map((x) => x.id), ['djp-1', 'bi-1', 'djki-1', 'djp-2', 'djki-2', 'djp-3']);
+  assert.deepEqual(bergiliran([], (x) => x), []);
+});
+
+test('evergreen: daftar kurasi sah, alamatnya unik, dan judul kurasinya tidak saling kembar', () => {
+  assert.ok(PANDUAN.length > 0);
+  const kunci = new Set();
+  for (const p of PANDUAN) {
+    assert.ok(LEMBAGA_PANDUAN[p.lembaga], `lembaga tidak dikenal: ${p.lembaga}`);
+    assert.match(p.url, /^https:\/\/[a-z0-9.-]+\.go\.id\//, p.url);
+    assert.match(p.diperiksa, /^\d{4}-\d{2}-\d{2}$/, p.url);
+    assert.ok(p.judul.length >= 15 && p.judul.length <= 80, `judul kurasi: ${p.judul}`);
+    assert.ok(!kunci.has(kunciUrl(p.url)), `alamat ganda: ${p.url}`);
+    kunci.add(kunciUrl(p.url));
+  }
+  // judulDiproses (jalan.mjs) memuat judul sumber yang sudah diproses: dua judul kurasi yang kembar
+  // membuat laman kedua dicap "sudah dibahas" padahal isinya lain.
+  for (let i = 0; i < PANDUAN.length; i++) {
+    for (let j = i + 1; j < PANDUAN.length; j++) {
+      assert.ok(!judulKembar(PANDUAN[i].judul, PANDUAN[j].judul), `kembar: "${PANDUAN[i].judul}" dan "${PANDUAN[j].judul}"`);
+    }
+  }
+  const k = kandidatKurasi();
+  assert.equal(k.length, PANDUAN.length);
+  assert.ok(k.every((x) => x.kurasi && x.jenis === 'evergreen' && x.asal === 'lembaga' && x.judulKurasi === x.judul));
+  assert.notEqual(k[0].sumberId, k[1].sumberId, 'dua kandidat pertama dari lembaga berbeda');
+  assert.throws(() => kandidatKurasi([{ lembaga: 'tidak-ada', url: 'https://contoh.go.id/a', judul: 'Contoh judul kurasi' }]), /tidak ada di LEMBAGA_PANDUAN/);
 });

@@ -7,6 +7,7 @@
 //   node otomasi/jalan.mjs --kabari   Kirim ringkasan putaran ke Telegram (bila secrets ada).
 //
 // Opsi: --paksa (abaikan jendela jam dan laju per jam; batas harian dan per putaran tetap),
+//       --hanya <jenis> (hanya untuk --kering: satu jenis saja, jatahnya sehari penuh),
 //       --tiruan (paksa penulis dan gambar tiruan; hanya untuk --kering),
 //       --pollinations (bersama --tiruan: gambar sungguhan dari Pollinations, gratis),
 //       --keluaran <folder>, --ringkasan <berkas>.
@@ -19,11 +20,11 @@ import { join, dirname } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
   ROOT, DIR_BERITA, DIR_GAMBAR, DIR_PUBLIC, PER_PUTARAN, COBA_TULIS_MAKS, GAMBAR_MAKS_PER_PUTARAN,
-  BATAS_WAKTU_MS, HARI_SIMPAN, BAHAN_MIN, UMUR_MAKS_JAM, KUOTA, SUMBER_MEDIA,
+  BATAS_WAKTU_MS, HARI_SIMPAN, BAHAN_MIN, UMUR_MAKS_JAM, KUOTA, SUMBER_MEDIA, JENIS, UMUR_MAKS_HARI_PANDUAN,
 } from './lib/konfigurasi.mjs';
 import { log, wib, slugify, umurJam, kunciUrl, tanggalPanjang, ringkas } from './lib/alat.mjs';
 import {
-  bacaStatus, simpanStatus, pangkas, hitungan, catatTerbit, catatBiaya, catatKunci, bolehDiproses, jatahPutaran,
+  bacaStatus, simpanStatus, pangkas, hitungan, catatTerbit, catatBiaya, catatKunci, bolehDiproses, jatahPutaran, nol,
 } from './lib/status.mjs';
 import { bacaBeritaOtomatis, periksaBentuk, jalurGambar, waktuTerbit } from '../src/berita-otomatis.mjs';
 
@@ -35,6 +36,8 @@ const nilai = (f) => {
 };
 const KERING = ada('--kering');
 const PAKSA = ada('--paksa') || process.env.PAKSA === '1';
+// Uji kering satu jenis saja dengan jatah sehari penuh, misalnya --hanya evergreen (3 artikel).
+const HANYA = (nilai('--hanya') || process.env.HANYA || '').trim();
 const BERKAS_RINGKASAN = nilai('--ringkasan') || process.env.RINGKASAN || join(ROOT, '.scratch', 'ringkasan-berita.json');
 const DIR_CACHE = join(ROOT, '.scratch', 'cache-berita');
 const impor = (rel) => import(pathToFileURL(join(ROOT, rel)).href);
@@ -60,16 +63,23 @@ async function muatSitus(tanggal) {
     .filter((a) => waktuTerbit(a) >= batas)
     .sort((a, b) => waktuTerbit(b) - waktuTerbit(a))
     .map((a) => a.title);
-  const hariIni = { berita: 0, tips: 0 };
+  const hariIni = nol();
   for (const b of berita) if (b.date === tanggal) hariIni[b.jenis]++;
-  return { slug, kunci, judulTerbaru, hariIni, episodes };
+  // Evergreen dibandingkan dengan SEMUA evergreen yang pernah terbit, bukan hanya 14 hari:
+  // topik panduan tidak basi, jadi dua artikel NIB berselang sebulan tetap kembar.
+  const judulEvergreen = berita.filter((b) => b.jenis === 'evergreen').sort((a, b) => waktuTerbit(b) - waktuTerbit(a)).map((b) => b.title);
+  // Episode yang sudah punya rangkuman editorial (data/articles.mjs) tidak dipakai lagi untuk evergreen.
+  const episodeRingkasan = new Set(articles.map((a) => a.episodeId).filter(Boolean));
+  return { slug, kunci, judulTerbaru, judulEvergreen, episodeRingkasan, hariIni, episodes };
 }
 
+/** Angka terbesar dipakai: berkas yang dihapus tangan (ditarik) tidak membuka slot baru, dan catatan yang hilang tidak membuat kuota terlampaui. */
+const terbesar = (h, berkas) => Object.fromEntries(JENIS.map((j) => [j, Math.max(h[j] || 0, berkas[j] || 0)]));
+const teksHitungan = (n) => JENIS.map((j) => `${n[j] || 0}/${KUOTA[j]} ${j}`).join(', ');
+const teksJatah = (j) => JENIS.map((x) => `${j[x] || 0} ${x}`).join(', ');
+
 function terbitHariIni(st, situs, tanggal) {
-  const h = hitungan(st, tanggal);
-  // Angka terbesar dipakai: berkas yang dihapus tangan (ditarik) tidak membuka slot baru,
-  // dan catatan yang hilang tidak membuat kuota terlampaui.
-  return { berita: Math.max(h.berita || 0, situs.hariIni.berita), tips: Math.max(h.tips || 0, situs.hariIni.tips) };
+  return terbesar(hitungan(st, tanggal), situs.hariIni);
 }
 
 // ------------------------------------------------------------------ cache "sudah dilihat"
@@ -98,10 +108,9 @@ async function cek() {
   const st = pangkas(bacaStatus(), w.tanggal);
   const { berita, galat } = bacaBeritaOtomatis(DIR_BERITA);
   if (galat.length) throw new Error(`data/berita cacat: ${galat[0]}`);
-  const hariIni = { berita: 0, tips: 0 };
+  const hariIni = nol();
   for (const b of berita) if (b.date === w.tanggal) hariIni[b.jenis]++;
-  const h = hitungan(st, w.tanggal);
-  const sudah = { berita: Math.max(h.berita || 0, hariIni.berita), tips: Math.max(h.tips || 0, hariIni.tips) };
+  const sudah = terbesar(hitungan(st, w.tanggal), hariIni);
   let lanjut;
   let alasan;
   if (KERING) {
@@ -112,10 +121,10 @@ async function cek() {
     alasan = 'OTOMASI_BERITA bukan "aktif"';
   } else {
     const j = jatahPutaran({ terbit: sudah, jam: w.jam, paksa: PAKSA });
-    lanjut = j.berita > 0 || j.tips > 0;
-    alasan = lanjut ? `jatah putaran ${j.berita} berita, ${j.tips} tips` : j.alasan.join('; ');
+    lanjut = JENIS.some((x) => j[x] > 0);
+    alasan = lanjut ? `jatah putaran ${teksJatah(j)}` : j.alasan.join('; ');
   }
-  log(`${w.iso} | hari ini ${sudah.berita}/${KUOTA.berita} berita, ${sudah.tips}/${KUOTA.tips} tips | ${lanjut ? 'LANJUT' : 'BERHENTI'}: ${alasan}`);
+  log(`${w.iso} | hari ini ${teksHitungan(sudah)} | ${lanjut ? 'LANJUT' : 'BERHENTI'}: ${alasan}`);
   if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `lanjut=${lanjut ? 'ya' : 'tidak'}\n`);
 }
 
@@ -172,20 +181,25 @@ async function jalankan() {
   const statusAwal = JSON.stringify(st);
   const situs = await muatSitus(w.tanggal);
   const sudah = terbitHariIni(st, situs, w.tanggal);
-  const jatah = KERING ? { berita: PER_PUTARAN.berita, tips: PER_PUTARAN.tips, alasan: ['uji kering: jendela jam dan kuota harian diabaikan'] } : jatahPutaran({ terbit: sudah, jam: w.jam, paksa: PAKSA });
+  if (HANYA && (!KERING || !JENIS.includes(HANYA))) throw new Error(`--hanya hanya untuk --kering, dengan salah satu dari: ${JENIS.join(', ')}`);
+  const jatah = !KERING
+    ? jatahPutaran({ terbit: sudah, jam: w.jam, paksa: PAKSA })
+    : HANYA
+      ? { ...nol(), [HANYA]: KUOTA[HANYA], alasan: [`uji kering khusus ${HANYA}: jatah sehari penuh`] }
+      : { ...PER_PUTARAN, alasan: ['uji kering: jendela jam dan kuota harian diabaikan'] };
   R.jatah = jatah;
   R.terbitHariIni = { ...sudah };
-  log(`${R.waktuTeks} | mode ${R.mode}${tiruan ? ' (penulis dan gambar tiruan)' : ''} | hari ini ${sudah.berita}/${KUOTA.berita} berita, ${sudah.tips}/${KUOTA.tips} tips | jatah ${jatah.berita} berita, ${jatah.tips} tips`);
-  if (!jatah.berita && !jatah.tips) {
+  log(`${R.waktuTeks} | mode ${R.mode}${tiruan ? ' (penulis dan gambar tiruan)' : ''} | hari ini ${teksHitungan(sudah)} | jatah ${teksJatah(jatah)}`);
+  if (!JENIS.some((j) => jatah[j])) {
     log(`Selesai tanpa kerja: ${jatah.alasan.join('; ')}`);
     return selesai(0);
   }
 
   // Modul berat dimuat sesudah tahu ada pekerjaan (mode --cek tidak butuh npm ci).
-  const [{ kumpulkanLembaga, ambilIsi }, { kumpulkanMedia, radarUmkm }, { kumpulkanTips, episodeDariWatch }, sel, jaga, tulisMod, gbr, fotoRilis] = await Promise.all([
+  const [{ kumpulkanLembaga, ambilIsi }, { kumpulkanMedia, radarUmkm }, { kumpulkanTips, episodeDariWatch }, sel, jaga, tulisMod, gbr, fotoRilis, { kumpulkanPanduan }] = await Promise.all([
     import('./lib/sumber-lembaga.mjs'), import('./lib/sumber-media.mjs'), import('./lib/sumber-youtube.mjs'),
     import('./lib/seleksi.mjs'), import('./lib/penjaga.mjs'), import('./lib/penulis.mjs'), import('./lib/gambar.mjs'),
-    import('./lib/foto-rilis.mjs'),
+    import('./lib/foto-rilis.mjs'), import('./lib/sumber-evergreen.mjs'),
   ]);
   const penulis = tiruan ? tulisMod.buatPenulisTiruan() : tulisMod.buatPenulisAsli(kunciOR);
   // Uji kering tanpa kunci OpenAI dan tanpa Pollinations tetap menghasilkan sampul (gradasi tiruan).
@@ -197,15 +211,17 @@ async function jalankan() {
 
   // --- kumpulkan
   const episodeLokal = new Map(situs.episodes.map((e) => [e.id, e]));
-  const [lembaga, media, radar, tips] = await Promise.all([
+  const [lembaga, media, radar, tips, panduan] = await Promise.all([
     jatah.berita ? kumpulkanLembaga() : { kandidat: [], laporan: [] },
     // Sumber media dimatikan (keputusan pemilik 23 Nov 2026, lihat konfigurasi.SUMBER_MEDIA).
     jatah.berita && SUMBER_MEDIA ? kumpulkanMedia() : { kandidat: [], laporan: [] },
     jatah.berita ? radarUmkm() : { judul: [], laporan: [] },
-    jatah.tips ? kumpulkanTips({ episodeLokal }) : { kandidat: [], laporan: [], ditolak: [], sudah: new Set() },
+    // Episode podcast juga bahan evergreen B, jadi feed dibaca bila salah satu punya jatah.
+    jatah.tips || jatah.evergreen ? kumpulkanTips({ episodeLokal }) : { kandidat: [], laporan: [], ditolak: [], sudah: new Set() },
+    jatah.evergreen ? kumpulkanPanduan() : { kandidat: [], laporan: [] },
   ]);
-  R.sumber = [...lembaga.laporan, ...media.laporan, ...radar.laporan, ...tips.laporan];
-  log(`Kandidat: ${lembaga.kandidat.length} lembaga, ${media.kandidat.length} media, ${tips.kandidat.length} tips (radar umkm.go.id ${radar.judul.length} judul)`);
+  R.sumber = [...lembaga.laporan, ...media.laporan, ...radar.laporan, ...tips.laporan, ...panduan.laporan];
+  log(`Kandidat: ${lembaga.kandidat.length} lembaga, ${media.kandidat.length} media, ${tips.kandidat.length} episode podcast, ${panduan.kandidat.length} laman panduan (radar umkm.go.id ${radar.judul.length} judul)`);
 
   const judulTerbaru = [...situs.judulTerbaru];
   const judulDiproses = Object.values(st.kunci).map((v) => v.judul).filter(Boolean);
@@ -221,8 +237,8 @@ async function jalankan() {
   };
 
   let galatFatal = '';
-  const coba = { berita: 0, tips: 0 };
-  const hasilTerbit = { berita: 0, tips: 0 };
+  const coba = nol();
+  const hasilTerbit = nol();
   // Hasil ambil isi per URL, supaya uji per sumber di mode kering tidak mengambil halaman dua kali.
   const memoIsi = new Map();
   const ambilIsiSekali = async (k) => {
@@ -239,10 +255,12 @@ async function jalankan() {
   /** Tulis, perbaiki otomatis, periksa, ulang sekali. Mengembalikan artikel atau alasan tolak/gagal. */
   async function tulisDanPeriksa(k) {
     coba[k.jenis]++;
-    const konteks = { jenis: k.jenis, asal: k.asal, bahan: tulisMod.susunBahan(k), judulSumber: k.judul, judulTerbaru };
+    // Evergreen dibandingkan juga dengan semua evergreen yang pernah terbit (lihat muatSitus).
+    const pembanding = k.jenis === 'evergreen' ? [...new Set([...situs.judulEvergreen, ...judulTerbaru])] : judulTerbaru;
+    const konteks = { jenis: k.jenis, asal: k.asal, bahan: tulisMod.susunBahan(k), judulSumber: k.judul, judulTerbaru: pembanding };
     let h;
     try {
-      h = await penulis.tulis({ kandidat: k, judulTerbaru });
+      h = await penulis.tulis({ kandidat: k, judulTerbaru: pembanding });
     } catch (e) {
       return { gagal: e.message, fatal: /\b(401|402|403)\b/.test(e.message) };
     }
@@ -255,7 +273,7 @@ async function jalankan() {
       log(`  penjaga putaran 1: ${masalah.length} masalah: ${jaga.intiMasalah(masalah)}`);
       let h2;
       try {
-        h2 = await penulis.tulis({ kandidat: k, judulTerbaru, percakapan: h.percakapan, masalah });
+        h2 = await penulis.tulis({ kandidat: k, judulTerbaru: pembanding, percakapan: h.percakapan, masalah });
       } catch (e) {
         return { gagal: e.message, fatal: /\b(401|402|403)\b/.test(e.message) };
       }
@@ -296,8 +314,9 @@ async function jalankan() {
     const slug = slugUnik(slugify(a.title));
     let g = null;
     // Keputusan pemilik 16 Nov 2026: siaran pers lembaga memakai foto rilisnya (pola The Signal);
-    // yang tidak berfoto layak, berita media, dan tips memakai ilustrasi AI.
-    if (k.asal === 'lembaga' && k.fotoUrl) {
+    // yang tidak berfoto layak, berita media, dan tips memakai ilustrasi AI. Evergreen selalu
+    // ilustrasi AI berlogo (keputusan pemilik 23 Nov 2026), walau bahannya laman lembaga.
+    if (k.jenis === 'berita' && k.asal === 'lembaga' && k.fotoUrl) {
       try {
         const f = await fotoRilis.unduhFotoRilis(k.fotoUrl, { riwayat: st.gambar, jadikanSampul: gbr.jadikanSampul });
         g = { webp: f.webp, sidik: f.sidik, sumber: 'foto-rilis', rilis: true };
@@ -319,7 +338,7 @@ async function jalankan() {
     }
     R.gambar = pembuatGambar.dipakai;
     const kini = wib();
-    const label = k.jenis === 'tips' ? `Podcast Kasisolusi di YouTube: ${k.video.title}` : `${k.sumberLabel || k.sumberNama}: ${k.judul}`;
+    const label = k.asal === 'youtube' ? `Podcast Kasisolusi di YouTube: ${k.video.title}` : `${k.sumberLabel || k.sumberNama}: ${k.judul}`;
     const jadi = {
       slug,
       title: a.title,
@@ -359,6 +378,7 @@ async function jalankan() {
     catatKunci(st, k.kunci, { t: w.tanggal, hasil: 'terbit', slug, judul: ringkas(k.judul, 160) });
     st.gambar[g.sidik] = { t: w.tanggal, slug };
     judulTerbaru.unshift(a.title);
+    if (k.jenis === 'evergreen') situs.judulEvergreen.unshift(a.title);
     judulDiproses.push(k.judul);
     hasilTerbit[k.jenis]++;
     R.terbit.push({ jenis: k.jenis, judul: a.title, slug, kanal: a.kanal, sumber: k.sumberNama, url: k.url, model: h.model, gambar: g.sumber, kb: Math.round(g.webp.length / 1024) });
@@ -468,7 +488,78 @@ async function jalankan() {
     }
   }
 
-  // --- uji kering: ekstraksi artikel teratas dari TIAP sumber (laporan "teks terbaca atau tidak")
+  // --- evergreen (keputusan pemilik 23 Nov 2026). Bahan A: laman panduan resmi pemerintah.
+  // Bahan B: episode podcast ARSIP (episode yang tayang 7 hari terakhir jatah tips) yang belum
+  // dipakai dan belum punya rangkuman editorial. A dan B bergantian per artikel terbit; kalau
+  // satu kosong, yang lain dipakai. Evergreen selalu memakai ilustrasi AI berlogo.
+  if (jatah.evergreen && !galatFatal) {
+    const pembanding = () => [...situs.judulEvergreen, ...judulTerbaru, ...judulDiproses];
+    const calonA = panduan.kandidat.filter((k) => {
+      const s = sudahAda(k);
+      if (s) periksa(k, s);
+      return !s;
+    });
+    // Program sekolah (Sales/Finance/Branding/Marketing School) didahulukan: materinya memang
+    // pelajaran, bukan obrolan seputar peristiwa.
+    const sekolah = (k) => (/School/i.test(k.sumberLabel || '') ? 1 : 0);
+    const calonB = tips.kandidat
+      .filter((k) => !k.baru && !situs.episodeRingkasan.has(k.video.id) && !sudahAda(k))
+      .map((k) => ({ ...k, jenis: 'evergreen' }))
+      .sort((a, b) => (sekolah(b) - sekolah(a)) || (b.tayangan - a.tayangan));
+    log(`Evergreen: ${calonA.length} laman panduan, ${calonB.length} episode arsip`);
+    let ambilKe = 0;
+    const ambilA = async () => {
+      while (calonA.length && ambilKe < 8 && !habisWaktu()) {
+        const k = calonA.shift();
+        ambilKe++;
+        log(`- [${k.sumberId}] ${ringkas(k.judul, 90)}`);
+        const a = await ambilIsiSekali(k);
+        if (!a.ok) { periksa(k, a.alasan, a.permanen); log(`  lewat: ${a.alasan}`); continue; }
+        // ambilIsi menimpa judul dengan judul halaman, yang di banyak laman lembaga generik.
+        if (k.judulKurasi) k.judul = k.judulKurasi;
+        k.diakses = w.tanggal;
+        let alasan = '';
+        if (k.isi.length < BAHAN_MIN.evergreen) alasan = `bahan tipis (${k.isi.length} karakter)`;
+        else if (k.terbit && umurJam(k.terbit) > UMUR_MAKS_HARI_PANDUAN * 24) alasan = `halaman bertanggal ${tanggalPanjang(k.terbit)}, terlalu lama; aturannya bisa sudah berubah`;
+        // Tanggal di luar 400 hari terakhir tidak terbaca ekstraksi, jadi laman lama tampak tak
+        // bertanggal. Laman kurasi sudah diperiksa tangan; laman temuan wajib bertanggal.
+        else if (!k.kurasi && !k.terbit) alasan = 'laman temuan tanpa tanggal; tidak bisa dipastikan masih berlaku';
+        // Laman kurasi sudah dipilih tangan; laman temuan dari halaman daftar disaring seperti berita.
+        else if (!k.kurasi && sel.skorRelevansi(`${k.judul}\n${k.isi.slice(0, 1500)}`) < 3) alasan = 'isinya bukan soal UMKM';
+        else if (!k.kurasi) alasan = sel.topikDihindari(`${k.judul}\n${k.isi.slice(0, 600)}`);
+        if (!alasan) {
+          const kembar = sel.adaKembar(k.judul, pembanding());
+          if (kembar) alasan = `sudah dibahas: ${ringkas(kembar, 80)}`;
+        }
+        if (alasan) { periksa(k, alasan, true); log(`  lewat: ${alasan}`); continue; }
+        return k;
+      }
+      return null;
+    };
+    const ambilB = () => {
+      while (calonB.length) {
+        const k = calonB.shift();
+        // Tidak di-cache: penilaian ini khusus evergreen dan tidak boleh menahan episode untuk tips.
+        const kembar = sel.adaKembar(k.judul, pembanding());
+        if (kembar) { periksa(k, `sudah dibahas: ${ringkas(kembar, 80)}`); continue; }
+        return k;
+      }
+      return null;
+    };
+    const hariKe = Math.floor(Date.parse(`${w.tanggal}T00:00:00Z`) / 86400e3);
+    while (hasilTerbit.evergreen < jatah.evergreen && coba.evergreen < COBA_TULIS_MAKS.evergreen && !galatFatal && !habisWaktu()) {
+      // Giliran berganti tiap artikel terbit, dan urutan awalnya berganti tiap hari.
+      const giliranB = (hariKe + sudah.evergreen + hasilTerbit.evergreen) % 2 === 1;
+      const k = giliranB ? (ambilB() || await ambilA()) : ((await ambilA()) || ambilB());
+      if (!k) { log('  evergreen: tidak ada bahan yang layak'); break; }
+      log(`- evergreen [${k.asal === 'youtube' ? 'podcast' : k.sumberId}] ${ringkas(k.judul, 90)}`);
+      await proses(k);
+    }
+  }
+
+  // --- uji kering: ekstraksi artikel teratas dari TIAP sumber (laporan "teks terbaca atau tidak"),
+  // ditambah setiap laman panduan evergreen (daftar kurasi dan temuan), supaya laman yang tidak
+  // terbaca dari runner ketahuan sebelum jatahnya dipakai.
   if (KERING) {
     R.ujiSumber = [];
     for (const s of [...lembaga.laporan, ...media.laporan]) {
@@ -480,11 +571,20 @@ async function jalankan() {
         ? { id: s.id, nama: s.nama, hasil: 'ekstraksi OK', judul: salin.judul, terbit: salin.terbit, karakter: salin.isi.length, url: k.url, ...(salin.asal === 'lembaga' ? { foto: salin.fotoUrl || '' } : {}) }
         : { id: s.id, nama: s.nama, hasil: `ekstraksi gagal: ${a.alasan}`, url: k.url });
     }
+    for (const k of panduan.kandidat.slice(0, 60)) {
+      if (habisWaktu()) break;
+      const salin = { ...k };
+      const a = await ambilIsiSekali(salin);
+      const nama = `${k.sumberLabel} | ${k.kurasi ? 'kurasi' : 'temuan'}`;
+      R.ujiSumber.push(a.ok
+        ? { id: k.sumberId, nama, hasil: salin.isi.length >= BAHAN_MIN.evergreen ? 'ekstraksi OK' : 'ekstraksi OK tetapi bahan tipis', judul: salin.judul, terbit: salin.terbit, karakter: salin.isi.length, url: k.url }
+        : { id: k.sumberId, nama, hasil: `ekstraksi gagal: ${a.alasan}`, url: k.url });
+    }
   }
 
   // --- simpan
   R.gambar = pembuatGambar.dipakai;
-  R.terbitHariIni = { berita: sudah.berita + hasilTerbit.berita, tips: sudah.tips + hasilTerbit.tips };
+  R.terbitHariIni = Object.fromEntries(JENIS.map((j) => [j, sudah[j] + hasilTerbit[j]]));
   catatBiaya(st, w.tanggal, R.biayaUsd);
   if (galatFatal) R.galat.push(galatFatal);
   if (!KERING) {
@@ -493,7 +593,7 @@ async function jalankan() {
     // menahan artikel di putaran terbit sungguhan.
     simpanCache(cache);
   }
-  if (KERING) tulisLaporanKering(keluaran, R, { lembaga, media, tips });
+  if (KERING) tulisLaporanKering(keluaran, R, { lembaga, media, tips, panduan });
   cetakRingkas(R);
   // Galat fatal (kunci salah, saldo habis) membuat job merah, KECUALI sebagian artikel sudah
   // jadi: yang sudah jadi tetap di-commit, galatnya tetap dikabarkan lewat ringkasan/Telegram.
@@ -513,9 +613,9 @@ function cetakRingkas(R) {
   for (const g of R.galat) log(`  GALAT: ${g}`);
 }
 
-function tulisLaporanKering(dir, R, { lembaga, media, tips }) {
+function tulisLaporanKering(dir, R, { lembaga, media, tips, panduan }) {
   mkdirSync(dir, { recursive: true });
-  const kandidat = [...lembaga.kandidat, ...media.kandidat, ...tips.kandidat].map((k) => ({
+  const kandidat = [...lembaga.kandidat, ...media.kandidat, ...tips.kandidat, ...panduan.kandidat].map((k) => ({
     jenis: k.jenis, sumber: k.sumberId, judul: k.judul, url: k.url, terbit: k.terbit || '', karakterBahan: k.isi ? k.isi.length : null,
   }));
   writeFileSync(join(dir, 'kandidat.json'), `${JSON.stringify(kandidat, null, 1)}\n`, 'utf8');
@@ -523,7 +623,7 @@ function tulisLaporanKering(dir, R, { lembaga, media, tips }) {
   const md = [
     `# Uji kering berita otomatis, ${R.waktuTeks}`,
     '',
-    `Jatah: ${R.jatah.berita} berita, ${R.jatah.tips} tips. Terbit (kering): ${R.terbit.length}. Dilewati sesudah ditulis: ${R.dilewati.length}. Biaya teks: $${R.biayaUsd.toFixed(4)}. Gambar: ${R.gambar}.`,
+    `Jatah: ${teksJatah(R.jatah)}. Terbit (kering): ${R.terbit.length}. Dilewati sesudah ditulis: ${R.dilewati.length}. Biaya teks: $${R.biayaUsd.toFixed(4)}. Gambar: ${R.gambar}.`,
     '',
     '## Artikel',
     ...R.terbit.map((a) => `- **${a.judul}** (${a.jenis}, ${a.kanal}, ${a.sumber}, penulis ${a.model}, gambar ${a.gambar}): data/berita/*-${a.slug}.json`),

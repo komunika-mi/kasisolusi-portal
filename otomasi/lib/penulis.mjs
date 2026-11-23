@@ -50,7 +50,7 @@ Tugasmu menulis artikel baru dari BAHAN yang diberikan, dengan kata-katamu sendi
 
 FAKTA (wajib, diperiksa mesin):
 1. Semua fakta hanya dari BAHAN. Jangan menambah angka, nama orang, jabatan, lembaga, tanggal, nomor aturan, peringkat, atau klaim yang tidak tertulis di BAHAN.
-2. Setiap angka (nominal, persen, jumlah, tanggal, tahun, nomor aturan) harus persis ada di BAHAN. Jangan membulatkan, menjumlahkan, mengonversi, atau menghitung sendiri. Jangan menulis jumlah butir buatanmu sendiri ("3 cara", "lima langkah") kecuali jumlah itu tertulis di BAHAN. Kalau ragu, tulis tanpa angka.
+2. Setiap angka (nominal, persen, jumlah, tanggal, tahun, nomor aturan) harus persis ada di BAHAN. Jangan membulatkan, menjumlahkan, mengonversi, atau menghitung sendiri. Jangan menulis jumlah butir buatanmu sendiri ("3 cara", "lima langkah") kecuali jumlah itu tertulis di BAHAN, atau (khusus JENIS evergreen) jumlah itu sama persis dengan jumlah subjudul bernomor di body. Kalau ragu, tulis tanpa angka.
 3. Jangan memakai kata peringkat atau jumlah samar kecuali kata itu tertulis di BAHAN: paling sering, paling banyak, paling besar, terbesar, tertinggi, terendah, terkecil, terbanyak, mayoritas, kebanyakan, sebagian besar, pada umumnya, rata-rata, ribuan, ratusan, puluhan, jutaan.
 4. Klaim narasumber atau lembaga ditulis sebagai klaim: "menurut ...", "kata ...", "ujar ...", "disebut ...".
 5. Kutipan langsung (dalam tanda kutip atau blok "quote") harus disalin persis dari BAHAN. Jangan mengubah isi kutipan dan jangan mengarang kutipan.
@@ -95,6 +95,19 @@ ATURAN TIPS (JENIS: tips):
 - Tulis sebagai pendapat narasumber: "menurut [nama] dalam Podcast Kasisolusi", "kata [nama]".
 - Paragraf pertama menyebut episode dan narasumbernya. Penutup mengajak menonton episode lengkapnya di Podcast Kasisolusi.
 
+ATURAN EVERGREEN (JENIS: evergreen):
+- Artikel panduan atau pelajaran usaha yang tetap berguna berbulan-bulan, bukan kabar terbaru. Jangan menulis seolah ada kejadian baru: tanpa "hari ini", "kemarin", "pekan ini", atau "baru saja".
+- Bila ASAL BAHAN laman resmi lembaga: 350 sampai 900 kata di body. Paragraf pertama menyebut sumbernya, misalnya "menurut laman resmi Direktorat Jenderal Pajak". Subjudul TERAKHIR adalah bagian praktis untuk pelaku usaha tanpa nomor (misalnya "Yang perlu disiapkan pelaku usaha"), berisi langkah TANPA fakta, angka, atau nama baru, dan WAJIB menganjurkan pembaca mengecek ketentuan terbaru di laman resmi lembaga itu, karena aturan dan syarat bisa berubah.
+- Bila ASAL BAHAN episode Podcast Kasisolusi: 200 sampai 650 kata di body, ditulis sebagai pendapat narasumber seperti ATURAN TIPS. Penutup mengajak menonton episode lengkapnya di Podcast Kasisolusi.
+- Susunan yang dianjurkan: butir bernomor. Setiap butir satu subjudul h2 yang diawali nomor dan titik, berurutan dari 1, misalnya "1. Siapkan NIB lebih dulu" lalu "2. Pilih bank penyalur". Setiap butir wajib berasal dari BAHAN. Jumlah butir mengikuti isi BAHAN; jangan menambah butir untuk menggenapkan angka. Subjudul penutup tidak bernomor.
+- JUDUL evergreen boleh lebih memancing daripada berita, tetapi tetap jujur: pokok soalnya disebut di judul, dan isi menjawab penuh apa yang dijanjikan judul. Pola yang dianjurkan, pilih yang paling cocok dengan isi:
+  1. Jumlah butir, misalnya "5 Syarat Mengajukan KUR yang Perlu Disiapkan". Angka di judul WAJIB sama dengan jumlah subjudul bernomor di body.
+  2. "Ternyata ...", misalnya "Ternyata Daftar Merek Bisa Diurus dari Rumah, Begini Caranya", hanya bila isinya fakta dari BAHAN.
+  3. "Jarang Diketahui, ...", misalnya "Jarang Diketahui, Ini Bedanya Izin PIRT dan Izin Edar BPOM".
+  4. Pertanyaan pembaca lalu janji jawaban, misalnya "Mau Jualan Makanan Kemasan? Cek Dulu Izin yang Dibutuhkan".
+  5. Hal yang perlu dihindari, misalnya "4 Kesalahan Saat Mengurus Sertifikat Halal yang Membuat Proses Lama", hanya bila BAHAN memang menyebut hal yang membuat pengajuan ditolak, tertunda, atau bermasalah.
+- Contoh di atas hanya POLA. Jangan memakai angka, nama, atau isinya. Semua larangan JUDUL di atas tetap berlaku, ditambah: judul evergreen tidak boleh memakai kata rahasia, dijamin, pasti, jitu, ampuh, ajaib, instan, atau terbaru.
+
 KANAL:
 ${DAFTAR_KANAL}
 
@@ -102,7 +115,7 @@ Keluarkan SATU objek JSON saja, tanpa teks lain.`;
 
 /** Bahan lengkap yang dipakai model DAN penjaga (penjaga memeriksa angka terhadap teks ini). */
 export function susunBahan(k) {
-  const kepala = k.jenis === 'tips'
+  const kepala = k.asal === 'youtube'
     ? [
       'SUMBER: episode Podcast Kasisolusi di YouTube',
       `JUDUL EPISODE: ${k.judul}`,
@@ -112,21 +125,26 @@ export function susunBahan(k) {
     : [
       `SUMBER: ${k.sumberNama}`,
       `URL: ${k.url}`,
-      k.terbit ? `TANGGAL TERBIT SUMBER: ${tanggalPanjang(k.terbit)}` : '',
+      // Evergreen dari laman panduan: tanggal halaman sering tidak tercantum. Tanggal akses
+      // dicatat supaya tulisan tidak mengesankan aturan yang dikutip pasti masih berlaku.
+      ...(k.jenis === 'evergreen'
+        ? [`TANGGAL HALAMAN: ${k.terbit ? tanggalPanjang(k.terbit) : 'tidak tercantum'}`, k.diakses ? `DIAKSES: ${tanggalPanjang(k.diakses)}` : '']
+        : [k.terbit ? `TANGGAL TERBIT SUMBER: ${tanggalPanjang(k.terbit)}` : '']),
       `JUDUL SUMBER: ${k.judul}`,
     ];
   return `${kepala.filter(Boolean).join('\n')}\n\n${k.isi}`;
 }
 
 function pesanAwal(k, judulTerbaru) {
-  const daftar = judulTerbaru.length ? judulTerbaru.slice(0, 80).map((j) => `- ${j}`).join('\n') : '- (belum ada)';
-  return `JENIS: ${k.jenis}
+  const daftar = judulTerbaru.length ? judulTerbaru.slice(0, 120).map((j) => `- ${j}`).join('\n') : '- (belum ada)';
+  const asal = k.jenis === 'evergreen' ? `\nASAL BAHAN: ${k.asal === 'youtube' ? 'episode Podcast Kasisolusi' : 'laman resmi lembaga'}` : '';
+  return `JENIS: ${k.jenis}${asal}
 
 <<<BAHAN
 ${susunBahan(k)}
 BAHAN>>>
 
-JUDUL KASISOLUSI 14 HARI TERAKHIR (jangan menulis topik yang sama; kalau BAHAN membahas hal yang sama, isi layak false):
+JUDUL KASISOLUSI YANG SUDAH TERBIT (14 hari terakhir; untuk evergreen ditambah semua artikel evergreen. Jangan menulis topik yang sama; kalau BAHAN membahas hal yang sama, isi layak false):
 ${daftar}
 
 Tulis artikel sesuai aturan. Keluarkan JSON saja.`;
@@ -299,6 +317,7 @@ export function buatPenulisTiruan() {
   return {
     nama: 'tiruan',
     async tulis({ kandidat, masalah = null }) {
+      if (kandidat.jenis === 'evergreen') return tiruanEvergreen(kandidat, masalah);
       const sumber = kandidat.jenis === 'tips' ? 'Podcast Kasisolusi' : kandidat.sumberNama;
       const angka = ambilAngka(kandidat.isi).filter((t) => t.jenis === 'nilai').map((t) => t.asli).slice(0, 2);
       const kanal = tebakKanal(`${kandidat.judul} ${kandidat.isi}`);
@@ -343,4 +362,67 @@ export function buatPenulisTiruan() {
       return { artikel, model: 'tiruan', biayaUsd: 0, percakapan: [] };
     },
   };
+}
+
+/** Judul sumber yang dirapikan seadanya untuk judul tiruan. */
+function judulDasarTiruan(judul, nKata) {
+  let dasar = satuBaris(String(judul).replace(/[!?‼⁉️]+/gu, ' ').replace(/\s+[-|]\s+.*$/, ''));
+  if (dasar === dasar.toUpperCase()) dasar = dasar.charAt(0) + dasar.slice(1).toLowerCase();
+  dasar = dasar.replace(/\b(nggak|gak|ga)\b/gi, 'tidak').replace(/\bbikin\b/gi, 'membuat').replace(/\bbuat\b/gi, 'untuk');
+  return dasar.split(/\s+/).slice(0, nKata).join(' ').replace(/[,;:.]+$/, '');
+}
+
+/**
+ * Evergreen tiruan: tiga butir bernomor dan penutup tak bernomor. Putaran pertama SENGAJA cacat
+ * (judul menjanjikan 5 butir padahal isinya 3, kata "rahasia", tanda pisah, "Prabowo" telanjang,
+ * angka karangan) supaya penjaga khusus evergreen ikut teruji; putaran kedua bersih.
+ */
+function tiruanEvergreen(kandidat, masalah) {
+  const podcast = kandidat.asal === 'youtube';
+  const sumber = podcast ? 'Podcast Kasisolusi' : kandidat.sumberNama;
+  const kanal = tebakKanal(`${kandidat.judul} ${kandidat.isi}`);
+  const angka = ambilAngka(kandidat.isi).filter((t) => t.jenis === 'nilai').map((t) => t.asli).slice(0, 1);
+  const pembuka = podcast
+    ? `Episode Podcast Kasisolusi berjudul "${kandidat.judul}" membahas pelajaran yang bisa dipakai pelaku usaha kapan saja.`
+    : `Menurut laman resmi ${sumber}, ada beberapa hal yang perlu dipahami pelaku usaha soal ${judulDasarTiruan(kandidat.judul, 6).toLowerCase()}.`;
+  const body = [{ type: 'p', text: `${pembuka} Artikel ini keluaran uji kering dengan penulis tiruan, bukan panduan sungguhan.${angka.length ? ` Salah satu angka yang tertulis di sumber adalah ${angka[0]}.` : ''}` }];
+  const target = podcast ? 240 : 380;
+  const butir = ['Pahami pokok aturannya', 'Siapkan dokumen pendukung', 'Ikuti jalur resmi'];
+  let n = 0;
+  butir.forEach((b, i) => {
+    body.push({ type: 'h2', text: `${i + 1}. ${b}` });
+    do {
+      body.push({ type: 'p', text: `${ISIAN[n % ISIAN.length]} ${ISIAN[(n + 3) % ISIAN.length]}` });
+      n++;
+    } while (body.filter((x) => x.type !== 'h2').reduce((s, x) => s + x.text.split(/\s+/).length, 0) < (target * (i + 1)) / butir.length);
+  });
+  body.push(podcast
+    ? { type: 'h2', text: 'Tonton episodenya' }
+    : { type: 'h2', text: 'Yang perlu disiapkan pelaku usaha' });
+  body.push({ type: 'p', text: podcast
+    ? 'Pembahasan lengkapnya bisa ditonton di Podcast Kasisolusi di YouTube.'
+    : `Aturan dan syarat bisa berubah, jadi cek ketentuan terbaru di laman resmi ${sumber} sebelum mengurus apa pun.` });
+  let nJudul = 7;
+  let judul;
+  do judul = `${butir.length} Hal soal ${judulDasarTiruan(kandidat.judul, nJudul--)}`; while (judul.length > 70 && nJudul > 2);
+  const artikel = {
+    layak: true,
+    alasan: '',
+    title: judul,
+    dek: `Kasisolusi merangkum hal yang perlu dipahami pelaku usaha dari ${sumber}. Simak butir-butirnya di sini.`,
+    kanal,
+    takeaways: [
+      `Bahan artikel ini berasal dari ${sumber}.`,
+      'Ketentuan resmi tetap mengacu pada sumber aslinya.',
+      'Pelaku usaha disarankan mengecek ketentuan terbaru secara berkala.',
+    ],
+    body,
+    imgAlt: 'Ilustrasi sampul uji kering berupa meja kerja yang rapi',
+    illustration: 'a tidy wooden desk with a potted plant and neatly stacked plain boxes',
+  };
+  if (!masalah) {
+    artikel.title = `5 Rahasia — ${judulDasarTiruan(kandidat.judul, 5)}`;
+    artikel.body = [...body.slice(0, 1), { type: 'p', text: 'Prabowo mendukung langkah ini dengan dana Rp999 miliar.' }, ...body.slice(1)];
+  }
+  return { artikel, model: 'tiruan', biayaUsd: 0, percakapan: [] };
 }

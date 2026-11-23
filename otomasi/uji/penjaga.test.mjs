@@ -3,7 +3,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { periksaArtikel, perbaikiOtomatis, perbaikiPrabowo, amankanIlustrasi } from '../lib/penjaga.mjs';
-import { BAHAN, KONTEKS, artikelBaik, ubah } from './contoh.mjs';
+import { BAHAN, KONTEKS, artikelBaik, ubah, BAHAN_PANDUAN, KONTEKS_PANDUAN, artikelEvergreen, ubahEvergreen } from './contoh.mjs';
 
 const periksa = (a, k = KONTEKS) => periksaArtikel(perbaikiOtomatis(a).artikel, k);
 const ada = (masalah, potongan) => masalah.some((m) => m.includes(potongan));
@@ -152,4 +152,55 @@ test('blok kutipan dirapikan: tanda kutip pembungkus dibuang, koma penutup jadi 
   assert.equal(rapikanKutipan('Apakah ini sudah siap?'), 'Apakah ini sudah siap?');
   const a = perbaikiOtomatis({ title: 'x', dek: 'x', takeaways: [], body: [{ type: 'quote', text: 'Kami mengapresiasi dukungan itu,' }] }).artikel;
   assert.equal(a.body[0].text, 'Kami mengapresiasi dukungan itu.');
+});
+
+// ------------------------------------------------------------------ evergreen (23 Nov 2026)
+
+test('evergreen baik lolos: "3 Syarat" cocok dengan 3 subjudul bernomor walau angka 3 tidak ada di bahan', () => {
+  assert.ok(!/\b3\b/.test(BAHAN_PANDUAN), 'bahan sengaja tanpa angka 3');
+  assert.deepEqual(periksa(artikelEvergreen(), KONTEKS_PANDUAN), []);
+  // Ditulis dengan kata juga lolos, begitu pula judul tanpa angka.
+  assert.deepEqual(periksa(ubahEvergreen((x) => { x.title = 'Tiga Syarat Mengajukan KUR Mikro yang Perlu Disiapkan'; }), KONTEKS_PANDUAN), []);
+  assert.deepEqual(periksa(ubahEvergreen((x) => { x.title = 'Mau Mengajukan KUR Mikro? Siapkan Syarat Ini Dulu'; }), KONTEKS_PANDUAN), []);
+});
+
+test('evergreen: jumlah di judul harus sama dengan jumlah subjudul bernomor', () => {
+  const m = periksa(ubahEvergreen((x) => { x.title = '5 Syarat Mengajukan KUR Mikro yang Perlu Disiapkan'; }), KONTEKS_PANDUAN);
+  assert.ok(ada(m, 'judul menjanjikan 5 butir, tetapi body punya 3'), m.join('\n'));
+  const nya = periksa(ubahEvergreen((x) => { x.title = 'Mau Mengajukan KUR Mikro? Ini 4 Syaratnya'; }), KONTEKS_PANDUAN);
+  assert.ok(ada(nya, 'judul menjanjikan 4 butir'), nya.join('\n'));
+  // Kata benda listicle di luar "syarat/cara/langkah" juga dihitung sebagai janji jumlah.
+  assert.deepEqual(periksa(ubahEvergreen((x) => { x.title = '3 Trik Mengajukan KUR Mikro untuk Usaha Kecil'; }), KONTEKS_PANDUAN), []);
+  const kiat = periksa(ubahEvergreen((x) => { x.title = 'Ini 5 Kiat Mengajukan KUR Mikro untuk Usaha Kecil'; }), KONTEKS_PANDUAN);
+  assert.ok(ada(kiat, 'judul menjanjikan 5 butir, tetapi body punya 3'), kiat.join('\n'));
+});
+
+test('evergreen: nomor subjudul harus berurutan dari 1; "1)" diseragamkan menjadi "1."', () => {
+  const lompat = periksa(ubahEvergreen((x) => { x.body[3].text = '3. Dokumen identitas dan izin usaha'; x.body[5].text = '4. Ajukan lewat bank penyalur'; }), KONTEKS_PANDUAN);
+  assert.ok(ada(lompat, 'berurutan'), lompat.join('\n'));
+  const kurung = ubahEvergreen((x) => { x.body[1].text = '1) Usaha sudah berjalan'; });
+  assert.equal(perbaikiOtomatis(kurung).artikel.body[1].text, '1. Usaha sudah berjalan');
+  assert.deepEqual(periksa(kurung, KONTEKS_PANDUAN), []);
+});
+
+test('evergreen: kata lebay dan gaya kabar baru ditolak', () => {
+  const lebay = periksa(ubahEvergreen((x) => { x.title = 'Rahasia Lolos KUR Mikro, Ini 3 Syaratnya'; }), KONTEKS_PANDUAN);
+  assert.ok(ada(lebay, 'kata "rahasia"'), lebay.join('\n'));
+  assert.ok(ada(periksa(ubahEvergreen((x) => { x.title = '3 Syarat Terbaru Mengajukan KUR Mikro'; }), KONTEKS_PANDUAN), 'kata "terbaru"'));
+  const kabar = periksa(ubahEvergreen((x) => { x.dek = 'Hari ini Kasisolusi merangkum syarat KUR mikro dari laman resmi Kementerian Contoh untuk pelaku usaha.'; }), KONTEKS_PANDUAN);
+  assert.ok(ada(kabar, 'bukan kabar terbaru'), kabar.join('\n'));
+  // "Pastikan" dan "instansi" bukan kata lebay.
+  assert.deepEqual(periksa(ubahEvergreen((x) => { x.title = 'Pastikan 3 Syarat Ini Siap Sebelum Mengajukan KUR'; }), KONTEKS_PANDUAN), []);
+});
+
+test('evergreen dari laman resmi: penutup wajib menganjurkan cek ketentuan terbaru, tanpa nomor', () => {
+  const tanpa = periksa(ubahEvergreen((x) => { x.body[8].text = 'Kumpulkan dokumen lebih dulu supaya pengajuan lancar dan tidak bolak-balik ke bank penyalur.'; }), KONTEKS_PANDUAN);
+  assert.ok(ada(tanpa, 'menganjurkan pembaca mengecek ketentuan terbaru'), tanpa.join('\n'));
+  const bernomor = periksa(ubahEvergreen((x) => { x.body[7].text = '4. Yang perlu disiapkan pelaku usaha'; x.title = '4 Syarat Mengajukan KUR Mikro yang Perlu Disiapkan'; }), KONTEKS_PANDUAN);
+  assert.ok(ada(bernomor, 'subjudul terakhir harus bagian praktis tanpa nomor'), bernomor.join('\n'));
+});
+
+test('berita biasa tetap ketat: jumlah butir buatan di judul ditolak walau subjudulnya bernomor', () => {
+  const m = periksa(ubahEvergreen((x) => { x.body[7].text = 'Apa artinya bagi pelaku usaha'; }), { ...KONTEKS_PANDUAN, jenis: 'berita' });
+  assert.ok(ada(m, 'angka tidak ada di bahan') || ada(m, 'bilangan di judul'), m.join('\n'));
 });

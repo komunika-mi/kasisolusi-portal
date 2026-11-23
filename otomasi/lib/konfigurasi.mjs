@@ -9,10 +9,20 @@ export const DIR_GAMBAR = join(ROOT, 'public', 'assets', 'berita');
 export const DIR_PUBLIC = join(ROOT, 'public');
 export const BERKAS_STATUS = join(DIR_BERITA, '_status.json');
 
+// Jenis artikel otomatis, sekaligus urutan pengerjaannya dalam satu putaran.
+// - berita: siaran pers lembaga resmi (prioritas 1).
+// - tips: episode podcast Kasisolusi, episode baru didahulukan.
+// - evergreen (keputusan pemilik 23 Nov 2026): panduan yang tetap berguna berbulan-bulan, dengan
+//   bahan dari laman panduan resmi pemerintah dan dari episode podcast arsip. Judul boleh lebih
+//   memancing, tetapi tetap jujur (aturannya di penulis.mjs dan penjaga.mjs).
+export const JENIS = ['berita', 'tips', 'evergreen'];
+
 // Keputusan pemilik: paling banyak 12 berita + 3 tips per hari WIB, kurang tidak apa-apa.
-export const KUOTA = { berita: 12, tips: 3 };
-// Keputusan pemilik: per putaran paling banyak 3 berita + 1 tips.
-export const PER_PUTARAN = { berita: 3, tips: 1 };
+// Evergreen 3 per hari (keputusan pemilik 23 Nov 2026).
+export const KUOTA = { berita: 12, tips: 3, evergreen: 3 };
+// Keputusan pemilik: per putaran paling banyak 3 berita + 1 tips. Evergreen 1 (pilihan awal),
+// jadi dengan laju per jam di bawah slotnya terbuka sekitar pukul 06, 10, dan 15 WIB.
+export const PER_PUTARAN = { berita: 3, tips: 1, evergreen: 1 };
 
 // Keputusan pemilik 23 Nov 2026: berita TIDAK lagi diambil dari situs media (detik, CNBC Indonesia,
 // Liputan6, dan sejenisnya). Berita hanya dari siaran pers lembaga resmi; tips dari episode podcast
@@ -27,7 +37,7 @@ export const JENDELA = { mulai: 6, penuh: 19, akhir: 22 };
 
 // Berapa kandidat yang boleh DICOBA ditulis per putaran (termasuk yang akhirnya ditolak penjaga),
 // supaya satu kandidat bermasalah tidak menghabiskan putaran dan biaya tetap terbatas.
-export const COBA_TULIS_MAKS = { berita: 6, tips: 3 };
+export const COBA_TULIS_MAKS = { berita: 6, tips: 3, evergreen: 3 };
 export const GAMBAR_MAKS_PER_PUTARAN = 6;
 // Putaran berhenti memulai kandidat baru sesudah batas ini. Satu kandidat yang sedang jalan bisa
 // makan sampai sekitar 9 menit lagi (3 panggilan model 120 detik + gambar), jadi job Actions
@@ -42,10 +52,17 @@ export const HARI_SIMPAN_GAMBAR = 180;
 // penjelasan Pasal 43 huruf c UU 28/2014). Siaran pers lembaga: 7 hari (pilihan awal).
 export const UMUR_MAKS_JAM = { media: 72, lembaga: 7 * 24, episodeBaru: 7 * 24 };
 
-// Bahan minimum (karakter teks sumber yang bersih). Di bawah ini kandidat dilewati.
-export const BAHAN_MIN = { berita: 1200, tips: 500 };
+// Panduan resmi untuk evergreen tidak dibatasi umur seperti siaran pers, tetapi halaman yang
+// tanggalnya tercantum dan lebih tua dari ini dilewati: aturan dan syarat bisa sudah berubah.
+export const UMUR_MAKS_HARI_PANDUAN = 3 * 365;
+
+// Bahan minimum (karakter teks sumber yang bersih). Di bawah ini kandidat dilewati. Evergreen
+// dari laman panduan memakai angka evergreen; evergreen dari episode podcast memakai batas tips
+// (bahannya sama-sama deskripsi resmi episode).
+export const BAHAN_MIN = { berita: 1200, tips: 500, evergreen: 1200 };
 // Panjang isi artikel (kata, hanya body). Berita: keputusan pemilik sekitar 300-800.
-export const PANJANG_KATA = { berita: [300, 800], tips: [200, 650] };
+// Evergreen per asal bahan: laman panduan resmi (lembaga) atau episode podcast (youtube).
+export const PANJANG_KATA = { berita: [300, 800], tips: [200, 650], evergreen: { lembaga: [350, 900], youtube: [200, 650] } };
 export const JUDUL_MAKS = 70;
 
 // Penulis. Keputusan pemilik: OpenRouter dengan model Cina murah. Bisa diganti lewat variabel

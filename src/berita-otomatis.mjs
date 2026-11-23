@@ -11,7 +11,9 @@ import { join } from 'node:path';
 import { kanal as KANAL } from './ui.mjs';
 
 export const KANAL_SAH = Object.keys(KANAL);
-export const JENIS_SAH = ['berita', 'tips'];
+// Sama dengan JENIS di otomasi/lib/konfigurasi.mjs. Situs memperlakukan ketiganya sama: semuanya
+// tampil di daftar berita dengan label kanal (evergreen sejak 23 Nov 2026).
+export const JENIS_SAH = ['berita', 'tips', 'evergreen'];
 
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const TANGGAL = /^\d{4}-\d{2}-\d{2}$/;

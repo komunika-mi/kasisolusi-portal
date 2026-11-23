@@ -22,9 +22,13 @@ on:
         type: boolean
         default: true
       paksa:
-        description: 'Abaikan jendela jam dan laju per jam (batas harian 12+3 dan per putaran 3+1 tetap)'
+        description: 'Abaikan jendela jam dan laju per jam (batas harian 12+3+3 dan per putaran 3+1+1 tetap)'
         type: boolean
         default: false
+      hanya:
+        description: 'Khusus uji kering: satu jenis saja dengan jatah sehari penuh (berita, tips, atau evergreen); kosong = semua'
+        type: string
+        default: ''
 
 permissions:
   contents: write
@@ -41,6 +45,8 @@ jobs:
     env:
       KERING: ${{ (github.event_name == 'workflow_dispatch' && inputs.kering) && '1' || '' }}
       PAKSA: ${{ (github.event_name == 'workflow_dispatch' && inputs.paksa) && '1' || '' }}
+      # Hanya berlaku di uji kering; jalan.mjs menolak nilai selain berita, tips, atau evergreen.
+      HANYA: ${{ (github.event_name == 'workflow_dispatch' && inputs.kering) && inputs.hanya || '' }}
       OTOMASI_BERITA: ${{ vars.OTOMASI_BERITA }}
       OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
       OPENAI_IMAGE_MODEL: ${{ vars.OPENAI_IMAGE_MODEL }}
