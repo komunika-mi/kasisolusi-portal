@@ -211,6 +211,11 @@ halal.go.id (tidak terjangkau). Pola dan jebakan sumber resmi sebagian diwarisi 
 (`scripts/fetch-gov.mjs`): garis miring di ujung `asal` DJP, `/index.php` DJP dibuang, ekon.go.id
 butuh `curl -k` di runner.
 
+Sejak 23 Nov 2026 situs DJP dan BPJPH berbasis Next.js. Daftar siaran pers DJP pindah ke
+`/id/siaran-pers` (yang lama `/id/siaran-pers-page` HTTP 404). Halaman `/berita` BPJPH tidak lagi
+memuat tautan `<a>` ke artikel: slug delapan berita terbaru dibaca dari data JSON yang ikut tersaji
+di halaman itu, dan artikelnya dibuka di `/read/<slug>`. Uji: `otomasi/uji/sumber-lembaga.test.mjs`.
+
 ### Evergreen
 
 Keputusan pemilik 23 Nov 2026 ("A+B, memancing tapi jujur, 3 per hari"): artikel panduan atau

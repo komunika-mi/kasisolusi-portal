@@ -12,6 +12,13 @@
 // Diuji dari laptop 15 Nov 2026 (daftar terbaca, isi artikel terbaca, tanggal terbaca):
 // DJP, ekon.go.id, BI, Kemendag, Kemenperin, BPJPH, DJKI, BPOM, PNM, Ekraf.
 //
+// 23 Nov 2026: situs DJP dan BPJPH pindah ke Next.js. Daftar DJP pindah ke /id/siaran-pers (alamat
+// lama /id/siaran-pers-page HTTP 404; pola tautannya tetap). Daftar BPJPH tidak lagi berupa tautan
+// <a>, jadi slug dibaca dari data JSON yang ikut tersaji di halaman (lihat entrinya). Artikel BPJPH
+// kini di /read/<slug>; alamat lama /main/read/<slug> masih dilayani, kecuali artikel yang slug-nya
+// ikut berubah saat pindah. Kunci lama (/main/read/) tidak sama dengan kunci baru, tetapi artikel
+// yang sudah diproses tetap tersaring lewat kemiripan judul (judul sementara dari slug).
+//
 // SENGAJA TIDAK DIPASANG (sudah dicoba 15 Nov 2026):
 //   ojk.go.id      dibalas "Request Rejected" (WAF) 245 byte. Proteksi bot tidak diakali.
 //   smesco.go.id   tidak punya halaman daftar berita (/news 404); berita di beranda bertanggal
@@ -27,7 +34,7 @@ import { cariFotoUtama } from './foto-rilis.mjs';
 export const LEMBAGA = [
   {
     id: 'djp', nama: 'Direktorat Jenderal Pajak', label: 'Direktorat Jenderal Pajak (pajak.go.id)', singkat: ['DJP', 'Direktorat Jenderal Pajak'],
-    daftar: 'https://pajak.go.id/id/siaran-pers-page', asal: 'https://pajak.go.id/',
+    daftar: 'https://pajak.go.id/id/siaran-pers', asal: 'https://pajak.go.id/',
     pola: /href="\/(?:index\.php\/)?(id\/siaran-pers\/[^"?#]+)"/g,
   },
   {
@@ -52,8 +59,11 @@ export const LEMBAGA = [
   },
   {
     id: 'bpjph', nama: 'Badan Penyelenggara Jaminan Produk Halal', label: 'BPJPH (bpjph.halal.go.id)', singkat: ['BPJPH', 'Badan Penyelenggara Jaminan Produk Halal'],
-    daftar: 'https://bpjph.halal.go.id/berita', asal: 'https://bpjph.halal.go.id',
-    pola: /href="(\/main\/read\/[a-z0-9-]+)"/g,
+    daftar: 'https://bpjph.halal.go.id/berita', asal: 'https://bpjph.halal.go.id/read/',
+    // Daftar berita ada di muatan Next.js (self.__next_f) sebagai JSON ber-escape: delapan objek
+    // terbaru, atributnya diawali "date". Ribuan objek artikel lain di halaman yang sama (daftar
+    // terkait, urut id naik mulai 2023) atributnya diawali "title", jadi tidak ikut tertangkap.
+    pola: /\\"attributes\\":\{\\"date\\":\\"[^"\\]+\\",\\"publishedAt\\":\\"[^"\\]+\\",\\"title\\":[\s\S]{0,2000}?\\"slug\\":\\"([a-z0-9-]+)\\"/g,
   },
   {
     id: 'djki', nama: 'Direktorat Jenderal Kekayaan Intelektual', label: 'DJKI Kementerian Hukum (dgip.go.id)', singkat: ['DJKI', 'Direktorat Jenderal Kekayaan Intelektual'],
