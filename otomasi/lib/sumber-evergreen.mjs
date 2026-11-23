@@ -88,10 +88,16 @@ export const PANDUAN = [
   { lembaga: 'djp', url: 'https://pajak.go.id/id/wajib-pajak/pribadi/usaha/pendaftaran/wajib-pajak-nonaktif', judul: 'Status Wajib Pajak Nonaktif saat Usaha Berhenti', diperiksa: '2026-11-23' },
   { lembaga: 'djp', url: 'https://pajak.go.id/id/wajib-pajak/pribadi/usaha/pendaftaran/perubahan-data', judul: 'Mengubah Data Wajib Pajak, dari Nomor HP sampai Alamat', diperiksa: '2026-11-23' },
   { lembaga: 'djp', url: 'https://pajak.go.id/id/wajib-pajak/pribadi/usaha/pelaporan/spt-masa-ppn', judul: 'Kewajiban SPT Masa PPN bagi Pemilik Usaha yang Sudah PKP', diperiksa: '2026-11-23' },
-  { lembaga: 'bi', url: 'https://www.bi.go.id/id/publikasi/ruang-media/cerita-bi/Pages/cara-membuat-QRIS.aspx', judul: 'Langkah Mendaftar QRIS sebagai Merchant', diperiksa: '2026-11-23', catatan: 'data merchant per Juni 2025' },
+  // DITAHAN 23 Nov 2026 sore (persetujuan pengguna) sampai polos() diperbaiki: angka "57 juta" di
+  // laman ini ditulis sebagai dua tag <strong> berdampingan dan terbaca "5 7 juta"; artikel uji
+  // kering 45115097001 jadi salah menempelkan angka.
+  // { lembaga: 'bi', url: 'https://www.bi.go.id/id/publikasi/ruang-media/cerita-bi/Pages/cara-membuat-QRIS.aspx', judul: 'Langkah Mendaftar QRIS sebagai Merchant', diperiksa: '2026-11-23', catatan: 'data merchant per Juni 2025' },
   { lembaga: 'bi', url: 'https://www.bi.go.id/id/fungsi-utama/sistem-pembayaran/ritel/kanal-layanan/QRIS/default.aspx', judul: 'Mengenal QRIS untuk Pembayaran Usaha', diperiksa: '2026-11-23' },
   { lembaga: 'bi', url: 'https://www.bi.go.id/id/rupiah/pencegahan-rupiah-palsu/default.aspx', judul: 'Ciri Uang Rupiah Asli dan Cara Mengenali yang Palsu', diperiksa: '2026-11-23' },
-  { lembaga: 'bpjstk', url: 'https://www.bpjsketenagakerjaan.go.id/cara-mendaftar-jadi-peserta.html', judul: 'Cara Mendaftar Peserta BPJS Ketenagakerjaan', diperiksa: '2026-11-23' },
+  // DITAHAN 23 Nov 2026 sore (persetujuan pengguna) sampai ekstraksi butir daftar diperbaiki: kanal
+  // pendaftaran pemberi kerja dan daftar dokumennya (<li>) tidak ikut terambil, jadi artikel uji
+  // kering berjudul "cara daftarkan usaha" tanpa langkah mendaftarkan usaha.
+  // { lembaga: 'bpjstk', url: 'https://www.bpjsketenagakerjaan.go.id/cara-mendaftar-jadi-peserta.html', judul: 'Cara Mendaftar Peserta BPJS Ketenagakerjaan', diperiksa: '2026-11-23' },
   { lembaga: 'bpjstk', url: 'https://www.bpjsketenagakerjaan.go.id/cara-membayar-iuran.html', judul: 'Pilihan Cara Membayar Iuran BPJS Ketenagakerjaan', diperiksa: '2026-11-23' },
   { lembaga: 'bpjstk', url: 'https://www.bpjsketenagakerjaan.go.id/artikel/17510/artikel-ingin-jadi-wirausaha,-apa-saja-ya-keuntungan-dan-persiapannya?.bpjs', judul: 'Keuntungan dan Persiapan Sebelum Memulai Wirausaha', diperiksa: '2026-11-23' },
   { lembaga: 'bpjstk', url: 'https://www.bpjsketenagakerjaan.go.id/artikel/17374/artikel-manfaat-perlindungan-bpjs-ketenagakerjaan-untuk-mitra-ojol.bpjs', judul: 'Perlindungan Jaminan Sosial bagi Mitra Ojol', diperiksa: '2026-11-23' },
