@@ -11,6 +11,7 @@ import { KUOTA, PER_PUTARAN } from '../lib/konfigurasi.mjs';
 import { bergiliran, PANDUAN, LEMBAGA_PANDUAN, kandidatKurasi } from '../lib/sumber-evergreen.mjs';
 import { judulKembar } from '../lib/seleksi.mjs';
 import { kunciUrl } from '../lib/alat.mjs';
+import { rapikan } from '../lib/ekstrak.mjs';
 
 test('angka: nilai beserta satuan, bukan deretan digit', () => {
   const idx = indeksSumber('Target Rp290 triliun, 89,93 persen, 4 juta debitur, PP Nomor 20 Tahun 2026, Kamis (22/10/2026), pukul 09.00 WIB.');
@@ -111,6 +112,22 @@ test('laju: jadwal yang teramati 16-23 Nov 2026 (dua putaran di jendela) tetap m
     // Bukan target, hanya dicatat: pada pola ini berita paling banyak 6 dan tips 2.
     assert.ok(terbit.berita <= 6 && terbit.tips <= 2, `${hari}: ${JSON.stringify(terbit)}`);
   }
+});
+
+test('rapikan: langkah bernomor yang memuat alamat situs tetap ada, baris kontak tetap dibuang', () => {
+  // Panduan merek DJKI, 23 Nov 2026: langkah 1 dulu terbuang karena dianggap baris kontak.
+  const hasil = rapikan([
+    'Panduan:',
+    '1) Login pada laman https://merek.dgip.go.id/',
+    '2) Klik “Permohonan Online”',
+    'a) Buka www.contoh.go.id',
+    'Kunjungi www.kemenkopukm.go.id',
+    'Website: www.contoh.go.id Email: humas@contoh.go.id',
+    'Pemohon membayar biaya pada hari yang sama sesuai tarif yang berlaku.',
+  ].join('\n')).split('\n');
+  assert.ok(hasil.includes('1) Login pada laman https://merek.dgip.go.id/'), hasil.join(' | '));
+  assert.ok(hasil.includes('a) Buka www.contoh.go.id'), hasil.join(' | '));
+  assert.ok(!hasil.some((b) => /^(Kunjungi|Website)/.test(b)), hasil.join(' | '));
 });
 
 test('robots.txt: penolakan perayap AI, jalur terlarang, crawl-delay', () => {

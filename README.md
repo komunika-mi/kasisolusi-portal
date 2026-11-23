@@ -223,10 +223,18 @@ berlogo, foto dari laman panduan tidak dipakai.
     tidak disaring kata kunci UMKM. Judul kurasi (`judul`) menggantikan judul halaman, yang di
     banyak laman lembaga generik (DJKI selalu "Kementerian Hukum R.I."); uji di
     `otomasi/uji/lain.test.mjs` menolak dua judul kurasi yang dianggap kembar. Isi 23 Nov 2026:
-    29 laman dari BPJPH, DJKI, DJP, BI, BPJS Ketenagakerjaan, Bea Cukai, dan LPDB (cukup untuk
-    sekitar 10 hari pada 3 artikel per hari). Laman yang sengaja tidak dimasukkan beserta
-    alasannya tercatat di atas `PANDUAN`, termasuk OJK Sikapi Uangmu (HTTP 403 dari runner) dan
-    28 artikel pajak.go.id yang berpenafian pendapat pribadi penulis.
+    33 laman dari DJKI, DJP, BI, BPJS Ketenagakerjaan, Bea Cukai, dan LPDB (cukup untuk sekitar
+    11 hari pada 3 artikel per hari). Enam laman DJP berasal dari panduan "Wajib Pajak Orang
+    Pribadi Usaha" yang muncul saat pajak.go.id berganti struktur pada 23 Nov siang; laman PKP lama
+    dan 28 artikel pegawai DJP (berpenafian pendapat pribadi) sejak itu HTTP 404. Laman yang
+    sengaja tidak dimasukkan beserta alasannya tercatat di atas `PANDUAN`, termasuk OJK Sikapi
+    Uangmu (HTTP 403 dari runner) dan laman SEHATI 2026 BPJPH (kuotanya habis 15 Oktober 2026;
+    artikelnya sempat terbit lalu diturunkan). Laman program tahunan, kuota, atau periode
+    pendaftaran hanya dimasukkan sesudah status programnya dicek masih berjalan.
+  - Langkah bernomor yang memuat alamat situs ("1) Login pada laman https://merek.dgip.go.id/")
+    tidak lagi terbuang sebagai baris kontak (`rapikan` di `otomasi/lib/ekstrak.mjs`). Pada 23 Nov
+    perbaikan ini mengembalikan 5 langkah di laman merek, hak cipta, dan desain industri DJKI,
+    serta QRIS BI.
   - `DAFTAR_PANDUAN`: halaman daftar artikel edukasi resmi. Tautan barunya disaring seperti berita
     (relevansi UMKM, topik yang dihindari, judul kembar) dan wajib bertanggal, karena ekstraksi
     hanya membaca tanggal 400 hari terakhir sehingga laman lama tampak tak bertanggal. Saat ini
@@ -236,6 +244,9 @@ berlogo, foto dari laman panduan tidak dipakai.
     sampai daftarnya ditambah.
   - Penulis menerima `TANGGAL HALAMAN` dan `DIAKSES`, menyebut lembaga sumbernya di paragraf
     pertama, dan menutup dengan anjuran mengecek ketentuan terbaru di laman resmi lembaga itu.
+    Bila laman bertanggal dan isinya terikat waktu (tahun di judul, atau menyebut kuota), penjaga
+    mewajibkan tanggal halaman disebut di dek atau paragraf pertama, supaya kuota program tahun itu
+    tidak terbaca sebagai keadaan sekarang (kasus kuota SEHATI 2026 dari laman 5 Januari 2026).
 - **B. Episode arsip Podcast Kasisolusi**: episode dari RSS kanal dan playlist tips yang sudah
   lewat 7 hari, belum pernah dipakai artikel otomatis, dan belum punya artikel rangkuman di
   `data/articles.mjs`. Penyaringannya sama dengan tips. Playlist School didahulukan, lalu tayangan

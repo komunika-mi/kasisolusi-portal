@@ -200,6 +200,25 @@ test('evergreen dari laman resmi: penutup wajib menganjurkan cek ketentuan terba
   assert.ok(ada(bernomor, 'subjudul terakhir harus bagian praktis tanpa nomor'), bernomor.join('\n'));
 });
 
+test('evergreen dari laman bertanggal: isi terikat waktu wajib menyebut tanggal halaman', () => {
+  const konteks = { ...KONTEKS_PANDUAN, bahan: BAHAN_PANDUAN.replace('TANGGAL HALAMAN: tidak tercantum', 'TANGGAL HALAMAN: 5 Januari 2026') };
+  const judulBertahun = 'Mau Mengajukan KUR Mikro 2026? Siapkan Syarat Ini';
+  // Tanpa tahun di judul dan tanpa kuota: tanggal tidak dituntut.
+  assert.deepEqual(periksa(artikelEvergreen(), konteks), []);
+  const bertahun = periksa(ubahEvergreen((x) => { x.title = judulBertahun; }), konteks);
+  assert.ok(ada(bertahun, 'menyebut tanggal halaman') && ada(bertahun, 'yang terbit 5 Januari 2026'), bertahun.join('\n'));
+  const kuota = periksa(ubahEvergreen((x) => { x.body[6].text += ' Penyalurannya mengikuti kuota bank penyalur.'; }), konteks);
+  assert.ok(ada(kuota, 'menyebut tanggal halaman'), kuota.join('\n'));
+  // Disebut di paragraf pertama: lolos.
+  const disebut = ubahEvergreen((x) => {
+    x.title = judulBertahun;
+    x.body[0].text = x.body[0].text.replace('Menurut laman resmi Kementerian Contoh,', 'Menurut laman resmi Kementerian Contoh yang terbit 5 Januari 2026,');
+  });
+  assert.deepEqual(periksa(disebut, konteks), []);
+  // Laman tanpa tanggal: tidak dituntut.
+  assert.ok(!ada(periksa(ubahEvergreen((x) => { x.title = judulBertahun; }), KONTEKS_PANDUAN), 'tanggal halaman'));
+});
+
 test('berita biasa tetap ketat: jumlah butir buatan di judul ditolak walau subjudulnya bernomor', () => {
   const m = periksa(ubahEvergreen((x) => { x.body[7].text = 'Apa artinya bagi pelaku usaha'; }), { ...KONTEKS_PANDUAN, jenis: 'berita' });
   assert.ok(ada(m, 'angka tidak ada di bahan') || ada(m, 'bilangan di judul'), m.join('\n'));

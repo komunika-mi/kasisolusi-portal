@@ -269,6 +269,14 @@ export function periksaArtikel(a, k) {
       if (akhir && NOMOR_BUTIR.test(akhir.text)) m.push('subjudul terakhir harus bagian praktis tanpa nomor, sesudah butir-butir bernomor');
       const penutup = akhir ? a.body.slice(i + 1).filter((b) => b.type === 'p').map((b) => b.text).join(' ') : '';
       if (!ANJURAN_CEK.test(penutup)) m.push('bagian penutup harus menganjurkan pembaca mengecek ketentuan terbaru di laman resmi lembaga sumbernya');
+      // Isi terikat waktu (tahun di judul, kuota) dari laman bertanggal: tanggal halaman wajib
+      // disebut, supaya kuota atau program tahun itu tidak terbaca sebagai keadaan sekarang.
+      // Kasus 23 Nov 2026: kuota SEHATI 2026 dari laman 5 Januari 2026 ditulis tanpa tanggal.
+      const tgl = String(k.bahan).match(/^TANGGAL HALAMAN: (\d{1,2} (\p{L}+) (\d{4}))$/mu);
+      const terikatWaktu = /\b20\d{2}\b/.test(a.title) || /\bkuota\b/i.test([a.title, a.dek, ...a.body.map((b) => b.text)].join(' '));
+      if (tgl && terikatWaktu && !new RegExp(`\\b${tgl[2]} ${tgl[3]}\\b`, 'i').test(`${a.dek} ${a.body[0].text}`)) {
+        m.push(`isinya terikat waktu (tahun di judul atau kuota), jadi dek atau paragraf pertama harus menyebut tanggal halaman, misalnya "menurut laman resmi lembaga itu yang terbit ${tgl[1]}"`);
+      }
     }
   }
   // Teks untuk pemeriksaan angka: nomor butir dan jumlah butir yang cocok dengan susunan artikel

@@ -156,6 +156,10 @@ const SAMPAH = [
   /^(diperbarui|dilihat \d+ kali)\b/i,
 ];
 const KONTAK = /\b(website|e-?mail|telp|telepon|faks|fax|instagram|twitter|facebook|linkedin|whatsapp|tiktok|youtube|call center|contact|hubungi|kunjungi)\b|\bjl\.\s|\bjalan\s+[A-Z]|@\w+|www\.|https?:\/\//i;
+// Langkah panduan bernomor ("1) Login pada laman https://merek.dgip.go.id/") adalah isi, bukan
+// baris kontak, walau memuat alamat situs dan tidak diakhiri titik. Tanpa pengecualian ini langkah
+// pertama panduan merek DJKI hilang dari bahan (23 Nov 2026).
+const LANGKAH = /^(\(?\d{1,2}[).]|[a-h][).])\s*\S/;
 
 /** Buang baris navigasi, kontak, dan tautan terkait di ujung teks. */
 export function rapikan(teks) {
@@ -164,7 +168,7 @@ export function rapikan(teks) {
     .map((b) => satuBaris(b))
     .filter(Boolean)
     .filter((b) => !SAMPAH.some((re) => re.test(b)))
-    .filter((b) => !(b.length < 220 && KONTAK.test(b) && !/[.!?]["”]?$/.test(b.replace(/www\.[^\s]+|https?:\/\/\S+/g, ''))))
+    .filter((b) => LANGKAH.test(b) || !(b.length < 220 && KONTAK.test(b) && !/[.!?]["”]?$/.test(b.replace(/www\.[^\s]+|https?:\/\/\S+/g, ''))))
     .filter((b) => !(b.length < 220 && KONTAK.test(b) && (b.match(/\b(website|e-?mail|instagram|twitter|facebook|linkedin|whatsapp|telp)\b/gi) || []).length >= 2));
   // Ujung teks sering berisi daftar judul artikel lain (BI) atau tanda tangan humas.
   while (baris.length > 3) {

@@ -12,8 +12,8 @@
 //   berita (relevansi UMKM, topik yang dihindari, kembar) sebelum ditulis, dan WAJIB bertanggal:
 //   ekstraksi hanya membaca tanggal 400 hari terakhir, jadi laman lama (misalnya artikel KUR
 //   2016 di Sikapi Uangmu) tampak tak bertanggal. Saat ini kosong: Sikapi Uangmu menolak IP
-//   runner (HTTP 403), dan daftar artikel DJP menunggu keputusan pemilik (lihat catatan di atas
-//   PANDUAN).
+//   runner (HTTP 403), dan daftar artikel DJP hilang saat pajak.go.id berganti struktur (lihat
+//   catatan di atas PANDUAN).
 //
 // Satu laman hanya menjadi satu artikel: kuncinya alamat laman (sama seperti berita), dan semua
 // artikel otomatis yang sudah terbit tetap tercatat lewat data/berita. Kalau daftar ini habis,
@@ -48,8 +48,17 @@ export const LEMBAGA_PANDUAN = {
  * Daftar kurasi, diperiksa 23 Nov 2026 dari laptop dan lewat uji kering runner GitHub (urutan di
  * dalam lembaga = prioritas).
  * Sengaja TIDAK dimasukkan (hasil periksa hari itu):
+ * - BPJPH "Kriteria pelaku UMK ... sertifikat halal gratis Program SEHATI 2026": sempat masuk dan
+ *   terbit 23 Nov, lalu artikelnya diturunkan hari itu juga, karena kuota 1,35 juta SEHATI 2026
+ *   sudah habis 15 Oktober 2026 (Databoks, data BPJPH). Laman program tahunan, kuota, atau
+ *   periode pendaftaran baru boleh masuk sesudah status programnya dicek masih berjalan.
  * - 28 artikel di pajak.go.id/id/artikel: semuanya berpenafian "pendapat pribadi penulis dan bukan
- *   cerminan sikap instansi". Menunggu keputusan pemilik.
+ *   cerminan sikap instansi". Sejak 23 Nov siang alamat itu HTTP 404: pajak.go.id berganti
+ *   struktur, dan laman lama pajak.go.id/id/pengusaha-kena-pajak ikut hilang. Penggantinya panduan
+ *   resmi "Wajib Pajak Orang Pribadi Usaha" (/id/wajib-pajak/pribadi/usaha/..., terbit 20 Nov
+ *   2026, tanpa penafian). Dari panduan itu sengaja tidak dimasukkan: kode-billing dan
+ *   gambaran-umum-pembayaran (bahan tipis), gambaran-umum-pendaftaran (tumpang tindih dengan
+ *   wajib-pajak-baru), spt-masa-pph (pemotongan PPh Unifikasi, jarang dipakai usaha mikro).
  * - 4 laman OJK Sikapi Uangmu (Article/40955 SLIK, 74 kredit usaha, 40950 restrukturisasi, 40961
  *   gadai): terbaca dari laptop, tetapi uji kering runner GitHub 23 Nov menjawab HTTP 403 untuk
  *   semuanya (IP pusat data ditolak). Proteksi tidak diakali.
@@ -63,7 +72,6 @@ export const LEMBAGA_PANDUAN = {
  * @type {Panduan[]}
  */
 export const PANDUAN = [
-  { lembaga: 'bpjph', url: 'https://bpjph.halal.go.id/detail/ini-kriteria-pelaku-umk-yang-dapat-mengajukan-sertifikat-halal-gratis-program-sehati-2026', judul: 'Kriteria Pelaku UMK Penerima Sertifikat Halal Gratis', diperiksa: '2026-11-23', catatan: 'program SEHATI 2026, dasar Keputusan Kepala BPJPH 146/2025; bentuknya rilis, isinya daftar kriteria' },
   { lembaga: 'djki', url: 'https://dgip.go.id/menu-utama/merek/syarat-prosedur', judul: 'Dokumen dan Langkah Mendaftarkan Merek', diperiksa: '2026-11-23' },
   { lembaga: 'djki', url: 'https://dgip.go.id/menu-utama/merek/biaya', judul: 'Biaya Pendaftaran Merek bagi Usaha Mikro dan Kecil', diperiksa: '2026-11-23', catatan: 'tarif PP 30/2026' },
   { lembaga: 'djki', url: 'https://dgip.go.id/menu-utama/merek/pengenalan', judul: 'Jenis Merek dan Tanda yang Tidak Bisa Didaftarkan', diperiksa: '2026-11-23' },
@@ -74,7 +82,12 @@ export const PANDUAN = [
   { lembaga: 'djki', url: 'https://dgip.go.id/menu-utama/indikasi-geografis/pengenalan', judul: 'Mengenal Indikasi Geografis untuk Produk Khas Daerah', diperiksa: '2026-11-23' },
   { lembaga: 'djki', url: 'https://dgip.go.id/faq/daftar-faq/hak-cipta/Hc-umum', judul: 'Tanya Jawab Seputar Perlindungan Hak Cipta', diperiksa: '2026-11-23' },
   { lembaga: 'djki', url: 'https://dgip.go.id/menu-utama/paten/pengenalan', judul: 'Mengenal Paten dan Paten Sederhana', diperiksa: '2026-11-23' },
-  { lembaga: 'djp', url: 'https://pajak.go.id/id/pengusaha-kena-pajak', judul: 'Mengenal Pengusaha Kena Pajak (PKP)', diperiksa: '2026-11-23', catatan: 'halaman Belajar Pajak, tanpa penafian' },
+  { lembaga: 'djp', url: 'https://pajak.go.id/id/wajib-pajak/pribadi/usaha/pendaftaran/wajib-pajak-baru', judul: 'Mendaftar NPWP bagi Orang Pribadi yang Menjalankan Usaha', diperiksa: '2026-11-23', catatan: 'panduan Wajib Pajak Orang Pribadi Usaha (Coretax), terbit 20 Nov 2026' },
+  { lembaga: 'djp', url: 'https://pajak.go.id/id/wajib-pajak/pribadi/usaha/pelaporan/spt-tahunan', judul: 'Batas Waktu dan Tata Cara Lapor SPT Tahunan Pemilik Usaha', diperiksa: '2026-11-23' },
+  { lembaga: 'djp', url: 'https://pajak.go.id/id/wajib-pajak/pribadi/usaha/pendaftaran/pengukuhan-pkp', judul: 'Pengukuhan Pengusaha Kena Pajak (PKP) bagi Pemilik Usaha', diperiksa: '2026-11-23', catatan: 'pengganti pajak.go.id/id/pengusaha-kena-pajak yang 404' },
+  { lembaga: 'djp', url: 'https://pajak.go.id/id/wajib-pajak/pribadi/usaha/pendaftaran/wajib-pajak-nonaktif', judul: 'Status Wajib Pajak Nonaktif saat Usaha Berhenti', diperiksa: '2026-11-23' },
+  { lembaga: 'djp', url: 'https://pajak.go.id/id/wajib-pajak/pribadi/usaha/pendaftaran/perubahan-data', judul: 'Mengubah Data Wajib Pajak, dari Nomor HP sampai Alamat', diperiksa: '2026-11-23' },
+  { lembaga: 'djp', url: 'https://pajak.go.id/id/wajib-pajak/pribadi/usaha/pelaporan/spt-masa-ppn', judul: 'Kewajiban SPT Masa PPN bagi Pemilik Usaha yang Sudah PKP', diperiksa: '2026-11-23' },
   { lembaga: 'bi', url: 'https://www.bi.go.id/id/publikasi/ruang-media/cerita-bi/Pages/cara-membuat-QRIS.aspx', judul: 'Langkah Mendaftar QRIS sebagai Merchant', diperiksa: '2026-11-23', catatan: 'data merchant per Juni 2025' },
   { lembaga: 'bi', url: 'https://www.bi.go.id/id/fungsi-utama/sistem-pembayaran/ritel/kanal-layanan/QRIS/default.aspx', judul: 'Mengenal QRIS untuk Pembayaran Usaha', diperiksa: '2026-11-23' },
   { lembaga: 'bi', url: 'https://www.bi.go.id/id/rupiah/pencegahan-rupiah-palsu/default.aspx', judul: 'Ciri Uang Rupiah Asli dan Cara Mengenali yang Palsu', diperiksa: '2026-11-23' },
