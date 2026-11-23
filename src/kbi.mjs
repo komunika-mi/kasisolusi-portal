@@ -144,6 +144,11 @@ export function detailMain(d, now, crumbs) {
   const daftar = (extra = '') => (selesai
     ? ''
     : `<a class="btn btn--blue${extra}" href="#paket">Daftar Sekarang ${icon('arrow')}</a>`);
+  // Angka profit tidak boleh tampil tanpa catatan risikonya (permintaan tim Kasisolusi 23 Nov 2026:
+  // "tetap tergantung pada kondisi market").
+  if (d.hasilTrading?.items?.length && !String(d.hasilTrading.catatan || '').trim()) {
+    throw new Error(`${d.slug || d.title}: hasilTrading wajib punya catatan kondisi market`);
+  }
   // `video` = daftar { url, judul }. url boleh tautan reel Instagram, atau ID YouTube / tautan
   // lengkapnya (watch, youtu.be, shorts, embed). Entri yang tidak dikenali dilewati.
   const videos = (d.video || []).map((v) => {
@@ -251,6 +256,16 @@ export function detailMain(d, now, crumbs) {
           : ''}<blockquote><p>${esc(t.kutipan)}</p></blockquote><figcaption><b>${esc(t.nama)}</b>${t.peran ? `<span>${esc(t.peran)}</span>` : ''}</figcaption></figure></li>`).join('')}
       </ul>
       ${d.testimoni.catatan ? `<p class="kd__kecil">${esc(d.testimoni.catatan)}</p>` : ''}
+    </div>` : ''}
+
+    ${d.hasilTrading?.items?.length ? `
+    <div class="kd__blok" id="hasil-trading">
+      <h2 class="kd__h">Hasil Trading</h2>
+      ${d.hasilTrading.intro ? `<p class="kd__hd">${esc(d.hasilTrading.intro)}</p>` : ''}
+      <p class="note kd__note">${icon('info')}<span>${esc(d.hasilTrading.catatan)}</span></p>
+      <ul class="kd__hasil" tabindex="0" aria-label="Tangkapan layar hasil trading, ${d.hasilTrading.items.length} gambar">
+        ${d.hasilTrading.items.map((h) => `<li><img src="/assets/kbi/hasil-${h.foto}.webp" width="${h.w}" height="${h.h}" alt="${esc(h.alt)}" loading="lazy" decoding="async"></li>`).join('')}
+      </ul>
     </div>` : ''}
 
     <div class="kd__blok kd__blok--kotak">

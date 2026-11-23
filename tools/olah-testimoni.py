@@ -6,6 +6,7 @@
 # Keluaran: public/assets/kbi/testimoni-<slug>.webp, 640x320 (2:1), tanpa bilah atas rapat
 # (jam dan kode rapat Google Meet sengaja tidak ikut).
 # Berkas sumber yang tidak ada di folder unduhan dilewati, jadi aset lama tetap dipakai.
+# Berkas asli disimpan di _arsip/testimoni-steven-2026-11/asli/ (tidak masuk git).
 import os
 import sys
 from PIL import Image
@@ -35,3 +36,27 @@ for nama, (slug, kotak) in FOTO.items():
     p = os.path.join(OUT, f'testimoni-{slug}.webp')
     im.save(p, 'WEBP', quality=82, method=6)
     print(f'testimoni-{slug}.webp', im.size, os.path.getsize(p))
+
+# Tangkapan layar hasil trading (section terpisah `hasilTrading`, persetujuan tim Kasisolusi
+# 23 Nov 2026). Gambar UTUH, tidak dipotong (angka dan keterangannya harus tetap lengkap); hanya
+# diperkecil ke lebar maksimum 820 px (kolom desktop sekitar 410 px, layar 2x). Ukuran keluaran
+# dicetak supaya width/height di data/kbi.mjs bisa disamakan.
+LEBAR_MAKS = 820
+HASIL = {
+    'WhatsApp Image 2026-11-19 at 17.17.57 (2).jpeg': 'crypto-class',
+    'WhatsApp Image 2026-11-19 at 17.17.57.jpeg': 'btc',
+    'WhatsApp Image 2026-11-19 at 17.17.57 (1).jpeg': 'pnl',
+    'WhatsApp Image 2026-11-19 at 17.17.58.jpeg': 'pnl-bulan',
+}
+
+for nama, slug in HASIL.items():
+    p_src = os.path.join(SRC, nama)
+    if not os.path.exists(p_src):
+        print(f'lewati {nama} (tidak ada di folder unduhan)')
+        continue
+    im = Image.open(p_src).convert('RGB')
+    if im.width > LEBAR_MAKS:
+        im = im.resize((LEBAR_MAKS, round(im.height * LEBAR_MAKS / im.width)), Image.LANCZOS)
+    p = os.path.join(OUT, f'hasil-{slug}.webp')
+    im.save(p, 'WEBP', quality=86, method=6)
+    print(f'hasil-{slug}.webp', im.size, os.path.getsize(p))

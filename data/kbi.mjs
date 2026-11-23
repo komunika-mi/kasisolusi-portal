@@ -230,8 +230,10 @@ export const detailInvestment = {
   // pekerjaan disalin persis dari tangkapan layar kartu testimoni; yang dirapikan hanya satu tanda
   // kutip tanpa pasangan (Meiliana) dan satu spasi sebelum tanda kutip (Chandra). Urutan mengikuti
   // urutan tangkapan layar, testimoni WhatsApp tanpa nama dan foto di akhir. Foto dipotong dari
-  // kartu yang sama (tools/olah-testimoni.py). Empat tangkapan layar angka profit di folder itu
-  // tidak dipakai: bukan testimoni peserta.
+  // kartu yang sama (tools/olah-testimoni.py). Pekerjaan Harjono di kartunya tertulis "Pegawai
+  // Negeri Swasta"; tim Kasisolusi memastikan lewat WA 23 Nov 2026 bahwa yang benar Pegawai Negeri
+  // Sipil. Empat tangkapan layar angka profit di folder itu bukan testimoni peserta, jadi dipasang
+  // di section terpisah (`hasilTrading` di bawah).
   // Tiap kelas boleh punya `testimoni` sendiri; tanpa `items` section tidak dirender.
   testimoni: {
     intro: 'Cerita mereka yang pernah belajar langsung bersama Steven Anderson lewat sesi konsultasi dan webinar.',
@@ -258,7 +260,7 @@ export const detailInvestment = {
         kutipan: 'Ilmu Investasi Steven sangat bermanfaat untuk saya. Niatnya tulus berbagi dan beneran ngajar beda sama yang lain di satu grup besar disini Steven Coaching kita secara 1 on 1. Karena tersertifikasi profesional dan praktisi langsung, Info dari Steven Valid based on fact dan proven banget !',
       },
       {
-        nama: 'Harjono', peran: 'Pegawai Negeri Swasta', foto: 'harjono',
+        nama: 'Harjono', peran: 'Pegawai Negeri Sipil', foto: 'harjono',
         fotoAlt: 'Harjono dalam sesi konsultasi online bersama Steven Anderson',
         kutipan: 'Dulu sempet rugi miliaran di trading dan stres banget. Tapi setelah ketemu Coach Steven dan Jul, baru tau gimana cara manage keuangan yang benar. Ternyata investasi yang baik itu ga perlu muluk muluk cukup Growth diatas 30% per tahun aja udah cukup dan compounding is real ! Porto gw udah grow 10% sejak sesi Konsultasi Pertama Thanks Coach !',
       },
@@ -266,6 +268,23 @@ export const detailInvestment = {
         nama: 'Peserta webinar', peran: 'Dikirim lewat WhatsApp',
         kutipan: 'yg saya rasakan stelah ikut webminar Steven Anderson dan Minjul\nsaya merasa upgrade utk pengetahuan financial market dan juga alokasi porto dengan varian diversifikasi.\nsebelom nya sy heavy di IHSG, Gold, namun setelah ikut kelas itu tnyata d saat kita blm entry position, masi ada banyak pilihan parkir likuiditas kita di instrumen2 lain yg bisa memberi return lebih dari deposito.\nat the end, 1 kata, saya bersyukur bisa ktemu dengan webminar ini, membuat saya lebih upgrade skill utk prepare hari tua saya kedepan. dan yg jelas tetiba abis kelas ini, sy di tengah2 circle saya, mereka mengaggap saya tiba2 pintar 🤣🙏 bgitu juga d mata suami dan anak2\nhahahahha',
       },
+    ],
+  },
+  // Tangkapan layar hasil trading kripto dari folder Drive yang sama (empat berkas "WhatsApp Image
+  // 2026-11-19 at 17.17.5x"). Tim Kasisolusi lewat WA 23 Nov 2026: "dibuatkan bagian terpisah dan
+  // tetap tergantung pada kondisi market". Bukan testimoni peserta: satu berkas adalah profil
+  // Crypto Class @cryptoclassid yang bionya menautkan @andersonnsteven, tiga lainnya tidak
+  // menyebut pemilik akun, jadi tidak ada yang diberi nama. Gambar utuh, hanya diperkecil
+  // (tools/olah-testimoni.py); w/h = ukuran berkas webp. `catatan` WAJIB ada: tanpa catatan,
+  // build berhenti (src/kbi.mjs), supaya angka profit tidak pernah tampil tanpa catatan risikonya.
+  hasilTrading: {
+    intro: 'Beberapa tangkapan layar hasil trading kripto.',
+    catatan: 'Hasil trading sangat tergantung pada kondisi market saat itu. Hasil di masa lalu tidak menjamin hasil yang sama di masa depan, dan setiap investasi mengandung risiko.',
+    items: [
+      { foto: 'crypto-class', w: 820, h: 1165, alt: 'Tangkapan layar profil akun trading Crypto Class (@cryptoclassid): nilai portofolio $151,394.80, keuntungan +$95,617.92 untuk periode All, 72 trade' },
+      { foto: 'btc', w: 820, h: 616, alt: 'Tangkapan layar aset BTC: equity 25.64865105 BTC (sekitar 2,064,377.84 USD), Cumulative PnL +80,755.51 USD, Cumulative ROI +4.07%' },
+      { foto: 'pnl', w: 820, h: 263, alt: "Tangkapan layar ringkasan PnL: Today's PnL 8,586.49 USD (+3.64%), This Month's PnL +59,664.64 (+17.27%), Cumulative PnL +428,140.65 (+5.81%)" },
+      { foto: 'pnl-bulan', w: 492, h: 267, alt: "Tangkapan layar This Month's PnL +66,427.61 (+19.23%)" },
     ],
   },
   // Dokumen PIC bagian 5.
