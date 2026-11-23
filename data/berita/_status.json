@@ -43,10 +43,10 @@
    "biayaUsd": 0.057133
   },
   "2026-11-23": {
-   "berita": 0,
-   "tips": 0,
-   "biayaUsd": 0.00933,
-   "evergreen": 2
+   "berita": 3,
+   "tips": 1,
+   "biayaUsd": 0.03615,
+   "evergreen": 3
   }
  },
  "kunci": {
@@ -110,6 +110,18 @@
    "slug": "jualan-makanan-mengandung-babi-ini-aturan-keterangan-tidak-halal",
    "judul": "Pascainsiden Warung Mie & Babi Tepi Sawah, BPJPH dan Pemkab Sukoharjo Perkuat Pembinaan Jaminan Produk Halal"
   },
+  "https://bpjph.halal.go.id/read/bpjph-dorong-implementasi-moderasi-beragama-untuk-ekosistem-halal-yang-inklusif": {
+   "t": "2026-11-23",
+   "hasil": "terbit",
+   "slug": "label-halal-bukan-khusus-muslim-ini-penjelasan-bpjph",
+   "judul": "BPJPH Dorong Implementasi Moderasi Beragama untuk Ekosistem Halal yang Inklusif"
+  },
+  "https://bpjph.halal.go.id/read/bpjph-gandeng-bssn-perkuat-keamanan-informasi-dan-budaya-siber-pegawai": {
+   "t": "2026-11-23",
+   "hasil": "terbit",
+   "slug": "data-usaha-anda-di-sistem-halal-digital-bpjph-perkuat-keamanannya",
+   "judul": "BPJPH Gandeng BSSN Perkuat Keamanan Informasi dan Budaya Siber Pegawai"
+  },
   "https://cnbcindonesia.com/entrepreneur/20261119130843-25-786610/tiktok-shop-indonesia-berdayakan-umkm-lewat-program-ini": {
    "t": "2026-11-20",
    "hasil": "terbit",
@@ -127,6 +139,12 @@
    "hasil": "terbit",
    "slug": "petani-dan-umkm-bisa-jualan-ke-eropa-lewat-ieu-cepa",
    "judul": "Tak Cuma Korporasi, Petani-UMKM RI Bisa Jualan ke Eropa"
+  },
+  "https://dgip.go.id/artikel/detail-artikel-berita/cegah-sengketa-djki-ajak-pelaku-usaha-kosmetik-daftarkan-merek": {
+   "t": "2026-11-23",
+   "hasil": "terbit",
+   "slug": "merek-kosmetik-belum-didaftar-djki-ingatkan-risiko-sengketa",
+   "judul": "Cegah Sengketa, DJKI Ajak Pelaku Usaha Kosmetik Daftarkan Merek"
   },
   "https://dgip.go.id/artikel/detail-artikel-berita/djki-dan-departemen-luar-negeri-as-perkuat-kerja-sama-pelindungan-kekayaan-intelektual": {
    "t": "2026-11-16",
@@ -386,6 +404,12 @@
    "slug": "sanksi-pajak-bisa-dihapus-100-persen-tenggat-31-desember-2026",
    "judul": "Sanksi Pajak Bisa Dihapus 100 Persen, Tenggatnya Tinggal Tujuh Pekan"
   },
+  "https://pajak.go.id/id/wajib-pajak/pribadi/usaha/pendaftaran/wajib-pajak-baru": {
+   "t": "2026-11-23",
+   "hasil": "terbit",
+   "slug": "punya-usaha-baru-ini-tahapan-mendaftar-npwp-orang-pribadi",
+   "judul": "Mendaftar NPWP bagi Orang Pribadi yang Menjalankan Usaha"
+  },
   "https://pnm.co.id/berita/petani-stroberi-di-rancabali-rasakan-manisnya-mekaar-8-persen": {
    "t": "2026-11-16",
    "hasil": "terbit",
@@ -487,6 +511,12 @@
    "hasil": "ditolak",
    "alasan": "model menilai tidak layak: Bahan membahas masa depan AI dan makna menjadi manusia, bukan soal UMKM, usaha, atau pekerja mandiri. Deskripsi...",
    "judul": "Masa Depan AI: Apakah Artificial Intelligence Akan Menggantikan Manusia?"
+  },
+  "yt:xpkxT0QPY4M": {
+   "t": "2026-11-23",
+   "hasil": "terbit",
+   "slug": "mau-buka-franchise-modal-rp35-juta-ini-kata-dennis-adhiswara",
+   "judul": "Modal Rp35 Juta Buka Franchise, Emang Bisa Untung⁉️ Dennis Adhiswara Bongkar Peluang & Risikonya!"
   }
  },
  "gambar": {
@@ -602,6 +632,10 @@
    "t": "2026-11-15",
    "slug": "usai-creafin-50-pelaku-ekraf-mataram-siap-akses-pembiayaan"
   },
+  "7a45a1563ef76627e00513fb0f8286d615bf3198536ec15c9ae95833249071ac": {
+   "t": "2026-11-23",
+   "slug": "label-halal-bukan-khusus-muslim-ini-penjelasan-bpjph"
+  },
   "7aff467f56f089105a5151a1400d5989a4f41efed2098f31185fbbee001e5eb5": {
    "t": "2026-11-17",
    "slug": "asn-diminta-pilih-produk-halal-peluang-baru-untuk-umkm"
@@ -674,6 +708,10 @@
    "t": "2026-11-16",
    "slug": "belajar-dari-sengketa-merek-asics-pelaku-usaha-wajib-cek-pemasok"
   },
+  "bea36288d83200eefcc14ea7f56a2a0b3f8f1a9cec590656934656d943aafb85": {
+   "t": "2026-11-23",
+   "slug": "data-usaha-anda-di-sistem-halal-digital-bpjph-perkuat-keamanannya"
+  },
   "c3c093802e3b24210e7f2907d58e6e297565155c1cee017c11383e1b2a2c1a1a": {
    "t": "2026-11-17",
    "slug": "peluang-ekspor-umkm-terbuka-business-matching-catat-usd-361-61-juta"
@@ -686,6 +724,10 @@
    "t": "2026-11-22",
    "slug": "mendagri-minta-pemda-gali-potensi-umkm-demi-ekspor-daerah"
   },
+  "d2a2cca38d34eb063f9525f4a56b4b8cc7782cdcc846535ce7a139b579e8f1fa": {
+   "t": "2026-11-23",
+   "slug": "merek-kosmetik-belum-didaftar-djki-ingatkan-risiko-sengketa"
+  },
   "d334eba89168f45c10637d2db9c692503e08260bccb2933dbe39a32f7f874d3a": {
    "t": "2026-11-21",
    "slug": "butuh-modal-jadi-kontraktor-kur-perumahan-buka-akses-untuk-umkm"
@@ -694,9 +736,17 @@
    "t": "2026-11-18",
    "slug": "cara-koh-king-jaga-omzet-tanpa-rakus-bisnis-tidak-gulung-tikar"
   },
+  "d51e7ddf22965dd8e5fe24909b0a9455d98d8c92c3a8a4323c1627e93275db7a": {
+   "t": "2026-11-23",
+   "slug": "punya-usaha-baru-ini-tahapan-mendaftar-npwp-orang-pribadi"
+  },
   "d8cfd0a1d3d4976a94a29924ba364f997dfc098be95b60039f93f0f3df49c127": {
    "t": "2026-11-20",
    "slug": "satu-merek-untuk-banyak-umkm-djki-fasilitasi-lewat-simako"
+  },
+  "dfb3334d491e1b5eabf89a33ea83e199f824c57fb9a87ed8370d24e6417ca1fd": {
+   "t": "2026-11-23",
+   "slug": "mau-buka-franchise-modal-rp35-juta-ini-kata-dennis-adhiswara"
   },
   "e1c6db442991ce0a3a54d08b30ed86da0d4c4fdf122edcfdda2dcb9d96ae4293": {
    "t": "2026-11-17",

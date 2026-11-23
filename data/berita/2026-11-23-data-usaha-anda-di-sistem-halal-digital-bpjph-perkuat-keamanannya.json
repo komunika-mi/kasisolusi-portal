@@ -1,0 +1,94 @@
+{
+  "slug": "data-usaha-anda-di-sistem-halal-digital-bpjph-perkuat-keamanannya",
+  "title": "Data Usaha Anda di Sistem Halal Digital, BPJPH Perkuat Keamanannya",
+  "dek": "BPJPH menggelar peningkatan kesadaran keamanan informasi bersama BSSN. Langkah ini menyusul layanan Jaminan Produk Halal yang kini sepenuhnya berjalan digital.",
+  "kanal": "bisnis",
+  "date": "2026-11-23",
+  "dibuat": "2026-11-23T21:41:44+07:00",
+  "jenis": "berita",
+  "otomatis": true,
+  "kunci": "https://bpjph.halal.go.id/read/bpjph-gandeng-bssn-perkuat-keamanan-informasi-dan-budaya-siber-pegawai",
+  "img": "/assets/berita/data-usaha-anda-di-sistem-halal-digital-bpjph-perkuat-keamanannya.webp",
+  "imgAlt": "Foto dokumentasi BPJPH: Data Usaha Anda di Sistem Halal Digital, BPJPH Perkuat Keamanannya",
+  "foto": "Dok. BPJPH",
+  "takeaways": [
+    "BPJPH menggelar kegiatan Security Awareness bersama BSSN pada Senin (23/11/2026) untuk memperkuat keamanan informasi pegawai.",
+    "BPJPH mengelola data pelaku usaha, sertifikasi halal, LPH, LP3H, auditor halal, dan P3H di layanan digitalnya.",
+    "Pelaku usaha sebaiknya mengakses layanan sertifikasi halal lewat kanal resmi dan menjaga kerahasiaan data akun."
+  ],
+  "body": [
+    {
+      "type": "p",
+      "text": "Badan Penyelenggara Jaminan Produk Halal (BPJPH) menggelar kegiatan Security Awareness atau Peningkatan Kesadaran Keamanan Informasi pada Senin (23/11/2026). Acara ini dihelat Pusat Data dan Informasi (Pusdatin) BPJPH di Jakarta dan diikuti pegawai secara hybrid. Narasumbernya berasal dari Badan Siber dan Sandi Negara (BSSN). Demikian menurut siaran pers BPJPH."
+    },
+    {
+      "type": "p",
+      "text": "Kegiatan itu menjadi cara BPJPH membekali pegawai supaya bisa mengenali ancaman siber dan menjaga data strategis saat bekerja. Layanan Jaminan Produk Halal (JPH) saat ini seluruhnya berjalan digital."
+    },
+    {
+      "type": "h2",
+      "text": "Data pelaku usaha sampai auditor halal"
+    },
+    {
+      "type": "p",
+      "text": "Kepala Pusdatin BPJPH Nurhanudin menyebut layanan berbasis aplikasi membuat keamanan informasi tidak bisa diabaikan. Menurut dia, ada banyak data penting yang dikelola BPJPH. Mulai dari data pelaku usaha, sertifikasi halal, Lembaga Pemeriksa Halal (LPH), Lembaga Pendamping Proses Produk Halal (LP3H), auditor halal, sampai P3H."
+    },
+    {
+      "type": "quote",
+      "text": "Karena kita mengelola data strategis JPH, keamanan sistem informasi bukan hanya menjadi tanggung jawab Pusdatin, melainkan tanggung jawab bersama seluruh pegawai dan unit kerja."
+    },
+    {
+      "type": "p",
+      "text": "Nurhanudin menambahkan, BPJPH sudah memasang beberapa lapis pengamanan bagi infrastruktur dan layanan digitalnya."
+    },
+    {
+      "type": "h2",
+      "text": "CSIRT, penetration testing, dan MFA"
+    },
+    {
+      "type": "p",
+      "text": "Menurut Nurhanudin, pengamanan itu meliputi pembentukan Computer Security Incident Response Team (CSIRT). BPJPH juga menjalankan penetration testing pada aplikasi. Selain itu, ada penerapan Multi-Factor Authentication (MFA) guna memperkuat kontrol akses sistem."
+    },
+    {
+      "type": "p",
+      "text": "Direktur Keamanan Siber dan Sandi Pemerintah Pusat BSSN Cahyono Adhifatra tampil sebagai narasumber. Ia mengapresiasi inisiatif BPJPH membangun kesadaran keamanan siber di internal organisasi."
+    },
+    {
+      "type": "p",
+      "text": "Cahyono menilai keberadaan CSIRT membantu mitigasi, penanganan, dan pemulihan sistem berjalan cepat. Dengan begitu, layanan publik tidak terganggu berkepanjangan."
+    },
+    {
+      "type": "p",
+      "text": "Ia juga menekankan pentingnya komitmen pimpinan. Menurut Cahyono, keamanan siber perlu menjadi prioritas, didukung kebijakan, dan ditegakkan aturannya."
+    },
+    {
+      "type": "p",
+      "text": "Lewat kegiatan ini, BPJPH berharap kewaspadaan pegawai terhadap ancaman siber meningkat. Budaya keamanan informasi yang kuat diharapkan menjaga keandalan data dan keberlangsungan layanan digital JPH."
+    },
+    {
+      "type": "h2",
+      "text": "Apa artinya bagi pelaku usaha"
+    },
+    {
+      "type": "p",
+      "text": "Bagi pelaku usaha, layanan JPH yang digital berarti data usaha Anda tersimpan di sistem BPJPH. Pastikan pengajuan sertifikasi halal lewat kanal resmi BPJPH, bukan perantara yang tidak jelas."
+    },
+    {
+      "type": "p",
+      "text": "Simpan bukti pendaftaran dan jaga akses akun sendiri. Jangan membagikan data akun kepada pihak lain, termasuk yang mengaku membantu proses sertifikasi."
+    },
+    {
+      "type": "p",
+      "text": "Pantau pengumuman resmi BPJPH soal perubahan tata cara layanan. Bila ada kendala, hubungi kanal bantuan resmi supaya data usaha tetap aman."
+    }
+  ],
+  "sumber": [
+    {
+      "label": "BPJPH (bpjph.halal.go.id): BPJPH Gandeng BSSN Perkuat Keamanan Informasi dan Budaya Siber Pegawai",
+      "url": "https://bpjph.halal.go.id/read/bpjph-gandeng-bssn-perkuat-keamanan-informasi-dan-budaya-siber-pegawai"
+    }
+  ],
+  "penulis": "deepseek/deepseek-v4.1-flash",
+  "ilustrasi": "foto-rilis",
+  "fotoSumber": "https://bpjph.halal.go.id/api/og-image?url=https%3A%2F%2Fcmsbl.halal.go.id%2Fuploads%2Flarge_Whats_App_Image_2026_11_23_at_14_05_50_d84ac239e0.jpeg"
+}
