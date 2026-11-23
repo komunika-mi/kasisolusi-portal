@@ -253,13 +253,17 @@ berlogo, foto dari laman panduan tidak dipakai.
 
 ### Kuota dan laju
 
-- Per putaran paling banyak 3 berita + 1 tips + 1 evergreen; per hari 12 + 3 + 3
+- Per putaran paling banyak 3 berita + 1 tips + 2 evergreen; per hari 12 + 3 + 3
   (`otomasi/lib/konfigurasi.mjs`).
 - Batas kumulatif naik tiap jam dari 06.00 dan penuh paling lambat pukul 19.00 WIB (berita: 06=1,
   08=3, 10=5, 12=6, 14=8, 16=10, 18=12; tips dan evergreen masing-masing: 06=1, 10=2, 15=3);
-  sesudahnya sampai 22.59 jadi waktu kejar. GitHub membuang kira-kira separuh event schedule;
-  simulasi di `otomasi/uji/lain.test.mjs` (50% jadwal hilang) memberi rata-rata 11,9 berita,
-  3 tips, dan 3 evergreen per hari.
+  sesudahnya sampai 22.59 jadi waktu kejar.
+- **Jadwal GitHub yang teramati 16-23 Nov 2026 hanya sekitar 3 putaran per hari**, kira-kira
+  pukul 10-12, 18-21, dan 02-06 WIB. Yang dini hari di luar jendela, jadi efektif dua putaran.
+  Karena itu evergreen 2 per putaran: pada pola ini tetap 3 per hari. Berita paling banyak 6 dan
+  tips paling banyak 2 per hari, karena batas per putaran keduanya keputusan pemilik dan tidak
+  diubah. Simulasi di `otomasi/uji/lain.test.mjs` memeriksa pola teramati itu, juga pola 50%
+  jadwal hilang (rata-rata 11,9 berita, 3 tips, dan 3 evergreen per hari).
 - Penghitung harian dan kunci sumber ada di `data/berita/_status.json`. Jangan disunting tangan
   selagi otomasi aktif.
 

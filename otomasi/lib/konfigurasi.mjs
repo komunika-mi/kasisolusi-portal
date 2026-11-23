@@ -20,9 +20,12 @@ export const JENIS = ['berita', 'tips', 'evergreen'];
 // Keputusan pemilik: paling banyak 12 berita + 3 tips per hari WIB, kurang tidak apa-apa.
 // Evergreen 3 per hari (keputusan pemilik 23 Nov 2026).
 export const KUOTA = { berita: 12, tips: 3, evergreen: 3 };
-// Keputusan pemilik: per putaran paling banyak 3 berita + 1 tips. Evergreen 1 (pilihan awal),
-// jadi dengan laju per jam di bawah slotnya terbuka sekitar pukul 06, 10, dan 15 WIB.
-export const PER_PUTARAN = { berita: 3, tips: 1, evergreen: 1 };
+// Keputusan pemilik: per putaran paling banyak 3 berita + 1 tips. Evergreen 2 (pilihan awal 1,
+// diubah 23 Nov 2026): GitHub hanya menjalankan sekitar 3 event schedule per hari (teramati 16-23
+// Nov), dan cuma dua yang masuk jendela (sekitar 10-12 dan 18-21 WIB). Dengan 1 per putaran,
+// evergreen hanya 2 per hari. Laju per jam di bawah tetap membatasi: paling banyak 1 sebelum
+// pukul 10 dan 2 sebelum pukul 15 WIB.
+export const PER_PUTARAN = { berita: 3, tips: 1, evergreen: 2 };
 
 // Keputusan pemilik 23 Nov 2026: berita TIDAK lagi diambil dari situs media (detik, CNBC Indonesia,
 // Liputan6, dan sejenisnya). Berita hanya dari siaran pers lembaga resmi; tips dari episode podcast

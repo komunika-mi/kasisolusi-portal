@@ -53,9 +53,11 @@ test('laju: batas kumulatif per jam dan jatah putaran', () => {
   assert.equal(jatahPutaran({ terbit: { berita: 12, tips: 3 }, jam: 21, paksa: true }).berita, 0);
   assert.equal(jatahPutaran({ terbit: { berita: 0, tips: 0 }, jam: 3 }).berita, 0);
   assert.equal(jatahPutaran({ terbit: { berita: 0, tips: 0 }, jam: 3, paksa: true }).berita, 3);
-  // Evergreen 3 per hari, 1 per putaran: slot terbuka sekitar pukul 06, 10, dan 15 WIB.
+  // Evergreen 3 per hari, 2 per putaran; laju per jam: 06=1, 10=2, 15=3.
   // Hitungan lama tanpa kolom evergreen dibaca sebagai nol.
   assert.equal(jatahPutaran({ terbit: { berita: 0, tips: 0 }, jam: 6 }).evergreen, 1);
+  assert.equal(jatahPutaran({ terbit: { berita: 0, tips: 0 }, jam: 10 }).evergreen, 2);
+  assert.equal(jatahPutaran({ terbit: { berita: 0, tips: 0 }, jam: 19 }).evergreen, 2);
   assert.equal(jatahPutaran({ terbit: { berita: 0, tips: 0, evergreen: 1 }, jam: 9 }).evergreen, 0);
   assert.equal(jatahPutaran({ terbit: { berita: 0, tips: 0, evergreen: 1 }, jam: 10 }).evergreen, 1);
   assert.equal(jatahPutaran({ terbit: { berita: 0, tips: 0, evergreen: 2 }, jam: 14 }).evergreen, 0);
@@ -91,6 +93,24 @@ test('laju: dengan separuh jadwal hilang (rata-rata 8,5 putaran/hari), kuota har
   assert.ok(Math.max(...hasil.evergreen) <= KUOTA.evergreen, 'evergreen tidak pernah melampaui kuota');
   assert.ok(rata(hasil.evergreen) >= 2.8, `rata-rata evergreen ${rata(hasil.evergreen)}`);
   console.log(`  simulasi: rata-rata ${rata(hasil.berita).toFixed(2)} berita (${(penuh(hasil.berita, 12) * 100).toFixed(0)}% hari penuh), ${rata(hasil.tips).toFixed(2)} tips, ${rata(hasil.evergreen).toFixed(2)} evergreen; per putaran maks ${PER_PUTARAN.berita}+${PER_PUTARAN.tips}+${PER_PUTARAN.evergreen}`);
+});
+
+test('laju: jadwal yang teramati 16-23 Nov 2026 (dua putaran di jendela) tetap memberi 3 evergreen', () => {
+  // Jam WIB event schedule yang benar-benar jalan (gh run list); yang dini hari di luar jendela.
+  const teramati = {
+    '16 Nov': [9, 18], '17 Nov': [5, 12, 21], '18 Nov': [5, 11, 20], '19 Nov': [4, 11, 20],
+    '20 Nov': [5, 10, 19], '21 Nov': [4, 10, 19], '22 Nov': [3, 10, 18],
+  };
+  for (const [hari, daftarJam] of Object.entries(teramati)) {
+    const terbit = { berita: 0, tips: 0, evergreen: 0 };
+    for (const jam of daftarJam) {
+      const j = jatahPutaran({ terbit, jam });
+      for (const jenis of Object.keys(terbit)) terbit[jenis] += j[jenis];
+    }
+    assert.equal(terbit.evergreen, KUOTA.evergreen, `${hari}: evergreen ${terbit.evergreen}`);
+    // Bukan target, hanya dicatat: pada pola ini berita paling banyak 6 dan tips 2.
+    assert.ok(terbit.berita <= 6 && terbit.tips <= 2, `${hari}: ${JSON.stringify(terbit)}`);
+  }
 });
 
 test('robots.txt: penolakan perayap AI, jalur terlarang, crawl-delay', () => {

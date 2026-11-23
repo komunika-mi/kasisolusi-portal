@@ -12,8 +12,8 @@ name: Berita otomatis
 on:
   schedule:
     # Tiap jam 06.13-22.13 WIB (WIB = UTC+7). Menit 13 menghindari antrean awal jam.
-    # GitHub membuang kira-kira separuh event schedule pada repo ramai; laju per jam di
-    # otomasi/lib/status.mjs dirancang supaya sekitar 8 putaran efektif tetap mencapai kuota.
+    # GitHub membuang sebagian besar event schedule: teramati 16-23 Nov 2026 hanya sekitar 3 per
+    # hari, dua di dalam jendela. Lihat README bagian "Kuota dan laju".
     - cron: '13 23,0-15 * * *'
   workflow_dispatch:
     inputs:
@@ -22,7 +22,7 @@ on:
         type: boolean
         default: true
       paksa:
-        description: 'Abaikan jendela jam dan laju per jam (batas harian 12+3+3 dan per putaran 3+1+1 tetap)'
+        description: 'Abaikan jendela jam dan laju per jam (batas harian 12+3+3 dan per putaran 3+1+2 tetap)'
         type: boolean
         default: false
       hanya:
