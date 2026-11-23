@@ -19,7 +19,7 @@ import { join, dirname } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
   ROOT, DIR_BERITA, DIR_GAMBAR, DIR_PUBLIC, PER_PUTARAN, COBA_TULIS_MAKS, GAMBAR_MAKS_PER_PUTARAN,
-  BATAS_WAKTU_MS, HARI_SIMPAN, BAHAN_MIN, UMUR_MAKS_JAM, KUOTA,
+  BATAS_WAKTU_MS, HARI_SIMPAN, BAHAN_MIN, UMUR_MAKS_JAM, KUOTA, SUMBER_MEDIA,
 } from './lib/konfigurasi.mjs';
 import { log, wib, slugify, umurJam, kunciUrl, tanggalPanjang, ringkas } from './lib/alat.mjs';
 import {
@@ -199,7 +199,8 @@ async function jalankan() {
   const episodeLokal = new Map(situs.episodes.map((e) => [e.id, e]));
   const [lembaga, media, radar, tips] = await Promise.all([
     jatah.berita ? kumpulkanLembaga() : { kandidat: [], laporan: [] },
-    jatah.berita ? kumpulkanMedia() : { kandidat: [], laporan: [] },
+    // Sumber media dimatikan (keputusan pemilik 23 Nov 2026, lihat konfigurasi.SUMBER_MEDIA).
+    jatah.berita && SUMBER_MEDIA ? kumpulkanMedia() : { kandidat: [], laporan: [] },
     jatah.berita ? radarUmkm() : { judul: [], laporan: [] },
     jatah.tips ? kumpulkanTips({ episodeLokal }) : { kandidat: [], laporan: [], ditolak: [], sudah: new Set() },
   ]);

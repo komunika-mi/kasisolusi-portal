@@ -173,7 +173,8 @@ GitHub Actions (`.github/workflows/berita-otomatis.yml`) jalan tiap jam 06.13-22
 
 1. **Cek kuota dan jam** (`node otomasi/jalan.mjs --cek`, tanpa `npm ci`). Kalau kuota hari ini
    penuh atau belum waktunya, job selesai dalam hitungan detik.
-2. **Kumpulkan kandidat** dari sumber resmi, RSS media, dan YouTube Kasisolusi.
+2. **Kumpulkan kandidat** dari sumber resmi dan YouTube Kasisolusi (RSS media dimatikan sejak
+   23 Nov 2026, lihat Sumber).
 3. **Saring**: kunci sumber yang sudah diproses (14 hari), judul yang mirip dengan yang sudah
    terbit, relevansi UMKM, umur bahan, dan topik yang dihindari (kriminal, kekerasan, kematian,
    asusila, judi, perkara hukum, politik praktis; bencana hanya bila soal pemulihan usaha).
@@ -194,8 +195,7 @@ GitHub Actions (`.github/workflows/berita-otomatis.yml`) jalan tiap jam 06.13-22
 |---|---|---|
 | 1 | DJP, Kemenko Perekonomian, Bank Indonesia, Kemendag, Kemenperin, BPJPH, DJKI, BPOM, PNM, Kementerian Ekraf | bahan paling lama 7 hari; Kemenperin dilewati di runner (memblokir IP pusat data) |
 | 1 | umkm.go.id | hanya radar judul: isi artikelnya dimuat lewat API bertoken, halamannya cuma judul + 160 karakter |
-| 2 | detikFinance, CNBC Indonesia (News, Entrepreneur), Liputan6 Bisnis | butir paling lama 3x24 jam, ditulis ulang, sumber disebut lengkap (media, judul asli, tautan) |
-| 2 | Republika, ANTARA | terpasang tetapi otomatis dilewati: robots.txt keduanya menolak perayap AI; ANTARA juga melarang crawling untuk AI di kaki halamannya |
+| MATI | detikFinance, CNBC Indonesia (News, Entrepreneur), Liputan6 Bisnis, Republika, ANTARA | **dimatikan 23 Nov 2026 (keputusan pemilik: berita tidak boleh diambil dari situs media; siaran pers lembaga dianggap aman)**: `SUMBER_MEDIA = false` di `otomasi/lib/konfigurasi.mjs`. 10 berita bersumber media (3 detikFinance, 3 CNBC Indonesia, 4 Liputan6) diturunkan hari itu; alamatnya kini 404. Kodenya (`lib/sumber-media.mjs`) dibiarkan karena radar umkm.go.id ada di sana |
 | tips | YouTube @kasisolusi: RSS kanal (episode baru) dan RSS playlist Sales, Finance, Branding, Marketing School, #CoachKasisolusi, Titik Arah | bahan hanya judul + deskripsi resmi episode; Shorts, siaran langsung, deskripsi tipis, topik investasi/medis, dan materi yang terikat tahun lewat dilewati |
 
 Tidak dipakai: bisnis.com (403, proteksi bot tidak diakali), Google News RSS (robots.txt menutup

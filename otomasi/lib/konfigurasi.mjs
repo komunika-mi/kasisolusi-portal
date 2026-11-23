@@ -14,6 +14,12 @@ export const KUOTA = { berita: 12, tips: 3 };
 // Keputusan pemilik: per putaran paling banyak 3 berita + 1 tips.
 export const PER_PUTARAN = { berita: 3, tips: 1 };
 
+// Keputusan pemilik 23 Nov 2026: berita TIDAK lagi diambil dari situs media (detik, CNBC Indonesia,
+// Liputan6, dan sejenisnya). Berita hanya dari siaran pers lembaga resmi; tips dari episode podcast
+// Kasisolusi. 10 berita bersumber media yang sudah terbit diturunkan hari itu juga.
+// lib/sumber-media.mjs dibiarkan karena radar umkm.go.id (situs pemerintah) ada di sana.
+export const SUMBER_MEDIA = false;
+
 // Jendela terbit (jam WIB). Batas kumulatif naik tiap jam dari `mulai` sampai kuota penuh pada
 // `penuh`; jam sesudahnya sampai `akhir` menjadi waktu kejar. Dipilih supaya sekitar 8 putaran
 // efektif per hari (GitHub membuang kira-kira separuh event schedule) tetap mencapai kuota.
