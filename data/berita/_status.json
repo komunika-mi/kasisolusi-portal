@@ -41,6 +41,11 @@
    "berita": 6,
    "tips": 0,
    "biayaUsd": 0.057133
+  },
+  "2026-11-23": {
+   "berita": 0,
+   "tips": 0,
+   "biayaUsd": 0.000741
   }
  },
  "kunci": {
@@ -193,6 +198,12 @@
    "hasil": "terbit",
    "slug": "pelatihan-desa-kreatif-sanur-talenta-media-dan-kuliner-naik-kelas",
    "judul": "Aktivasi Desa Kreatif Sanur Kembangkan Talenta dan Usaha Lokal"
+  },
+  "https://ekraf.go.id/news/cerita-para-kreator-muda-bali-ubah-hobi-jadi-peluang-ekonomi": {
+   "t": "2026-11-23",
+   "hasil": "ditolak",
+   "alasan": "model menilai tidak layak: BAHAN membahas Aktivasi Creative Hub Kementerian Ekraf di Jimbaran Hub, Badung, Bali, yang sama dengan artikel...",
+   "judul": "Cerita Para Kreator Muda Bali Ubah Hobi Jadi Peluang Ekonomi Baru"
   },
   "https://ekraf.go.id/news/dukung-musisi-national-champion-mendunia-kementerian-ekraf-apresiasi-album": {
    "t": "2026-11-18",
