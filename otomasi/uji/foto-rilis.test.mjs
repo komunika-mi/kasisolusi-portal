@@ -3,7 +3,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { cariFotoUtama, unduhFotoRilis, kreditFotoRilis } from '../lib/foto-rilis.mjs';
-import { jadikanSampul } from '../lib/gambar.mjs';
+import { jadikanSampul, sudahBerlogo } from '../lib/gambar.mjs';
 
 const P = '<p>Paragraf isi siaran pers ini cukup panjang untuk dihitung sebagai bagian dari isi artikel utama.</p>';
 const halaman = ({ og = '', badan = '' }) => `<html><head>${og ? `<meta property="og:image" content="${og}">` : ''}</head><body>${badan}</body></html>`;
@@ -80,6 +80,7 @@ test('unduhan: foto mendatar cukup besar jadi sampul WebP 1280x720', async () =>
     const meta = await sharp(f.webp).metadata();
     assert.deepEqual([meta.format, meta.width, meta.height], ['webp', 1280, 720]);
     assert.match(f.sidik, /^[0-9a-f]{64}$/);
+    assert.equal(await sudahBerlogo(f.webp), false, 'foto rilis lembaga tidak dicap logo Kasisolusi');
   } finally { pulihkan(); }
 });
 

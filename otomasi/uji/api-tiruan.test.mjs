@@ -3,7 +3,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { buatPenulisAsli } from '../lib/penulis.mjs';
-import { buatPembuatGambar } from '../lib/gambar.mjs';
+import { buatPembuatGambar, sudahBerlogo } from '../lib/gambar.mjs';
 import { susunPesan } from '../lib/telegram.mjs';
 
 const KANDIDAT = { jenis: 'berita', asal: 'lembaga', sumberNama: 'Kementerian Contoh', url: 'https://contoh.go.id/a', terbit: '2026-11-14T05:00:00.000Z', judul: 'Judul Sumber', isi: 'Isi bahan.' };
@@ -100,6 +100,7 @@ test('OpenAI gpt-image-2.6-flare: permintaan sesuai, PNG base64 jadi WebP 1280x7
     assert.equal(h.sumber, 'openai:gpt-image-2.6-flare');
     const meta = await sharp(h.webp).metadata();
     assert.deepEqual([meta.format, meta.width, meta.height], ['webp', 1280, 720]);
+    assert.equal(await sudahBerlogo(h.webp), true, 'ilustrasi AI dicap logo Kasisolusi');
   } finally { f.pulihkan(); }
 });
 

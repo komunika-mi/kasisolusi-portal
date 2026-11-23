@@ -252,6 +252,15 @@ no people". Objek yang pada dasarnya bertulisan atau berorang (dokumen, papan na
 orang, bangunan terkenal) diganti objek cadangan per kanal sebelum dikirim. Sidik SHA-256 gambar
 disimpan 180 hari; gambar kembar dibuat ulang dengan variasi prompt. Paling banyak 6 gambar per putaran.
 
+**Logo di sampul ilustrasi** (permintaan tim Kasisolusi 23 Nov 2026, pilihan pengguna: pojok KIRI
+ATAS, HANYA ilustrasi AI): `jadikanSampul(buf, { logo: true })` menempel logo putih situs
+(`public/assets/logo-white.png`, lebar 210 px) di atas kapsul navy 80%, 32 px dari tepi kanvas
+1280x720. Foto rilis lembaga tidak dicap karena fotonya milik lembaga dan sudah berkredit "Dok. ...".
+Logo ditempel sesudah gambar jadi, bukan diminta ke model. Sampul yang dicap membawa penanda EXIF
+(`ImageDescription` = "Logo Kasisolusi"), jadi `node otomasi/cap-logo-sampul.mjs` (tambahkan
+`--kering` untuk melihat daftar saja) aman diulang: ia hanya mengecap sampul ilustrasi yang belum
+berlogo. 22 sampul ilustrasi yang terbit sebelum 23 Nov sudah dicap dengan skrip itu.
+
 Model OpenAI dicoba berurutan (`gpt-image-2.6-flare`, lalu `gpt-image-2.5-flare`); model yang ditolak
 karena tidak ada dilewati untuk sisa putaran. Token keluaran tiap gambar tercatat di log Actions.
 **Pollinations mati bawaan**: uji kering 15 Nov 2026 menunjukkan jalur tanpa kuncinya menempelkan

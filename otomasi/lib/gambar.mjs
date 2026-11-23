@@ -15,6 +15,14 @@
 // no logos, no faces, no people". Pelajaran dari proyek lain: model mengabaikan larangan tulisan
 // kalau subjeknya memang bertulisan (dokumen, papan nama, uang), jadi subjek seperti itu disaring
 // lebih dulu di penjaga.amankanIlustrasi.
+//
+// Cap logo (permintaan tim Kasisolusi 23 Nov 2026; pengguna memilih pojok KIRI ATAS dan HANYA
+// ilustrasi AI): logo putih situs (public/assets/logo-white.png) selebar 210 px di atas kapsul navy
+// 80%, 32 px dari tepi kiri dan atas kanvas 1280x720. Foto rilis lembaga tidak dicap karena fotonya
+// milik lembaga dan sudah berkredit "Dok. ...". Logo ditempel sesudah gambar jadi, bukan diminta ke
+// model (model tidak bisa menggambar logo dengan tepat). Sampul yang dicap membawa penanda EXIF
+// ImageDescription, supaya otomasi/cap-logo-sampul.mjs tidak pernah mengecap dua kali.
+import { fileURLToPath } from 'node:url';
 import { sha256, log } from './alat.mjs';
 import { amankanIlustrasi } from './penjaga.mjs';
 import { daftarModelGambar } from './konfigurasi.mjs';
@@ -77,18 +85,67 @@ async function dariTiruan(slug) {
   return sharp(Buffer.from(svg)).png().toBuffer();
 }
 
-/** Potong ke 1280x720 dan simpan sebagai WebP, turunkan mutu sampai di bawah ~150 KB. */
-export async function jadikanSampul(buf) {
+const LOGO = fileURLToPath(new URL('../../public/assets/logo-white.png', import.meta.url));
+export const CAP_LOGO = Object.freeze({ lebar: 210, padX: 18, padY: 12, tepi: 32, warna: '#0a1530', opasitas: 0.8, penanda: 'Logo Kasisolusi' });
+
+let lencana = null;
+/** Kapsul navy berisi logo putih (PNG), dibuat sekali per proses. */
+async function buatLencana() {
+  if (lencana) return lencana;
   const sharp = (await import('sharp')).default;
-  const dasar = sharp(buf).rotate().resize(1280, 720, { fit: 'cover', position: sharp.strategy.attention });
+  const logo = await sharp(LOGO).resize({ width: CAP_LOGO.lebar }).png().toBuffer();
+  const { height } = await sharp(logo).metadata();
+  const w = CAP_LOGO.lebar + 2 * CAP_LOGO.padX;
+  const h = height + 2 * CAP_LOGO.padY;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><rect width="${w}" height="${h}" rx="${h / 2}" fill="${CAP_LOGO.warna}" fill-opacity="${CAP_LOGO.opasitas}"/></svg>`;
+  lencana = await sharp(Buffer.from(svg)).composite([{ input: logo, left: CAP_LOGO.padX, top: CAP_LOGO.padY }]).png().toBuffer();
+  return lencana;
+}
+
+/** Tambahkan cap logo dan penandanya ke pipa sharp berukuran 1280x720. */
+async function pasangLogo(pipa) {
+  return pipa
+    .composite([{ input: await buatLencana(), left: CAP_LOGO.tepi, top: CAP_LOGO.tepi }])
+    .withExif({ IFD0: { ImageDescription: CAP_LOGO.penanda } });
+}
+
+/** Simpan pipa 1280x720 sebagai WebP, turunkan mutu sampai di bawah ~150 KB. */
+async function simpanSampul(pipa) {
+  const sharp = (await import('sharp')).default;
   let hasil = null;
   for (const q of [78, 70, 62, 55]) {
-    hasil = await dasar.clone().webp({ quality: q, effort: 5 }).toBuffer();
+    hasil = await pipa.clone().webp({ quality: q, effort: 5 }).toBuffer();
     if (hasil.length <= 150 * 1024) break;
   }
   const meta = await sharp(hasil).metadata();
   if (meta.width !== 1280 || meta.height !== 720) throw new Error(`ukuran sampul salah ${meta.width}x${meta.height}`);
   return hasil;
+}
+
+/**
+ * Potong ke 1280x720 dan simpan sebagai WebP, turunkan mutu sampai di bawah ~150 KB.
+ * `logo: true` hanya untuk ilustrasi AI (lihat cap logo di atas); foto rilis memanggil tanpa opsi.
+ */
+export async function jadikanSampul(buf, { logo = false } = {}) {
+  const sharp = (await import('sharp')).default;
+  const dasar = sharp(buf).rotate().resize(1280, 720, { fit: 'cover', position: sharp.strategy.attention });
+  if (logo) await pasangLogo(dasar);
+  return simpanSampul(dasar);
+}
+
+/** Cap logo ke sampul 1280x720 yang sudah terbit (dipakai otomasi/cap-logo-sampul.mjs). */
+export async function capLogoSampul(buf) {
+  const sharp = (await import('sharp')).default;
+  const meta = await sharp(buf).metadata();
+  if (meta.width !== 1280 || meta.height !== 720) throw new Error(`sampul bukan 1280x720 (${meta.width}x${meta.height})`);
+  return simpanSampul(await pasangLogo(sharp(buf)));
+}
+
+/** Sudahkah sampul ini dicap logo? Dibaca dari penanda EXIF yang ditulis pasangLogo. */
+export async function sudahBerlogo(buf) {
+  const sharp = (await import('sharp')).default;
+  const { exif } = await sharp(buf).metadata();
+  return Boolean(exif?.includes(CAP_LOGO.penanda));
 }
 
 /**
@@ -136,7 +193,7 @@ export function buatPembuatGambar({ kunciOpenAI = '', tiruan = false, pollinatio
               galat.push(`${nama}: gambar kembar dengan sampul lama`);
               continue;
             }
-            const webp = await jadikanSampul(mentah);
+            const webp = await jadikanSampul(mentah, { logo: true });
             sidikPutaran.add(sidik);
             return { webp, sumber: nama, sidik, frasa: aman.frasa, frasaDiganti: aman.diganti };
           } catch (e) {
