@@ -1,0 +1,85 @@
+{
+  "slug": "4-langkah-daftar-qris-satu-kode-untuk-semua-aplikasi-pembayaran",
+  "title": "4 Langkah Daftar QRIS, Satu Kode untuk Semua Aplikasi Pembayaran",
+  "dek": "Bank Indonesia membagikan langkah mendaftar QRIS untuk merchant, dari memilih penyedia jasa pembayaran berizin sampai kode QR siap dipakai di kasir.",
+  "kanal": "bisnis",
+  "date": "2026-11-24",
+  "dibuat": "2026-11-24T09:14:04+07:00",
+  "jenis": "evergreen",
+  "otomatis": true,
+  "kunci": "https://bi.go.id/id/publikasi/ruang-media/cerita-bi/Pages/cara-membuat-QRIS.aspx",
+  "img": "/assets/berita/4-langkah-daftar-qris-satu-kode-untuk-semua-aplikasi-pembayaran.webp",
+  "imgAlt": "Ilustrasi suasana kasir toko kecil yang siap menerima pembayaran nontunai",
+  "foto": "Ilustrasi AI",
+  "takeaways": [
+    "Langkah pertama mendaftar QRIS adalah memilih Penyedia Jasa Pembayaran yang berizin Bank Indonesia.",
+    "Bank Indonesia mencatat merchant QRIS mencapai 39,3 juta dengan 57 juta pengguna sampai Juni 2025.",
+    "Biaya dan persyaratan pendaftaran QRIS berbeda-beda tergantung PJP yang dipilih, jadi tanyakan rinciannya lebih dulu."
+  ],
+  "body": [
+    {
+      "type": "p",
+      "text": "Menurut laman resmi Bank Indonesia, pelaku usaha yang ingin menerima pembayaran nontunai dapat mendaftar sebagai merchant QRIS. Ada empat langkah yang perlu diikuti, mulai dari memilih penyedia jasa pembayaran sampai kode QR siap dipakai di toko. Bank Indonesia mencatat, sampai dengan Juni 2025, jumlah merchant QRIS mencapai 39,3 juta dengan total pengguna QRIS sebanyak 57 juta. Jumlah itu disebut sudah mencapai 95 persen dari target pengguna 60 juta di tahun 2026."
+    },
+    {
+      "type": "p",
+      "text": "Bagi pemilik usaha, QRIS disebut memberi sejumlah keuntungan. Merchant dapat menerima pembayaran dari berbagai aplikasi pembayaran sehingga berpotensi meningkatkan peluang penjualan. Satu kode QR juga diterima oleh semua aplikasi pembayaran, sehingga pelanggan merasa dimudahkan."
+    },
+    {
+      "type": "p",
+      "text": "Dari sisi operasional, QRIS disebut mengurangi biaya pengelolaan kas dan memudahkan pencatatan keuangan. Pemilik usaha tidak perlu lagi menyiapkan uang kecil untuk kembalian dan tidak harus menyetor tunai hasil penjualan ke ATM atau bank. Semua transaksi tercatat, sehingga pencatatan keuangan menjadi lebih mudah. QRIS juga disebut memberikan tingkat keamanan yang lebih tinggi dalam transaksi nontunai, sehingga merchant tidak perlu khawatir menerima uang palsu atau kehilangan uang tunai. Menerima pembayaran lewat QRIS juga membuat usaha tampak lebih mutakhir dan dapat meningkatkan branding."
+    },
+    {
+      "type": "h2",
+      "text": "1. Pilih PJP QRIS yang berizin Bank Indonesia"
+    },
+    {
+      "type": "p",
+      "text": "Langkah pertama adalah memilih Penyedia Jasa Pembayaran (PJP) yang berizin Bank Indonesia. PJP ini akan menjadi mitra dalam proses pendaftaran dan penggunaan QRIS. Informasi mengenai PJP yang berizin dapat diakses di situs web Bank Indonesia dengan memilih kategori QRIS."
+    },
+    {
+      "type": "h2",
+      "text": "2. Kunjungi PJP QRIS"
+    },
+    {
+      "type": "p",
+      "text": "Setelah memilih PJP, pelaku usaha mengunjungi kantor PJP penyelenggara QRIS yang berizin Bank Indonesia. Jika tersedia, pendaftaran juga dapat dilakukan secara online melalui situs web PJP tersebut."
+    },
+    {
+      "type": "h2",
+      "text": "3. Tunggu proses verifikasi dan pembuatan Merchant ID"
+    },
+    {
+      "type": "p",
+      "text": "Setelah dokumen diverifikasi, PJP akan membuatkan Merchant ID dan kode QRIS khusus untuk usaha tersebut."
+    },
+    {
+      "type": "h2",
+      "text": "4. QRIS merchant siap digunakan"
+    },
+    {
+      "type": "p",
+      "text": "Setelah semua langkah selesai, QRIS merchant siap digunakan. Kode QR dapat ditampilkan di tempat pembayaran atau di dekat kasir toko."
+    },
+    {
+      "type": "p",
+      "text": "Bank Indonesia mengingatkan bahwa biaya dan persyaratan pendaftaran QRIS dapat berbeda-beda tergantung PJP yang dipilih. Untuk informasi lebih lanjut mengenai biaya dan persyaratan tambahan, pelaku usaha dapat menghubungi PJP QRIS yang dipilih."
+    },
+    {
+      "type": "h2",
+      "text": "Yang perlu disiapkan pelaku usaha"
+    },
+    {
+      "type": "p",
+      "text": "Sebelum mendaftar, pastikan Anda sudah menentukan PJP yang akan dipakai dan menyiapkan dokumen usaha yang diminta PJP tersebut. Tanyakan lebih dulu rincian biaya, syarat, dan alur verifikasi yang berlaku di PJP pilihan Anda, karena ketentuannya bisa berbeda antar penyedia. Simpan Merchant ID dan kode QRIS Anda dengan baik setelah terbit, lalu tempatkan kode itu di titik pembayaran yang mudah dilihat pelanggan. Karena syarat dan biaya layanan dapat berubah, biasakan mengecek ketentuan terbaru langsung di laman resmi Bank Indonesia atau menghubungi PJP yang berizin."
+    }
+  ],
+  "sumber": [
+    {
+      "label": "Bank Indonesia (bi.go.id): Langkah Mendaftar QRIS sebagai Merchant",
+      "url": "https://www.bi.go.id/id/publikasi/ruang-media/cerita-bi/Pages/cara-membuat-QRIS.aspx"
+    }
+  ],
+  "penulis": "deepseek/deepseek-v4.1-flash",
+  "ilustrasi": "openai:gpt-image-2.6-flare"
+}

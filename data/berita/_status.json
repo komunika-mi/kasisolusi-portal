@@ -47,9 +47,21 @@
    "tips": 1,
    "biayaUsd": 0.03615,
    "evergreen": 3
+  },
+  "2026-11-24": {
+   "berita": 0,
+   "tips": 0,
+   "evergreen": 1,
+   "biayaUsd": 0.002967
   }
  },
  "kunci": {
+  "https://bi.go.id/id/publikasi/ruang-media/cerita-bi/Pages/cara-membuat-QRIS.aspx": {
+   "t": "2026-11-24",
+   "hasil": "terbit",
+   "slug": "4-langkah-daftar-qris-satu-kode-untuk-semua-aplikasi-pembayaran",
+   "judul": "Langkah Mendaftar QRIS sebagai Merchant"
+  },
   "https://bi.go.id/id/publikasi/ruang-media/news-release/Pages/sp_2825326.aspx": {
    "t": "2026-11-17",
    "hasil": "terbit",
@@ -751,6 +763,10 @@
   "e1c6db442991ce0a3a54d08b30ed86da0d4c4fdf122edcfdda2dcb9d96ae4293": {
    "t": "2026-11-17",
    "slug": "pelindungan-konsumen-digital-diperkuat-bi-luncurkan-geber-pk-2027"
+  },
+  "ebb7ecd9b74f0a697a3359b08f501f645ecc3ed0a42af6e7205d804980c0c886": {
+   "t": "2026-11-24",
+   "slug": "4-langkah-daftar-qris-satu-kode-untuk-semua-aplikasi-pembayaran"
   },
   "ec89cc0c78c1383a7b936e0cacaaa3ac0c98f05833281cf4920bf1da13cec44e": {
    "t": "2026-11-18",
