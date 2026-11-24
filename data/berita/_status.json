@@ -53,6 +53,12 @@
    "tips": 0,
    "evergreen": 3,
    "biayaUsd": 0.032208
+  },
+  "2026-11-25": {
+   "berita": 1,
+   "tips": 0,
+   "evergreen": 1,
+   "biayaUsd": 0.012633
   }
  },
  "kunci": {
@@ -139,6 +145,12 @@
    "hasil": "terbit",
    "slug": "data-usaha-anda-di-sistem-halal-digital-bpjph-perkuat-keamanannya",
    "judul": "BPJPH Gandeng BSSN Perkuat Keamanan Informasi dan Budaya Siber Pegawai"
+  },
+  "https://bpjph.halal.go.id/read/perkuat-ekonomi-syariah-lampung-integrasikan-sertifikasi-halal-dalam-agenda-pembangunan-daerah": {
+   "t": "2026-11-25",
+   "hasil": "terbit",
+   "slug": "sertifikasi-halal-masuk-agenda-pembangunan-lampung-ini-peluang-umkm",
+   "judul": "Perkuat Ekonomi Syariah, Lampung Integrasikan Sertifikasi Halal dalam Agenda Pembangunan Daerah"
   },
   "https://bpjsketenagakerjaan.go.id/cara-mendaftar-jadi-peserta.html": {
    "t": "2026-11-24",
@@ -434,6 +446,12 @@
    "alasan": "model menilai tidak layak: Topik BAHAN sudah pernah dibahas Kasisolusi dalam artikel berjudul 'Biaya Pembiayaan Mekaar Turun Jadi 8 Persen, Modal...",
    "judul": "PNM Realisasikan Pembiayaan Mekaar Bunga 8% di Yogyakarta, Bantu Perempuan Kembangkan Usaha"
   },
+  "https://lpdb.go.id/alur-proses": {
+   "t": "2026-11-25",
+   "hasil": "terbit",
+   "slug": "mau-ajukan-dana-bergulir-lpdb-cek-syarat-koperasi-ini",
+   "judul": "Syarat Koperasi Mengajukan Dana Bergulir LPDB"
+  },
   "https://pajak.go.id/id/siaran-pers/gandeng-hipmi-sulsel-kanwil-djp-sulselbartra-sosialiasikan-kebijakan-penghapusan-sanksi": {
    "t": "2026-11-21",
    "hasil": "ditolak",
@@ -569,6 +587,10 @@
   "0484bc4e9322f724bfd7d11691a6a279a90c002091300cdba00bd7545625c70d": {
    "t": "2026-11-22",
    "slug": "petani-dan-umkm-bisa-jualan-ke-eropa-lewat-ieu-cepa"
+  },
+  "0d4b3fc403ff3e524df05f94c18bb287420732113e335c1a6a20fab83cb2ba97": {
+   "t": "2026-11-25",
+   "slug": "mau-ajukan-dana-bergulir-lpdb-cek-syarat-koperasi-ini"
   },
   "1934db8cc2bebee8f3d4ae6ebc803074d1e40479c83bca80060c261e32690d07": {
    "t": "2026-11-17",
@@ -805,6 +827,10 @@
   "d8cfd0a1d3d4976a94a29924ba364f997dfc098be95b60039f93f0f3df49c127": {
    "t": "2026-11-20",
    "slug": "satu-merek-untuk-banyak-umkm-djki-fasilitasi-lewat-simako"
+  },
+  "d9306aebbb5dbba617a311442b5b649b47704df19331a931f550ddbec81be038": {
+   "t": "2026-11-25",
+   "slug": "sertifikasi-halal-masuk-agenda-pembangunan-lampung-ini-peluang-umkm"
   },
   "dfb3334d491e1b5eabf89a33ea83e199f824c57fb9a87ed8370d24e6417ca1fd": {
    "t": "2026-11-23",
