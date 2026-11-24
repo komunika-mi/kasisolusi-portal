@@ -49,13 +49,19 @@
    "evergreen": 3
   },
   "2026-11-24": {
-   "berita": 0,
+   "berita": 3,
    "tips": 0,
-   "evergreen": 1,
-   "biayaUsd": 0.002967
+   "evergreen": 3,
+   "biayaUsd": 0.032208
   }
  },
  "kunci": {
+  "https://beacukai.go.id/klinik-ekspor": {
+   "t": "2026-11-24",
+   "hasil": "terbit",
+   "slug": "mau-ekspor-ini-5-layanan-klinik-ekspor-bea-cukai-untuk-umkm",
+   "judul": "Klinik Ekspor Bea Cukai untuk UMKM"
+  },
   "https://bi.go.id/id/publikasi/ruang-media/cerita-bi/Pages/cara-membuat-QRIS.aspx": {
    "t": "2026-11-24",
    "hasil": "terbit",
@@ -134,6 +140,12 @@
    "slug": "data-usaha-anda-di-sistem-halal-digital-bpjph-perkuat-keamanannya",
    "judul": "BPJPH Gandeng BSSN Perkuat Keamanan Informasi dan Budaya Siber Pegawai"
   },
+  "https://bpjsketenagakerjaan.go.id/cara-mendaftar-jadi-peserta.html": {
+   "t": "2026-11-24",
+   "hasil": "terbit",
+   "slug": "mau-daftarkan-usaha-dan-pekerja-ke-bpjs-ketenagakerjaan-ini-caranya",
+   "judul": "Cara Mendaftar Peserta BPJS Ketenagakerjaan"
+  },
   "https://cnbcindonesia.com/entrepreneur/20261119130843-25-786610/tiktok-shop-indonesia-berdayakan-umkm-lewat-program-ini": {
    "t": "2026-11-20",
    "hasil": "terbit",
@@ -151,6 +163,12 @@
    "hasil": "terbit",
    "slug": "petani-dan-umkm-bisa-jualan-ke-eropa-lewat-ieu-cepa",
    "judul": "Tak Cuma Korporasi, Petani-UMKM RI Bisa Jualan ke Eropa"
+  },
+  "https://dgip.go.id/artikel/detail-artikel-berita/bukan-sekadar-pelindungan-wipo-dorong-pemanfaatan-kekayaan-intelektual-sebagai-aset-pembiayaan": {
+   "t": "2026-11-24",
+   "hasil": "terbit",
+   "slug": "aset-tak-berwujud-bisa-buka-akses-pembiayaan-ini-kata-wipo",
+   "judul": "Bukan Sekadar Pelindungan, WIPO Dorong Pemanfaatan Kekayaan Intelektual sebagai Aset Pembiayaan"
   },
   "https://dgip.go.id/artikel/detail-artikel-berita/cegah-sengketa-djki-ajak-pelaku-usaha-kosmetik-daftarkan-merek": {
    "t": "2026-11-23",
@@ -211,6 +229,12 @@
    "hasil": "terbit",
    "slug": "mau-daftarkan-merek-ini-dokumen-dan-langkah-yang-perlu-disiapkan",
    "judul": "Dokumen dan Langkah Mendaftarkan Merek"
+  },
+  "https://ekon.go.id/publikasi/detail/7243/perkuat-kolaborasi-dengan-platform-digital-pemerintah-dorong-umkm-jadi-pelaku-utama-ekonomi-digital-pasar-asean": {
+   "t": "2026-11-24",
+   "hasil": "terbit",
+   "slug": "peluang-umkm-masuk-pasar-digital-asean-makin-terbuka",
+   "judul": "Perkuat Kolaborasi dengan Platform Digital, Pemerintah Dorong UMKM Jadi Pelaku Utama Ekonomi Digital Pasar ASEAN"
   },
   "https://ekraf.go.id/news/50-pelaku-ekraf-mataram-siap-bersaing-lewat-literasi-keuangan": {
    "t": "2026-11-15",
@@ -337,6 +361,12 @@
    "hasil": "terbit",
    "slug": "ingin-plafon-kur-lebih-besar-hipmi-usul-naik-jadi-rp-2-miliar",
    "judul": "HIPMI Usul Plafon KUR Naik Jadi Rp 2 M"
+  },
+  "https://kemendag.go.id/berita/siaran-pers/bappebti-perkuat-perlindungan-masyarakat-dan-dorong-penerapan-pph-final": {
+   "t": "2026-11-24",
+   "hasil": "terbit",
+   "slug": "waspadai-investasi-berjangka-ilegal-bappebti-perkuat-literasi",
+   "judul": "Bappebti Perkuat Perlindungan Masyarakat dan Dorong Penerapan PPh Final"
   },
   "https://kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha": {
    "t": "2026-11-17",
@@ -596,6 +626,10 @@
    "t": "2026-11-18",
    "slug": "pelaku-musik-mau-mendunia-ekraf-tawarkan-collab-promotion"
   },
+  "49d24bde774f341a706e3db34e0729a25e163510ef0f651e5aac95a361156d18": {
+   "t": "2026-11-24",
+   "slug": "waspadai-investasi-berjangka-ilegal-bappebti-perkuat-literasi"
+  },
   "4b5796891c528540077c1975befe702d472e57e3d30afd46f83ea326fcd80b7c": {
    "t": "2026-11-23",
    "slug": "mau-sertifikat-halal-gratis-sehati-2026-cek-kriteria-umk"
@@ -632,6 +666,14 @@
    "t": "2026-11-21",
    "slug": "cari-modal-usaha-kreatif-creafin-di-denpasar-buka-jalannya"
   },
+  "6bca951c7eb3c8b9cd257ccbc4a32436e471aee644109d457f50c8fa087fce9e": {
+   "t": "2026-11-24",
+   "slug": "aset-tak-berwujud-bisa-buka-akses-pembiayaan-ini-kata-wipo"
+  },
+  "6d65fd2dac871333c9074cf382558a4caaaa213fc19894b80005185bcce5889f": {
+   "t": "2026-11-24",
+   "slug": "peluang-umkm-masuk-pasar-digital-asean-makin-terbuka"
+  },
   "7159d99a4b173d229c7d5b90adb878b9601785721c7a6ab41731dd5fad559e3a": {
    "t": "2026-11-15",
    "slug": "gaji-naik-tapi-merasa-kurang-ini-kata-reinat-fuad-coach-rene"
@@ -643,6 +685,10 @@
   "756b69ff0198c2af0955bbe6c69aa7d75edf80d72e0e9099cbc21de43f44ae5c": {
    "t": "2026-11-15",
    "slug": "usai-creafin-50-pelaku-ekraf-mataram-siap-akses-pembiayaan"
+  },
+  "761921be1e0f9d693573d68362116a2270f9b99b6b09c479c80472c357e7d571": {
+   "t": "2026-11-24",
+   "slug": "mau-ekspor-ini-5-layanan-klinik-ekspor-bea-cukai-untuk-umkm"
   },
   "7a45a1563ef76627e00513fb0f8286d615bf3198536ec15c9ae95833249071ac": {
    "t": "2026-11-23",
@@ -691,6 +737,10 @@
   "9db1a0a51bb0730c23ef568cf288eca09a26941a42ca3bb670f75e719ba5d007": {
    "t": "2026-11-15",
    "slug": "20-produk-umkm-kurasi-kemendag-masuk-jaringan-indogrosir"
+  },
+  "a1fbc21f44740a413979bfacc2db95aa0c1e28e9081be76d8b83c3f5dfb6f02c": {
+   "t": "2026-11-24",
+   "slug": "mau-daftarkan-usaha-dan-pekerja-ke-bpjs-ketenagakerjaan-ini-caranya"
   },
   "aa19b80b89ea91dca2642d6a4c1b77b8e087898c053fbddcf277eecc71123f68": {
    "t": "2026-11-17",
