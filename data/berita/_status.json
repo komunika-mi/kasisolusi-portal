@@ -57,8 +57,8 @@
   "2026-11-25": {
    "berita": 1,
    "tips": 0,
-   "evergreen": 1,
-   "biayaUsd": 0.012633
+   "evergreen": 2,
+   "biayaUsd": 0.018265
   }
  },
  "kunci": {
@@ -235,6 +235,12 @@
    "hasil": "terbit",
    "slug": "kreator-dan-umkm-diusulkan-dapat-pelatihan-ai-di-sidang-wipo",
    "judul": "Indonesia Tekankan Bantuan Teknis WIPO Harus Berdampak Nyata bagi Penguatan Kekayaan Intelektual"
+  },
+  "https://dgip.go.id/menu-utama/merek/biaya": {
+   "t": "2026-11-25",
+   "hasil": "terbit",
+   "slug": "mau-daftarkan-merek-ini-tarif-resmi-untuk-usaha-mikro-dan-kecil",
+   "judul": "Biaya Pendaftaran Merek bagi Usaha Mikro dan Kecil"
   },
   "https://dgip.go.id/menu-utama/merek/syarat-prosedur": {
    "t": "2026-11-23",
@@ -755,6 +761,10 @@
   "959186123b1ba0024e521a91944d42a92dd89c3afb6e67959c1dc6416dbd4eff": {
    "t": "2026-11-20",
    "slug": "modal-bukan-segalanya-pendampingan-bawa-dirut-pnm-raih-penghargaan"
+  },
+  "95940e1f0f9791d220bab5e0c19b3bc19fa4008f38f554448e54ce82519732e6": {
+   "t": "2026-11-25",
+   "slug": "mau-daftarkan-merek-ini-tarif-resmi-untuk-usaha-mikro-dan-kecil"
   },
   "9db1a0a51bb0730c23ef568cf288eca09a26941a42ca3bb670f75e719ba5d007": {
    "t": "2026-11-15",
