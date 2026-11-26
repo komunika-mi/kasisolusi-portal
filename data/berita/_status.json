@@ -61,10 +61,10 @@
    "biayaUsd": 0.018265
   },
   "2026-11-26": {
-   "berita": 3,
+   "berita": 6,
    "tips": 0,
-   "evergreen": 2,
-   "biayaUsd": 0.052759
+   "evergreen": 3,
+   "biayaUsd": 0.077742
   }
  },
  "kunci": {
@@ -169,6 +169,12 @@
    "hasil": "terbit",
    "slug": "sertifikasi-halal-masuk-agenda-pembangunan-lampung-ini-peluang-umkm",
    "judul": "Perkuat Ekonomi Syariah, Lampung Integrasikan Sertifikasi Halal dalam Agenda Pembangunan Daerah"
+  },
+  "https://bpjsketenagakerjaan.go.id/cara-membayar-iuran.html": {
+   "t": "2026-11-26",
+   "hasil": "terbit",
+   "slug": "5-cara-bayar-iuran-bpjs-ketenagakerjaan-sesuai-segmen-pekerja",
+   "judul": "Pilihan Cara Membayar Iuran BPJS Ketenagakerjaan"
   },
   "https://bpjsketenagakerjaan.go.id/cara-mendaftar-jadi-peserta.html": {
    "t": "2026-11-24",
@@ -362,6 +368,13 @@
    "slug": "ekraf-jajaki-kolaborasi-talenta-kreatif-pelajar-ini-peluangnya",
    "judul": "Menteri Ekraf Buka Peluang Penguatan Talenta Kreatif Siswa Labschool Kebayoran"
   },
+  "https://ekraf.go.id/news/menteri-ekraf-gandeng-universitas-teuku-umar-kembangkan-ekosistem-ekonomi-kreatif": {
+   "t": "2026-11-26",
+   "hasil": "gagal",
+   "alasan": "OpenRouter: balasan terpotong (max_tokens; 16000 token keluaran, 16000 untuk berpikir)",
+   "judul": "Menteri Ekraf Gandeng Universitas Teuku Umar Kembangkan Ekosistem Ekonomi Kreatif Aceh",
+   "coba": 1
+  },
   "https://ekraf.go.id/news/menteri-ekraf-industri-event-jadi-katalisator-pertumbuhan-ekonomi": {
    "t": "2026-11-19",
    "hasil": "terbit",
@@ -379,6 +392,18 @@
    "hasil": "ditolak",
    "alasan": "gagal penjaga dua kali: terlalu mirip kalimat bahan (57% untaian 8 kata sama, terpanjang 61 kata); tulis ulang dengan kata-kata sendiri",
    "judul": "Menteri Ekraf Perluas Akses Pasar Produk Kreatif Indonesia di Arab Saudi"
+  },
+  "https://ekraf.go.id/news/pemerintah-ajak-pelaku-umkm-gandeng-ai-sebagai-asisten-bisnis": {
+   "t": "2026-11-26",
+   "hasil": "terbit",
+   "slug": "pemerintah-ajak-umkm-pakai-ai-untuk-layani-pelanggan-24-jam",
+   "judul": "Pemerintah Ajak Pelaku UMKM Gandeng AI sebagai Asisten Bisnis Digital"
+  },
+  "https://ekraf.go.id/news/santri-fest-2026-hadirkan-ruang-kreativitas-dan-kewirausahaan-bagi-santri": {
+   "t": "2026-11-26",
+   "hasil": "terbit",
+   "slug": "peluang-usaha-kreatif-bagi-santri-dibuka-lewat-santri-fest-2026",
+   "judul": "Santri Fest 2026 Hadirkan Ruang Kreativitas dan Kewirausahaan bagi Santri Aceh"
   },
   "https://ekraf.go.id/news/terminal-3-bandara-soetta-disulap-jadi-etalase-16-jenama": {
    "t": "2026-11-22",
@@ -439,6 +464,12 @@
    "hasil": "ditolak",
    "alasan": "gagal penjaga dua kali: terlalu mirip kalimat bahan (22% untaian 8 kata sama, terpanjang 48 kata); tulis ulang dengan kata-kata sendiri",
    "judul": "Kemendag Dorong UMKM Pangan Olahan Go Global Lewat Bimtek Citra Produk Ekspor"
+  },
+  "https://kemendag.go.id/berita/siaran-pers/logistik-efisien-perkuat-daya-saing-ekspor-2027": {
+   "t": "2026-11-26",
+   "hasil": "terbit",
+   "slug": "logistik-efisien-kunci-ekspor-2027-perizinan-kini-satu-pintu",
+   "judul": "Logistik Efisien Perkuat Daya Saing Ekspor 2027"
   },
   "https://kemendag.go.id/berita/siaran-pers/sinergi-program-pilihan-busan-kemendag-boyong-20-produk-umkm-potensial-ke-jaringan-indogrosir": {
    "t": "2026-11-15",
@@ -523,6 +554,12 @@
    "hasil": "ditolak",
    "alasan": "model menilai tidak layak: BAHAN berisi kegiatan internal perusahaan, yaitu employee engagement PNM bersama keluarga karyawan. Isinya bukan soal...",
    "judul": "PNM Libatkan Keluarga Karyawan, Perkuat Kebersamaan di Lingkungan Kerja"
+  },
+  "https://pnm.co.id/berita/pnm-raih-annual-report-award-2025-perkuat-komitmen-transparansi-dan-tata-kelola-perusahaan": {
+   "t": "2026-11-26",
+   "hasil": "ditolak",
+   "alasan": "model menilai tidak layak: Isi BAHAN hanya siaran pers penghargaan tata kelola perusahaan (Annual Report Award 2025) yang diterima PT Permodalan...",
+   "judul": "PNM Raih Annual Report Award 2025, Perkuat Komitmen Transparansi dan Tata Kelola Perusahaan"
   },
   "https://pnm.co.id/berita/raih-peringkat-tertinggi-fitch-rating-pnm-jaga-keberlanjutan-pemberdayaan-nasabah": {
    "t": "2026-11-26",
@@ -708,6 +745,10 @@
    "t": "2026-11-24",
    "slug": "waspadai-investasi-berjangka-ilegal-bappebti-perkuat-literasi"
   },
+  "49e9c5265c95d3124840d0d92f1522429f3e1576465abf037ca7be2d9b3e58c1": {
+   "t": "2026-11-26",
+   "slug": "pemerintah-ajak-umkm-pakai-ai-untuk-layani-pelanggan-24-jam"
+  },
   "4a7dc1ac6b86ec0a82bd598998667c131e191e04686bfa6ee4ef6b8f648b7223": {
    "t": "2026-11-26",
    "slug": "peluang-ekspor-jasa-manajemen-fasilitas-ke-pasar-teluk-terbuka"
@@ -739,6 +780,10 @@
   "5acbde7b8af729fd27693931aa1bae1be50e4035cb41d6c05f186ffbcf0f92e2": {
    "t": "2026-11-20",
    "slug": "sering-overthinking-ini-kata-adjie-santosoputro-soal-menghadapinya"
+  },
+  "5ca764c846522de4541da4e2591adea39b34075f8c243e4916079860703d00df": {
+   "t": "2026-11-26",
+   "slug": "logistik-efisien-kunci-ekspor-2027-perizinan-kini-satu-pintu"
   },
   "602110736e4376f76f4d4d1f40a2e2033330ca705d1613a7cb35a78964366927": {
    "t": "2026-11-15",
@@ -872,9 +917,17 @@
    "t": "2026-11-17",
    "slug": "peluang-ekspor-umkm-terbuka-business-matching-catat-usd-361-61-juta"
   },
+  "c64988764d158f1d9bdbeb391c57862e0b33e39628267b1d2354e89c440da304": {
+   "t": "2026-11-26",
+   "slug": "peluang-usaha-kreatif-bagi-santri-dibuka-lewat-santri-fest-2026"
+  },
   "c7e1c085e9411cde7ba4cabe062c3c96f719456a5b19fad3961290eccecdd654": {
    "t": "2026-11-21",
    "slug": "pelaku-ekraf-bali-dapat-tujuh-program-di-creative-hub-jimbaran"
+  },
+  "ca2786ccc5088084e5bd6a4603d0bc6e99d4d0e4fc97210e6b5595bcc07e2af5": {
+   "t": "2026-11-26",
+   "slug": "5-cara-bayar-iuran-bpjs-ketenagakerjaan-sesuai-segmen-pekerja"
   },
   "cc1e77a1653a03131957baa88f96a2708cbb9550474d5fcc4af0706bb481885f": {
    "t": "2026-11-22",

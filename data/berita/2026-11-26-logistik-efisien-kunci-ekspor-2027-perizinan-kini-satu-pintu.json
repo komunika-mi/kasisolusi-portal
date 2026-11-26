@@ -1,0 +1,81 @@
+{
+  "slug": "logistik-efisien-kunci-ekspor-2027-perizinan-kini-satu-pintu",
+  "title": "Logistik Efisien Kunci Ekspor 2027, Perizinan Kini Satu Pintu",
+  "dek": "Kementerian Perdagangan menilai logistik efisien menentukan daya saing ekspor Indonesia menuju 2027. Perizinan ekspor dan impor ditransformasi lewat integrasi Inatrade.",
+  "kanal": "bisnis",
+  "date": "2026-11-26",
+  "dibuat": "2026-11-26T22:21:05+07:00",
+  "jenis": "berita",
+  "otomatis": true,
+  "kunci": "https://kemendag.go.id/berita/siaran-pers/logistik-efisien-perkuat-daya-saing-ekspor-2027",
+  "img": "/assets/berita/logistik-efisien-kunci-ekspor-2027-perizinan-kini-satu-pintu.webp",
+  "imgAlt": "Ilustrasi tumpukan peti kemas di area pelabuhan pada pagi hari",
+  "foto": "Ilustrasi AI",
+  "takeaways": [
+    "Kemendag menilai logistik efisien menjadi modal penting bagi daya saing ekspor Indonesia menuju 2027.",
+    "Efisiensi logistik mencakup biaya bersaing, waktu kirim andal, proses menyatu, dan layanan terbuka.",
+    "Kemendag mengintegrasikan Inatrade dengan kementerian dan lembaga lewat SINSW agar pengajuan satu pintu."
+  ],
+  "body": [
+    {
+      "type": "p",
+      "text": "Kementerian Perdagangan menilai logistik yang efisien menjadi modal penting bagi daya saing ekspor Indonesia menuju 2027. Penilaian itu disampaikan Direktur Jenderal Perdagangan Luar Negeri Tommy Andana dalam Seminar Nasional Outlook Business Shipping, Port & Logistics 2027, seperti dikutip dari siaran pers Kemendag."
+    },
+    {
+      "type": "p",
+      "text": "Acara tersebut digelar Indonesia Port Editors' Club (IPEC) di Hotel Grand Mercure Kemayoran, Jakarta Pusat, Rabu (25/11). Siaran pers Kemendag sendiri terbit pada 26 November 2026."
+    },
+    {
+      "type": "p",
+      "text": "Menurut Tommy, efisiensi logistik bukan hanya soal biaya yang bersaing. Waktu kirim yang bisa diandalkan, proses yang menyatu, dan layanan yang terbuka juga termasuk di dalamnya. Semua itu menopang daya saing ekspor dan menjaga pasokan bahan baku serta barang modal untuk industri di dalam negeri."
+    },
+    {
+      "type": "p",
+      "text": "Tommy menilai pelayaran, kepelabuhanan, dan logistik berperan vital sebagai penopang utama distribusi nasional."
+    },
+    {
+      "type": "quote",
+      "text": "Lebih dari 80% arus barang global melintasi jalur perairan, sektor pelayaran (shipping), kepelabuhanan (port), dan logistik memegang peranan vital sebagai tulang punggung distribusi nasional. Kelancaran ekosistem inilah yang menentukan seberapa kompetitif produk ekspor kita di pasar internasional, sekaligus menjamin ketersediaan pasokan bahan baku dan barang modal bagi industri manufaktur di dalam negeri."
+    },
+    {
+      "type": "h2",
+      "text": "Deregulasi dan integrasi sistem perdagangan"
+    },
+    {
+      "type": "p",
+      "text": "Kemendag menjalankan deregulasi, digitalisasi, dan integrasi sistem perdagangan supaya proses bisnis lebih efisien, terutama di bidang perdagangan luar negeri."
+    },
+    {
+      "type": "p",
+      "text": "Salah satu caranya dengan mengubah proses pengajuan perizinan berusaha dan dokumen lain di bidang ekspor dan impor. Perubahan itu dilakukan lewat integrasi sistem Inatrade dengan sejumlah kementerian dan lembaga terkait."
+    },
+    {
+      "type": "p",
+      "text": "Menurut siaran pers itu, integrasi Inatrade dengan sistem kementerian dan lembaga melalui SINSW membuat pengajuan bisa dilakukan satu pintu dan duplikasi data berkurang. Tanda tangan elektronik menjaga keaslian dan keamanan dokumen, mempermudah verifikasi, serta mengurangi ketergantungan pada tanda tangan basah. Sementara itu, Single Sign On memungkinkan akses layanan terintegrasi cukup dengan satu akun."
+    },
+    {
+      "type": "h2",
+      "text": "Apa artinya bagi pelaku usaha"
+    },
+    {
+      "type": "p",
+      "text": "Pelaku usaha yang mengurus dokumen ekspor dan impor bisa merasakan proses yang lebih ringkas. Dengan pengajuan satu pintu dan duplikasi data yang berkurang, informasi yang sama tidak perlu diisi berulang kali."
+    },
+    {
+      "type": "p",
+      "text": "Tanda tangan elektronik membuat dokumen tidak lagi bergantung pada tanda tangan basah. Satu akun juga cukup untuk membuka layanan yang terintegrasi."
+    },
+    {
+      "type": "p",
+      "text": "Agar tidak tersendat, pantau pengumuman resmi Kemendag dan pastikan data usaha selalu mutakhir. Cek ketentuan terbaru di laman resmi Kemendag, sebab syarat dan alur layanan dapat berubah."
+    }
+  ],
+  "sumber": [
+    {
+      "label": "Kementerian Perdagangan (kemendag.go.id): Logistik Efisien Perkuat Daya Saing Ekspor 2027",
+      "url": "https://www.kemendag.go.id/berita/siaran-pers/logistik-efisien-perkuat-daya-saing-ekspor-2027"
+    }
+  ],
+  "penulis": "deepseek/deepseek-v4.1-flash",
+  "ilustrasi": "openai:gpt-image-2.6-flare"
+}

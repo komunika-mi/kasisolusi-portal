@@ -1,0 +1,93 @@
+{
+  "slug": "5-cara-bayar-iuran-bpjs-ketenagakerjaan-sesuai-segmen-pekerja",
+  "title": "5 Cara Bayar Iuran BPJS Ketenagakerjaan Sesuai Segmen Pekerja",
+  "dek": "Cara membayar iuran BPJS Ketenagakerjaan berbeda untuk tiap segmen peserta. Kenali kode pembayaran dan kanal yang tersedia supaya setoran iuran usaha Anda tidak tertunda.",
+  "kanal": "bisnis",
+  "date": "2026-11-26",
+  "dibuat": "2026-11-26T22:22:54+07:00",
+  "jenis": "evergreen",
+  "otomatis": true,
+  "kunci": "https://bpjsketenagakerjaan.go.id/cara-membayar-iuran.html",
+  "img": "/assets/berita/5-cara-bayar-iuran-bpjs-ketenagakerjaan-sesuai-segmen-pekerja.webp",
+  "imgAlt": "Ilustrasi meja kerja rapi dengan tumpukan amplop dan tanaman kecil di dekat jendela",
+  "foto": "Ilustrasi AI",
+  "takeaways": [
+    "Peserta Penerima Upah memakai Kode Iuran 11 digit yang diperoleh lewat EPS, SIPP Online, atau SMS dari Payment Reminder System.",
+    "Peserta Bukan Penerima Upah membayar lewat bank maupun mitra aggregator seperti Indomaret, Alfamart, dan Tokopedia.",
+    "Iuran Jasa Konstruksi dapat dibayar bertahap dengan termin 50 persen, 25 persen, dan 25 persen sebelum proyek berakhir."
+  ],
+  "body": [
+    {
+      "type": "p",
+      "text": "Cara membayar iuran BPJS Ketenagakerjaan tidak sama untuk semua peserta. Menurut laman resmi BPJS Ketenagakerjaan, peserta BPJAMSOSTEK dibagi menjadi beberapa segmentasi pekerja berdasarkan jenis pekerjaan, sektor pekerjaan, dan hal lain. Setiap segmen punya kanal serta kode pembayaran sendiri. Berikut rinciannya."
+    },
+    {
+      "type": "h2",
+      "text": "1. Penerima Upah memakai kode iuran 11 digit"
+    },
+    {
+      "type": "p",
+      "text": "Bagi peserta Penerima Upah, pemberi kerja menerima Kode Iuran yang terdiri dari 11 digit angka random. Kode inilah yang dipakai untuk membayar iuran. Kode iuran dapat diperoleh melalui Electronic Payment System (EPS). Selain itu, kode iuran terbentuk otomatis di aplikasi SIPP Online jika proses mutasi data tenaga kerja sudah selesai. Pemberi kerja yang terdaftar sebagai pengguna Payment Reminder System (PRS) juga akan menerima kode iuran lewat SMS setiap awal bulan, antara tanggal 5 sampai 7."
+    },
+    {
+      "type": "p",
+      "text": "Pembayaran iuran Penerima Upah dapat dilakukan di outlet bank dengan menunjukkan Kode Iuran atau Virtual Account, melalui ATM bank, serta internet atau online banking. Laman itu menyarankan pemberi kerja menghubungi dan berkonsultasi dengan petugas Pembina atau Account Officer masing-masing supaya dipandu lebih rinci."
+    },
+    {
+      "type": "h2",
+      "text": "2. Bukan Penerima Upah memakai kode bayar"
+    },
+    {
+      "type": "p",
+      "text": "Peserta Bukan Penerima Upah (BPU) membayar dengan memberikan kode iuran atau kode bayar yang telah ditetapkan. Kanal pembayarannya mencakup bank nasional atau swasta nasional, yang melayani pembayaran secara manual di teller, lewat ATM, dan melalui internet atau online banking. Peserta BPU juga dapat membayar lewat mitra aggregator, seperti Indomaret, Alfamart, dan Tokopedia."
+    },
+    {
+      "type": "h2",
+      "text": "3. Jasa Konstruksi didahului pendaftaran proyek lewat E-Jakon"
+    },
+    {
+      "type": "p",
+      "text": "Untuk iuran Jasa Konstruksi, langkah pertama adalah mengakses aplikasi E-Jakon memakai akun pemberi kerja yang sudah didaftarkan, lalu mendaftarkan proyek. Setelah pendaftaran proyek berhasil, muncul kode pembayaran yang bisa dipakai lewat dua metode. Metode pertama, pembayaran melalui bank kerja sama. Metode kedua, jika pembayaran memakai Bank Daerah, kode pembayaran tidak diperlukan. Iuran cukup disetorkan ke Bank Daerah melalui Rekening Bank Daerah BPJS Ketenagakerjaan."
+    },
+    {
+      "type": "p",
+      "text": "Iuran program Jasa Konstruksi juga dapat dibayar bertahap atau termin dan dilunasi sebelum masa pelaksanaan proyek berakhir. Rinciannya, Termin 1 sebesar 50 persen dari nilai iuran yang telah ditetapkan, Termin 2 sebesar 25 persen, dan Termin 3 sebesar 25 persen."
+    },
+    {
+      "type": "h2",
+      "text": "4. Pekerja Migran Indonesia memakai ID Billing"
+    },
+    {
+      "type": "p",
+      "text": "Peserta program Pekerja Migran Indonesia (PMI) membayar dengan ID Billing atau kode bayar. ID Billing diperoleh saat pendaftaran selesai. ID Billing dibagi menjadi dua berdasarkan tempat pendaftaran. ID Billing yang ditetapkan BNP2TKI terdiri dari 17 digit angka, sedangkan yang ditetapkan BPJAMSOSTEK terdiri dari 16 digit angka."
+    },
+    {
+      "type": "p",
+      "text": "ID Billing berlaku selama 2 minggu setelah diterbitkan, kecuali ID Billing untuk pembayaran JHT berkala. Pembayaran dapat dilakukan melalui perbankan nasional atau swasta, dan Warung Chandra khusus bagi yang bekerja di Hong Kong."
+    },
+    {
+      "type": "h2",
+      "text": "5. Lewat Perisai, peserta tidak dikenakan biaya tambahan"
+    },
+    {
+      "type": "p",
+      "text": "Peserta dari segmentasi Penerima Upah dan Bukan Penerima Upah juga dapat membayar iuran langsung melalui kemitraan Perisai, mitra resmi BPJAMSOSTEK. Salah satu ketentuan pembayarannya, perisai tidak diperkenankan mengenakan biaya transaksi atau administrasi kepada peserta."
+    },
+    {
+      "type": "h2",
+      "text": "Yang perlu disiapkan pelaku usaha"
+    },
+    {
+      "type": "p",
+      "text": "Sebelum membayar, pastikan segmen kepesertaan usaha Anda sudah tepat karena kanal dan kode pembayarannya berbeda. Siapkan kode iuran atau kode bayar yang berlaku, lalu pilih kanal yang mudah dijangkau. Untuk usaha yang memiliki pekerja, koordinasikan dengan petugas Pembina atau Account Officer supaya proses mutasi data dan pembayaran tidak tertunda. Simpan bukti pembayaran setiap bulan sebagai arsip administrasi usaha. Karena ketentuan dan kanal pembayaran dapat berubah, selalu cek informasi terbaru di laman resmi BPJS Ketenagakerjaan sebelum melakukan pembayaran."
+    }
+  ],
+  "sumber": [
+    {
+      "label": "BPJS Ketenagakerjaan (bpjsketenagakerjaan.go.id): Pilihan Cara Membayar Iuran BPJS Ketenagakerjaan",
+      "url": "https://www.bpjsketenagakerjaan.go.id/cara-membayar-iuran.html"
+    }
+  ],
+  "penulis": "deepseek/deepseek-v4.1-flash",
+  "ilustrasi": "openai:gpt-image-2.6-flare"
+}
