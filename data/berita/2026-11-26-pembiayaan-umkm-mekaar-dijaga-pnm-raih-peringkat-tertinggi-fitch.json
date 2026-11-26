@@ -1,0 +1,81 @@
+{
+  "slug": "pembiayaan-umkm-mekaar-dijaga-pnm-raih-peringkat-tertinggi-fitch",
+  "title": "Pembiayaan UMKM Mekaar Dijaga, PNM Raih Peringkat Tertinggi Fitch",
+  "dek": "PT Permodalan Nasional Madani (PNM) meraih peringkat AAA(idn) dengan Outlook Stabil dari Fitch Ratings Indonesia. Peringkat ini menjaga keberlanjutan pembiayaan dan pendampingan usaha bagi nasabah PNM Mekaar.",
+  "kanal": "keuangan",
+  "date": "2026-11-26",
+  "dibuat": "2026-11-26T12:06:36+07:00",
+  "jenis": "berita",
+  "otomatis": true,
+  "kunci": "https://pnm.co.id/berita/raih-peringkat-tertinggi-fitch-rating-pnm-jaga-keberlanjutan-pemberdayaan-nasabah",
+  "img": "/assets/berita/pembiayaan-umkm-mekaar-dijaga-pnm-raih-peringkat-tertinggi-fitch.webp",
+  "imgAlt": "Ilustrasi suasana pertemuan kelompok usaha perempuan di sebuah ruangan sederhana.",
+  "foto": "Ilustrasi AI",
+  "takeaways": [
+    "PNM meraih peringkat AAA(idn) dengan Outlook Stabil dari Fitch Ratings Indonesia.",
+    "Peringkat ini menunjukkan risiko gagal bayar PNM diperkirakan paling rendah di antara emiten atau instrumen utang lain di Indonesia.",
+    "PNM Mekaar terus memberikan pembiayaan, pendampingan usaha, dan pelatihan bagi perempuan prasejahtera."
+  ],
+  "body": [
+    {
+      "type": "p",
+      "text": "PT Permodalan Nasional Madani (PNM) memperoleh peringkat AAA(idn) dari Fitch Ratings Indonesia dengan Outlook Stabil. Kabar ini disampaikan lewat siaran pers PNM yang terbit 24 November 2026. Peringkat itu menempati posisi tertinggi dalam skala nasional Fitch Ratings."
+    },
+    {
+      "type": "h2",
+      "text": "Peringkat Tertinggi dari Fitch Ratings"
+    },
+    {
+      "type": "p",
+      "text": "Menurut siaran pers tersebut, peringkat ini menunjukkan risiko gagal bayar PNM diperkirakan paling rendah dibandingkan emiten atau instrumen utang lain di Indonesia. Outlook Stabil menandakan prospek peringkat perusahaan yang stabil."
+    },
+    {
+      "type": "p",
+      "text": "Sebelumnya, PNM juga menerima rating yang sama dari PEFINDO. Capaian itu memperkuat kepercayaan dan memastikan layanan pembiayaan serta pendampingan usaha untuk perempuan prasejahtera di berbagai wilayah Indonesia tetap berjalan."
+    },
+    {
+      "type": "p",
+      "text": "Direktur Utama PNM, Kindaris, mengatakan peringkat tertinggi itu adalah bentuk kepercayaan sekaligus tanggung jawab bagi perusahaan."
+    },
+    {
+      "type": "p",
+      "text": "Menurut Kindaris, capaian tersebut menjadi penyemangat bagi seluruh keluarga besar PNM untuk menjaga kepercayaan yang sudah diberikan. Ia menilai pencapaian itu harus mendorong perusahaan lebih disiplin dalam mengelola usaha, menjaga mutu pembiayaan, menguatkan manajemen risiko, dan menerapkan tata kelola yang baik."
+    },
+    {
+      "type": "p",
+      "text": "Kindaris menambahkan, kekuatan perusahaan juga harus terlihat dari manfaat yang dirasakan masyarakat. Lewat program PNM Mekaar, perusahaan menghadirkan akses pembiayaan sekaligus pendampingan usaha, pelatihan, dan penguatan kapasitas."
+    },
+    {
+      "type": "p",
+      "text": "Ia menyatakan pendampingan kepada ibu-ibu nasabah akan terus diperkuat supaya lebih banyak keluarga mendapat kesempatan hidup lebih baik. Menurut dia, menjaga kesehatan perusahaan dan memperluas dampak pemberdayaan harus berjalan bersamaan."
+    },
+    {
+      "type": "p",
+      "text": "PNM akan terus memperkuat kinerja dengan mengelola bisnis secara bertanggung jawab, menerapkan tata kelola yang baik, dan menjaga manajemen risiko yang terukur. Dengan fondasi yang semakin kuat, PNM berkomitmen menjadi bagian dari perjalanan perempuan prasejahtera dalam mengembangkan usaha, menopang ekonomi keluarga, dan meraih masa depan yang lebih baik."
+    },
+    {
+      "type": "h2",
+      "text": "Dampak bagi Nasabah PNM Mekaar"
+    },
+    {
+      "type": "p",
+      "text": "Bagi nasabah PNM Mekaar, peringkat ini menjadi tanda bahwa layanan pembiayaan dan pendampingan usaha akan terus tersedia. Nasabah tetap perlu menjaga kualitas pembayaran dan memanfaatkan pendampingan usaha yang ada."
+    },
+    {
+      "type": "h2",
+      "text": "Apa artinya bagi pelaku usaha"
+    },
+    {
+      "type": "p",
+      "text": "Pelaku usaha yang menjadi nasabah PNM Mekaar dapat melihat peringkat ini sebagai penanda bahwa akses pembiayaan dan pendampingan usaha masih berlanjut. Sebaiknya mereka mengikuti pendampingan yang diberikan, menjaga disiplin pembayaran, dan memanfaatkan pelatihan untuk mengembangkan kapasitas usaha. Untuk keterangan lebih lanjut, pelaku usaha dapat mengecek saluran informasi resmi PNM."
+    }
+  ],
+  "sumber": [
+    {
+      "label": "PNM (pnm.co.id): Raih Peringkat Tertinggi Fitch Rating, PNM Jaga Keberlanjutan Pemberdayaan Nasabah",
+      "url": "https://www.pnm.co.id/berita/raih-peringkat-tertinggi-fitch-rating-pnm-jaga-keberlanjutan-pemberdayaan-nasabah"
+    }
+  ],
+  "penulis": "deepseek/deepseek-v4.1-flash",
+  "ilustrasi": "openai:gpt-image-2.6-flare"
+}

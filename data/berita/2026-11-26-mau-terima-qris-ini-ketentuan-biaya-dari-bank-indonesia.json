@@ -1,0 +1,121 @@
+{
+  "slug": "mau-terima-qris-ini-ketentuan-biaya-dari-bank-indonesia",
+  "title": "Mau Terima QRIS? Ini Ketentuan Biaya dari Bank Indonesia",
+  "dek": "Bank Indonesia menetapkan MDR QRIS mulai 0 persen untuk usaha mikro hingga 0,7 persen untuk usaha kecil, menengah, dan besar. Nominal transaksi dibatasi Rp10.000.000 per transaksi.",
+  "kanal": "bisnis",
+  "date": "2026-11-26",
+  "dibuat": "2026-11-26T12:09:35+07:00",
+  "jenis": "evergreen",
+  "otomatis": true,
+  "kunci": "https://bi.go.id/id/fungsi-utama/sistem-pembayaran/ritel/kanal-layanan/QRIS/default.aspx",
+  "img": "/assets/berita/mau-terima-qris-ini-ketentuan-biaya-dari-bank-indonesia.webp",
+  "imgAlt": "Ilustrasi meja kios usaha kecil dengan stiker pembayaran digital",
+  "foto": "Ilustrasi AI",
+  "takeaways": [
+    "Merchant cukup membuka akun pada satu PJP QRIS berizin Bank Indonesia untuk bisa menerima pembayaran dari aplikasi apa pun.",
+    "MDR QRIS untuk usaha mikro 0 persen pada transaksi sampai Rp500.000 dan 0,3 persen untuk transaksi di atasnya.",
+    "Nominal transaksi QRIS dibatasi paling banyak Rp10.000.000 per transaksi."
+  ],
+  "body": [
+    {
+      "type": "p",
+      "text": "Menurut laman resmi Bank Indonesia, QRIS atau Quick Response Code Indonesian Standard adalah standar QR Code Pembayaran yang ditetapkan Bank Indonesia untuk memfasilitasi transaksi pembayaran di Indonesia. Standar ini dikembangkan bersama industri sistem pembayaran supaya transaksi dengan QR Code menjadi lebih cepat, mudah, murah, aman, dan andal. Semua Penyedia Jasa Pembayaran yang memakai QR Code Pembayaran wajib menerapkan QRIS."
+    },
+    {
+      "type": "p",
+      "text": "Bagi pelaku usaha, Bank Indonesia menyebut QRIS sebagai pintu masuk ke ekosistem digital. Merchant hanya perlu membuka rekening atau akun pada salah satu PJP QRIS yang berizin Bank Indonesia. Setelah itu, merchant dapat menerima pembayaran dari aplikasi PJP mana pun."
+    },
+    {
+      "type": "h2",
+      "text": "1. Satu kode untuk semua aplikasi pembayaran"
+    },
+    {
+      "type": "p",
+      "text": "Sebelum ada QRIS, aplikasi pembayaran hanya dapat dipakai pada merchant yang memiliki akun dari PJP yang sama. Kini, seluruh aplikasi pembayaran dari PJP mana pun dapat membayar di seluruh merchant meski PJP yang digunakan berbeda. Merchant yang sudah memiliki banyak QR code dari berbagai PJP juga dimudahkan karena semua akunnya dapat menerima pembayaran lewat satu QRIS."
+    },
+    {
+      "type": "h2",
+      "text": "2. Pilih model QRIS sesuai skala usaha"
+    },
+    {
+      "type": "p",
+      "text": "QRIS mengakomodasi dua model penggunaan QR Code Pembayaran, yaitu Merchant Presented Mode (MPM) dan Customer Presented Mode (CPM)."
+    },
+    {
+      "type": "p",
+      "text": "Pada MPM Statis, merchant cukup memajang satu sticker atau print-out QRIS dan tidak dikenakan biaya. Pelanggan memindai, memasukkan nominal, memasukkan PIN, lalu membayar. Model ini disebut cocok untuk usaha mikro dan kecil."
+    },
+    {
+      "type": "p",
+      "text": "Pada MPM Dinamis, QRIS dikeluarkan melalui perangkat seperti mesin EDC atau smartphone dan juga gratis. Merchant memasukkan nominal pembayaran lebih dulu, lalu pelanggan memindai QRIS yang tampil atau tercetak. Model ini cocok untuk merchant skala usaha menengah dan besar atau yang volume transaksinya tinggi."
+    },
+    {
+      "type": "p",
+      "text": "Pada CPM, pelanggan menunjukkan QRIS dari aplikasi pembayarannya untuk dipindai merchant. Model ini ditujukan bagi merchant yang membutuhkan kecepatan transaksi tinggi, seperti penyedia transportasi, parkir, dan ritel modern."
+    },
+    {
+      "type": "h2",
+      "text": "3. Cermati biaya MDR sesuai kategori merchant"
+    },
+    {
+      "type": "p",
+      "text": "Bank Indonesia menetapkan Merchant Discount Rate (MDR) untuk pemrosesan transaksi QRIS MPM dan CPM. Untuk usaha mikro, transaksi dengan nominal sampai Rp500.000 dikenakan MDR 0 persen. Transaksi di atas Rp500.000 dikenakan 0,3 persen."
+    },
+    {
+      "type": "p",
+      "text": "Untuk usaha kecil, usaha menengah, dan usaha besar, MDR ditetapkan 0,7 persen. Ada pula kategori khusus, yaitu pendidikan 0,6 persen dan SPBU 0,4 persen. Kategori BLU dan PSO dikenakan 0 persen. Transaksi government to people seperti bantuan sosial dan people to government seperti pajak, paspor, serta donasi sosial juga 0 persen."
+    },
+    {
+      "type": "h2",
+      "text": "4. Batas nominal transaksi Rp10 juta"
+    },
+    {
+      "type": "p",
+      "text": "Nominal transaksi QRIS dibatasi paling banyak Rp10.000.000 per transaksi. Penerbit dapat menetapkan batas kumulatif harian atau bulanan bagi setiap pengguna QRIS berdasarkan manajemen risikonya. Konsumen tidak dikenakan biaya tambahan saat menggunakan QRIS."
+    },
+    {
+      "type": "h2",
+      "text": "5. Manfaat yang bisa dirasakan merchant"
+    },
+    {
+      "type": "p",
+      "text": "Menurut Bank Indonesia, penjualan merchant berpotensi meningkat karena dapat menerima pembayaran berbasis QR apa pun. QRIS juga membantu meningkatkan branding, mengurangi biaya pengelolaan kas, dan menghindarkan merchant dari uang palsu. Merchant tidak perlu menyediakan uang kembalian."
+    },
+    {
+      "type": "p",
+      "text": "Transaksi tercatat otomatis dan bisa dilihat setiap saat. Uang untuk usaha dan personal pun terpisah, sehingga rekonsiliasi lebih mudah dan berpotensi mencegah tindak kecurangan pada pembukuan transaksi tunai. Catatan transaksi ini juga membangun informasi credit profile yang memudahkan merchant memperoleh kredit ke depan."
+    },
+    {
+      "type": "h2",
+      "text": "6. Inovasi QRIS yang terus berkembang"
+    },
+    {
+      "type": "p",
+      "text": "Bank Indonesia mengembangkan sejumlah fitur, antara lain QRIS Tanpa Tatap Muka, QRIS TUNTAS, QRIS Antarnegara, dan QRIS Tanpa Pindai (TAP). QRIS Tanpa Tatap Muka memudahkan transaksi jarak jauh, misalnya melalui gambar, katalog, atau invoice yang dibagikan merchant. QRIS TUNTAS memungkinkan tarik tunai, transfer, dan setor tunai. QRIS Antarnegara memudahkan wisatawan dan pelaku usaha bertransaksi lintas negara. QRIS TAP memungkinkan pembayaran dengan mendekatkan smartphone ke terminal berbasis NFC."
+    },
+    {
+      "type": "p",
+      "text": "Ketentuan QRIS sendiri diatur antara lain dalam Peraturan Anggota Dewan Gubernur Nomor 3 Tahun 2025 tanggal 19 Februari 2025 dan Peraturan Anggota Dewan Gubernur Nomor 24/1/PADG/2022 tanggal 25 Februari 2022."
+    },
+    {
+      "type": "h2",
+      "text": "Yang perlu disiapkan pelaku usaha"
+    },
+    {
+      "type": "p",
+      "text": "Untuk mulai menerima QRIS, pelaku usaha dapat mendaftar ke PJP QRIS yang berizin Bank Indonesia, baik dengan datang ke kantor cabang maupun mendaftar online. Siapkan data usaha dan dokumen yang diminta PJP, lalu tunggu proses verifikasi, pembuatan Merchant ID, dan pembuatan kode QRIS. Setelah kode diterima, pasang aplikasi merchant atau akses laman khusus merchant dari PJP yang digunakan."
+    },
+    {
+      "type": "p",
+      "text": "Karena ketentuan QRIS diatur dalam peraturan yang dapat berubah, pelaku usaha sebaiknya mengecek ketentuan terbaru di laman resmi Bank Indonesia sebelum mengambil keputusan."
+    }
+  ],
+  "sumber": [
+    {
+      "label": "Bank Indonesia (bi.go.id): Mengenal QRIS untuk Pembayaran Usaha",
+      "url": "https://www.bi.go.id/id/fungsi-utama/sistem-pembayaran/ritel/kanal-layanan/QRIS/default.aspx"
+    }
+  ],
+  "penulis": "deepseek/deepseek-v4.1-flash",
+  "ilustrasi": "openai:gpt-image-2.6-flare"
+}
