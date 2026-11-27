@@ -67,10 +67,10 @@
    "biayaUsd": 0.077742
   },
   "2026-11-27": {
-   "berita": 3,
+   "berita": 6,
    "tips": 0,
-   "evergreen": 2,
-   "biayaUsd": 0.054767
+   "evergreen": 3,
+   "biayaUsd": 0.080673
   }
  },
  "kunci": {
@@ -350,6 +350,12 @@
    "slug": "pelaku-musik-mau-mendunia-ekraf-tawarkan-collab-promotion",
    "judul": "Dukung Musisi National Champion Mendunia, Kementerian Ekraf Apresiasi Album ‘Blue"
   },
+  "https://ekraf.go.id/news/hadapi-era-ai-kementerian-ekraf-bekali-150-pelajar-aceh-keterampilan": {
+   "t": "2026-11-27",
+   "hasil": "terbit",
+   "slug": "150-pelajar-smk-aceh-dibekali-keterampilan-ai-untuk-dunia-kerja",
+   "judul": "Hadapi Era AI, Kementerian Ekraf Bekali 150 Pelajar Aceh Keterampilan Teknologi"
+  },
   "https://ekraf.go.id/news/ideind-bali-2026-dukung-jenama-lokal-menuju-pasar": {
    "t": "2026-11-20",
    "hasil": "ditolak",
@@ -361,6 +367,12 @@
    "hasil": "terbit",
    "slug": "cari-modal-usaha-kreatif-creafin-di-denpasar-buka-jalannya",
    "judul": "Inisiatif CreaFIN Perluas Akses Permodalan Pelaku Usaha Ekraf di Bali"
+  },
+  "https://ekraf.go.id/news/kementerian-ekraf-buka-akses-pendanaan-berbasis-crowdfunding-lewat-akses": {
+   "t": "2026-11-27",
+   "hasil": "terbit",
+   "slug": "modal-usaha-kreatif-lewat-crowdfunding-syariah-ekraf-buka-akses",
+   "judul": "Kementerian Ekraf Buka Akses Pendanaan Berbasis Crowdfunding lewat AKSES 2026"
   },
   "https://ekraf.go.id/news/kementerian-ekraf-dan-hipmi-perkuat-wirausaha-kreatif-di": {
    "t": "2026-11-21",
@@ -483,6 +495,12 @@
    "slug": "pengawasan-impor-pakai-basis-risiko-importir-patuh-dapat-kemudahan",
    "judul": "Dorong Kepatuhan Importir dan Lindungi Pasar Dalam Negeri, Kemendag Perkuat Pengawasan Post-Border Berbasis Risiko"
   },
+  "https://kemendag.go.id/berita/siaran-pers/ekspor-indonesia-ke-uni-eropa-masih-terkonsentrasi-ke-tiga-negara": {
+   "t": "2026-11-27",
+   "hasil": "terbit",
+   "slug": "ekspor-ke-uni-eropa-terpusat-di-tiga-negara-i-eu-cepa-buka-pasar",
+   "judul": "Ekspor Indonesia ke Uni Eropa Masih Terkonsentrasi ke Tiga Negara"
+  },
   "https://kemendag.go.id/berita/siaran-pers/kdei-taipei-fasilitasi-ekspor-perdana-media-tanam-kokopit-ke-taiwan": {
    "t": "2026-11-19",
    "hasil": "terbit",
@@ -585,6 +603,12 @@
    "slug": "5-hal-soal-lapor-spt-tahunan-untuk-pemilik-usaha",
    "judul": "Batas Waktu dan Tata Cara Lapor SPT Tahunan Pemilik Usaha"
   },
+  "https://pajak.go.id/id/wajib-pajak/pribadi/usaha/pendaftaran/pengukuhan-pkp": {
+   "t": "2026-11-27",
+   "hasil": "terbit",
+   "slug": "omzet-usaha-membesar-kapan-perlu-dikukuhkan-sebagai-pkp",
+   "judul": "Pengukuhan Pengusaha Kena Pajak (PKP) bagi Pemilik Usaha"
+  },
   "https://pajak.go.id/id/wajib-pajak/pribadi/usaha/pendaftaran/wajib-pajak-baru": {
    "t": "2026-11-23",
    "hasil": "terbit",
@@ -681,6 +705,12 @@
    "slug": "konten-receh-bisa-jadi-aset-ini-kata-leonico-bintangkuri",
    "judul": "Podcast Sejam Udah Gak Laku⁉️Leonico & Bintangkuri Bongkar Cuan & Bisnis Dibalik Podcast Pendek‼️"
   },
+  "yt:gVC4xSDch0M": {
+   "t": "2026-11-27",
+   "hasil": "ditolak",
+   "alasan": "model menilai tidak layak: BAHAN membahas perjuangan perempuan, trauma, kesepian dalam rumah tangga, dan self-correction laki-laki, bukan soal...",
+   "judul": "Memahami Perjuangan Perempuan: Ibu, Istri, dan Anak yang Sering Tak Terlihat Lukanya"
+  },
   "yt:hQRh4dGbSxw": {
    "t": "2026-11-18",
    "hasil": "terbit",
@@ -741,6 +771,10 @@
    "t": "2026-11-26",
    "slug": "mau-terima-qris-ini-ketentuan-biaya-dari-bank-indonesia"
   },
+  "25c18a67ef515da8ffe21506069ca2598f364084ea5b035362d2f30ba97568ad": {
+   "t": "2026-11-27",
+   "slug": "modal-usaha-kreatif-lewat-crowdfunding-syariah-ekraf-buka-akses"
+  },
   "27a01b1025b4796a150b4ee3b952c238e41827dd9d1f086a52ab8f118570d66b": {
    "t": "2026-11-16",
    "slug": "biaya-pembiayaan-mekaar-turun-jadi-8-persen-modal-usaha-makin-ringan"
@@ -793,6 +827,14 @@
    "t": "2026-11-18",
    "slug": "pelaku-musik-mau-mendunia-ekraf-tawarkan-collab-promotion"
   },
+  "4623133e64ab42379e1c088e21c7fe169b08f9f57b49d22db1c57d9dac3b097a": {
+   "t": "2026-11-27",
+   "slug": "ekspor-ke-uni-eropa-terpusat-di-tiga-negara-i-eu-cepa-buka-pasar"
+  },
+  "4771e3aaba203d1f65194430e8fb64d9a01dbcee322ecfa35d9dff520b68c1f4": {
+   "t": "2026-11-27",
+   "slug": "omzet-usaha-membesar-kapan-perlu-dikukuhkan-sebagai-pkp"
+  },
   "49d24bde774f341a706e3db34e0729a25e163510ef0f651e5aac95a361156d18": {
    "t": "2026-11-24",
    "slug": "waspadai-investasi-berjangka-ilegal-bappebti-perkuat-literasi"
@@ -828,6 +870,10 @@
   "58ac70758672ce874c470f4238e01c03736701c78cbfecc5c33595977fcb5284": {
    "t": "2026-11-18",
    "slug": "film-lokal-dapat-layar-baru-ekraf-jajaki-kerja-sama-dengan-vidio"
+  },
+  "59cc8c047700bd4bcd172aec427fb9d0e501bdca1a5ca506febfc29355a8a974": {
+   "t": "2026-11-27",
+   "slug": "150-pelajar-smk-aceh-dibekali-keterampilan-ai-untuk-dunia-kerja"
   },
   "5acbde7b8af729fd27693931aa1bae1be50e4035cb41d6c05f186ffbcf0f92e2": {
    "t": "2026-11-20",
