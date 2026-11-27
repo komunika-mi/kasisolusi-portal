@@ -65,6 +65,12 @@
    "tips": 0,
    "evergreen": 3,
    "biayaUsd": 0.077742
+  },
+  "2026-11-27": {
+   "berita": 3,
+   "tips": 0,
+   "evergreen": 2,
+   "biayaUsd": 0.054767
   }
  },
  "kunci": {
@@ -73,6 +79,12 @@
    "hasil": "terbit",
    "slug": "mau-ekspor-ini-5-layanan-klinik-ekspor-bea-cukai-untuk-umkm",
    "judul": "Klinik Ekspor Bea Cukai untuk UMKM"
+  },
+  "https://beacukai.go.id/tata-laksana-ekspor": {
+   "t": "2026-11-27",
+   "hasil": "terbit",
+   "slug": "mau-ekspor-barang-ini-alur-prosedurnya-di-bea-cukai",
+   "judul": "Prosedur Ekspor Barang lewat Bea Cukai"
   },
   "https://bi.go.id/id/fungsi-utama/sistem-pembayaran/ritel/kanal-layanan/QRIS/default.aspx": {
    "t": "2026-11-26",
@@ -248,6 +260,12 @@
    "slug": "reseller-resmi-tak-perlu-takut-djki-verifikasi-sebelum-tutup-situs",
    "judul": "DJKI Rekomendasikan Penutupan Situs Pelanggar Merek Pi Kang Shuang"
   },
+  "https://dgip.go.id/artikel/detail-artikel-berita/djki-terima-ombudsman-bahas-penanganan-perkara-kekayaan-intelektual": {
+   "t": "2026-11-27",
+   "hasil": "ditolak",
+   "alasan": "gagal penjaga dua kali: terlalu mirip kalimat bahan (23% untaian 8 kata sama, terpanjang 42 kata); tulis ulang dengan kata-kata sendiri",
+   "judul": "DJKI Terima Ombudsman, Bahas Penanganan Perkara Kekayaan Intelektual"
+  },
   "https://dgip.go.id/artikel/detail-artikel-berita/djki-verifikasi-dugaan-pelanggaran-merek-mahkota-di-lima-tautan": {
    "t": "2026-11-18",
    "hasil": "terbit",
@@ -271,6 +289,12 @@
    "hasil": "terbit",
    "slug": "mau-daftarkan-merek-ini-tarif-resmi-untuk-usaha-mikro-dan-kecil",
    "judul": "Biaya Pendaftaran Merek bagi Usaha Mikro dan Kecil"
+  },
+  "https://dgip.go.id/menu-utama/merek/pengenalan": {
+   "t": "2026-11-27",
+   "hasil": "terbit",
+   "slug": "8-alasan-merek-anda-bisa-ditolak-saat-didaftarkan",
+   "judul": "Jenis Merek dan Tanda yang Tidak Bisa Didaftarkan"
   },
   "https://dgip.go.id/menu-utama/merek/syarat-prosedur": {
    "t": "2026-11-23",
@@ -350,6 +374,12 @@
    "slug": "film-lokal-dapat-layar-baru-ekraf-jajaki-kerja-sama-dengan-vidio",
    "judul": "Kementerian Ekraf dan Vidio Perkuat Kolaborasi Perluas Akses Pasar Film Indonesia"
   },
+  "https://ekraf.go.id/news/kementerian-ekraf-gelar-ideind-2026-untuk-penguatan-ekosistem-ekonomi-kreatif": {
+   "t": "2026-11-27",
+   "hasil": "terbit",
+   "slug": "30-pelaku-ekraf-denpasar-dapat-ruang-promosi-di-ide-ind-2026",
+   "judul": "Kementerian Ekraf Gelar IDE.IND 2026 untuk Penguatan Ekosistem Ekonomi Kreatif Daerah"
+  },
   "https://ekraf.go.id/news/kic-2026-jadi-peluang-kolaborasi-esports-dan-kreator-lokal-di-panggung": {
    "t": "2026-11-18",
    "hasil": "terbit",
@@ -361,6 +391,12 @@
    "hasil": "ditolak",
    "alasan": "gagal penjaga dua kali: terlalu mirip kalimat bahan (9% untaian 8 kata sama, terpanjang 36 kata); tulis ulang dengan kata-kata sendiri",
    "judul": "Langkah Lima Jenama Fesyen Binaan Ekraf dalam Road to IN2MOTIONFEST X JMFW"
+  },
+  "https://ekraf.go.id/news/menteri-ekraf-ajak-santri-aceh-jaya-jadi-kreator-masa": {
+   "t": "2026-11-27",
+   "hasil": "terbit",
+   "slug": "santri-dayah-aceh-jaya-disiapkan-jadi-kreator-program-ekraf-disusun",
+   "judul": "Menteri Ekraf Ajak Santri Aceh Jaya Jadi Kreator Masa Depan"
   },
   "https://ekraf.go.id/news/menteri-ekraf-buka-peluang-penguatan-talenta-kreatif-siswa-labschool": {
    "t": "2026-11-20",
@@ -519,11 +555,23 @@
    "slug": "mau-ajukan-dana-bergulir-lpdb-cek-syarat-koperasi-ini",
    "judul": "Syarat Koperasi Mengajukan Dana Bergulir LPDB"
   },
+  "https://lpdb.go.id/faq": {
+   "t": "2026-11-27",
+   "hasil": "ditolak",
+   "alasan": "model menilai tidak layak: Topik BAHAN sudah dibahas di artikel Kasisolusi yang terbit: Mau Ajukan Dana Bergulir LPDB? Cek Syarat Koperasi Ini.",
+   "judul": "Tanya Jawab Pembiayaan Dana Bergulir LPDB"
+  },
   "https://pajak.go.id/id/siaran-pers/gandeng-hipmi-sulsel-kanwil-djp-sulselbartra-sosialiasikan-kebijakan-penghapusan-sanksi": {
    "t": "2026-11-21",
    "hasil": "ditolak",
    "alasan": "model menilai tidak layak: Topik BAHAN sudah pernah dibahas Kasisolusi lewat artikel \"Sanksi Pajak Bisa Dihapus 100 Persen, Tenggat 31 Desember...",
    "judul": "Gandeng HIPMI Sulsel, Kanwil DJP Sulselbartra Sosialiasikan Kebijakan Penghapusan Sanksi Administrasi Perpajakan kepada Pengusaha Muda di Kota Makassar"
+  },
+  "https://pajak.go.id/id/siaran-pers/pajak-jaktim-undang-sektor-keuangan-sikapi-aturan-terbaru": {
+   "t": "2026-11-27",
+   "hasil": "terbit",
+   "slug": "simpanan-di-koperasi-dan-bank-dilaporkan-ke-pajak-ini-aturannya",
+   "judul": "Pajak Jaktim Undang Sektor Keuangan Sikapi Aturan Terbaru"
   },
   "https://pajak.go.id/id/siaran-pers/sanksi-pajak-bisa-dihapus-100-persen-tenggatnya-tinggal-tujuh-pekan": {
    "t": "2026-11-16",
@@ -677,6 +725,10 @@
    "t": "2026-11-25",
    "slug": "mau-ajukan-dana-bergulir-lpdb-cek-syarat-koperasi-ini"
   },
+  "1529ad47cd8d864cafdc3591e940e339ca80f783a9037e55064f861e9e8ce7db": {
+   "t": "2026-11-27",
+   "slug": "8-alasan-merek-anda-bisa-ditolak-saat-didaftarkan"
+  },
   "1934db8cc2bebee8f3d4ae6ebc803074d1e40479c83bca80060c261e32690d07": {
    "t": "2026-11-17",
    "slug": "pelaku-umkm-padang-perda-percepatan-sertifikasi-halal-sedang-dikaji"
@@ -785,13 +837,25 @@
    "t": "2026-11-26",
    "slug": "logistik-efisien-kunci-ekspor-2027-perizinan-kini-satu-pintu"
   },
+  "5dbf5ed12cde073ddfbac4be19198b32287ce896092c80636ac18bf8af72c342": {
+   "t": "2026-11-27",
+   "slug": "30-pelaku-ekraf-denpasar-dapat-ruang-promosi-di-ide-ind-2026"
+  },
   "602110736e4376f76f4d4d1f40a2e2033330ca705d1613a7cb35a78964366927": {
    "t": "2026-11-15",
    "slug": "20-produk-umkm-kurasi-kemendag-masuk-jaringan-indogrosir"
   },
+  "60649ea572687a464d7e3820aa5250d7a65a3ed68d703398b5a605b64b57a32b": {
+   "t": "2026-11-27",
+   "slug": "simpanan-di-koperasi-dan-bank-dilaporkan-ke-pajak-ini-aturannya"
+  },
   "6181ce976ba5af7a4296bdab9ae97ad74d6ad5dc0f61e910a20ce1acb25a1b55": {
    "t": "2026-11-21",
    "slug": "cari-modal-usaha-kreatif-creafin-di-denpasar-buka-jalannya"
+  },
+  "676efea7d0d378645f0e5498cc509f0147363d4dfb3934a8ddff9028c6938edc": {
+   "t": "2026-11-27",
+   "slug": "mau-ekspor-barang-ini-alur-prosedurnya-di-bea-cukai"
   },
   "6bca951c7eb3c8b9cd257ccbc4a32436e471aee644109d457f50c8fa087fce9e": {
    "t": "2026-11-24",
@@ -804,6 +868,10 @@
   "7159d99a4b173d229c7d5b90adb878b9601785721c7a6ab41731dd5fad559e3a": {
    "t": "2026-11-15",
    "slug": "gaji-naik-tapi-merasa-kurang-ini-kata-reinat-fuad-coach-rene"
+  },
+  "7225908ab904560b422fc54a0929acaa324f8fdf4986fb6474d81cb47ab0ee57": {
+   "t": "2026-11-27",
+   "slug": "santri-dayah-aceh-jaya-disiapkan-jadi-kreator-program-ekraf-disusun"
   },
   "754b340c687dcf602c5f1e45b4dbf9c1f017e119035e60a78b7666cef2b3efc0": {
    "t": "2026-11-21",
