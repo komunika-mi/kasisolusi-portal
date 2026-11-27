@@ -71,6 +71,12 @@
    "tips": 0,
    "evergreen": 3,
    "biayaUsd": 0.080673
+  },
+  "2026-11-28": {
+   "berita": 1,
+   "tips": 0,
+   "evergreen": 1,
+   "biayaUsd": 0.0127
   }
  },
  "kunci": {
@@ -103,6 +109,12 @@
    "hasil": "terbit",
    "slug": "pelindungan-konsumen-digital-diperkuat-bi-luncurkan-geber-pk-2027",
    "judul": "Pelindungan Konsumen Menjadi Kunci Ekonomi Keuangan Digital Terpercaya"
+  },
+  "https://bi.go.id/id/rupiah/pencegahan-rupiah-palsu/default.aspx": {
+   "t": "2026-11-28",
+   "hasil": "terbit",
+   "slug": "curiga-uang-tunai-palsu-ini-langkah-yang-dianjurkan-bank-indonesia",
+   "judul": "Ciri Uang Rupiah Asli dan Cara Mengenali yang Palsu"
   },
   "https://bpjph.halal.go.id/detail/ini-kriteria-pelaku-umk-yang-dapat-mengajukan-sertifikat-halal-gratis-program-sehati-2026": {
    "t": "2026-11-23",
@@ -434,6 +446,12 @@
    "hasil": "terbit",
    "slug": "ekraf-kawal-riset-blockchain-untuk-lindungi-karya-kreator",
    "judul": "Menteri Ekraf Kawal Implementasi Riset Blockchain untuk Pelaku Ekonomi Kreatif"
+  },
+  "https://ekraf.go.id/news/menteri-ekraf-musik-hyperlocal-punya-nilai": {
+   "t": "2026-11-28",
+   "hasil": "terbit",
+   "slug": "ekraf-dorong-musik-daerah-jadi-sumber-pendapatan-ini-kata-menteri",
+   "judul": "Menteri Ekraf: Musik \"Hyperlocal\" Punya Nilai Ekonomi"
   },
   "https://ekraf.go.id/news/menteri-ekraf-perluas-akses-pasar-produk-kreatif-indonesia-di-arab": {
    "t": "2026-11-22",
@@ -899,6 +917,10 @@
    "t": "2026-11-21",
    "slug": "cari-modal-usaha-kreatif-creafin-di-denpasar-buka-jalannya"
   },
+  "62f6d611116f3e173aaab1f7c6c0d187d37082975e2a05d5ee926939d5349a7c": {
+   "t": "2026-11-28",
+   "slug": "ekraf-dorong-musik-daerah-jadi-sumber-pendapatan-ini-kata-menteri"
+  },
   "676efea7d0d378645f0e5498cc509f0147363d4dfb3934a8ddff9028c6938edc": {
    "t": "2026-11-27",
    "slug": "mau-ekspor-barang-ini-alur-prosedurnya-di-bea-cukai"
@@ -1042,6 +1064,10 @@
   "ca2786ccc5088084e5bd6a4603d0bc6e99d4d0e4fc97210e6b5595bcc07e2af5": {
    "t": "2026-11-26",
    "slug": "5-cara-bayar-iuran-bpjs-ketenagakerjaan-sesuai-segmen-pekerja"
+  },
+  "ca2d15e02da9d805639adfef3b9c692b4dbe1580066c236fcc03c504a22445da": {
+   "t": "2026-11-28",
+   "slug": "curiga-uang-tunai-palsu-ini-langkah-yang-dianjurkan-bank-indonesia"
   },
   "cc1e77a1653a03131957baa88f96a2708cbb9550474d5fcc4af0706bb481885f": {
    "t": "2026-11-22",
