@@ -181,24 +181,9 @@ export function header(current = '') {
     <div class="hdr__tools">
       <a class="iconbtn" href="/cari" aria-label="Cari artikel dan episode">${icon('search')}</a>
       <a class="btn btn--white btn--sm hdr__follow" href="/#ikuti">Ikuti Kami</a>
-      <button class="iconbtn burger" type="button" data-drawer-open aria-label="Buka menu" aria-expanded="false" aria-controls="drawer">${icon('menu')}</button>
     </div>
   </div>
-</header>
-
-<div class="drawer" id="drawer" data-open="false" aria-hidden="true">
-  <div class="drawer__top">
-    ${logo(' style="height:24px;width:auto" loading="lazy"')}
-    <button class="iconbtn" type="button" data-drawer-close aria-label="Tutup menu">${icon('close')}</button>
-  </div>
-  <nav class="drawer__nav" aria-label="Navigasi seluler">
-    ${site.nav.map((n) => `<a class="drawer__link" href="${n.path}"${isCur(n.path) ? ' aria-current="page"' : ''}>${esc(n.label)} ${icon('chev')}</a>`).join('')}
-  </nav>
-  <div class="drawer__cta">
-    <a class="btn btn--white" href="/#ikuti">Ikuti Kami</a>
-    <a class="btn btn--outline" href="/cari">${icon('search')} Cari</a>
-  </div>
-</div>`;
+</header>`;
 }
 
 export function footer() {

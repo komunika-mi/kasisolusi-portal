@@ -137,22 +137,6 @@ ul, ol, dl { margin: 0; padding: 0; }
 .iconbtn { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 10px; color: var(--on-navy-2); transition: background 0.18s var(--ease), color 0.18s var(--ease); }
 .iconbtn:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
 .iconbtn svg { width: 20px; height: 20px; }
-.burger { display: none; }
-
-.drawer {
-  position: fixed; inset: 0; z-index: 150; background: var(--navy-900); color: #fff;
-  padding: var(--gutter); padding-top: calc(var(--gutter) + env(safe-area-inset-top, 0px)); padding-bottom: calc(var(--gutter) + env(safe-area-inset-bottom, 0px));
-  overflow-y: auto; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-8px);
-  transition: opacity 0.24s var(--ease), transform 0.24s var(--ease), visibility 0.24s;
-}
-.drawer[data-open='true'] { opacity: 1; visibility: visible; pointer-events: auto; transform: none; }
-.drawer__top { display: flex; align-items: center; justify-content: space-between; height: var(--header-h); }
-.drawer__nav { margin-top: var(--s-4); display: grid; }
-.drawer__link { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.9rem 0; border-bottom: 1px solid var(--navy-line); font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; }
-.drawer__link svg { width: 18px; height: 18px; opacity: 0.5; }
-.drawer__link[aria-current='page'] { color: var(--blue-hi); }
-.drawer__cta { display: grid; gap: 0.6rem; margin-top: var(--s-6); }
-
 /* ---------- Tombol ---------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
@@ -703,16 +687,38 @@ a.pgm__poster:focus-visible { outline-offset: -3px; }
   .pgm__poster { width: 42%; max-width: 340px; aspect-ratio: auto; align-self: stretch; }
   .kb__head--sisi { grid-template-columns: minmax(0, 1fr); align-items: start; }
   :root { --header-h: 62px; }
-  .nav, .hdr__follow { display: none; }
-  .burger { display: grid; }
-  .hdr__tools { margin-left: auto; }
-
 
   .nhero__grid { grid-template-columns: minmax(0, 1fr); }
   .nside { border-top: 1px solid var(--navy-line); padding-top: var(--s-4); }
   .pod { grid-template-columns: minmax(0, 1fr); }
   .grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .kd__topik { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Header dua baris di ponsel dan tablet tegak (permintaan Kasisolusi 27 Nov 2026: pindah menu
+   tanpa ikon garis tiga). Baris atas: logo, cari, Ikuti Kami. Baris bawah: semua menu, bisa
+   digeser mendatar kalau layarnya sempit. --header-h di sini tinggi total kedua baris, karena
+   dipakai scroll-margin-top tautan jangkar. */
+@media (max-width: 760px) {
+  :root { --header-h: 108px; }
+  .hdr__bar { height: auto; flex-wrap: wrap; gap: 0 var(--s-4); }
+  .brand, .hdr__tools { height: 62px; }
+  .hdr__tools { order: 2; margin-left: auto; }
+  .nav {
+    order: 3; flex: 0 0 calc(100% + 2 * var(--gutter)); margin: 0 calc(-1 * var(--gutter));
+    height: 46px; padding-inline: calc(var(--gutter) - 0.55rem); gap: 0;
+    border-top: 1px solid var(--navy-line);
+    overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav__link { flex: none; height: 100%; display: inline-flex; align-items: center; border-radius: 0; outline-offset: -3px; }
+  .nav__link:hover { background: none; }
+  .nav__link[aria-current='page']::after { bottom: 0; }
+}
+/* Ponsel 320-359 piksel: logo dan jarak tombol dikecilkan supaya baris atas tetap satu baris. */
+@media (max-width: 359px) {
+  .brand img { height: 22px; }
+  .hdr__tools { gap: 0.25rem; }
 }
 
 @media (max-width: 640px) {
@@ -752,5 +758,5 @@ a.pgm__poster:focus-visible { outline-offset: -3px; }
 }
 
 @media print {
-  .hdr, .ftr, .share, .progress, .drawer { display: none !important; }
+  .hdr, .ftr, .share, .progress { display: none !important; }
 }

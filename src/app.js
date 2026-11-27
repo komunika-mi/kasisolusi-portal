@@ -6,35 +6,16 @@
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------------- Laci menu seluler ---------------- */
-  var drawer = $('#drawer');
-  var openBtn = $('[data-drawer-open]');
-  function setDrawer(open) {
-    if (!drawer) return;
-    drawer.setAttribute('data-open', open ? 'true' : 'false');
-    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
-    if (openBtn) openBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    document.body.style.overflow = open ? 'hidden' : '';
-    if (open) {
-      setTimeout(function () { var f = drawer.querySelector('a,button'); if (f) f.focus(); }, 60);
-    } else if (openBtn) openBtn.focus();
+  /* ---------------- Baris menu ponsel ----------------
+     Di layar sempit menu bisa digeser mendatar; menu halaman yang sedang dibuka digeser ke
+     tengah supaya terlihat. Di layar lebar menu muat semua, jadi tidak ada yang berubah. */
+  var navUtama = $('.hdr .nav');
+  var navAktif = navUtama && $('[aria-current="page"]', navUtama);
+  if (navAktif && navUtama.scrollWidth > navUtama.clientWidth + 1) {
+    var rn = navUtama.getBoundingClientRect();
+    var ra = navAktif.getBoundingClientRect();
+    if (ra.left < rn.left || ra.right > rn.right) navUtama.scrollLeft += ra.left - rn.left - (rn.width - ra.width) / 2;
   }
-  if (openBtn) openBtn.addEventListener('click', function () { setDrawer(true); });
-  $$('[data-drawer-close]').forEach(function (b) { b.addEventListener('click', function () { setDrawer(false); }); });
-  if (drawer) {
-    $$('a', drawer).forEach(function (a) { a.addEventListener('click', function () { setDrawer(false); }); });
-    drawer.addEventListener('keydown', function (e) {
-      if (e.key !== 'Tab' || drawer.getAttribute('data-open') !== 'true') return;
-      var f = $$('a[href],button:not([disabled])', drawer).filter(function (el) { return el.offsetParent !== null; });
-      if (!f.length) return;
-      var first = f[0], last = f[f.length - 1];
-      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-    });
-  }
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && drawer && drawer.getAttribute('data-open') === 'true') setDrawer(false);
-  });
 
   /* ---------------- Reveal saat scroll ----------------
      Hanya hiasan. Kalau observer tidak pernah jalan, semuanya tetap ditampilkan. */
