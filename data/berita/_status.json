@@ -73,10 +73,10 @@
    "biayaUsd": 0.080673
   },
   "2026-11-28": {
-   "berita": 1,
+   "berita": 4,
    "tips": 0,
-   "evergreen": 1,
-   "biayaUsd": 0.0127
+   "evergreen": 2,
+   "biayaUsd": 0.041153
   }
  },
  "kunci": {
@@ -193,6 +193,12 @@
    "hasil": "terbit",
    "slug": "sertifikasi-halal-masuk-agenda-pembangunan-lampung-ini-peluang-umkm",
    "judul": "Perkuat Ekonomi Syariah, Lampung Integrasikan Sertifikasi Halal dalam Agenda Pembangunan Daerah"
+  },
+  "https://bpjsketenagakerjaan.go.id/artikel/17510/artikel-ingin-jadi-wirausaha,-apa-saja-ya-keuntungan-dan-persiapannya": {
+   "t": "2026-11-28",
+   "hasil": "terbit",
+   "slug": "mau-jadi-wirausaha-ini-8-hal-yang-perlu-diketahui",
+   "judul": "Keuntungan dan Persiapan Sebelum Memulai Wirausaha"
   },
   "https://bpjsketenagakerjaan.go.id/cara-membayar-iuran.html": {
    "t": "2026-11-26",
@@ -320,6 +326,12 @@
    "slug": "peluang-umkm-masuk-pasar-digital-asean-makin-terbuka",
    "judul": "Perkuat Kolaborasi dengan Platform Digital, Pemerintah Dorong UMKM Jadi Pelaku Utama Ekonomi Digital Pasar ASEAN"
   },
+  "https://ekon.go.id/publikasi/detail/7258/tindak-lanjuti-perpres-no-982026-menko-airlangga-konsolidasikan-lima-kementerian-percepat-transformasi-ekonomi-dan-perluas-akses-pasar-global": {
+   "t": "2026-11-28",
+   "hasil": "terbit",
+   "slug": "pemerintah-konsolidasikan-lima-kementerian-apa-dampaknya-untuk-umkm",
+   "judul": "Tindak Lanjuti Perpres No. 98/2026, Menko Airlangga Konsolidasikan Lima Kementerian, Percepat Transformasi Ekonomi dan Perluas Akses Pasar Global"
+  },
   "https://ekraf.go.id/news/50-pelaku-ekraf-mataram-siap-bersaing-lewat-literasi-keuangan": {
    "t": "2026-11-15",
    "hasil": "terbit",
@@ -343,6 +355,12 @@
    "hasil": "terbit",
    "slug": "pelaku-gim-papan-dan-film-lokal-bali-dapat-pelatihan-desa-kreatif",
    "judul": "Aktivasi Desa Kreatif Bali Dorong Talenta Film dan Gim Lokal Mendunia"
+  },
+  "https://ekraf.go.id/news/aktivasi-desa-kreatif-kementerian-ekraf-gelombang-baru-kuliner-dari": {
+   "t": "2026-11-28",
+   "hasil": "terbit",
+   "slug": "kuliner-sabang-naik-kelas-ekraf-latih-olahan-pangan-lokal",
+   "judul": "Aktivasi Desa Kreatif Kementerian Ekraf, Gelombang Baru Kuliner dari Sabang"
   },
   "https://ekraf.go.id/news/aktivasi-desa-kreatif-sanur-kembangkan-talenta-dan-usaha": {
    "t": "2026-11-21",
@@ -403,6 +421,12 @@
    "hasil": "terbit",
    "slug": "30-pelaku-ekraf-denpasar-dapat-ruang-promosi-di-ide-ind-2026",
    "judul": "Kementerian Ekraf Gelar IDE.IND 2026 untuk Penguatan Ekosistem Ekonomi Kreatif Daerah"
+  },
+  "https://ekraf.go.id/news/kementerian-ekraf-hormati-perpres-982026-siap-perkuat-sinergi-pengembangan-ekonomi": {
+   "t": "2026-11-28",
+   "hasil": "terbit",
+   "slug": "pelaku-ekraf-dapat-sinergi-baru-usai-perpres-98-2026-terbit",
+   "judul": "Kementerian Ekraf Hormati Perpres 98/2026, Siap Perkuat Sinergi Pengembangan Ekonomi Kreatif"
   },
   "https://ekraf.go.id/news/kic-2026-jadi-peluang-kolaborasi-esports-dan-kreator-lokal-di-panggung": {
    "t": "2026-11-18",
@@ -881,6 +905,10 @@
    "t": "2026-11-19",
    "slug": "kreator-dan-umkm-diusulkan-dapat-pelatihan-ai-di-sidang-wipo"
   },
+  "531ec1d0c05bac81674b4467335f4d4daa402d8e69fbf3f7fe2905b4aaa8ca02": {
+   "t": "2026-11-28",
+   "slug": "mau-jadi-wirausaha-ini-8-hal-yang-perlu-diketahui"
+  },
   "57068c6304f9cb9569e437b96d02eb3c42286bb0438e5955e843bee50d775429": {
    "t": "2026-11-18",
    "slug": "merek-toko-mirip-milik-orang-lain-ini-yang-dilakukan-djki"
@@ -916,6 +944,10 @@
   "6181ce976ba5af7a4296bdab9ae97ad74d6ad5dc0f61e910a20ce1acb25a1b55": {
    "t": "2026-11-21",
    "slug": "cari-modal-usaha-kreatif-creafin-di-denpasar-buka-jalannya"
+  },
+  "6259f3ad89bcce55057e566efef1be55374a983f1febd5d45af01a1f0f3de8ba": {
+   "t": "2026-11-28",
+   "slug": "pelaku-ekraf-dapat-sinergi-baru-usai-perpres-98-2026-terbit"
   },
   "62f6d611116f3e173aaab1f7c6c0d187d37082975e2a05d5ee926939d5349a7c": {
    "t": "2026-11-28",
@@ -1041,6 +1073,10 @@
    "t": "2026-11-23",
    "slug": "mau-daftarkan-merek-ini-dokumen-dan-langkah-yang-perlu-disiapkan"
   },
+  "b99534956936a782117926fab62b7873c8b86ba2bdae1cfe2e269a830704f276": {
+   "t": "2026-11-28",
+   "slug": "kuliner-sabang-naik-kelas-ekraf-latih-olahan-pangan-lokal"
+  },
   "bb9e9a9fbf7414ff8516af3551c15243ba13cdd400c1af695a372218cd4b38f6": {
    "t": "2026-11-16",
    "slug": "belajar-dari-sengketa-merek-asics-pelaku-usaha-wajib-cek-pemasok"
@@ -1088,6 +1124,10 @@
   "d51e7ddf22965dd8e5fe24909b0a9455d98d8c92c3a8a4323c1627e93275db7a": {
    "t": "2026-11-23",
    "slug": "punya-usaha-baru-ini-tahapan-mendaftar-npwp-orang-pribadi"
+  },
+  "d628c51d423679e3ec696a11ed1180c9b8446422419388831e929f7120223f95": {
+   "t": "2026-11-28",
+   "slug": "pemerintah-konsolidasikan-lima-kementerian-apa-dampaknya-untuk-umkm"
   },
   "d8cfd0a1d3d4976a94a29924ba364f997dfc098be95b60039f93f0f3df49c127": {
    "t": "2026-11-20",
